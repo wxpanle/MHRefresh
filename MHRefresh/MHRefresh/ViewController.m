@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "MPreviewCardView.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) MPreviewCardView *cardView;
 
 @end
 
@@ -16,7 +19,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self layoutUIOfSelf];
+    [self layoutUIOtherPreviewCardView];
+}
+
+- (void)layoutUIOfSelf {
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)layoutUIOtherPreviewCardView {
+    self.cardView = [[MPreviewCardView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];
+    [self.cardView reloadDataWithSuperView:self.view andCurrentIndex:10];
 }
 
 
