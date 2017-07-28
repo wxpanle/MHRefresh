@@ -1,0 +1,7 @@
+platform:ios,'8.0'
+
+target 'MHRefresh' do
+
+pod 'MLeaksFinder'
+
+end
