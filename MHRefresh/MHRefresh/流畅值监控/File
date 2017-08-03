@@ -1,0 +1,87 @@
+
+http://www.jianshu.com/p/2ccb50520cb1
+http://www.cnblogs.com/smileEvday/p/Crash1.html
+http://blog.csdn.net/xlym33/article/details/52690228
+
+crash 日志分析
+
+创建虚拟路径
+export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
+
+拷贝 symbolicatecrash  .dSYM  .crash  到统一文件夹下
+symbolicatecrash /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/A/Resources
+
+./symbolicatecrash ./XXX.crash ./XXX.app.dSYM >XXX_symbol.crash 执行即可生成对应文件 XXX_symbol.crash
+
+Incident Idnetifier     崩溃报告的唯一标识符，不同的Crash
+CrashReporter Key       设备标识相对应的唯一键值(并非真正的设备的UDID，苹果为了保护用户隐私iOS6以后已经无法获取)。通常同一个设备上同一版本的App发生Crash时，该
+                        值都是一样的。
+Hardware Model          代表发生Crash的设备类型，
+Process                 代表Crash的进程名称，通常都是我们的App的名字, []里面是当时进程的ID
+Path                    可执行程序在手机上的存储位置，注意路径时到XXX.app/XXX，XXX.app其实是作为一个Bundle的，真正的可执行文件其实是Bundle里面的XXX
+Identifier              App BundleId
+Version                 当前App的版本号，由Info.plist中的两个字段组成，CFBundleShortVersionString and CFBundleVersion
+Code Type               当前App的CPU架构
+Parent Process          当前进程的父进程，由于iOS中App通常都是单进程的，一般父进程都是launchd
+
+
+Date/Time               Crash发生的时间，可读的字符串
+OS Version              系统版本，（）内的数字代表的时Bulid号
+Report Version          Crash日志的格式版本号
+
+Exception Type          异常类型
+Exception Subtype:      异常子类型
+Crashed Thread          发生异常的线程号
+
+Thread Backtrace        发生Crash的线程的Crash调用栈，从上到下分别代表调用顺序，最上面的一个表示抛出异常的位置，依次往下可以看到API的调用顺序。上图的信息表明本
+                        次Crash出现xxxViewController的323行，出错的函数调用为orderCountLoadFailed。
+
+
+Thread State            Crash时发生时刻，线程的状态，通常我们根据Crash栈即可获取到相关信息，这部分一般不用关心。
+
+Binary Images           Crash时刻App加载的所有的库，其中第一行是Crash发生时我们App可执行文件的信息，可以看出为armv7，可执行文件的包得uuid位c0f……cd65，解析
+                        Crash的时候dsym文件的uuid必须和这个一样才能完成Crash的符号化解析。
+
+1、Exception Type
+
+1）EXC_BAD_ACCESS
+
+此类型的Excpetion是我们最长碰到的Crash，通常用于访问了不改访问的内存导致。一般EXC_BAD_ACCESS后面的"()"还会带有补充信息。
+
+SIGSEGV: 通常由于重复释放对象导致，这种类型在切换了ARC以后应该已经很少见到了。
+
+SIGABRT:  收到Abort信号退出，通常Foundation库中的容器为了保护状态正常会做一些检测，例如插入nil到数组中等会遇到此类错误。
+
+SEGV:（Segmentation  Violation），代表无效内存地址，比如空指针，未初始化指针，栈溢出等；
+
+SIGBUS：总线错误，与 SIGSEGV 不同的是，SIGSEGV 访问的是无效地址，而 SIGBUS 访问的是有效地址，但总线访问异常(如地址对齐问题)
+
+SIGILL：尝试执行非法的指令，可能不被识别或者没有权限
+
+2）EXC_BAD_INSTRUCTION
+此类异常通常由于线程执行非法指令导致
+
+3）EXC_ARITHMETIC
+除零错误会抛出此类异常
+
+2、Exception Code
+0xbaaaaaad	此种类型的log意味着该Crash log并非一个真正的Crash，它仅仅只是包含了整个系统某一时刻的运行状态。通常可以通过同时按Home键和音量键，可能由于用户不小心触发
+0xbad22222	当VOIP程序在后台太过频繁的激活时，系统可能会终止此类程序
+0x8badf00d	这个前面已经介绍了，程序启动或者恢复时间过长被watch dog终止
+0xc00010ff	程序执行大量耗费CPU和GPU的运算，导致设备过热，触发系统过热保护被系统终止
+0xdead10cc	程序退到后台时还占用系统资源，如通讯录被系统终止
+0xdeadfa11	前面也提到过，程序无响应用户强制关闭
+
+
+三、获取Crash的途径
+
+1、本机
+通过xCode连接测试机器，直接在Device中即可读取到该机器上发生的所有Crash log。
+
+2、itunes connect
+通过itunes connect后台获取到用户上报的Crash日志。
+
+
+
+
+
