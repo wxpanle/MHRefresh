@@ -2,6 +2,7 @@
 http://www.jianshu.com/p/2ccb50520cb1
 http://www.cnblogs.com/smileEvday/p/Crash1.html
 http://blog.csdn.net/xlym33/article/details/52690228
+http://www.jianshu.com/p/5119f76d93d6
 
 crash 日志分析
 
@@ -71,6 +72,15 @@ SIGILL：尝试执行非法的指令，可能不被识别或者没有权限
 0xc00010ff	程序执行大量耗费CPU和GPU的运算，导致设备过热，触发系统过热保护被系统终止
 0xdead10cc	程序退到后台时还占用系统资源，如通讯录被系统终止
 0xdeadfa11	前面也提到过，程序无响应用户强制关闭
+
+访问了一个空指针导致异常
+Exception Type: EXC_BAD_ACCESS (SIGSEGV)
+Exception Subtype: KERN_INVALID_ADDRESS at 0x0000000000000000
+Termination Signal: Segmentation fault: 11
+Termination Reason: Namespace SIGNAL, Code 0xb
+Terminating Process: exc handler [0]
+Triggered by Thread: 0
+
 
 
 三、获取Crash的途径

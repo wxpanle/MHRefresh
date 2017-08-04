@@ -21,6 +21,18 @@
 		8B5D20141F26FE1600DD1898 /* MHRefreshScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D20131F26FE1600DD1898 /* MHRefreshScrollView.m */; };
 		8B5D20171F26FE4200DD1898 /* MPreviewCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D20161F26FE4200DD1898 /* MPreviewCardView.m */; };
 		8B8BB9991F3316E40071D0AF /* File in Resources */ = {isa = PBXBuildFile; fileRef = 8B8BB9981F3316E40071D0AF /* File */; };
+		8B8BB9AE1F342C550071D0AF /* MWebKitURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB99E1F342C550071D0AF /* MWebKitURLProtocol.m */; };
+		8B8BB9AF1F342C550071D0AF /* MWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9A01F342C550071D0AF /* MWebView.m */; };
+		8B8BB9B01F342C550071D0AF /* MWebViewCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9A21F342C550071D0AF /* MWebViewCache.m */; };
+		8B8BB9B11F342C550071D0AF /* NSURLProtocol+MWebKitSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9A51F342C550071D0AF /* NSURLProtocol+MWebKitSupport.m */; };
+		8B8BB9B21F342C550071D0AF /* UIWebView+MCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9A71F342C550071D0AF /* UIWebView+MCache.m */; };
+		8B8BB9B31F342C550071D0AF /* UIWebView+MElementFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9A91F342C550071D0AF /* UIWebView+MElementFrame.m */; };
+		8B8BB9B41F342C550071D0AF /* WKWebView+MClearCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9AB1F342C550071D0AF /* WKWebView+MClearCache.m */; };
+		8B8BB9B51F342C550071D0AF /* WKWebView+MElementFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9AD1F342C550071D0AF /* WKWebView+MElementFrame.m */; };
+		8B8BB9BD1F342DDD0071D0AF /* MWebLinkLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9BA1F342DDD0071D0AF /* MWebLinkLoadingView.m */; };
+		8B8BB9BE1F342DDD0071D0AF /* MWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9BC1F342DDD0071D0AF /* MWebViewProgress.m */; };
+		8B8BB9C11F342F270071D0AF /* NSString+Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9C01F342F270071D0AF /* NSString+Path.m */; };
+		8B8BB9C41F342FE30071D0AF /* UIView+WebViewExtern.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9C31F342FE30071D0AF /* UIView+WebViewExtern.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +62,31 @@
 		8B5D20161F26FE4200DD1898 /* MPreviewCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPreviewCardView.m; sourceTree = "<group>"; };
 		8B5D20181F27003100DD1898 /* MPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPrefixHeader.pch; sourceTree = "<group>"; };
 		8B8BB9981F3316E40071D0AF /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
+		8B8BB99D1F342C550071D0AF /* MWebKitURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWebKitURLProtocol.h; sourceTree = "<group>"; };
+		8B8BB99E1F342C550071D0AF /* MWebKitURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWebKitURLProtocol.m; sourceTree = "<group>"; };
+		8B8BB99F1F342C550071D0AF /* MWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWebView.h; sourceTree = "<group>"; };
+		8B8BB9A01F342C550071D0AF /* MWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWebView.m; sourceTree = "<group>"; };
+		8B8BB9A11F342C550071D0AF /* MWebViewCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWebViewCache.h; sourceTree = "<group>"; };
+		8B8BB9A21F342C550071D0AF /* MWebViewCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWebViewCache.m; sourceTree = "<group>"; };
+		8B8BB9A31F342C550071D0AF /* MWebViewheader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWebViewheader.h; sourceTree = "<group>"; };
+		8B8BB9A41F342C550071D0AF /* NSURLProtocol+MWebKitSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLProtocol+MWebKitSupport.h"; sourceTree = "<group>"; };
+		8B8BB9A51F342C550071D0AF /* NSURLProtocol+MWebKitSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLProtocol+MWebKitSupport.m"; sourceTree = "<group>"; };
+		8B8BB9A61F342C550071D0AF /* UIWebView+MCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+MCache.h"; sourceTree = "<group>"; };
+		8B8BB9A71F342C550071D0AF /* UIWebView+MCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+MCache.m"; sourceTree = "<group>"; };
+		8B8BB9A81F342C550071D0AF /* UIWebView+MElementFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+MElementFrame.h"; sourceTree = "<group>"; };
+		8B8BB9A91F342C550071D0AF /* UIWebView+MElementFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+MElementFrame.m"; sourceTree = "<group>"; };
+		8B8BB9AA1F342C550071D0AF /* WKWebView+MClearCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+MClearCache.h"; sourceTree = "<group>"; };
+		8B8BB9AB1F342C550071D0AF /* WKWebView+MClearCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+MClearCache.m"; sourceTree = "<group>"; };
+		8B8BB9AC1F342C550071D0AF /* WKWebView+MElementFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+MElementFrame.h"; sourceTree = "<group>"; };
+		8B8BB9AD1F342C550071D0AF /* WKWebView+MElementFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+MElementFrame.m"; sourceTree = "<group>"; };
+		8B8BB9B91F342DDD0071D0AF /* MWebLinkLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWebLinkLoadingView.h; sourceTree = "<group>"; };
+		8B8BB9BA1F342DDD0071D0AF /* MWebLinkLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWebLinkLoadingView.m; sourceTree = "<group>"; };
+		8B8BB9BB1F342DDD0071D0AF /* MWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWebViewProgress.h; sourceTree = "<group>"; };
+		8B8BB9BC1F342DDD0071D0AF /* MWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWebViewProgress.m; sourceTree = "<group>"; };
+		8B8BB9BF1F342F270071D0AF /* NSString+Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Path.h"; sourceTree = "<group>"; };
+		8B8BB9C01F342F270071D0AF /* NSString+Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Path.m"; sourceTree = "<group>"; };
+		8B8BB9C21F342FE30071D0AF /* UIView+WebViewExtern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebViewExtern.h"; sourceTree = "<group>"; };
+		8B8BB9C31F342FE30071D0AF /* UIView+WebViewExtern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebViewExtern.m"; sourceTree = "<group>"; };
 		D6ED4287028751506AB7049B /* Pods-MHRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHRefresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHRefresh/Pods-MHRefresh.release.xcconfig"; sourceTree = "<group>"; };
 		DE5F0F6E9648AF866E342514 /* Pods-MHRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHRefresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHRefresh/Pods-MHRefresh.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +159,7 @@
 				8B5CA5D11F2AE3440098EE69 /* UIButton+Touch.h */,
 				8B5CA5D21F2AE3440098EE69 /* UIButton+Touch.m */,
 				8B5D20041F26F9E900DD1898 /* Main.storyboard */,
+				8B8BB99C1F342C550071D0AF /* MWebView */,
 				8B5CA5C61F2AE0CD0098EE69 /* 流畅值监控 */,
 				8B5D20071F26F9E900DD1898 /* Assets.xcassets */,
 				8B5D20091F26F9E900DD1898 /* LaunchScreen.storyboard */,
@@ -138,6 +176,38 @@
 				8B5D20181F27003100DD1898 /* MPrefixHeader.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8B8BB99C1F342C550071D0AF /* MWebView */ = {
+			isa = PBXGroup;
+			children = (
+				8B8BB99D1F342C550071D0AF /* MWebKitURLProtocol.h */,
+				8B8BB99E1F342C550071D0AF /* MWebKitURLProtocol.m */,
+				8B8BB9B91F342DDD0071D0AF /* MWebLinkLoadingView.h */,
+				8B8BB9BA1F342DDD0071D0AF /* MWebLinkLoadingView.m */,
+				8B8BB9BB1F342DDD0071D0AF /* MWebViewProgress.h */,
+				8B8BB9BC1F342DDD0071D0AF /* MWebViewProgress.m */,
+				8B8BB99F1F342C550071D0AF /* MWebView.h */,
+				8B8BB9A01F342C550071D0AF /* MWebView.m */,
+				8B8BB9A11F342C550071D0AF /* MWebViewCache.h */,
+				8B8BB9A21F342C550071D0AF /* MWebViewCache.m */,
+				8B8BB9A31F342C550071D0AF /* MWebViewheader.h */,
+				8B8BB9A41F342C550071D0AF /* NSURLProtocol+MWebKitSupport.h */,
+				8B8BB9A51F342C550071D0AF /* NSURLProtocol+MWebKitSupport.m */,
+				8B8BB9A61F342C550071D0AF /* UIWebView+MCache.h */,
+				8B8BB9A71F342C550071D0AF /* UIWebView+MCache.m */,
+				8B8BB9A81F342C550071D0AF /* UIWebView+MElementFrame.h */,
+				8B8BB9A91F342C550071D0AF /* UIWebView+MElementFrame.m */,
+				8B8BB9AA1F342C550071D0AF /* WKWebView+MClearCache.h */,
+				8B8BB9AB1F342C550071D0AF /* WKWebView+MClearCache.m */,
+				8B8BB9AC1F342C550071D0AF /* WKWebView+MElementFrame.h */,
+				8B8BB9AD1F342C550071D0AF /* WKWebView+MElementFrame.m */,
+				8B8BB9BF1F342F270071D0AF /* NSString+Path.h */,
+				8B8BB9C01F342F270071D0AF /* NSString+Path.m */,
+				8B8BB9C21F342FE30071D0AF /* UIView+WebViewExtern.h */,
+				8B8BB9C31F342FE30071D0AF /* UIView+WebViewExtern.m */,
+			);
+			path = MWebView;
 			sourceTree = "<group>";
 		};
 		DCB78ECD6614B6ABACD4EABF /* Frameworks */ = {
@@ -271,14 +341,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B8BB9B41F342C550071D0AF /* WKWebView+MClearCache.m in Sources */,
 				8B5D20031F26F9E900DD1898 /* ViewController.m in Sources */,
+				8B8BB9BE1F342DDD0071D0AF /* MWebViewProgress.m in Sources */,
 				8B5D20001F26F9E900DD1898 /* AppDelegate.m in Sources */,
 				8B5CA5D31F2AE3440098EE69 /* UIButton+Touch.m in Sources */,
 				8B5D20141F26FE1600DD1898 /* MHRefreshScrollView.m in Sources */,
+				8B8BB9C41F342FE30071D0AF /* UIView+WebViewExtern.m in Sources */,
+				8B8BB9B01F342C550071D0AF /* MWebViewCache.m in Sources */,
 				8B5D1FFD1F26F9E900DD1898 /* main.m in Sources */,
 				8B5CA5CF1F2AE0CD0098EE69 /* MFPSMonitorWindow.m in Sources */,
+				8B8BB9B31F342C550071D0AF /* UIWebView+MElementFrame.m in Sources */,
+				8B8BB9B51F342C550071D0AF /* WKWebView+MElementFrame.m in Sources */,
+				8B8BB9BD1F342DDD0071D0AF /* MWebLinkLoadingView.m in Sources */,
 				8B5CA5CE1F2AE0CD0098EE69 /* MFPSMonitorLabel.m in Sources */,
+				8B8BB9AE1F342C550071D0AF /* MWebKitURLProtocol.m in Sources */,
+				8B8BB9C11F342F270071D0AF /* NSString+Path.m in Sources */,
+				8B8BB9AF1F342C550071D0AF /* MWebView.m in Sources */,
+				8B8BB9B11F342C550071D0AF /* NSURLProtocol+MWebKitSupport.m in Sources */,
 				8B5CA5CD1F2AE0CD0098EE69 /* MFPSMonitor.m in Sources */,
+				8B8BB9B21F342C550071D0AF /* UIWebView+MCache.m in Sources */,
 				8B5D20171F26FE4200DD1898 /* MPreviewCardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
