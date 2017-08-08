@@ -11,15 +11,12 @@
 		8B5CA5CD1F2AE0CD0098EE69 /* MFPSMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CA5C81F2AE0CD0098EE69 /* MFPSMonitor.m */; };
 		8B5CA5CE1F2AE0CD0098EE69 /* MFPSMonitorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CA5CA1F2AE0CD0098EE69 /* MFPSMonitorLabel.m */; };
 		8B5CA5CF1F2AE0CD0098EE69 /* MFPSMonitorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CA5CC1F2AE0CD0098EE69 /* MFPSMonitorWindow.m */; };
-		8B5CA5D31F2AE3440098EE69 /* UIButton+Touch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CA5D21F2AE3440098EE69 /* UIButton+Touch.m */; };
 		8B5D1FFD1F26F9E900DD1898 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D1FFC1F26F9E900DD1898 /* main.m */; };
 		8B5D20001F26F9E900DD1898 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D1FFF1F26F9E900DD1898 /* AppDelegate.m */; };
 		8B5D20031F26F9E900DD1898 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D20021F26F9E900DD1898 /* ViewController.m */; };
 		8B5D20061F26F9E900DD1898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B5D20041F26F9E900DD1898 /* Main.storyboard */; };
 		8B5D20081F26F9E900DD1898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B5D20071F26F9E900DD1898 /* Assets.xcassets */; };
 		8B5D200B1F26F9E900DD1898 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B5D20091F26F9E900DD1898 /* LaunchScreen.storyboard */; };
-		8B5D20141F26FE1600DD1898 /* MHRefreshScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D20131F26FE1600DD1898 /* MHRefreshScrollView.m */; };
-		8B5D20171F26FE4200DD1898 /* MPreviewCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5D20161F26FE4200DD1898 /* MPreviewCardView.m */; };
 		8B8BB9991F3316E40071D0AF /* File in Resources */ = {isa = PBXBuildFile; fileRef = 8B8BB9981F3316E40071D0AF /* File */; };
 		8B8BB9AE1F342C550071D0AF /* MWebKitURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB99E1F342C550071D0AF /* MWebKitURLProtocol.m */; };
 		8B8BB9AF1F342C550071D0AF /* MWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9A01F342C550071D0AF /* MWebView.m */; };
@@ -33,6 +30,14 @@
 		8B8BB9BE1F342DDD0071D0AF /* MWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9BC1F342DDD0071D0AF /* MWebViewProgress.m */; };
 		8B8BB9C11F342F270071D0AF /* NSString+Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9C01F342F270071D0AF /* NSString+Path.m */; };
 		8B8BB9C41F342FE30071D0AF /* UIView+WebViewExtern.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9C31F342FE30071D0AF /* UIView+WebViewExtern.m */; };
+		8B8BB9CC1F3463880071D0AF /* UIButton+Touch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9CB1F3463880071D0AF /* UIButton+Touch.m */; };
+		8B8BB9D21F34638F0071D0AF /* MHRefreshScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9CF1F34638F0071D0AF /* MHRefreshScrollView.m */; };
+		8B8BB9D31F34638F0071D0AF /* MPreviewCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9D11F34638F0071D0AF /* MPreviewCardView.m */; };
+		8B8BBA971F3466240071D0AF /* MNetworkConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BBA961F3466240071D0AF /* MNetworkConfig.m */; };
+		8B8BBA9E1F346BA80071D0AF /* MNetworkBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BBA9D1F346BA80071D0AF /* MNetworkBaseRequest.m */; };
+		8B8BBAA11F3485E70071D0AF /* MNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BBAA01F3485E70071D0AF /* MNetworkRequest.m */; };
+		8B8BBAA41F34876D0071D0AF /* MNetworkDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BBAA31F34876D0071D0AF /* MNetworkDownloadRequest.m */; };
+		8B8BBAA71F348E130071D0AF /* MNetworkAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BBAA61F348E130071D0AF /* MNetworkAgent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +49,6 @@
 		8B5CA5CB1F2AE0CD0098EE69 /* MFPSMonitorWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFPSMonitorWindow.h; sourceTree = "<group>"; };
 		8B5CA5CC1F2AE0CD0098EE69 /* MFPSMonitorWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFPSMonitorWindow.m; sourceTree = "<group>"; };
 		8B5CA5D01F2AE0D30098EE69 /* MMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMonitor.h; sourceTree = "<group>"; };
-		8B5CA5D11F2AE3440098EE69 /* UIButton+Touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Touch.h"; sourceTree = "<group>"; };
-		8B5CA5D21F2AE3440098EE69 /* UIButton+Touch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Touch.m"; sourceTree = "<group>"; };
 		8B5D1FF81F26F9E900DD1898 /* MHRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MHRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5D1FFC1F26F9E900DD1898 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8B5D1FFE1F26F9E900DD1898 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,10 +59,6 @@
 		8B5D20071F26F9E900DD1898 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B5D200A1F26F9E900DD1898 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B5D200C1F26F9E900DD1898 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B5D20121F26FE1600DD1898 /* MHRefreshScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHRefreshScrollView.h; sourceTree = "<group>"; };
-		8B5D20131F26FE1600DD1898 /* MHRefreshScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHRefreshScrollView.m; sourceTree = "<group>"; };
-		8B5D20151F26FE4200DD1898 /* MPreviewCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPreviewCardView.h; sourceTree = "<group>"; };
-		8B5D20161F26FE4200DD1898 /* MPreviewCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPreviewCardView.m; sourceTree = "<group>"; };
 		8B5D20181F27003100DD1898 /* MPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPrefixHeader.pch; sourceTree = "<group>"; };
 		8B8BB9981F3316E40071D0AF /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 		8B8BB99D1F342C550071D0AF /* MWebKitURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWebKitURLProtocol.h; sourceTree = "<group>"; };
@@ -87,6 +86,23 @@
 		8B8BB9C01F342F270071D0AF /* NSString+Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Path.m"; sourceTree = "<group>"; };
 		8B8BB9C21F342FE30071D0AF /* UIView+WebViewExtern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebViewExtern.h"; sourceTree = "<group>"; };
 		8B8BB9C31F342FE30071D0AF /* UIView+WebViewExtern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebViewExtern.m"; sourceTree = "<group>"; };
+		8B8BB9CA1F3463880071D0AF /* UIButton+Touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Touch.h"; sourceTree = "<group>"; };
+		8B8BB9CB1F3463880071D0AF /* UIButton+Touch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Touch.m"; sourceTree = "<group>"; };
+		8B8BB9CE1F34638F0071D0AF /* MHRefreshScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHRefreshScrollView.h; sourceTree = "<group>"; };
+		8B8BB9CF1F34638F0071D0AF /* MHRefreshScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHRefreshScrollView.m; sourceTree = "<group>"; };
+		8B8BB9D01F34638F0071D0AF /* MPreviewCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPreviewCardView.h; sourceTree = "<group>"; };
+		8B8BB9D11F34638F0071D0AF /* MPreviewCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPreviewCardView.m; sourceTree = "<group>"; };
+		8B8BBA941F3465C10071D0AF /* MNetRequestHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNetRequestHeader.h; sourceTree = "<group>"; };
+		8B8BBA951F3466240071D0AF /* MNetworkConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNetworkConfig.h; sourceTree = "<group>"; };
+		8B8BBA961F3466240071D0AF /* MNetworkConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNetworkConfig.m; sourceTree = "<group>"; };
+		8B8BBA9C1F346BA80071D0AF /* MNetworkBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNetworkBaseRequest.h; sourceTree = "<group>"; };
+		8B8BBA9D1F346BA80071D0AF /* MNetworkBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNetworkBaseRequest.m; sourceTree = "<group>"; };
+		8B8BBA9F1F3485E70071D0AF /* MNetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNetworkRequest.h; sourceTree = "<group>"; };
+		8B8BBAA01F3485E70071D0AF /* MNetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNetworkRequest.m; sourceTree = "<group>"; };
+		8B8BBAA21F34876D0071D0AF /* MNetworkDownloadRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNetworkDownloadRequest.h; sourceTree = "<group>"; };
+		8B8BBAA31F34876D0071D0AF /* MNetworkDownloadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNetworkDownloadRequest.m; sourceTree = "<group>"; };
+		8B8BBAA51F348E130071D0AF /* MNetworkAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNetworkAgent.h; sourceTree = "<group>"; };
+		8B8BBAA61F348E130071D0AF /* MNetworkAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNetworkAgent.m; sourceTree = "<group>"; };
 		D6ED4287028751506AB7049B /* Pods-MHRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHRefresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHRefresh/Pods-MHRefresh.release.xcconfig"; sourceTree = "<group>"; };
 		DE5F0F6E9648AF866E342514 /* Pods-MHRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHRefresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHRefresh/Pods-MHRefresh.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,15 +168,12 @@
 				8B5D1FFF1F26F9E900DD1898 /* AppDelegate.m */,
 				8B5D20011F26F9E900DD1898 /* ViewController.h */,
 				8B5D20021F26F9E900DD1898 /* ViewController.m */,
-				8B5D20151F26FE4200DD1898 /* MPreviewCardView.h */,
-				8B5D20161F26FE4200DD1898 /* MPreviewCardView.m */,
-				8B5D20121F26FE1600DD1898 /* MHRefreshScrollView.h */,
-				8B5D20131F26FE1600DD1898 /* MHRefreshScrollView.m */,
-				8B5CA5D11F2AE3440098EE69 /* UIButton+Touch.h */,
-				8B5CA5D21F2AE3440098EE69 /* UIButton+Touch.m */,
 				8B5D20041F26F9E900DD1898 /* Main.storyboard */,
+				8B8BB9C61F3463200071D0AF /* 网络请求 */,
 				8B8BB99C1F342C550071D0AF /* MWebView */,
 				8B5CA5C61F2AE0CD0098EE69 /* 流畅值监控 */,
+				8B8BB9C91F3463880071D0AF /* 扩展 */,
+				8B8BB9CD1F34638F0071D0AF /* 预览视图 */,
 				8B5D20071F26F9E900DD1898 /* Assets.xcassets */,
 				8B5D20091F26F9E900DD1898 /* LaunchScreen.storyboard */,
 				8B5D200C1F26F9E900DD1898 /* Info.plist */,
@@ -208,6 +221,44 @@
 				8B8BB9C31F342FE30071D0AF /* UIView+WebViewExtern.m */,
 			);
 			path = MWebView;
+			sourceTree = "<group>";
+		};
+		8B8BB9C61F3463200071D0AF /* 网络请求 */ = {
+			isa = PBXGroup;
+			children = (
+				8B8BBA941F3465C10071D0AF /* MNetRequestHeader.h */,
+				8B8BBAA51F348E130071D0AF /* MNetworkAgent.h */,
+				8B8BBAA61F348E130071D0AF /* MNetworkAgent.m */,
+				8B8BBA951F3466240071D0AF /* MNetworkConfig.h */,
+				8B8BBA961F3466240071D0AF /* MNetworkConfig.m */,
+				8B8BBA9C1F346BA80071D0AF /* MNetworkBaseRequest.h */,
+				8B8BBA9D1F346BA80071D0AF /* MNetworkBaseRequest.m */,
+				8B8BBA9F1F3485E70071D0AF /* MNetworkRequest.h */,
+				8B8BBAA01F3485E70071D0AF /* MNetworkRequest.m */,
+				8B8BBAA21F34876D0071D0AF /* MNetworkDownloadRequest.h */,
+				8B8BBAA31F34876D0071D0AF /* MNetworkDownloadRequest.m */,
+			);
+			path = "网络请求";
+			sourceTree = "<group>";
+		};
+		8B8BB9C91F3463880071D0AF /* 扩展 */ = {
+			isa = PBXGroup;
+			children = (
+				8B8BB9CA1F3463880071D0AF /* UIButton+Touch.h */,
+				8B8BB9CB1F3463880071D0AF /* UIButton+Touch.m */,
+			);
+			path = "扩展";
+			sourceTree = "<group>";
+		};
+		8B8BB9CD1F34638F0071D0AF /* 预览视图 */ = {
+			isa = PBXGroup;
+			children = (
+				8B8BB9CE1F34638F0071D0AF /* MHRefreshScrollView.h */,
+				8B8BB9CF1F34638F0071D0AF /* MHRefreshScrollView.m */,
+				8B8BB9D01F34638F0071D0AF /* MPreviewCardView.h */,
+				8B8BB9D11F34638F0071D0AF /* MPreviewCardView.m */,
+			);
+			path = "预览视图";
 			sourceTree = "<group>";
 		};
 		DCB78ECD6614B6ABACD4EABF /* Frameworks */ = {
@@ -341,27 +392,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B8BBA971F3466240071D0AF /* MNetworkConfig.m in Sources */,
 				8B8BB9B41F342C550071D0AF /* WKWebView+MClearCache.m in Sources */,
+				8B8BBAA41F34876D0071D0AF /* MNetworkDownloadRequest.m in Sources */,
 				8B5D20031F26F9E900DD1898 /* ViewController.m in Sources */,
+				8B8BBA9E1F346BA80071D0AF /* MNetworkBaseRequest.m in Sources */,
 				8B8BB9BE1F342DDD0071D0AF /* MWebViewProgress.m in Sources */,
 				8B5D20001F26F9E900DD1898 /* AppDelegate.m in Sources */,
-				8B5CA5D31F2AE3440098EE69 /* UIButton+Touch.m in Sources */,
-				8B5D20141F26FE1600DD1898 /* MHRefreshScrollView.m in Sources */,
 				8B8BB9C41F342FE30071D0AF /* UIView+WebViewExtern.m in Sources */,
 				8B8BB9B01F342C550071D0AF /* MWebViewCache.m in Sources */,
 				8B5D1FFD1F26F9E900DD1898 /* main.m in Sources */,
 				8B5CA5CF1F2AE0CD0098EE69 /* MFPSMonitorWindow.m in Sources */,
 				8B8BB9B31F342C550071D0AF /* UIWebView+MElementFrame.m in Sources */,
 				8B8BB9B51F342C550071D0AF /* WKWebView+MElementFrame.m in Sources */,
+				8B8BB9D31F34638F0071D0AF /* MPreviewCardView.m in Sources */,
 				8B8BB9BD1F342DDD0071D0AF /* MWebLinkLoadingView.m in Sources */,
 				8B5CA5CE1F2AE0CD0098EE69 /* MFPSMonitorLabel.m in Sources */,
 				8B8BB9AE1F342C550071D0AF /* MWebKitURLProtocol.m in Sources */,
 				8B8BB9C11F342F270071D0AF /* NSString+Path.m in Sources */,
+				8B8BB9CC1F3463880071D0AF /* UIButton+Touch.m in Sources */,
 				8B8BB9AF1F342C550071D0AF /* MWebView.m in Sources */,
 				8B8BB9B11F342C550071D0AF /* NSURLProtocol+MWebKitSupport.m in Sources */,
+				8B8BBAA11F3485E70071D0AF /* MNetworkRequest.m in Sources */,
+				8B8BBAA71F348E130071D0AF /* MNetworkAgent.m in Sources */,
 				8B5CA5CD1F2AE0CD0098EE69 /* MFPSMonitor.m in Sources */,
+				8B8BB9D21F34638F0071D0AF /* MHRefreshScrollView.m in Sources */,
 				8B8BB9B21F342C550071D0AF /* UIWebView+MCache.m in Sources */,
-				8B5D20171F26FE4200DD1898 /* MPreviewCardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

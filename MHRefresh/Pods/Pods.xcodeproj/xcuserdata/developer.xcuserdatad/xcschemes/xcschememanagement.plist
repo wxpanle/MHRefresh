@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FBRetainCycleDetector.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,6 +32,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>69EC097A2BC50C2430FB0E47B49F46F9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9E033EDB5EC0819481B0546434FA577B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>AC139CEF10BCCB200972B4617F3CA14E</key>
 		<dict>
 			<key>primary</key>
@@ -37,12 +52,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CB9B204D4480195203392F5E69CF1891</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FC7D83985D4135C6BD0340ACBA790F77</key>
+		<key>FA8301E8F487783E4842BCC0D4710114</key>
 		<dict>
 			<key>primary</key>
 			<true/>

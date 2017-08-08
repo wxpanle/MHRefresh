@@ -4,5 +4,6 @@ target 'MHRefresh' do
 
 pod 'MLeaksFinder'
 pod 'SDWebImage'
+pod 'AFNetworking'
 
 end
