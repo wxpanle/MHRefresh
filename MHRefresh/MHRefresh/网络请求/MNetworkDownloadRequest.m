@@ -52,6 +52,11 @@
     [super startWithCompleteBlockSuccess:successBlock failure:failureBlock immediately:immdiately];
 }
 
+- (void)clearBlock {
+    self.progressBlock = nil;
+    [super clearBlock];
+}
+
 - (NSString *)storeKey {
     
     if (self.customUrl) {

@@ -21,3 +21,16 @@
 - (void)cancelAllRequests;
 
 @end
+
+@interface MNetworkGroupAgent : NSObject
+
++ (instancetype)shareMNetworkGroupAgent;
+
+@end
+
+
+@interface MNetworkChainAgent : NSObject
+
++ (instancetype)shareMNetworkChainAgent;
+
+@end

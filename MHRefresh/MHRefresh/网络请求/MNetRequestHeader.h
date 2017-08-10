@@ -15,5 +15,6 @@ typedef void (^MNetWorkNilBlock)(void);
 #define Unlock() pthread_mutex_unlock(&_lock)
 
 #import "MNetworkBaseRequest.h"
+#import "MNetworkDownloadRequest.h"
 
 #endif /* MNetRequestHeader_h */

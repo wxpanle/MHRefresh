@@ -12,6 +12,7 @@
 #import <pthread/pthread.h>
 #import "MNetRequestHeader.h"
 
+
 @interface MNetworkAgent()
 
 @property (nonatomic, strong) AFHTTPSessionManager *manager;
@@ -65,7 +66,10 @@
 #pragma mark - public
 
 - (void)addRequest:(MNetworkBaseRequest *)request {
-    
+    NSParameterAssert(request != nil);
+
+    [self addRrequestRecord:request];
+    [request.requestTask resume];
 }
 
 - (void)addRrequestRecord:(MNetworkBaseRequest *)request {
@@ -90,42 +94,37 @@
 }
 
 - (void)cancelAllRequests {
-//    Lock();
-//    NSArray *allKeys = [_requestsRecord allKeys];
-//    Unlock();
-//    if (allKeys && allKeys.count > 0) {
-//        NSArray *copiedKeys = [allKeys copy];
-//        for (NSNumber *key in copiedKeys) {
-//            Lock();
-//            YTKBaseRequest *request = _requestsRecord[key];
-//            Unlock();
-//            // We are using non-recursive lock.
-//            // Do not lock `stop`, otherwise deadlock may occur.
-//            [request stop];
-//        }
-//    }
+    Lock();
+    NSArray *array = [self.allRequestRecord allObjects];
+    Unlock();
+    
+    for (MNetworkBaseRequest *baseRequest in array) {
+        [baseRequest cancel];
+    }
+    
+    [self.allRequestRecord removeAllObjects];
 }
 
 - (void)removeRequest:(MNetworkBaseRequest *)request {
-//    [request clearBlock];
-    
+    [request clearBlock];
 }
 
 - (NSString *)buildRequestUrlWithRequest:(MNetworkBaseRequest *)request {
     
-//    if ([request isKindOfClass:[MNetworkDownloadRequest class]]) { // 下载任务
-//        if (request.customUrl) {
-//            return request.customUrl;
-//        } else {
-//            return [NSString stringWithFormat:@"%@/%@", _netWorkConfig.CDNUrl, request.detailurl];
-//        }
-//    } else { // 正常的任务
-//        if (request.customUrl) {
-//            return request.customUrl;
-//        } else {
-//            return [NSString stringWithFormat:@"%@/%@", _netWorkConfig.baseUrl, request.detailurl];
-//        }
-//    }
+    if ([request isKindOfClass:[MNetworkDownloadRequest class]]) {
+        if (request.customUrl) {
+            return request.customUrl;
+        } else {
+            return [NSString stringWithFormat:@"%@/%@", _netWorkConfig.cdnUrl, request.detailurl];
+        }
+    } else {
+        if (request.customUrl) {
+            return request.customUrl;
+        } else {
+            return [NSString stringWithFormat:@"%@/%@", _netWorkConfig.baseUrl, request.detailurl];
+        }
+    }
+    
     return nil;
 }
 
@@ -137,4 +136,24 @@
     return _allRequestRecord;
 }
 
+@end
+
+@interface MNetworkChainAgent ()
+
+@property (nonatomic, strong) NSMutableSet *chainRequestSet;
+
+@end
+
+@implementation MNetworkChainAgent
+
+static MNetworkChainAgent *mNetworkChainAgent = nil;
+
++ (instancetype)shareMNetworkChainAgent {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        mNetworkChainAgent = [[self alloc] init];
+        mNetworkChainAgent.chainRequestSet = [NSMutableSet set];
+    });
+    return mNetworkChainAgent;
+}
 @end

@@ -38,6 +38,7 @@
 		8B8BBAA11F3485E70071D0AF /* MNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BBAA01F3485E70071D0AF /* MNetworkRequest.m */; };
 		8B8BBAA41F34876D0071D0AF /* MNetworkDownloadRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BBAA31F34876D0071D0AF /* MNetworkDownloadRequest.m */; };
 		8B8BBAA71F348E130071D0AF /* MNetworkAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BBAA61F348E130071D0AF /* MNetworkAgent.m */; };
+		8B9096131F3C47EB00B2EF74 /* MNetworkGroupRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9096121F3C47EB00B2EF74 /* MNetworkGroupRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,8 @@
 		8B8BBAA31F34876D0071D0AF /* MNetworkDownloadRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNetworkDownloadRequest.m; sourceTree = "<group>"; };
 		8B8BBAA51F348E130071D0AF /* MNetworkAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNetworkAgent.h; sourceTree = "<group>"; };
 		8B8BBAA61F348E130071D0AF /* MNetworkAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNetworkAgent.m; sourceTree = "<group>"; };
+		8B9096111F3C47EB00B2EF74 /* MNetworkGroupRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MNetworkGroupRequest.h; sourceTree = "<group>"; };
+		8B9096121F3C47EB00B2EF74 /* MNetworkGroupRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MNetworkGroupRequest.m; sourceTree = "<group>"; };
 		D6ED4287028751506AB7049B /* Pods-MHRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHRefresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHRefresh/Pods-MHRefresh.release.xcconfig"; sourceTree = "<group>"; };
 		DE5F0F6E9648AF866E342514 /* Pods-MHRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHRefresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHRefresh/Pods-MHRefresh.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,6 +240,8 @@
 				8B8BBAA01F3485E70071D0AF /* MNetworkRequest.m */,
 				8B8BBAA21F34876D0071D0AF /* MNetworkDownloadRequest.h */,
 				8B8BBAA31F34876D0071D0AF /* MNetworkDownloadRequest.m */,
+				8B9096111F3C47EB00B2EF74 /* MNetworkGroupRequest.h */,
+				8B9096121F3C47EB00B2EF74 /* MNetworkGroupRequest.m */,
 			);
 			path = "网络请求";
 			sourceTree = "<group>";
@@ -409,6 +414,7 @@
 				8B8BB9BD1F342DDD0071D0AF /* MWebLinkLoadingView.m in Sources */,
 				8B5CA5CE1F2AE0CD0098EE69 /* MFPSMonitorLabel.m in Sources */,
 				8B8BB9AE1F342C550071D0AF /* MWebKitURLProtocol.m in Sources */,
+				8B9096131F3C47EB00B2EF74 /* MNetworkGroupRequest.m in Sources */,
 				8B8BB9C11F342F270071D0AF /* NSString+Path.m in Sources */,
 				8B8BB9CC1F3463880071D0AF /* UIButton+Touch.m in Sources */,
 				8B8BB9AF1F342C550071D0AF /* MWebView.m in Sources */,

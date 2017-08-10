@@ -10,6 +10,10 @@
 
 @implementation MNetworkRequest
 
+- (void)clearBlock {
+    [super clearBlock];
+}
+
 - (void)start {
     [super start];
 }
