@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		26F599390836D839C6C0A3AD /* libPods-MHRefresh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6170A4A14039BBA741EEAAD2 /* libPods-MHRefresh.a */; };
+		8B3941E31F46D153002100F6 /* UIView+SMExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3941E21F46D153002100F6 /* UIView+SMExtension.m */; };
 		8B5CA5CD1F2AE0CD0098EE69 /* MFPSMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CA5C81F2AE0CD0098EE69 /* MFPSMonitor.m */; };
 		8B5CA5CE1F2AE0CD0098EE69 /* MFPSMonitorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CA5CA1F2AE0CD0098EE69 /* MFPSMonitorLabel.m */; };
 		8B5CA5CF1F2AE0CD0098EE69 /* MFPSMonitorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5CA5CC1F2AE0CD0098EE69 /* MFPSMonitorWindow.m */; };
@@ -43,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		6170A4A14039BBA741EEAAD2 /* libPods-MHRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MHRefresh.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B3941E11F46D152002100F6 /* UIView+SMExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SMExtension.h"; sourceTree = "<group>"; };
+		8B3941E21F46D153002100F6 /* UIView+SMExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SMExtension.m"; sourceTree = "<group>"; };
 		8B5CA5C71F2AE0CD0098EE69 /* MFPSMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFPSMonitor.h; sourceTree = "<group>"; };
 		8B5CA5C81F2AE0CD0098EE69 /* MFPSMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFPSMonitor.m; sourceTree = "<group>"; };
 		8B5CA5C91F2AE0CD0098EE69 /* MFPSMonitorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFPSMonitorLabel.h; sourceTree = "<group>"; };
@@ -251,6 +254,8 @@
 			children = (
 				8B8BB9CA1F3463880071D0AF /* UIButton+Touch.h */,
 				8B8BB9CB1F3463880071D0AF /* UIButton+Touch.m */,
+				8B3941E11F46D152002100F6 /* UIView+SMExtension.h */,
+				8B3941E21F46D153002100F6 /* UIView+SMExtension.m */,
 			);
 			path = "扩展";
 			sourceTree = "<group>";
@@ -409,6 +414,7 @@
 				8B5D1FFD1F26F9E900DD1898 /* main.m in Sources */,
 				8B5CA5CF1F2AE0CD0098EE69 /* MFPSMonitorWindow.m in Sources */,
 				8B8BB9B31F342C550071D0AF /* UIWebView+MElementFrame.m in Sources */,
+				8B3941E31F46D153002100F6 /* UIView+SMExtension.m in Sources */,
 				8B8BB9B51F342C550071D0AF /* WKWebView+MElementFrame.m in Sources */,
 				8B8BB9D31F34638F0071D0AF /* MPreviewCardView.m in Sources */,
 				8B8BB9BD1F342DDD0071D0AF /* MWebLinkLoadingView.m in Sources */,
