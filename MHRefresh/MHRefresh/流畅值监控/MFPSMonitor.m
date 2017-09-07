@@ -32,7 +32,7 @@
 @implementation MFPSMonitor
 
 + (void)load {
-    [MFPSMonitor sharedMFPSMonitor];
+//    [MFPSMonitor sharedMFPSMonitor];
 }
 
 + (instancetype)sharedMFPSMonitor {

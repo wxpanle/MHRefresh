@@ -21,6 +21,11 @@
 #define MemoryWeakSelf __weak typeof(self) weakSelf = self;
 #define MemoryStrongSelf __strong typeof(weakSelf) strongSelf = weakSelf;
 
+#define MCURRENTSYSTEMVERSION [[UIDevice currentDevice].systemVersion floatValue]
+#define IS_IOS_TEN_POINT_ZERO_LATER ((MCURRENTSYSTEMVERSION >= 10.0) ? YES : NO)
+
+#import "UIView+SMExtension.h"
+
 #endif
 
 
