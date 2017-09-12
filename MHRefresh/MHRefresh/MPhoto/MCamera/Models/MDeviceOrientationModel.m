@@ -35,7 +35,7 @@
     if (self.motionManager.isAccelerometerAvailable) {
         self.motionManager.accelerometerUpdateInterval = 0.01;
         
-        MemoryWeakSelf
+        WeakSelf
         [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMAccelerometerData * _Nullable accelerometerData, NSError * _Nullable error) {
             
             if (nil != accelerometerData) {
@@ -89,7 +89,7 @@
 
 #pragma mark - callBack
 - (void)callBackWithOrientation:(UIDeviceOrientation)orientation {
-    MemoryWeakSelf
+    WeakSelf
     dispatch_async(dispatch_get_main_queue(), ^{
         !weakSelf.deviceOrientationBlock ? : weakSelf.deviceOrientationBlock(orientation);
     });

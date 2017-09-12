@@ -463,7 +463,7 @@ typedef NS_ENUM(NSInteger, LoadType) {
         double newProgress = [[change objectForKey:NSKeyValueChangeNewKey] doubleValue];
         double oldprogress = [[change objectForKey:NSKeyValueChangeOldKey] doubleValue];
         
-        MemoryWeakSelf
+        WeakSelf
         if (newProgress != oldprogress) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [weakSelf.wkWebViewProgressView setProgress:newProgress animated:YES];
@@ -479,7 +479,7 @@ typedef NS_ENUM(NSInteger, LoadType) {
             weakSelf.wkWebViewProgressView.progress = 0;
         });
     } else if ([keyPath isEqualToString:@"title"]) {
-        MemoryWeakSelf
+        WeakSelf
         NSString *newTitle = [change objectForKey:NSKeyValueChangeNewKey];
         NSString *oldTitle = [change objectForKey:NSKeyValueChangeOldKey];
         if (![newTitle isEqualToString:oldTitle]) {
@@ -490,7 +490,7 @@ typedef NS_ENUM(NSInteger, LoadType) {
             });
         }
     } else if ([keyPath isEqualToString:@"contentSize"]) {
-        MemoryWeakSelf
+        WeakSelf
         CGSize newSize = [[change objectForKey:NSKeyValueChangeNewKey] CGSizeValue];
         CGSize oldSize = [[change objectForKey:NSKeyValueChangeOldKey] CGSizeValue];
         if (!CGSizeEqualToSize(newSize, oldSize)) {
@@ -770,7 +770,7 @@ typedef NS_ENUM(NSInteger, LoadType) {
 
 - (void)handleLongPressGestureRecognizerOfWKWebView:(NSString *)imgeJs andPoint:(CGPoint)point{
     // 执行对应的JS代码 获取url
-    MemoryWeakSelf
+    WeakSelf
     [self.webView evaluateJavaScript:imgeJs completionHandler:^(id _Nullable url, NSError * _Nullable error) {
         if (url) {
             NSLog(@"图片存在 %@", url);
@@ -784,7 +784,7 @@ typedef NS_ENUM(NSInteger, LoadType) {
 }
 
 - (void)callBackOfLongPressGestureRecognizer:(NSString *)url andPoint:(CGRect)frame {
-    MemoryWeakSelf
+    WeakSelf
     dispatch_async(dispatch_get_main_queue(), ^{
         if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(mWebViewlongPressGestureRecognizerWithUrl:andFrame:)]) {
             [weakSelf.delegate mWebViewlongPressGestureRecognizerWithUrl:url andFrame:frame];

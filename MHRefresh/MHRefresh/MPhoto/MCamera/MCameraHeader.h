@@ -1,13 +1,13 @@
 //
-//  MCarmraEnumHeader.h
+//  MCameraHeader.h
 //  MHRefresh
 //
-//  Created by developer on 2017/9/6.
+//  Created by developer on 2017/9/7.
 //  Copyright © 2017年 developer. All rights reserved.
 //
 
-#ifndef MCarmraEnumHeader_h
-#define MCarmraEnumHeader_h
+#ifndef MCameraHeader_h
+#define MCameraHeader_h
 
 typedef NS_ENUM(NSInteger, MCameraFlashMode) {
     MCameraFlashModeAuto,
@@ -20,4 +20,4 @@ typedef NS_ENUM(NSInteger, MCameraPosition) {
     MCameraPositionFront
 };
 
-#endif /* MCarmraEnumHeader_h */
+#endif /* MCameraHeader_h */

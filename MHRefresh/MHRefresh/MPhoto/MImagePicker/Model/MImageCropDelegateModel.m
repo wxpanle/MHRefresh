@@ -78,7 +78,7 @@
     
     RSKImageCropViewController *vc = [[RSKImageCropViewController alloc] initWithImage:image cropMode:mode];
     
-    vc.view.frame = CGRectMake(0, 0, WIDTH, HEIGHT);
+    vc.view.frame = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
     
     if (mode == RSKImageCropModeSquare) {
         vc.portraitSquareMaskRectInnerEdgeInset = 2.0;
@@ -107,7 +107,7 @@
 }
 
 - (void)imageCropViewController:(RSKImageCropViewController *)controller didCropImage:(UIImage *)croppedImage usingCropRect:(CGRect)cropRect {
-    MemoryWeakSelf
+    WeakSelf
     [controller dismissViewControllerAnimated:NO completion:^{
         [weakSelf completeCallBackBlockWithImage:croppedImage];
     }];
@@ -121,15 +121,15 @@
     switch (self.cropMode) {
 
         case MImagePickerCropModeRect: {
-            rect = CGRectMake(0, 0, WIDTH, HEIGHT);
+            rect = CGRectMake(0, 0, SCREEN_W, SCREEN_H);
             break;
         }
             
         case MImagePickerCropModeCircle: {
 
-            CGFloat maskW = WIDTH - 1.0;
+            CGFloat maskW = SCREEN_W - 1.0;
             CGFloat maskH = maskW;
-            rect = CGRectMake((HEIGHT - maskH) / 2.0, (WIDTH - maskH) / 2.0, maskW, maskH);
+            rect = CGRectMake((SCREEN_H - maskH) / 2.0, (SCREEN_W - maskH) / 2.0, maskW, maskH);
             break;
         }
         default:
@@ -140,7 +140,7 @@
 }
 
 - (CGRect)imageCropViewControllerCustomMovementRect:(RSKImageCropViewController *)controller {
-    return CGRectMake(0, 0, WIDTH, HEIGHT);
+    return CGRectMake(0, 0, SCREEN_W, SCREEN_H);
 }
 
 - (UIBezierPath *)imageCropViewControllerCustomMaskPath:(RSKImageCropViewController *)controller {

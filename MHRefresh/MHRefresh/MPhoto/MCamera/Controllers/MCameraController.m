@@ -48,13 +48,13 @@
 }
 
 - (void)layoutUIOfCameraView {
-    self.cameraView = [[MCameraView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];
+    self.cameraView = [[MCameraView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
     self.cameraView.delegate = self;
     [self.view addSubview:self.cameraView];
 }
 
 - (void)layoutOfDeviceOrientationModel {
-    MemoryWeakSelf
+    WeakSelf
     [self.deviceOrientaionModel setDeviceOrientationCallBackBlock:^(UIDeviceOrientation deviceOrientation) {
         [weakSelf.cameraView updateViewTransformWithDeviewOrientation:deviceOrientation];
         [weakSelf.photoModel updateCaptureVideoOrientationWithdeviceOrientation:deviceOrientation];
@@ -62,7 +62,7 @@
 }
 
 - (void)layoutOfPhotoModel {
-    MemoryWeakSelf
+    WeakSelf
     [self.photoModel setCameraCapturePictureCallBackBlock:^(UIImage *image) {
         [weakSelf capturePictureComplete:image];
     }];

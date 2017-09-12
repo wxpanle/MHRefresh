@@ -28,7 +28,7 @@ static CGFloat kCardExtraWidth = 20.0;
 }
 
 + (void)setCardWidthAndHeight {
-    kCardViewWidth = WIDTH * 0.8;
+    kCardViewWidth = SCREEN_W * 0.8;
     kCardViewHeight = kCardViewWidth * 1.2;
 }
 
@@ -45,8 +45,8 @@ static CGFloat kCardExtraWidth = 20.0;
 }
 
 - (void)layoutUIOfHRefreshScrollView {
-    CGFloat offentY = (HEIGHT - kCardViewHeight) / 2.0;
-    self.scrollView = [[MHRefreshScrollView alloc] initWithFrame:CGRectMake((WIDTH - kCardViewWidth - kCardExtraWidth) / 2.0, offentY, kCardViewWidth + kCardExtraWidth, kCardViewHeight + kCardExtraWidth)];
+    CGFloat offentY = (SCREEN_H - kCardViewHeight) / 2.0;
+    self.scrollView = [[MHRefreshScrollView alloc] initWithFrame:CGRectMake((SCREEN_W - kCardViewWidth - kCardExtraWidth) / 2.0, offentY, kCardViewWidth + kCardExtraWidth, kCardViewHeight + kCardExtraWidth)];
     self.scrollView.pagingEnabled = YES;
     self.scrollView.clipsToBounds = NO;
     self.scrollView.showsHorizontalScrollIndicator = NO;
@@ -192,7 +192,7 @@ static CGFloat kCardExtraWidth = 20.0;
 - (UIView *)coverView {
     
     if (!_coverView) {
-        _coverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, WIDTH, HEIGHT)];
+        _coverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
         _coverView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.50];
     }
     return _coverView;

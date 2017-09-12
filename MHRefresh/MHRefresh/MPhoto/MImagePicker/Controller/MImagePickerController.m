@@ -36,12 +36,7 @@
             if (![MPhotoAuthorizationHelpModel isAlreadyAuthorizedOfPhotoAlbum]) {
                 [MPhotoAuthorizationHelpModel alertPhotoAlbumNotAllowWithPresentVc:presentVc];
             } else {
-                MPhotoAlbumController *vc = [[MPhotoAlbumController alloc] initWithIsShowCamera:YES];
-                MImagePickerController *nav = [[MImagePickerController alloc] initWithRootViewController:vc cropMode:cropMode];
-                nav.cropMode = cropMode;
-                nav.handleBlock = handleBlock;
-                vc.delegate = nav;
-                [presentVc presentViewController:nav animated:YES completion:nil];
+                [self presenrPhotoAlbumWithVc:presentVc cropMode:cropMode handleBlock:handleBlock isShowCamera:YES];
             }
             
             break;
@@ -53,7 +48,7 @@
                 [MPhotoAuthorizationHelpModel alertCameraNotAllowedWithPresentVc:presentVc];
             } else {
                 MCameraController *vc = [[MCameraController alloc] init];
-                MImagePickerController *nav = [[MImagePickerController alloc] initWithRootViewController:vc cropMode:cropMode];
+                MImagePickerController *nav = [[MImagePickerController alloc] initWithRootViewController:vc];
                 
                 vc.delegate = nav;
                 nav.cropMode = cropMode;
@@ -70,12 +65,7 @@
             if (![MPhotoAuthorizationHelpModel isAlreadyAuthorizedOfPhotoAlbum]) {
                 [MPhotoAuthorizationHelpModel alertPhotoAlbumNotAllowWithPresentVc:presentVc];
             } else {
-                MPhotoAlbumController *vc = [[MPhotoAlbumController alloc] initWithIsShowCamera:NO];
-                MImagePickerController *nav = [[MImagePickerController alloc] initWithRootViewController:vc cropMode:cropMode];
-                nav.cropMode = cropMode;
-                nav.handleBlock = handleBlock;
-                vc.delegate = nav;
-                [presentVc presentViewController:nav animated:YES completion:nil];
+                [self presenrPhotoAlbumWithVc:presentVc cropMode:cropMode handleBlock:handleBlock isShowCamera:NO];
             }
             break;
         }
@@ -85,13 +75,19 @@
     }
 }
 
-- (instancetype)initWithRootViewController:(UIViewController *)rootViewController cropMode:(MImagePickerCropMode)mode {
++ (void)presenrPhotoAlbumWithVc:(UIViewController *)presentVc
+                       cropMode:(MImagePickerCropMode)cropMode
+                    handleBlock:(MImagePickHandleBlock)handleBlock
+                   isShowCamera:(BOOL)is {
     
-    if (self = [super initWithRootViewController:rootViewController]) {
-        _cropMode = mode;
-    }
-    return self;
+    MPhotoAlbumController *vc = [[MPhotoAlbumController alloc] initWithIsShowCamera:is];
+    MImagePickerController *nav = [[MImagePickerController alloc] initWithRootViewController:vc];
+    nav.cropMode = cropMode;
+    nav.handleBlock = handleBlock;
+    vc.delegate = nav;
+    [presentVc presentViewController:nav animated:YES completion:nil];
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -100,7 +96,7 @@
 }
 
 - (void)layoutOfCropDelegateMode {
-    MemoryWeakSelf
+    WeakSelf
     [self.cropDelegateModel setImageCropCompleteCallBackBlock:^(UIImage *image) {
         !weakSelf.handleBlock ? : weakSelf.handleBlock(weakSelf, image);
     }];
@@ -120,12 +116,29 @@
     [vc dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)startShowCamera:(UIViewController *)vc {
+    
+    if (![MPhotoAuthorizationHelpModel isAlreadyAuthorizedOfCamera]) {
+        [MPhotoAuthorizationHelpModel alertCameraNotAllowedWithPresentVc:vc];
+    } else {
+        
+        MCameraController *cameraVc = [[MCameraController alloc] init];
+        cameraVc.delegate = self;
+        [vc presentViewController:cameraVc animated:YES completion:nil];
+    }
+}
+
 #pragma mark - getter
 - (MImageCropDelegateModel *)cropDelegateModel {
     if (nil == _cropDelegateModel) {
         _cropDelegateModel = [[MImageCropDelegateModel alloc] init];
     }
     return _cropDelegateModel;
+}
+
+- (void)setCropMode:(MImagePickerCropMode)cropMode {
+    _cropMode = cropMode;
+    [self.cropDelegateModel setImageCropMode:cropMode];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -108,7 +108,7 @@ static NSInteger kCollectionNumberRow = 3;
 #pragma mark - deleagte
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    MemoryWeakSelf
+    WeakSelf
     [self.albumModel getOriginPhoto:indexPath.item handle:^(UIImage *image) {
         [weakSelf capturePictureComplete:image];
     }];
@@ -124,7 +124,7 @@ static NSInteger kCollectionNumberRow = 3;
 - (CGFloat)getItemHeight {
     static CGFloat itemW = 0.0;
     if (itemW == 0) {
-        itemW = (WIDTH - kCollectionEdgeWidth * (kCollectionNumberRow + 1)) / kCollectionNumberRow * 1.0;
+        itemW = (SCREEN_W - kCollectionEdgeWidth * (kCollectionNumberRow + 1)) / kCollectionNumberRow * 1.0;
     }
     return itemW;
 }
@@ -147,7 +147,7 @@ static NSInteger kCollectionNumberRow = 3;
         }
             
         case PHAuthorizationStatusNotDetermined: {
-            MemoryWeakSelf
+            WeakSelf
             [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
                 if (status == PHAuthorizationStatusAuthorized) {
                     [weakSelf startShowPhotos];
@@ -182,7 +182,9 @@ static NSInteger kCollectionNumberRow = 3;
 }
 
 - (void)showCamera {
-    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(startShowCamera:)]) {
+        [self.delegate startShowCamera:self];
+    }
 }
 
 @end

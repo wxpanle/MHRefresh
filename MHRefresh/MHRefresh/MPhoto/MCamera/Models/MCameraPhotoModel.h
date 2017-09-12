@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MCarmraEnumHeader.h"
+#import "MCameraHeader.h"
 
 typedef void (^ MCameraNotAuthorizedBlock) ();
 

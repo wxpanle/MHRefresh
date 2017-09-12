@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MCarmraEnumHeader.h"
+#import "MCameraHeader.h"
 
 @protocol MCameraViewDelegate  <NSObject>
 

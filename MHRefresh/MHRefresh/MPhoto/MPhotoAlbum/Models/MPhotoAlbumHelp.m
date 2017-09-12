@@ -63,7 +63,7 @@
     
     PHImageManager *manager =[PHImageManager defaultManager];
     
-    CGFloat screenWidth = WIDTH;
+    CGFloat screenWidth = SCREEN_W;
     CGFloat imageWidth = screenWidth < width ? screenWidth : width;
     CGFloat multiple = [UIScreen mainScreen].scale;
     CGFloat scaleW = asset.pixelHeight * 1.0 / asset.pixelWidth;

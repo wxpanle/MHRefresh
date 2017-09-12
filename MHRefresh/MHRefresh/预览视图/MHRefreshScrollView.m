@@ -85,8 +85,8 @@ static inline CGFLOAT_TYPE CGFloat_fabs(CGFLOAT_TYPE cgfloat) {
             startCacheOffent = _contentViewSize.width * 0.3;
             startDrawOffent = _contentViewSize.width * 0.7;
         } else {
-            startCacheOffent = WIDTH * 0.5;
-            startDrawOffent = WIDTH * 0.8;
+            startCacheOffent = SCREEN_W * 0.5;
+            startDrawOffent = SCREEN_W * 0.8;
         }
     }
     
@@ -232,7 +232,6 @@ static inline CGFLOAT_TYPE CGFloat_fabs(CGFLOAT_TYPE cgfloat) {
     if (self.showMidView) {
         [self viewOnDisplay:self.showMidView];
     }
-    
 }
 
 - (void)updatePreviewSubViewAndCurrentCardPointerWithDirection:(PreviewScrollDirection)direction {

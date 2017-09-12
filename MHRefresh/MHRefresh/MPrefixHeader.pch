@@ -9,24 +9,8 @@
 #ifndef MPrefixHeader_pch
 #define MPrefixHeader_pch
 
-
-#ifdef __OBJC__
-
-#define WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define HEIGHT ([UIScreen mainScreen].bounds.size.height)
-
-#define K_SCREEN_W_SCALE ([UIScreen mainScreen].bounds.size.width / 375)
-#define K_SCREEN_H_SCALE ([UIScreen mainScreen].bounds.size.height / 667)
-
-#define MemoryWeakSelf __weak typeof(self) weakSelf = self;
-#define MemoryStrongSelf __strong typeof(weakSelf) strongSelf = weakSelf;
-
-#define MCURRENTSYSTEMVERSION [[UIDevice currentDevice].systemVersion floatValue]
-#define IS_IOS_TEN_POINT_ZERO_LATER ((MCURRENTSYSTEMVERSION >= 10.0) ? YES : NO)
+#import "QYMacros.h"
 
 #import "UIView+SMExtension.h"
-
-#endif
-
 
 #endif /* MPrefixHeader_pch */

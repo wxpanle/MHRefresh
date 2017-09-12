@@ -113,7 +113,7 @@ static NSString * const APIURLTWO = @"http://7xryms.com1.z0.glb.clouddn.com/";
     }
     if (isNeedDownLoad) {
         
-        MemoryWeakSelf
+        WeakSelf
         self.operation = (SDWebImageDownloaderOperation <SDWebImageOperation>*)[[SDWebImageDownloader sharedDownloader] downloadImageWithURL:mutableReqeust.URL options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             NSLog(@"1 receivedSize %ld expectedSize %ld", (long)receivedSize, (long)expectedSize);
         } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {

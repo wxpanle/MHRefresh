@@ -208,7 +208,7 @@
 
 - (void)noDeterminedAuthorization {
     
-    MemoryWeakSelf
+    WeakSelf
     [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
         if (granted) {
             [weakSelf alreadyAuthorization];
@@ -234,7 +234,7 @@
     AVCaptureDevice *device = [self getAvaliableDeviceWithMediaType:AVMediaTypeVideo cameraPosition:self.cameraPosition];
     
     if (nil == device) {
-        NSLog(@"获取相机失败 未发现可用设备");
+        DLog(@"获取相机失败 未发现可用设备");
         return;
     }
     
@@ -245,7 +245,7 @@
         deviceInput = [[AVCaptureDeviceInput alloc] initWithDevice:device error:&error];
     } @catch (NSException *exception) {
         if (error) {
-            NSLog(@"获取相机失败 %@", error.description);
+            DLog(@"获取相机失败 %@", error.description);
         }
     } @finally {
         
@@ -313,21 +313,21 @@
 #pragma mark - private callBack
 
 - (void)cameraNotAuthorizedCallBack {
-    MemoryWeakSelf
+    WeakSelf
     dispatch_async(dispatch_get_main_queue(), ^{
         !weakSelf.notAuthorizedBlock ? : weakSelf.notAuthorizedBlock();
     });
 }
 
 - (void)cameraAddVideoLayerCallBack:(AVCaptureVideoPreviewLayer *)videoLayer {
-    MemoryWeakSelf
+    WeakSelf
     dispatch_async(dispatch_get_main_queue(), ^{
         !weakSelf.addVideoLayerBlock ? : weakSelf.addVideoLayerBlock(videoLayer);
     });
 }
 
 - (void)cameraCapturePictureCallBack {
-    MemoryWeakSelf
+    WeakSelf
     dispatch_async(dispatch_get_main_queue(), ^{
         !weakSelf.capturePictureBlock ? : weakSelf.capturePictureBlock(weakSelf.resultImage);
     });
@@ -365,7 +365,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"%@ dealloc", self);
+    DLog(@"%@ dealloc", self);
 }
 
 @end

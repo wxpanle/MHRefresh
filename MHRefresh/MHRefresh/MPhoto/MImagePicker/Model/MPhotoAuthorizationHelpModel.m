@@ -70,7 +70,7 @@
         return;
     }
     
-    if (IS_IOS_TEN_POINT_ZERO_LATER) {
+    if (IS_iOS_10_Later) {
         NSDictionary *options = @{UIApplicationOpenURLOptionUniversalLinksOnly : @YES};
         [[UIApplication sharedApplication] openURL:url options:options completionHandler:nil];
     } else {
