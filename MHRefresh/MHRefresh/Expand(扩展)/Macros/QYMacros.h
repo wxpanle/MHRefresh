@@ -49,6 +49,8 @@
                                 blue:((float)(hex & 0xFF)) / 255.0 alpha:1]
 #define COLOR_RGB(rgbValue,a) [UIColor colorWithRed:((float)(((rgbValue) & 0xFF0000) >> 16))/255.0 green:((float)(((rgbValue) & 0xFF00)>>8))/255.0 \
                                 blue: ((float)((rgbValue) & 0xFF))/255.0 alpha:(a)]
+#define RANDOM  (double)arc4random_uniform(256) / 255.0
+#define RANDOMCOLOR [UIColor colorWithRed:RANDOM green:RANDOM blue:RANDOM alpha:1.0]
 
 //获取单例
 #define SharedApplication           [UIApplication sharedApplication]

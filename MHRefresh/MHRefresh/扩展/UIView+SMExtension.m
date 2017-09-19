@@ -57,7 +57,7 @@
 }
 
 - (CGSize)sm_size {
-    return self.sm_size;
+    return self.frame.size;
 }
 
 - (void)setSm_centerX:(CGFloat)sm_centerX {

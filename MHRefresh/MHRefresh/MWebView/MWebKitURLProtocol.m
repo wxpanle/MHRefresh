@@ -8,7 +8,7 @@
 
 #import "MWebKitURLProtocol.h"
 #import "NSData+ImageContentType.h"
-#import <SDWebImage/SDWebImageDownloaderOperation.h>
+#import "SDWebImageDownloaderOperation.h"
 #import "MWebViewCache.h"
 #import "NSURLProtocol+MWebKitSupport.h"
 #import "MWebViewheader.h"
@@ -102,44 +102,44 @@ static NSString * const APIURLTWO = @"http://7xryms.com1.z0.glb.clouddn.com/";
     if (isNeedDownLoad == YES && [[NSFileManager defaultManager] fileExistsAtPath:[downLoadUrl imagePath]]) {
         NSData *data = [NSData dataWithContentsOfFile:[downLoadUrl imagePath]];
         
-        if (data) {
-            isNeedDownLoad = NO;
-            NSURLResponse *response = [[NSURLResponse alloc] initWithURL:mutableReqeust.URL MIMEType:[NSData sd_contentTypeForImageData:data] expectedContentLength:data.length textEncodingName:nil];
-            [self clientResponseFinishWithURLResponse:response andData:data];
-            [self addCacheResponse:response andData:data];  //追加cache
-        } else {
-            isNeedDownLoad = YES;
-        }
+//        if (data) {
+//            isNeedDownLoad = NO;
+//            NSURLResponse *response = [[NSURLResponse alloc] initWithURL:mutableReqeust.URL MIMEType:[NSData sd_contentTypeForImageData:data] expectedContentLength:data.length textEncodingName:nil];
+//            [self clientResponseFinishWithURLResponse:response andData:data];
+//            [self addCacheResponse:response andData:data];  //追加cache
+//        } else {
+//            isNeedDownLoad = YES;
+//        }
     }
     if (isNeedDownLoad) {
         
-        WeakSelf
-        self.operation = (SDWebImageDownloaderOperation <SDWebImageOperation>*)[[SDWebImageDownloader sharedDownloader] downloadImageWithURL:mutableReqeust.URL options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-            NSLog(@"1 receivedSize %ld expectedSize %ld", (long)receivedSize, (long)expectedSize);
-        } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-            NSLog(@"拦截URL请求完成");
-            
-            if (nil == weakSelf.operation) {
-                return;
-            }
-            
-            if (error) {
-                [weakSelf sd_downLoadError];
-            } else {
-            
-                [weakSelf addCacheResponse:weakSelf.operation.response andData:data];
-                
-                //在此处缓存
-                BOOL flag = [[NSFileManager defaultManager] createFileAtPath:[downLoadUrl imagePath] contents:data attributes:nil];
-                if (flag) {
-                    NSLog(@"创建文件成功");
-                } else {
-                    NSLog(@"创建文件失败");
-                }
-                
-                [weakSelf clientResponseFinishWithURLResponse:weakSelf.operation.response andData:data];
-            }
-        }];
+//        WeakSelf
+//        self.operation = (SDWebImageDownloaderOperation <SDWebImageOperation>*)[[SDWebImageDownloader sharedDownloader] downloadImageWithURL:mutableReqeust.URL options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+//            NSLog(@"1 receivedSize %ld expectedSize %ld", (long)receivedSize, (long)expectedSize);
+//        } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+//            NSLog(@"拦截URL请求完成");
+//            
+//            if (nil == weakSelf.operation) {
+//                return;
+//            }
+//            
+//            if (error) {
+//                [weakSelf sd_downLoadError];
+//            } else {
+//            
+//                [weakSelf addCacheResponse:weakSelf.operation.response andData:data];
+//                
+//                //在此处缓存
+//                BOOL flag = [[NSFileManager defaultManager] createFileAtPath:[downLoadUrl imagePath] contents:data attributes:nil];
+//                if (flag) {
+//                    NSLog(@"创建文件成功");
+//                } else {
+//                    NSLog(@"创建文件失败");
+//                }
+//                
+//                [weakSelf clientResponseFinishWithURLResponse:weakSelf.operation.response andData:data];
+//            }
+//        }];
     }
 }
 

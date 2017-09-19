@@ -18,23 +18,18 @@ PODS:
   - MJRefresh (3.1.12)
   - MLeaksFinder (1.0.0):
     - FBRetainCycleDetector
-  - SDWebImage (4.1.0):
-    - SDWebImage/Core (= 4.1.0)
-  - SDWebImage/Core (4.1.0)
 
 DEPENDENCIES:
   - AFNetworking
   - MJRefresh
   - MLeaksFinder
-  - SDWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
-  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
 
-PODFILE CHECKSUM: 07260912db000e8996d22ec1ffadaebc316e4a15
+PODFILE CHECKSUM: 71fbf81b77379d411833acaae2544f207165b7f1
 
 COCOAPODS: 1.1.1
