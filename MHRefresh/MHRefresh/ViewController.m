@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "MPreviewCardView.h"
 #import "MImagePickerController.h"
-#import "SDWebImageDownloader.h"
+//#import "SDWebImageDownloader.h"
 #import "QYPreviewViewController.h"
 #import "NSString+QYEmoji.h"
 
@@ -31,12 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self layoutUIOfSelf];
-//    [self layoutUIOtherPreviewCardView];
-    
-
-
-
-//    [self addImage];
+    [self addImage];
 }
 
 - (void)layoutUIOfSelf {
@@ -46,11 +41,6 @@
 - (void)layoutUIOtherPreviewCardView {
     self.cardView = [[MPreviewCardView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
     [self.cardView reloadDataWithSuperView:self.view andCurrentIndex:10];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
 }
 
 - (void)addImage {

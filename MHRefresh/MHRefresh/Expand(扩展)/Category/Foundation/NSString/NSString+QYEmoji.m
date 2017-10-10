@@ -109,7 +109,7 @@ static NSDictionary * s_cheatCodesToUnicode = nil;
         }
     }];
     
-    DLog(@"%@", originText);
+    NSLog(@"%@", originText);
     
     return [NSString stringWithString:originText];
 }

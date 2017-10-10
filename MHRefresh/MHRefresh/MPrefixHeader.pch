@@ -9,8 +9,12 @@
 #ifndef MPrefixHeader_pch
 #define MPrefixHeader_pch
 
+#ifdef __OBJC__
+
 #import "QYMacros.h"
 
-#import "UIView+SMExtension.h"
+#import "QYCategoryHeader.h"
+
+#endif
 
 #endif /* MPrefixHeader_pch */

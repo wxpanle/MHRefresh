@@ -8,6 +8,7 @@
 
 #import "MPhotoCollectionViewCell.h"
 #import "MPhotoModel.h"
+#import "UIView+SMExtension.h"
 
 @interface MPhotoCollectionViewCell()
 

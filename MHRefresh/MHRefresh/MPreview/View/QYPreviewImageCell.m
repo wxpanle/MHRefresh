@@ -429,6 +429,10 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     
+    if (self.imageView.sm_height > self.sm_height) {
+        return NO;
+    }
+    
     if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
         
         CGPoint point = [(UIPanGestureRecognizer *)gestureRecognizer translationInView:self.contentScrollView];
