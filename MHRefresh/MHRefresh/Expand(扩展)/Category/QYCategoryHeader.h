@@ -18,4 +18,6 @@
 
 #import "UIColor+QYQuickCreate.h"
 
+#import "NSObject+QYPrintf.h"
+
 #endif /* QYCategoryHeader_h */

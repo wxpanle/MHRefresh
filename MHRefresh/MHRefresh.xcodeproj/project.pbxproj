@@ -75,6 +75,21 @@
 		8B682CEE1F6A567000C4900D /* QYPreviewWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B682CED1F6A567000C4900D /* QYPreviewWindow.m */; };
 		8B682CF11F6A5BA500C4900D /* QYPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B682CF01F6A5BA500C4900D /* QYPreviewViewController.m */; };
 		8B6AF61C1F7910F900AA5A82 /* UIDevice+QYUnitType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AF61B1F7910F900AA5A82 /* UIDevice+QYUnitType.m */; };
+		8B846DF61F8E00A2007C0731 /* UIImage+QYAlpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846DF51F8E00A2007C0731 /* UIImage+QYAlpha.m */; };
+		8B846DF91F8E10DD007C0731 /* UIImage+QYGif.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846DF81F8E10DD007C0731 /* UIImage+QYGif.m */; };
+		8B846DFC1F8E25BA007C0731 /* UIImage+QYOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846DFB1F8E25BA007C0731 /* UIImage+QYOrientation.m */; };
+		8B846DFF1F8E2879007C0731 /* UIImage+QYColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846DFE1F8E2879007C0731 /* UIImage+QYColor.m */; };
+		8B846E051F8E2AA3007C0731 /* UIImage+QYBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E041F8E2AA3007C0731 /* UIImage+QYBlur.m */; };
+		8B846E081F8E2B65007C0731 /* UIImage+QYCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E071F8E2B65007C0731 /* UIImage+QYCapture.m */; };
+		8B846E0B1F8E2BB0007C0731 /* UIImage+QYMerge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E0A1F8E2BB0007C0731 /* UIImage+QYMerge.m */; };
+		8B846E0E1F8E2BF0007C0731 /* UIImage+QYResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E0D1F8E2BF0007C0731 /* UIImage+QYResize.m */; };
+		8B846E111F8E2C7C007C0731 /* UIImage+QYRoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E101F8E2C7C007C0731 /* UIImage+QYRoundedCorner.m */; };
+		8B846E141F8E3A87007C0731 /* UIImage+QYBetterFace.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E131F8E3A87007C0731 /* UIImage+QYBetterFace.m */; };
+		8B846E171F8E3C73007C0731 /* UIImage+QYFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E161F8E3C73007C0731 /* UIImage+QYFix.m */; };
+		8B846E1D1F8E3D9B007C0731 /* UIImageView+QYCircleCut.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E1C1F8E3D9B007C0731 /* UIImageView+QYCircleCut.m */; };
+		8B846E201F8E3DC9007C0731 /* UIImageView+QYReflect.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E1F1F8E3DC9007C0731 /* UIImageView+QYReflect.m */; };
+		8B846E241F8E4090007C0731 /* UIImageView+QYFaceAwareFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E231F8E4090007C0731 /* UIImageView+QYFaceAwareFill.m */; };
+		8B846E301F8EF67B007C0731 /* NSObject+QYPrintf.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E2F1F8EF67B007C0731 /* NSObject+QYPrintf.m */; };
 		8B8BB9991F3316E40071D0AF /* File in Resources */ = {isa = PBXBuildFile; fileRef = 8B8BB9981F3316E40071D0AF /* File */; };
 		8B8BB9AE1F342C550071D0AF /* MWebKitURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB99E1F342C550071D0AF /* MWebKitURLProtocol.m */; };
 		8B8BB9AF1F342C550071D0AF /* MWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9A01F342C550071D0AF /* MWebView.m */; };
@@ -360,6 +375,42 @@
 		8B682D071F6B873200C4900D /* QYPreviewImageHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYPreviewImageHeader.h; sourceTree = "<group>"; };
 		8B6AF61A1F7910F900AA5A82 /* UIDevice+QYUnitType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIDevice+QYUnitType.h"; sourceTree = "<group>"; };
 		8B6AF61B1F7910F900AA5A82 /* UIDevice+QYUnitType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+QYUnitType.m"; sourceTree = "<group>"; };
+		8B846DF41F8E00A2007C0731 /* UIImage+QYAlpha.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+QYAlpha.h"; sourceTree = "<group>"; };
+		8B846DF51F8E00A2007C0731 /* UIImage+QYAlpha.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QYAlpha.m"; sourceTree = "<group>"; };
+		8B846DF71F8E10DD007C0731 /* UIImage+QYGif.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+QYGif.h"; sourceTree = "<group>"; };
+		8B846DF81F8E10DD007C0731 /* UIImage+QYGif.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QYGif.m"; sourceTree = "<group>"; };
+		8B846DFA1F8E25BA007C0731 /* UIImage+QYOrientation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+QYOrientation.h"; sourceTree = "<group>"; };
+		8B846DFB1F8E25BA007C0731 /* UIImage+QYOrientation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QYOrientation.m"; sourceTree = "<group>"; };
+		8B846DFD1F8E2879007C0731 /* UIImage+QYColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+QYColor.h"; sourceTree = "<group>"; };
+		8B846DFE1F8E2879007C0731 /* UIImage+QYColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QYColor.m"; sourceTree = "<group>"; };
+		8B846E031F8E2AA3007C0731 /* UIImage+QYBlur.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+QYBlur.h"; sourceTree = "<group>"; };
+		8B846E041F8E2AA3007C0731 /* UIImage+QYBlur.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QYBlur.m"; sourceTree = "<group>"; };
+		8B846E061F8E2B65007C0731 /* UIImage+QYCapture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+QYCapture.h"; sourceTree = "<group>"; };
+		8B846E071F8E2B65007C0731 /* UIImage+QYCapture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QYCapture.m"; sourceTree = "<group>"; };
+		8B846E091F8E2BB0007C0731 /* UIImage+QYMerge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+QYMerge.h"; sourceTree = "<group>"; };
+		8B846E0A1F8E2BB0007C0731 /* UIImage+QYMerge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QYMerge.m"; sourceTree = "<group>"; };
+		8B846E0C1F8E2BF0007C0731 /* UIImage+QYResize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+QYResize.h"; sourceTree = "<group>"; };
+		8B846E0D1F8E2BF0007C0731 /* UIImage+QYResize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QYResize.m"; sourceTree = "<group>"; };
+		8B846E0F1F8E2C7C007C0731 /* UIImage+QYRoundedCorner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+QYRoundedCorner.h"; sourceTree = "<group>"; };
+		8B846E101F8E2C7C007C0731 /* UIImage+QYRoundedCorner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QYRoundedCorner.m"; sourceTree = "<group>"; };
+		8B846E121F8E3A87007C0731 /* UIImage+QYBetterFace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+QYBetterFace.h"; sourceTree = "<group>"; };
+		8B846E131F8E3A87007C0731 /* UIImage+QYBetterFace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QYBetterFace.m"; sourceTree = "<group>"; };
+		8B846E151F8E3C73007C0731 /* UIImage+QYFix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+QYFix.h"; sourceTree = "<group>"; };
+		8B846E161F8E3C73007C0731 /* UIImage+QYFix.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QYFix.m"; sourceTree = "<group>"; };
+		8B846E1B1F8E3D9B007C0731 /* UIImageView+QYCircleCut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+QYCircleCut.h"; sourceTree = "<group>"; };
+		8B846E1C1F8E3D9B007C0731 /* UIImageView+QYCircleCut.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+QYCircleCut.m"; sourceTree = "<group>"; };
+		8B846E1E1F8E3DC9007C0731 /* UIImageView+QYReflect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+QYReflect.h"; sourceTree = "<group>"; };
+		8B846E1F1F8E3DC9007C0731 /* UIImageView+QYReflect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+QYReflect.m"; sourceTree = "<group>"; };
+		8B846E211F8E3E8E007C0731 /* QYStaticInline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYStaticInline.h; sourceTree = "<group>"; };
+		8B846E221F8E4090007C0731 /* UIImageView+QYFaceAwareFill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+QYFaceAwareFill.h"; sourceTree = "<group>"; };
+		8B846E231F8E4090007C0731 /* UIImageView+QYFaceAwareFill.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+QYFaceAwareFill.m"; sourceTree = "<group>"; };
+		8B846E291F8EF63D007C0731 /* Arithmetis.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Arithmetis.h; sourceTree = "<group>"; };
+		8B846E2A1F8EF63D007C0731 /* CakeSortModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CakeSortModel.h; sourceTree = "<group>"; };
+		8B846E2B1F8EF63D007C0731 /* CakeSortModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CakeSortModel.m; sourceTree = "<group>"; };
+		8B846E2C1F8EF63D007C0731 /* ChessResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChessResultModel.h; sourceTree = "<group>"; };
+		8B846E2D1F8EF63D007C0731 /* ChessResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChessResultModel.m; sourceTree = "<group>"; };
+		8B846E2E1F8EF67B007C0731 /* NSObject+QYPrintf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+QYPrintf.h"; sourceTree = "<group>"; };
+		8B846E2F1F8EF67B007C0731 /* NSObject+QYPrintf.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+QYPrintf.m"; sourceTree = "<group>"; };
 		8B8BB9981F3316E40071D0AF /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 		8B8BB99D1F342C550071D0AF /* MWebKitURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWebKitURLProtocol.h; sourceTree = "<group>"; };
 		8B8BB99E1F342C550071D0AF /* MWebKitURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWebKitURLProtocol.m; sourceTree = "<group>"; };
@@ -985,6 +1036,8 @@
 		8B195C6C1F627A8A005D6321 /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
+				8B846E2E1F8EF67B007C0731 /* NSObject+QYPrintf.h */,
+				8B846E2F1F8EF67B007C0731 /* NSObject+QYPrintf.m */,
 			);
 			path = NSObject;
 			sourceTree = "<group>";
@@ -1227,6 +1280,28 @@
 		8B195C861F627A8A005D6321 /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
+				8B846DF41F8E00A2007C0731 /* UIImage+QYAlpha.h */,
+				8B846DF51F8E00A2007C0731 /* UIImage+QYAlpha.m */,
+				8B846DF71F8E10DD007C0731 /* UIImage+QYGif.h */,
+				8B846DF81F8E10DD007C0731 /* UIImage+QYGif.m */,
+				8B846DFA1F8E25BA007C0731 /* UIImage+QYOrientation.h */,
+				8B846DFB1F8E25BA007C0731 /* UIImage+QYOrientation.m */,
+				8B846DFD1F8E2879007C0731 /* UIImage+QYColor.h */,
+				8B846DFE1F8E2879007C0731 /* UIImage+QYColor.m */,
+				8B846E031F8E2AA3007C0731 /* UIImage+QYBlur.h */,
+				8B846E041F8E2AA3007C0731 /* UIImage+QYBlur.m */,
+				8B846E061F8E2B65007C0731 /* UIImage+QYCapture.h */,
+				8B846E071F8E2B65007C0731 /* UIImage+QYCapture.m */,
+				8B846E091F8E2BB0007C0731 /* UIImage+QYMerge.h */,
+				8B846E0A1F8E2BB0007C0731 /* UIImage+QYMerge.m */,
+				8B846E0C1F8E2BF0007C0731 /* UIImage+QYResize.h */,
+				8B846E0D1F8E2BF0007C0731 /* UIImage+QYResize.m */,
+				8B846E0F1F8E2C7C007C0731 /* UIImage+QYRoundedCorner.h */,
+				8B846E101F8E2C7C007C0731 /* UIImage+QYRoundedCorner.m */,
+				8B846E121F8E3A87007C0731 /* UIImage+QYBetterFace.h */,
+				8B846E131F8E3A87007C0731 /* UIImage+QYBetterFace.m */,
+				8B846E151F8E3C73007C0731 /* UIImage+QYFix.h */,
+				8B846E161F8E3C73007C0731 /* UIImage+QYFix.m */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -1234,6 +1309,12 @@
 		8B195C871F627A8A005D6321 /* UIImageView */ = {
 			isa = PBXGroup;
 			children = (
+				8B846E1B1F8E3D9B007C0731 /* UIImageView+QYCircleCut.h */,
+				8B846E1C1F8E3D9B007C0731 /* UIImageView+QYCircleCut.m */,
+				8B846E1E1F8E3DC9007C0731 /* UIImageView+QYReflect.h */,
+				8B846E1F1F8E3DC9007C0731 /* UIImageView+QYReflect.m */,
+				8B846E221F8E4090007C0731 /* UIImageView+QYFaceAwareFill.h */,
+				8B846E231F8E4090007C0731 /* UIImageView+QYFaceAwareFill.m */,
 			);
 			path = UIImageView;
 			sourceTree = "<group>";
@@ -1411,6 +1492,7 @@
 			isa = PBXGroup;
 			children = (
 				8B195CA11F627C50005D6321 /* QYMacros.h */,
+				8B846E211F8E3E8E007C0731 /* QYStaticInline.h */,
 			);
 			path = Macros;
 			sourceTree = "<group>";
@@ -1501,6 +1583,7 @@
 				8B5D20011F26F9E900DD1898 /* ViewController.h */,
 				8B5D20021F26F9E900DD1898 /* ViewController.m */,
 				8B5D20041F26F9E900DD1898 /* Main.storyboard */,
+				8B846E281F8EF63D007C0731 /* Arithmeti（该model均为编程之美内容） */,
 				8BC11D971F8CEDA700D9F905 /* SDWebImage */,
 				8B9CD0B41F8B293000696D73 /* MKeychainServices */,
 				8BF672BB1F7275A900CF312A /* MAlertView */,
@@ -1571,6 +1654,18 @@
 				8B682CED1F6A567000C4900D /* QYPreviewWindow.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8B846E281F8EF63D007C0731 /* Arithmeti（该model均为编程之美内容） */ = {
+			isa = PBXGroup;
+			children = (
+				8B846E291F8EF63D007C0731 /* Arithmetis.h */,
+				8B846E2C1F8EF63D007C0731 /* ChessResultModel.h */,
+				8B846E2D1F8EF63D007C0731 /* ChessResultModel.m */,
+				8B846E2A1F8EF63D007C0731 /* CakeSortModel.h */,
+				8B846E2B1F8EF63D007C0731 /* CakeSortModel.m */,
+			);
+			path = "Arithmeti（该model均为编程之美内容）";
 			sourceTree = "<group>";
 		};
 		8B8BB99C1F342C550071D0AF /* MWebView */ = {
@@ -2157,8 +2252,11 @@
 				8BC117391F8CD6BC00D9F905 /* MPhotoAlbumHelp.h in Sources */,
 				8BC1173A1F8CD6BC00D9F905 /* MPhotoModel.h in Sources */,
 				8BC1173B1F8CD6BC00D9F905 /* NSData+MImageType.h in Sources */,
+				8B846E301F8EF67B007C0731 /* NSObject+QYPrintf.m in Sources */,
 				8BC1173C1F8CD6BC00D9F905 /* MGifDataCache.h in Sources */,
 				8BC1173D1F8CD6BC00D9F905 /* MPhotoCollectionViewCell.h in Sources */,
+				8B846E201F8E3DC9007C0731 /* UIImageView+QYReflect.m in Sources */,
+				8B846DF91F8E10DD007C0731 /* UIImage+QYGif.m in Sources */,
 				8BC1173E1F8CD6BC00D9F905 /* CGGeometry+RSKImageCropper.h in Sources */,
 				8BC1173F1F8CD6BC00D9F905 /* module.modulemap in Sources */,
 				8BC117401F8CD6BC00D9F905 /* RSKImageCropper.h in Sources */,
@@ -2182,6 +2280,7 @@
 				8BC117521F8CD6BC00D9F905 /* MNetworkAgent.h in Sources */,
 				8BC117531F8CD6BC00D9F905 /* MNetworkConfig.h in Sources */,
 				8BC117541F8CD6BC00D9F905 /* MNetworkBaseRequest.h in Sources */,
+				8B846E081F8E2B65007C0731 /* UIImage+QYCapture.m in Sources */,
 				8BC117551F8CD6BC00D9F905 /* MNetworkRequest.h in Sources */,
 				8BC117561F8CD6BC00D9F905 /* MNetworkDownloadRequest.h in Sources */,
 				8BC117571F8CD6BC00D9F905 /* MNetworkGroupRequest.h in Sources */,
@@ -2220,6 +2319,7 @@
 				8BC117781F8CD6BC00D9F905 /* NSString+QYCharNumber.h in Sources */,
 				8BC117791F8CD6BC00D9F905 /* NSTimer+QYAddition.h in Sources */,
 				8BC1177A1F8CD6BC00D9F905 /* NSTimer+QYBlocks.h in Sources */,
+				8B846E171F8E3C73007C0731 /* UIImage+QYFix.m in Sources */,
 				8BC1177B1F8CD6BC00D9F905 /* UIColor+QYQuickCreate.h in Sources */,
 				8BC1177C1F8CD6BC00D9F905 /* UIDevice+QYUnitType.h in Sources */,
 				8BC1177D1F8CD6BC00D9F905 /* UIDevice+QYHardware.h in Sources */,
@@ -2232,6 +2332,7 @@
 				8BC117841F8CD6BC00D9F905 /* UIView+QYDebug.h in Sources */,
 				8BC117851F8CD6BC00D9F905 /* UIView+QYNib.h in Sources */,
 				8BC117861F8CD6BC00D9F905 /* UIView+QYScreenshot.h in Sources */,
+				8B846E051F8E2AA3007C0731 /* UIImage+QYBlur.m in Sources */,
 				8BC117871F8CD6BC00D9F905 /* UIView+QYViewController.h in Sources */,
 				8BC117881F8CD6BC00D9F905 /* UIView+QYShake.h in Sources */,
 				8BC117891F8CD6BC00D9F905 /* UIView+QYVisuals.h in Sources */,
@@ -2240,6 +2341,7 @@
 				8BC1178C1F8CD6BC00D9F905 /* UIWindow+QYHierarchy.h in Sources */,
 				8BC1178D1F8CD6BC00D9F905 /* QYMacros.h in Sources */,
 				8B195BC41F6119DF005D6321 /* RSKImageScrollView.m in Sources */,
+				8B846E0E1F8E2BF0007C0731 /* UIImage+QYResize.m in Sources */,
 				8BF6729C1F6FF3E400CF312A /* UITableViewCell+QYIdentifier.m in Sources */,
 				8B8BBA971F3466240071D0AF /* MNetworkConfig.m in Sources */,
 				8B8BB9B41F342C550071D0AF /* WKWebView+MClearCache.m in Sources */,
@@ -2247,6 +2349,7 @@
 				8B21F0121F4C49C7004C0508 /* YXButton.m in Sources */,
 				8BF672A91F70AD5900CF312A /* NSString+QYEmoji.m in Sources */,
 				8B8BBAA41F34876D0071D0AF /* MNetworkDownloadRequest.m in Sources */,
+				8B846E141F8E3A87007C0731 /* UIImage+QYBetterFace.m in Sources */,
 				8B682CE51F6A1B2A00C4900D /* QYPreviewImageView.m in Sources */,
 				8B195B9E1F60D8CF005D6321 /* NSData+MImageType.m in Sources */,
 				8B195BC31F6119DF005D6321 /* RSKImageCropViewController.m in Sources */,
@@ -2265,10 +2368,12 @@
 				8B9CD0B71F8B294E00696D73 /* QYKeychainViewController.m in Sources */,
 				8B8BB9C41F342FE30071D0AF /* UIView+WebViewExtern.m in Sources */,
 				8B195B881F5F9CBE005D6321 /* MCameraView.m in Sources */,
+				8B846E241F8E4090007C0731 /* UIImageView+QYFaceAwareFill.m in Sources */,
 				8B195CBF1F62C0BF005D6321 /* UIViewController+QYVisible.m in Sources */,
 				8B195CB31F629560005D6321 /* UIView+QYShake.m in Sources */,
 				8B21F00E1F4C49C7004C0508 /* YXAnnotationShapeViewAction.m in Sources */,
 				8B8BB9B01F342C550071D0AF /* MWebViewCache.m in Sources */,
+				8B846E111F8E2C7C007C0731 /* UIImage+QYRoundedCorner.m in Sources */,
 				8B195CB91F62BDEB005D6321 /* UIView+QYFind.m in Sources */,
 				8B682CB51F690A9D00C4900D /* NSString+QYMD5.m in Sources */,
 				8B5D1FFD1F26F9E900DD1898 /* main.m in Sources */,
@@ -2282,6 +2387,7 @@
 				8B8BB9B31F342C550071D0AF /* UIWebView+MElementFrame.m in Sources */,
 				8B3941E31F46D153002100F6 /* UIView+SMExtension.m in Sources */,
 				8BF672A01F6FF55D00CF312A /* UICollectionViewCell+QYIdentifier.m in Sources */,
+				8B846E0B1F8E2BB0007C0731 /* UIImage+QYMerge.m in Sources */,
 				8B9CD0861F8B1B5F00696D73 /* UIDevice+QYPasscodeStatus.m in Sources */,
 				8B195B921F60210C005D6321 /* UIImage+SMExtension.m in Sources */,
 				8B195BC71F6119DF005D6321 /* UIApplication+RSKImageCropper.m in Sources */,
@@ -2291,6 +2397,7 @@
 				8B21F00F1F4C49C7004C0508 /* YXAnnotationTabbarView.m in Sources */,
 				8B682CA11F68E40900C4900D /* UIFont+QYTTF.m in Sources */,
 				8B195CB61F62AC7C005D6321 /* UIView+QYVisuals.m in Sources */,
+				8B846DF61F8E00A2007C0731 /* UIImage+QYAlpha.m in Sources */,
 				8B8BB9B51F342C550071D0AF /* WKWebView+MElementFrame.m in Sources */,
 				8B8BB9D31F34638F0071D0AF /* MPreviewCardView.m in Sources */,
 				8B8BB9BD1F342DDD0071D0AF /* MWebLinkLoadingView.m in Sources */,
@@ -2298,6 +2405,7 @@
 				8B195BC61F6119DF005D6321 /* RSKTouchView.m in Sources */,
 				8B5CA5CE1F2AE0CD0098EE69 /* MFPSMonitorLabel.m in Sources */,
 				8B8BB9AE1F342C550071D0AF /* MWebKitURLProtocol.m in Sources */,
+				8B846DFF1F8E2879007C0731 /* UIImage+QYColor.m in Sources */,
 				8B195B9B1F60D7D9005D6321 /* MPhotoAlbumModel.m in Sources */,
 				8BF672B71F71452C00CF312A /* NSString+QYPinyin.m in Sources */,
 				8B21F0101F4C49C7004C0508 /* YXAnnotationView.m in Sources */,
@@ -2305,6 +2413,7 @@
 				8B8BB9C11F342F270071D0AF /* NSString+Path.m in Sources */,
 				8B6AF61C1F7910F900AA5A82 /* UIDevice+QYUnitType.m in Sources */,
 				8B5800961F74E51B000CE03B /* NSString+QYCharNumber.m in Sources */,
+				8B846E1D1F8E3D9B007C0731 /* UIImageView+QYCircleCut.m in Sources */,
 				8B8BB9CC1F3463880071D0AF /* UIButton+Touch.m in Sources */,
 				8B195BC81F6119DF005D6321 /* UIImage+RSKImageCropper.m in Sources */,
 				8B8BB9AF1F342C550071D0AF /* MWebView.m in Sources */,
@@ -2321,6 +2430,7 @@
 				8BF672A61F6FF7AD00CF312A /* NSTimer+QYBlocks.m in Sources */,
 				8B8BBAA71F348E130071D0AF /* MNetworkAgent.m in Sources */,
 				8B195BA71F60E65F005D6321 /* MGifDataCache.m in Sources */,
+				8B846DFC1F8E25BA007C0731 /* UIImage+QYOrientation.m in Sources */,
 				8B682CB41F690A9D00C4900D /* NSString+QYBase64.m in Sources */,
 				8B5CA5CD1F2AE0CD0098EE69 /* MFPSMonitor.m in Sources */,
 				8B682CB91F690AB600C4900D /* NSData+QYBase64.m in Sources */,

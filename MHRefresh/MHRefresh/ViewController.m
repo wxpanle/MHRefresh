@@ -9,9 +9,9 @@
 #import "ViewController.h"
 #import "MPreviewCardView.h"
 #import "MImagePickerController.h"
-//#import "SDWebImageDownloader.h"
 #import "QYPreviewViewController.h"
 #import "NSString+QYEmoji.h"
+#import "Arithmetis.h"
 
 @interface ViewController () <QYPreviewViewControllerDelegate, QYPreviewViewControllerDataSource>
 
@@ -31,6 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self layoutUIOfSelf];
+    [self arithmeti];
     [self addImage];
 }
 
@@ -68,34 +69,16 @@
     }
 }
 
+- (void)arithmeti {
+    [ChessResultModel getChessResult];
+}
+
 - (void)startPreview:(UITapGestureRecognizer *)tap {
     self.number = tap.view.tag;
     [QYPreviewViewController previewWithDelegate:self dataSource:self];
 }
 
 - (IBAction)start:(UIButton *)sender {
-    
-//    NSURL *url = [NSURL URLWithString:@"http://oozt9b874.bkt.clouddn.com/p2466821152.webp"];
-//    WeakSelf
-//    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:url options:SDWebImageDownloaderHandleCookies progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-//        DLog(@"%ld %ld", (long)receivedSize, (long)expectedSize);
-//    } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
-//        if (error) {
-//            DLog(@"%@", error.description);
-//        }
-//
-//        if (image) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                weakSelf.imageView.image = image;
-//            });
-//        }
-//    }];
-    
-    
-//    [MImagePickerController pickPictureWithPresentVc:self sourceType:MImagePickerSourceTypeDefault cropMode:MImagePickerCropModeCircle handleBlock:^(UIViewController *vc, UIImage *image) {
-//        [vc dismissViewControllerAnimated:YES completion:nil];
-//        self.imageView.image = image;
-//    }];
     
     NSString *string = @"😄:smile 😆::laughing:D  😊 blush  😨 fearful 👿 imp 💙 blue_heart 🌟 star ❓question 💦 sweat_drops  ✊ fist  👪 family 🙆 ok_woman  👹 japanese_ogre 👀 eyes 🌀 cyclone  🍁 maple_leaf  🌖 waning_gibbous_moon  🔍 mag 🚚 truck 🕔 clock5 🆒 cool ㊗ congratulations ㊙ secret ❌ x  ㊙ ㊗";
     
@@ -115,18 +98,10 @@
 
 - (void)previewWillStart:(NSInteger)index {
     
-//    for (UIImageView *imageView in self.imageViewArray) {
-//        imageView.hidden = NO;
-//    }
-//
-//    UIImageView *imageView = [self.imageViewArray objectAtIndex:index];
-//    imageView.hidden = YES;
 }
 
 - (void)previewWillEnd:(NSInteger)index {
-//    for (UIImageView *imageView in self.imageViewArray) {
-//        imageView.hidden = NO;
-//    }
+
 }
 
 - (NSInteger)previewDataSourceNumber {

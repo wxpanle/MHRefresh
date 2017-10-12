@@ -9,6 +9,7 @@
 #ifndef QYMacros_h
 #define QYMacros_h
 
+#ifdef __OBJC__
 //打印
 #ifdef DEBUG
     #define DLog(...) NSLog(__VA_ARGS__)
@@ -94,5 +95,7 @@
 //函数已废弃
 #define DEPRECATED(explain) __attribute__((deprecated(explain)))
 #define ALREADY_DEPRECTED MEMORY_DEPRECATED("already deprected")
+
+#endif
 
 #endif /* QYMacros_h */
