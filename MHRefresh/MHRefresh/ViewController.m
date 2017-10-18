@@ -12,10 +12,13 @@
 #import "QYPreviewViewController.h"
 #import "NSString+QYEmoji.h"
 #import "Arithmetis.h"
+#import <StoreKit/StoreKit.h>
+#import "MWebView.h"
 
 @interface ViewController () <QYPreviewViewControllerDelegate, QYPreviewViewControllerDataSource>
 
 @property (nonatomic, strong) MPreviewCardView *cardView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
@@ -30,9 +33,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self layoutUIOfSelf];
+//    [self layoutUIOfSelf];
     [self arithmeti];
-    [self addImage];
+//    [self addImage];
+
 }
 
 - (void)layoutUIOfSelf {
@@ -46,31 +50,32 @@
 
 - (void)addImage {
     
-    NSInteger width = (SCREEN_W - 10 * 4) / 3.0;
-    
-    for (NSInteger i = 0; i < self.dataArray.count; i++) {
-        UIImage *image = [UIImage imageNamed:[self.dataArray objectAtIndex:i]];
-        UIImageView *imageView = [[UIImageView alloc] init];
-        imageView.image = image;
-        
-        NSInteger x = i / 3;
-        NSInteger y = i % 3;
-        
-        imageView.frame = CGRectMake(10 + y * (10 + width), 50 + x * (10 + width), width, width);
-        
-        imageView.userInteractionEnabled = YES;
-        imageView.tag = i;
-        
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startPreview:)];
-        [imageView addGestureRecognizer:tap];
-        
-        [self.view addSubview:imageView];
-        [self.imageViewArray addObject:imageView];
-    }
+//    NSInteger width = (SCREEN_W - 10 * 4) / 3.0;
+//
+//    for (NSInteger i = 0; i < self.dataArray.count; i++) {
+//        UIImage *image = [UIImage imageNamed:[self.dataArray objectAtIndex:i]];
+//        UIImageView *imageView = [[UIImageView alloc] init];
+//        imageView.image = image;
+//
+//        NSInteger x = i / 3;
+//        NSInteger y = i % 3;
+//
+//        imageView.frame = CGRectMake(10 + y * (10 + width), 50 + x * (10 + width), width, width);
+//
+//        imageView.userInteractionEnabled = YES;
+//        imageView.tag = i;
+//
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(startPreview:)];
+//        [imageView addGestureRecognizer:tap];
+//
+//        [self.view addSubview:imageView];
+//        [self.imageViewArray addObject:imageView];
+//    }
 }
 
 - (void)arithmeti {
     [ChessResultModel getChessResult];
+    [[[CakeSortModel alloc] initWithCakeArray:nil] sort];
 }
 
 - (void)startPreview:(UITapGestureRecognizer *)tap {
@@ -80,11 +85,13 @@
 
 - (IBAction)start:(UIButton *)sender {
     
-    NSString *string = @"😄:smile 😆::laughing:D  😊 blush  😨 fearful 👿 imp 💙 blue_heart 🌟 star ❓question 💦 sweat_drops  ✊ fist  👪 family 🙆 ok_woman  👹 japanese_ogre 👀 eyes 🌀 cyclone  🍁 maple_leaf  🌖 waning_gibbous_moon  🔍 mag 🚚 truck 🕔 clock5 🆒 cool ㊗ congratulations ㊙ secret ❌ x  ㊙ ㊗";
+    [SKStoreReviewController requestReview];
     
-    DLog(@"%@", [NSString replaceEmojiWithText:string replaceText:@"中国"]);
-    DLog(@"%@", [NSString replaceEmojiWithText:string replaceText:@"?"]);
-    DLog(@"%@", [string clearEmoji]);
+//    NSString *string = @"😄:smile 😆::laughing:D  😊 blush  😨 fearful 👿 imp 💙 blue_heart 🌟 star ❓question 💦 sweat_drops  ✊ fist  👪 family 🙆 ok_woman  👹 japanese_ogre 👀 eyes 🌀 cyclone  🍁 maple_leaf  🌖 waning_gibbous_moon  🔍 mag 🚚 truck 🕔 clock5 🆒 cool ㊗ congratulations ㊙ secret ❌ x  ㊙ ㊗";
+//
+//    DLog(@"%@", [NSString replaceEmojiWithText:string replaceText:@"中国"]);
+//    DLog(@"%@", [NSString replaceEmojiWithText:string replaceText:@"?"]);
+//    DLog(@"%@", [string clearEmoji]);
 }
 
 

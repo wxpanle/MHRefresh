@@ -8,10 +8,14 @@
 
 #import "MNetworkAgent.h"
 #import "MNetworkConfig.h"
-#import "AFNetworking.h"
 #import <pthread/pthread.h>
 #import "MNetRequestHeader.h"
 
+#if __has_include(<AFNetworking/AFNetworking.h>)
+#import <AFNetworking/AFNetworking.h>
+#else
+#import "AFNetworking.h"
+#endif
 
 @interface MNetworkAgent()
 
@@ -84,7 +88,6 @@
     Unlock();
 }
 
-
 - (void)cancelRequest:(MNetworkBaseRequest *)request {
     NSParameterAssert(request != nil);
     
@@ -128,7 +131,6 @@
     return nil;
 }
 
-
 - (NSMutableSet *)allRequestRecord {
     if (nil == _allRequestRecord) {
         _allRequestRecord = [[NSMutableSet alloc] init];
@@ -136,24 +138,4 @@
     return _allRequestRecord;
 }
 
-@end
-
-@interface MNetworkChainAgent ()
-
-@property (nonatomic, strong) NSMutableSet *chainRequestSet;
-
-@end
-
-@implementation MNetworkChainAgent
-
-static MNetworkChainAgent *mNetworkChainAgent = nil;
-
-+ (instancetype)shareMNetworkChainAgent {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        mNetworkChainAgent = [[self alloc] init];
-        mNetworkChainAgent.chainRequestSet = [NSMutableSet set];
-    });
-    return mNetworkChainAgent;
-}
 @end

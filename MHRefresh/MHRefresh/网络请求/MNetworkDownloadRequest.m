@@ -96,5 +96,4 @@
     return [self.basePath stringByAppendingPathComponent:self.storeKey];
 }
 
-
 @end

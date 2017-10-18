@@ -10,5 +10,6 @@
 #define Arithmetis_h
 
 #import "ChessResultModel.h"
+#import "CakeSortModel.h"
 
 #endif /* Arithmetis_h */

@@ -12,6 +12,10 @@
 
 @interface MNetworkAgent : NSObject
 
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)new NS_UNAVAILABLE;
+
 + (instancetype)sharedAgent;
 
 - (void)addRequest:(MNetworkBaseRequest *)request;
@@ -19,18 +23,5 @@
 - (void)cancelRequest:(MNetworkBaseRequest *)request;
 
 - (void)cancelAllRequests;
-
-@end
-
-@interface MNetworkGroupAgent : NSObject
-
-+ (instancetype)shareMNetworkGroupAgent;
-
-@end
-
-
-@interface MNetworkChainAgent : NSObject
-
-+ (instancetype)shareMNetworkChainAgent;
 
 @end

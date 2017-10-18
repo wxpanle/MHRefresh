@@ -10,4 +10,10 @@
 
 @interface CakeSortModel : NSObject
 
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)initWithCakeArray:(NSArray *)cakeArray;
+
+- (void)sort;
+
 @end

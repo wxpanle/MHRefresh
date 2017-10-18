@@ -28,6 +28,10 @@
 /** url security policy */
 @property (nonatomic, strong) AFSecurityPolicy *securityPolicy;
 
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)new NS_UNAVAILABLE;
+
 + (instancetype)sharedConfig;
 
 - (void)configWithBaseUrl:(NSString *)baseUrl andCDNUrl:(NSString *)cdnUrl;

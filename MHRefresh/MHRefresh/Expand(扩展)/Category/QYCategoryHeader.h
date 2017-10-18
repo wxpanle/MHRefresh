@@ -20,4 +20,6 @@
 
 #import "NSObject+QYPrintf.h"
 
+#import "NSArray+QYSafeAccess.h"
+
 #endif /* QYCategoryHeader_h */

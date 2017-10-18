@@ -90,6 +90,9 @@
 		8B846E201F8E3DC9007C0731 /* UIImageView+QYReflect.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E1F1F8E3DC9007C0731 /* UIImageView+QYReflect.m */; };
 		8B846E241F8E4090007C0731 /* UIImageView+QYFaceAwareFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E231F8E4090007C0731 /* UIImageView+QYFaceAwareFill.m */; };
 		8B846E301F8EF67B007C0731 /* NSObject+QYPrintf.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E2F1F8EF67B007C0731 /* NSObject+QYPrintf.m */; };
+		8B846E311F8EF8FF007C0731 /* ChessResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E2D1F8EF63D007C0731 /* ChessResultModel.m */; };
+		8B846E321F8EF8FF007C0731 /* CakeSortModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E2B1F8EF63D007C0731 /* CakeSortModel.m */; };
+		8B846E351F8F025A007C0731 /* NSArray+QYSafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B846E341F8F025A007C0731 /* NSArray+QYSafeAccess.m */; };
 		8B8BB9991F3316E40071D0AF /* File in Resources */ = {isa = PBXBuildFile; fileRef = 8B8BB9981F3316E40071D0AF /* File */; };
 		8B8BB9AE1F342C550071D0AF /* MWebKitURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB99E1F342C550071D0AF /* MWebKitURLProtocol.m */; };
 		8B8BB9AF1F342C550071D0AF /* MWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8BB9A01F342C550071D0AF /* MWebView.m */; };
@@ -411,6 +414,8 @@
 		8B846E2D1F8EF63D007C0731 /* ChessResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChessResultModel.m; sourceTree = "<group>"; };
 		8B846E2E1F8EF67B007C0731 /* NSObject+QYPrintf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+QYPrintf.h"; sourceTree = "<group>"; };
 		8B846E2F1F8EF67B007C0731 /* NSObject+QYPrintf.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+QYPrintf.m"; sourceTree = "<group>"; };
+		8B846E331F8F025A007C0731 /* NSArray+QYSafeAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+QYSafeAccess.h"; sourceTree = "<group>"; };
+		8B846E341F8F025A007C0731 /* NSArray+QYSafeAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+QYSafeAccess.m"; sourceTree = "<group>"; };
 		8B8BB9981F3316E40071D0AF /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 		8B8BB99D1F342C550071D0AF /* MWebKitURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWebKitURLProtocol.h; sourceTree = "<group>"; };
 		8B8BB99E1F342C550071D0AF /* MWebKitURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWebKitURLProtocol.m; sourceTree = "<group>"; };
@@ -936,6 +941,8 @@
 		8B195C5E1F627A8A005D6321 /* NSArray */ = {
 			isa = PBXGroup;
 			children = (
+				8B846E331F8F025A007C0731 /* NSArray+QYSafeAccess.h */,
+				8B846E341F8F025A007C0731 /* NSArray+QYSafeAccess.m */,
 			);
 			path = NSArray;
 			sourceTree = "<group>";
@@ -2230,6 +2237,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B846E311F8EF8FF007C0731 /* ChessResultModel.m in Sources */,
+				8B846E321F8EF8FF007C0731 /* CakeSortModel.m in Sources */,
 				8BC117261F8CD6BC00D9F905 /* QYKeychainViewController.h in Sources */,
 				8BC117271F8CD6BC00D9F905 /* MCAlertView.h in Sources */,
 				8BC117281F8CD6BC00D9F905 /* QYPreviewViewController.h in Sources */,
@@ -2298,6 +2307,7 @@
 				8BC117631F8CD6BC00D9F905 /* NSString+Path.h in Sources */,
 				8BC117641F8CD6BC00D9F905 /* UIView+WebViewExtern.h in Sources */,
 				8BC117651F8CD6BC00D9F905 /* File in Sources */,
+				8B846E351F8F025A007C0731 /* NSArray+QYSafeAccess.m in Sources */,
 				8BC117661F8CD6BC00D9F905 /* MMonitor.h in Sources */,
 				8BC117671F8CD6BC00D9F905 /* MFPSMonitor.h in Sources */,
 				8BC117681F8CD6BC00D9F905 /* MFPSMonitorLabel.h in Sources */,

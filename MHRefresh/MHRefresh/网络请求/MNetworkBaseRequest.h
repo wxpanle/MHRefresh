@@ -30,7 +30,6 @@ typedef NS_ENUM(NSInteger, MNetworkRequestPriority) {
     MNetworkRequestPriorityHight = 4
 };
 
-
 @class MNetworkBaseRequest;
 
 /*  success block **/

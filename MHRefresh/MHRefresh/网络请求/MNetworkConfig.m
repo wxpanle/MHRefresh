@@ -7,7 +7,12 @@
 //
 
 #import "MNetworkConfig.h"
+
+#if __has_include(<AFNetworking/AFSecurityPolicy.h>)
+#import <AFNetworking/AFSecurityPolicy.h>
+#else
 #import "AFSecurityPolicy.h"
+#endif
 
 @interface MNetworkConfig()
 

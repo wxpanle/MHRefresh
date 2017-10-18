@@ -26,6 +26,10 @@
 }
 
 - (void)updateImage:(UIImage *)image isLandscape:(BOOL)isLandscape {
+    
+    if (nil == image) {
+        return;
+    }
 
     self.clipsToBounds = YES;
     self.contentMode = UIViewContentModeScaleAspectFill;
