@@ -33,7 +33,7 @@ typedef void (^MNetworkDownloadProgressBlock)(CGFloat progress);
 @property (nonatomic, copy) MNetworkDownloadProgressBlock progressBlock;
 
 ///-------------------------------
-/// @name 默认请求  get
+/// @name 默认请求  GET
 ///-------------------------------
 + (instancetype)downloadRequestWithDetailUrl:(NSString *)detailUrl
                                 downloadType:(MNetworkDownloadType)type;

@@ -10,7 +10,7 @@
 
 @interface UIImage (QYOrientation)
 
-+ (UIImage *)fixOrientation;
+- (UIImage *)fixOrientation;
 
 - (UIImage *)imageRotatedByDegrees:(CGFloat)degrees;
 

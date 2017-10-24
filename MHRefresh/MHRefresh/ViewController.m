@@ -14,6 +14,13 @@
 #import "Arithmetis.h"
 #import <StoreKit/StoreKit.h>
 #import "MWebView.h"
+#import <MBProgressHUD/MBProgressHUD.h>
+
+#if __has_include(<SDWebImage/SDWebImageDownloader.h>)
+#import <SDWebImage/SDWebImageDownloader.h>
+#else
+#import "SDWebImageDownloader.h"
+#endif
 
 @interface ViewController () <QYPreviewViewControllerDelegate, QYPreviewViewControllerDataSource>
 
@@ -36,7 +43,9 @@
 //    [self layoutUIOfSelf];
     [self arithmeti];
 //    [self addImage];
-
+    
+    DLog(@"系统字节数 %ld", [UIDevice ramSize]);
+    DLog(@"系统字节数 %llu", [NSProcessInfo processInfo].physicalMemory);
 }
 
 - (void)layoutUIOfSelf {
@@ -77,6 +86,103 @@
     [ChessResultModel getChessResult];
     [[[CakeSortModel alloc] initWithCakeArray:nil] sort];
 }
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    progressHUD.label.text = @"测试";
+    progressHUD.label.textColor = [UIColor redColor];
+    progressHUD.removeFromSuperViewOnHide = YES;
+    
+    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:@"https://oiijtsooa.qnssl.com/ao1.png"] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        
+        if ([NSThread isMainThread]) {
+            DLog(@"下载进度 当前是主线程");
+        } else {
+            DLog(@"下载进度 当前不是主线程");
+        }
+        
+    } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+        if ([NSThread isMainThread]) {
+            DLog(@"下载完成 当前是主线程");
+        } else {
+            DLog(@"下载完成 当前不是主线程");
+        }
+    }];
+    
+    NSString *str = @"中国";
+
+    NSString *str1 = [str pinyinWithPhoneticSymbol];
+    NSString *str2 = [str pinyin];
+    NSArray *str3 = [str pinyinArray];
+    NSString *str4 = [str pinyinWithoutBlank];
+    NSArray *str5 = [str pinyinInitialsArray];
+    NSString *str6 = [str pinyinInitialsString];
+    
+    DLog(@"11");
+}
+
+- (void)logMainThread {
+    if ([NSThread isMainThread]) {
+        DLog(@"当前是主线程");
+    } else {
+        DLog(@"当前不是主线程");
+    }
+}
+
+//+ (NSString *)encode(String str) {
+//
+//}
+
+////将字符转为unicode
+//public static String encode(String str) {
+//    if (null == str || str.equals(""))
+//        return "输入字符";
+//    StringBuffer sb = new StringBuffer();
+//    try {
+//        //用16bit数字编码表示一个字符，每8bit用byte表示。
+//        byte bytesUtf16[] = str.getBytes("UTF-16");
+//        for (int n = 0; n < bytesUtf16.length; n++) {
+//            // 截取后面8位，并用16进制表示。
+//            str = (java.lang.Integer.toHexString(bytesUtf16[n] & 0XFF));
+//            // 将获得的16进制表示连成串
+//            sb.append((str.length() == 1) ? ("0" + str) : str);
+//        }
+//        // 去除第一个标记字符
+//        str = sb.toString().toUpperCase().substring(4);
+//        char[] chs = str.toCharArray();
+//        str = "";
+//        for (int i = 0; i < chs.length; i = i + 4) {
+//            str += "\\u" + chs[i] + chs[i+1] + chs[i+2] + chs[i+3];
+//        }
+//    } catch (Exception e) {
+//        System.out.print(e.getMessage());
+//        str = "程序出现异常";
+//    } finally {
+//        return str;
+//    }
+//}
+//
+////將unicode转为字符
+//public static String decode(final String str) {
+//    if(null == str || str.equals("")){
+//        return "輸入unicode";
+//    }
+//    //用正则表达式验证
+//    Pattern p = Pattern.compile("(\\\\u[0-9a-fA-F]{4})+");
+//    Matcher m = p.matcher(str);
+//    if(!(m.find() && m.group().equals(str))){
+//        return "非法格式";
+//    }
+//    String[] strs = str.split("u");
+//    StringBuffer sb = new StringBuffer();
+//    for (int i = 1; i <= strs.length - 1; i++) {
+//        sb.append(new Character((char) Integer.parseInt(strs[i].replace("\\", ""), 16)));
+//    }
+//    return sb.toString();
+//}
 
 - (void)startPreview:(UITapGestureRecognizer *)tap {
     self.number = tap.view.tag;

@@ -7,6 +7,7 @@
 //
 
 #import "MNetworkBaseRequest.h"
+#import "MNetworkAgent.h"
 
 @interface MNetworkBaseRequest()
 
@@ -18,73 +19,65 @@
 
 @property (nonatomic, strong, readwrite) NSDictionary *parameter;
 
-@property (nonatomic, strong, readwrite) NSURLSessionTask *requestTask;
-
-@property (nonatomic, strong, readwrite) NSData *responseData;
-
 @property (nonatomic, assign, readwrite) MNetworkRequestMethod requestMethod;
 
 @property (nonatomic, assign, readwrite) MNetworkRequestType requestType;
 
 @property (nonatomic, assign, readwrite) MNetworkRequestPriority priority;
 
-@property (nonatomic, strong, readwrite) id responseObject;
-
-@property (nonatomic, strong, readwrite) NSError *error;
-
 @end
 
 @implementation MNetworkBaseRequest
 
 #pragma mark - init detailUrl
-+ (instancetype _Nonnull)requestWithDeatilUrl:(NSString * _Nonnull)detailUrl {
++ (instancetype _Nonnull)requestWithDeatilUrl:(NSString *)detailUrl {
     return [self requestWithDeatilUrl:detailUrl requestPriority:MNetworkRequestPriorityDefault];
 }
 
-+ (instancetype _Nonnull)requestWithDeatilUrl:(NSString * _Nonnull)detailUrl
++ (instancetype _Nonnull)requestWithDeatilUrl:(NSString *)detailUrl
                               requestPriority:(MNetworkRequestPriority)priority {
     return [self requestWithCustomUrl:detailUrl requestMethod:MNetworkRequestMethodGET requestType:MNetworkRequestTypeNormal requestPriority:priority];
 }
 
-+ (instancetype _Nonnull)requestWithDeatilUrl:(NSString * _Nonnull)detailUrl
++ (instancetype _Nonnull)requestWithDeatilUrl:(NSString *)detailUrl
                                 requestMethod:(MNetworkRequestMethod)method
                                   requestType:(MNetworkRequestType)type {
     return [self requestWithCustomUrl:detailUrl requestMethod:method requestType:type requestPriority:MNetworkRequestPriorityDefault];
 }
 
-+ (instancetype _Nonnull)requestWithDeatilUrl:(NSString * _Nonnull)detailUrl
++ (instancetype _Nonnull)requestWithDeatilUrl:(NSString *)detailUrl
                                 requestMethod:(MNetworkRequestMethod)method
                                   requestType:(MNetworkRequestType)type
                               requestPriority:(MNetworkRequestPriority)priority {
     return [self requestWithDeatilUrl:detailUrl requestMethod:method requestType:type requestHeader:nil requestParameter:nil requestPriority:priority];
 }
 
-+ (instancetype _Nonnull)requestWithDeatilUrl:(NSString * _Nonnull)detailUrl
-                                requestHeader:(NSDictionary * _Nullable)headerDictionary
-                             requestParameter:(NSDictionary * _Nullable)parameterDictionary {
++ (instancetype _Nonnull)requestWithDeatilUrl:(NSString *)detailUrl
+                                requestHeader:(NSDictionary *)headerDictionary
+                             requestParameter:(NSDictionary *)parameterDictionary {
     return [self requestWithDeatilUrl:detailUrl requestHeader:headerDictionary requestParameter:parameterDictionary requestPriority:MNetworkRequestPriorityDefault];
 }
 
-+ (instancetype _Nonnull)requestWithDeatilUrl:(NSString * _Nonnull)detailUrl
-                                requestHeader:(NSDictionary * _Nullable)headerDictionary
-                             requestParameter:(NSDictionary * _Nullable)parameterDictionary
++ (instancetype _Nonnull)requestWithDeatilUrl:(NSString *)detailUrl
+                                requestHeader:(NSDictionary *)headerDictionary
+                             requestParameter:(NSDictionary *)parameterDictionary
                               requestPriority:(MNetworkRequestPriority)priority {
     return [self requestWithDeatilUrl:detailUrl requestMethod:MNetworkRequestMethodGET requestType:MNetworkRequestTypeNormal requestHeader:headerDictionary requestParameter:parameterDictionary requestPriority:priority];
 }
 
-+ (instancetype _Nonnull)requestWithDeatilUrl:(NSString * _Nonnull)detailUrl
++ (instancetype _Nonnull)requestWithDeatilUrl:(NSString *)detailUrl
                                 requestMethod:(MNetworkRequestMethod)method
                                   requestType:(MNetworkRequestType)type
-                                requestHeader:(NSDictionary * _Nullable)headerDictionary
-                             requestParameter:(NSDictionary * _Nullable)parameterDictionary {
+                                requestHeader:(NSDictionary *)headerDictionary
+                             requestParameter:(NSDictionary *)parameterDictionary {
     return [self requestWithDeatilUrl:detailUrl requestMethod:method requestType:type requestHeader:headerDictionary requestParameter:parameterDictionary requestPriority:MNetworkRequestPriorityDefault];
 }
 
-+ (instancetype _Nonnull)requestWithDeatilUrl:(NSString * _Nonnull)detailUrl
++ (instancetype _Nonnull)requestWithDeatilUrl:(NSString *)detailUrl
                                 requestMethod:(MNetworkRequestMethod)method
                                   requestType:(MNetworkRequestType)type
-                                requestHeader:(NSDictionary * _Nullable)headerDictionary
-                             requestParameter:(NSDictionary * _Nullable)parameterDictionary
+                                requestHeader:(NSDictionary *)headerDictionary
+                             requestParameter:(NSDictionary *)parameterDictionary
                               requestPriority:(MNetworkRequestPriority)priority {
     
     MNetworkBaseRequest *request = [[self alloc] init];
@@ -94,58 +87,59 @@
     request.requestHeader = headerDictionary;
     request.parameter = parameterDictionary;
     request.priority = priority;
+    request.isGoBackOnMainThread = YES;
     return request;
 }
 
 #pragma mark - init customUrl
-+ (instancetype _Nonnull)requestWithCustomUrl:(NSString * _Nonnull)customUrl {
++ (instancetype)requestWithCustomUrl:(NSString *)customUrl {
     return [self requestWithDeatilUrl:customUrl requestPriority:MNetworkRequestPriorityDefault];
 }
 
-+ (instancetype _Nonnull)requestWithCustomUrl:(NSString * _Nonnull)customUrl
++ (instancetype)requestWithCustomUrl:(NSString *)customUrl
                               requestPriority:(MNetworkRequestPriority)priority {
     return [self requestWithCustomUrl:customUrl requestMethod:MNetworkRequestMethodGET requestType:MNetworkRequestTypeNormal requestPriority:priority];
 }
 
-+ (instancetype _Nonnull)requestWithCustomUrl:(NSString * _Nonnull)customUrl
++ (instancetype)requestWithCustomUrl:(NSString *)customUrl
                                 requestMethod:(MNetworkRequestMethod)method
                                   requestType:(MNetworkRequestType)type {
     return [self requestWithCustomUrl:customUrl requestMethod:method requestType:type requestPriority:MNetworkRequestPriorityDefault];
 }
 
-+ (instancetype _Nonnull)requestWithCustomUrl:(NSString * _Nonnull)customUrl
++ (instancetype)requestWithCustomUrl:(NSString *)customUrl
                                 requestMethod:(MNetworkRequestMethod)method
                                   requestType:(MNetworkRequestType)type
                               requestPriority:(MNetworkRequestPriority)priority {
     return [self requestWithCustomUrl:customUrl requestMethod:method requestType:type requestHeader:nil requestParameter:nil requestPriority:priority];
 }
 
-+ (instancetype _Nonnull)requestWithCustomUrl:(NSString * _Nonnull)customUrl
-                                requestHeader:(NSDictionary * _Nullable)headerDictionary
-                             requestParameter:(NSDictionary * _Nullable)parameterDictionary {
++ (instancetype)requestWithCustomUrl:(NSString *)customUrl
+                                requestHeader:(NSDictionary *)headerDictionary
+                             requestParameter:(NSDictionary *)parameterDictionary {
     return [self requestWithCustomUrl:customUrl requestHeader:headerDictionary requestParameter:parameterDictionary requestPriority:MNetworkRequestPriorityDefault];
 }
 
-+ (instancetype _Nonnull)requestWithCustomUrl:(NSString * _Nonnull)customUrl
-                                requestHeader:(NSDictionary * _Nullable)headerDictionary
-                             requestParameter:(NSDictionary * _Nullable)parameterDictionary
++ (instancetype)requestWithCustomUrl:(NSString *)customUrl
+                                requestHeader:(NSDictionary *)headerDictionary
+                             requestParameter:(NSDictionary *)parameterDictionary
                               requestPriority:(MNetworkRequestPriority)priority {
     return [self requestWithCustomUrl:customUrl requestMethod:MNetworkRequestMethodGET requestType:MNetworkRequestTypeNormal requestHeader:headerDictionary requestParameter:parameterDictionary requestPriority:priority];
 }
 
-+ (instancetype _Nonnull)requestWithCustomUrl:(NSString * _Nonnull)customUrl
++ (instancetype)requestWithCustomUrl:(NSString *)customUrl
                                 requestMethod:(MNetworkRequestMethod)method
                                   requestType:(MNetworkRequestType)type
-                                requestHeader:(NSDictionary * _Nullable)headerDictionary
-                             requestParameter:(NSDictionary * _Nullable)parameterDictionary {
+                                requestHeader:(NSDictionary *)headerDictionary
+                             requestParameter:(NSDictionary *)parameterDictionary {
     return [self requestWithCustomUrl:customUrl requestMethod:method requestType:type requestHeader:headerDictionary requestParameter:parameterDictionary requestPriority:MNetworkRequestPriorityDefault];
 }
 
-+ (instancetype _Nonnull)requestWithCustomUrl:(NSString * _Nonnull)customUrl
++ (instancetype)requestWithCustomUrl:(NSString *)customUrl
                                 requestMethod:(MNetworkRequestMethod)method
                                   requestType:(MNetworkRequestType)type
-                                requestHeader:(NSDictionary * _Nullable)headerDictionary
-                             requestParameter:(NSDictionary * _Nullable)parameterDictionary
+                                requestHeader:(NSDictionary *)headerDictionary
+                             requestParameter:(NSDictionary *)parameterDictionary
                               requestPriority:(MNetworkRequestPriority)priority {
     
     MNetworkBaseRequest *request = [[self alloc] init];
@@ -155,12 +149,13 @@
     request.requestHeader = headerDictionary;
     request.parameter = parameterDictionary;
     request.priority = priority;
+    request.isGoBackOnMainThread = YES;
     return request;
 }
 
 #pragma mark - operation
 - (void)start {
-    
+    [[MNetworkAgent sharedAgent] addRequest:self];
 }
 
 - (void)suspend {
@@ -176,8 +171,8 @@
     [self clearBlock];
 }
 
-- (void)startWithCompleteBlockSuccess:(MNetworkRequestSuccessBlock _Nullable)successBlock
-                              failure:(MNetworkRequestFailureBlock _Nullable)failureBlock
+- (void)startWithCompleteBlockSuccess:(MNetworkRequestSuccessBlock)successBlock
+                              failure:(MNetworkRequestFailureBlock)failureBlock
                           immediately:(BOOL)immdiately {
     self.requestSuccessBlock = successBlock;
     self.requestFailBlock = failureBlock;
@@ -190,6 +185,41 @@
 - (void)clearBlock {
     self.requestSuccessBlock = nil;
     self.requestFailBlock = nil;
+}
+
+- (NSString *)requestMethodString {
+    
+    NSString *requestMethod = @"GET";
+    
+    switch (_requestMethod) {
+        case MNetworkRequestMethodGET:
+        
+            break;
+            
+        case MNetworkRequestMethodPOST:
+            requestMethod = @"POST";
+            break;
+            
+        case MNetworkRequestMethodHEAD:
+            requestMethod = @"HEAD";
+            break;
+            
+        case MNetworkRequestMethodPUT:
+            requestMethod = @"PUT";
+            break;
+            
+        case MNetworkRequestMethodDELETE:
+            requestMethod = @"DELETE";
+            break;
+            
+        case MNetworkRequestMethodPATCH:
+            requestMethod = @"PATCH";
+            break;
+            
+        default:
+            break;
+    }
+    return requestMethod;
 }
 
 #pragma mark - Request and Response Information
@@ -231,5 +261,19 @@
     return self.requestTask.state == NSURLSessionTaskStateSuspended;
 }
 
+- (BOOL)statusCodeValidator {
+    NSInteger statusCode = [self responseStatusCode];
+    return (statusCode >= 200 && statusCode <= 299) ? YES : NO;
+}
+
+#pragma mark - dealloc
+- (void)dealloc {
+#ifdef DEBUG
+    NSString *url = self.detailurl.length ? self.detailurl : self.customUrl;
+    if (self.detailurl.length) {
+        DLog(@"%@", [NSString stringWithFormat:@"%@ 请求移除", url]);
+    }
+#endif
+}
 
 @end

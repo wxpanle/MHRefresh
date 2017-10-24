@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef NS_ENUM(NSInteger, MNetworkRequestMethod) {
     MNetworkRequestMethodGET = 0,
     MNetworkRequestMethodPOST,
@@ -39,9 +41,9 @@ typedef void (^MNetworkRequestFailureBlock)(MNetworkBaseRequest * _Nullable requ
 
 @protocol MNetworkBaseRequestDelegate <NSObject>
 
-- (void)mRequestFinishSuccess:(MNetworkBaseRequest * _Nullable)request;
+- (void)mRequestFinishSuccess:(nullable MNetworkBaseRequest *)request;
 
-- (void)mRequestFinishFail:(MNetworkBaseRequest * _Nullable)request;
+- (void)mRequestFinishFail:(nullable MNetworkBaseRequest *)request;
 
 @end
 
@@ -76,7 +78,7 @@ typedef void (^MNetworkRequestFailureBlock)(MNetworkBaseRequest * _Nullable requ
 @property (nonatomic, assign, readonly) MNetworkRequestPriority priority;
 
 /** urlSessionTask */
-@property (nonatomic, strong, readonly, nullable) NSURLSessionTask *requestTask;
+@property (nonatomic, strong, nullable) NSURLSessionTask *requestTask;
 
 /** response */
 @property (nonatomic, strong, readonly, nullable) NSHTTPURLResponse *requestResponse;
@@ -84,17 +86,23 @@ typedef void (^MNetworkRequestFailureBlock)(MNetworkBaseRequest * _Nullable requ
 /** response status code */
 @property (nonatomic, assign, readonly) NSInteger responseStatusCode;
 
+/** dataResponseErrorCode */
+@property (nonatomic, assign) NSInteger dataResponseErrorCode;
+
 /** response header */
 @property (nonatomic, strong, readonly, nullable) NSDictionary *responseHeaders;
 
 /** response data */
-@property (nonatomic, strong, readonly, nullable) NSData *responseData;
+@property (nonatomic, strong, nullable) NSData *responseData;
 
 /** serialized response object */
-@property (nonatomic, strong, readonly, nullable) id responseObject;
+@property (nonatomic, strong, nullable) id responseObject;
 
 /** serialization or net error */
-@property (nonatomic, strong, readonly, nullable) NSError *error;
+@property (nonatomic, strong, nullable) NSError *error;
+
+/** dataResponseError */
+@property (nonatomic, strong, nullable) id dataResponseError;
 
 /** isCancel request */
 @property (nonatomic, assign, readonly, getter=isCancelled) BOOL cancel;
@@ -104,6 +112,9 @@ typedef void (^MNetworkRequestFailureBlock)(MNetworkBaseRequest * _Nullable requ
 
 /** isSuspend request */
 @property (nonatomic, assign, readonly, getter=isSuspend) BOOL suspend;
+
+/** request complete go back on main thread, default == YES, be careful use */
+@property (nonatomic, assign) BOOL isGoBackOnMainThread;
 
 /** successBlock */
 @property (nonatomic, copy, nullable) MNetworkRequestSuccessBlock requestSuccessBlock;
@@ -115,79 +126,79 @@ typedef void (^MNetworkRequestFailureBlock)(MNetworkBaseRequest * _Nullable requ
 ///------------------------------------------
 /// @name detailUrl no mention parameter use default
 ///------------------------------------------
-+ (instancetype _Nonnull)requestWithDeatilUrl:(NSString * _Nonnull)detailUrl;
++ (instancetype)requestWithDeatilUrl:(NSString *)detailUrl;
 
-+ (instancetype _Nonnull)requestWithDeatilUrl:(NSString * _Nonnull)detailUrl
++ (instancetype)requestWithDeatilUrl:(NSString *)detailUrl
                               requestPriority:(MNetworkRequestPriority)priority;
 
-+ (instancetype _Nonnull)requestWithDeatilUrl:(NSString * _Nonnull)detailUrl
++ (instancetype)requestWithDeatilUrl:(NSString *)detailUrl
                                 requestMethod:(MNetworkRequestMethod)method
                                   requestType:(MNetworkRequestType)type;
 
-+ (instancetype _Nonnull)requestWithDeatilUrl:(NSString * _Nonnull)detailUrl
++ (instancetype)requestWithDeatilUrl:(NSString *)detailUrl
                                 requestMethod:(MNetworkRequestMethod)method
                                   requestType:(MNetworkRequestType)type
                               requestPriority:(MNetworkRequestPriority)priority;
 
-+ (instancetype _Nonnull)requestWithDeatilUrl:(NSString * _Nonnull)detailUrl
-                                requestHeader:(NSDictionary * _Nullable)headerDictionary
-                             requestParameter:(NSDictionary * _Nullable)parameterDictionary;
++ (instancetype)requestWithDeatilUrl:(NSString *)detailUrl
+                                requestHeader:(nullable NSDictionary *)headerDictionary
+                             requestParameter:(nullable NSDictionary *)parameterDictionary;
 
-+ (instancetype _Nonnull)requestWithDeatilUrl:(NSString * _Nonnull)detailUrl
-                                requestHeader:(NSDictionary * _Nullable)headerDictionary
-                             requestParameter:(NSDictionary * _Nullable)parameterDictionary
++ (instancetype)requestWithDeatilUrl:(NSString *)detailUrl
+                                requestHeader:(nullable NSDictionary *)headerDictionary
+                             requestParameter:(nullable NSDictionary *)parameterDictionary
                               requestPriority:(MNetworkRequestPriority)priority;
 
-+ (instancetype _Nonnull)requestWithDeatilUrl:(NSString * _Nonnull)detailUrl
++ (instancetype _Nonnull)requestWithDeatilUrl:(NSString *)detailUrl
                                 requestMethod:(MNetworkRequestMethod)method
                                   requestType:(MNetworkRequestType)type
-                                requestHeader:(NSDictionary * _Nullable)headerDictionary
-                             requestParameter:(NSDictionary * _Nullable)parameterDictionary;
+                                requestHeader:(nullable NSDictionary *)headerDictionary
+                             requestParameter:(nullable NSDictionary *)parameterDictionary;
 
-+ (instancetype _Nonnull)requestWithDeatilUrl:(NSString * _Nonnull)detailUrl
++ (instancetype _Nonnull)requestWithDeatilUrl:(NSString *)detailUrl
                                 requestMethod:(MNetworkRequestMethod)method
                                   requestType:(MNetworkRequestType)type
-                                requestHeader:(NSDictionary * _Nullable)headerDictionary
-                             requestParameter:(NSDictionary * _Nullable)parameterDictionary
+                                requestHeader:(nullable NSDictionary *)headerDictionary
+                             requestParameter:(nullable NSDictionary *)parameterDictionary
                               requestPriority:(MNetworkRequestPriority)priority;
 
 ///-------------------------------
 /// @name customUrl
 ///-------------------------------
-+ (instancetype _Nonnull)requestWithCustomUrl:(NSString * _Nonnull)customUrl;
++ (instancetype _Nonnull)requestWithCustomUrl:(NSString *)customUrl;
 
-+ (instancetype _Nonnull)requestWithCustomUrl:(NSString * _Nonnull)customUrl
++ (instancetype _Nonnull)requestWithCustomUrl:(NSString *)customUrl
                               requestPriority:(MNetworkRequestPriority)priority;
 
-+ (instancetype _Nonnull)requestWithCustomUrl:(NSString * _Nonnull)customUrl
++ (instancetype _Nonnull)requestWithCustomUrl:(NSString *)customUrl
                                 requestMethod:(MNetworkRequestMethod)method
                                   requestType:(MNetworkRequestType)type;
 
-+ (instancetype _Nonnull)requestWithCustomUrl:(NSString * _Nonnull)customUrl
++ (instancetype _Nonnull)requestWithCustomUrl:(NSString *)customUrl
                                 requestMethod:(MNetworkRequestMethod)method
                                   requestType:(MNetworkRequestType)type
                               requestPriority:(MNetworkRequestPriority)priority;
 
-+ (instancetype _Nonnull)requestWithCustomUrl:(NSString * _Nonnull)customUrl
-                                requestHeader:(NSDictionary * _Nullable)headerDictionary
-                             requestParameter:(NSDictionary * _Nullable)parameterDictionary;
++ (instancetype _Nonnull)requestWithCustomUrl:(NSString *)customUrl
+                                requestHeader:(nullable NSDictionary *)headerDictionary
+                             requestParameter:(nullable NSDictionary *)parameterDictionary;
 
-+ (instancetype _Nonnull)requestWithCustomUrl:(NSString * _Nonnull)customUrl
-                                requestHeader:(NSDictionary * _Nullable)headerDictionary
-                             requestParameter:(NSDictionary * _Nullable)parameterDictionary
++ (instancetype _Nonnull)requestWithCustomUrl:(NSString *)customUrl
+                                requestHeader:(nullable NSDictionary *)headerDictionary
+                             requestParameter:(nullable NSDictionary *)parameterDictionary
                               requestPriority:(MNetworkRequestPriority)priority;
 
-+ (instancetype _Nonnull)requestWithCustomUrl:(NSString * _Nonnull)customUrl
++ (instancetype _Nonnull)requestWithCustomUrl:(NSString *)customUrl
                                 requestMethod:(MNetworkRequestMethod)method
                                   requestType:(MNetworkRequestType)type
-                                requestHeader:(NSDictionary * _Nullable)headerDictionary
-                             requestParameter:(NSDictionary * _Nullable)parameterDictionary;
+                                requestHeader:(nullable NSDictionary *)headerDictionary
+                             requestParameter:(nullable NSDictionary *)parameterDictionary;
 
-+ (instancetype _Nonnull)requestWithCustomUrl:(NSString * _Nonnull)customUrl
++ (instancetype _Nonnull)requestWithCustomUrl:(NSString *)customUrl
                                 requestMethod:(MNetworkRequestMethod)method
                                   requestType:(MNetworkRequestType)type
-                                requestHeader:(NSDictionary * _Nullable)headerDictionary
-                             requestParameter:(NSDictionary * _Nullable)parameterDictionary
+                                requestHeader:(nullable NSDictionary *)headerDictionary
+                             requestParameter:(nullable NSDictionary *)parameterDictionary
                               requestPriority:(MNetworkRequestPriority)priority;
 
 ///-------------------------------
@@ -201,10 +212,16 @@ typedef void (^MNetworkRequestFailureBlock)(MNetworkBaseRequest * _Nullable requ
 
 - (void)cancel;
 
-- (void)startWithCompleteBlockSuccess:(MNetworkRequestSuccessBlock _Nullable)successBlock
-                              failure:(MNetworkRequestFailureBlock _Nullable)failureBlock
+- (void)startWithCompleteBlockSuccess:(nullable MNetworkRequestSuccessBlock)successBlock
+                              failure:(nullable MNetworkRequestFailureBlock)failureBlock
                           immediately:(BOOL)immdiately;
 
 - (void)clearBlock;
 
+- (NSString *)requestMethodString;
+
+- (BOOL)statusCodeValidator;
+
 @end
+
+NS_ASSUME_NONNULL_END

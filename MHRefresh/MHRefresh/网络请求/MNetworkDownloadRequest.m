@@ -67,7 +67,6 @@
     return self.detailurl;
 }
 
-
 - (NSString *)basePath {
     if (_basePath == nil) {
         _basePath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"Mcache"];

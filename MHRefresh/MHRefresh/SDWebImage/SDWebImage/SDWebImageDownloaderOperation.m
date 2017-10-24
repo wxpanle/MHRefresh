@@ -93,7 +93,7 @@ typedef NSMutableDictionary<NSString *, id> SDCallbacksDictionary;
     SDCallbacksDictionary *callbacks = [NSMutableDictionary new];
     if (progressBlock) callbacks[kProgressCallbackKey] = [progressBlock copy];
     if (completedBlock) callbacks[kCompletedCallbackKey] = [completedBlock copy];
-    dispatch_barrier_async(self.barrierQueue, ^{
+    dispatch_barrier_async(self.barrierQueue, ^{//异步开启栅栏函数
         [self.callbackBlocks addObject:callbacks];
     });
     return callbacks;

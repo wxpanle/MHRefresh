@@ -10,5 +10,4 @@
 
 @interface MNetworkRequest : MNetworkBaseRequest
 
-
 @end

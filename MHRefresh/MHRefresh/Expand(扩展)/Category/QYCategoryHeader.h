@@ -22,4 +22,12 @@
 
 #import "NSArray+QYSafeAccess.h"
 
+#import "UIDevice+QYHardware.h"
+
+#import "NSString+QYPinyin.h"
+#import "NSString+QYSize.h"
+#import "NSString+QYBase64.h"
+#import "NSString+QYMD5.h"
+#import "NSString+QYUUID.h"
+
 #endif /* QYCategoryHeader_h */
