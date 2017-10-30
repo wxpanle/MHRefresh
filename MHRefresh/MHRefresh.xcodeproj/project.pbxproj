@@ -253,6 +253,7 @@
 		8BEA74671F9F1D360001F565 /* MNetworkBatchAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEA74661F9F1D360001F565 /* MNetworkBatchAgent.m */; };
 		8BEA746A1F9F23F50001F565 /* MNetworkChainRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEA74691F9F23F50001F565 /* MNetworkChainRequest.m */; };
 		8BEA746D1F9F288B0001F565 /* MNetworkChainAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEA746C1F9F288B0001F565 /* MNetworkChainAgent.m */; };
+		8BEA74781F9F58FF0001F565 /* MNetworkImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BEA74771F9F58FF0001F565 /* MNetworkImageCache.m */; };
 		8BF6729C1F6FF3E400CF312A /* UITableViewCell+QYIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6729B1F6FF3E400CF312A /* UITableViewCell+QYIdentifier.m */; };
 		8BF672A01F6FF55D00CF312A /* UICollectionViewCell+QYIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6729F1F6FF55D00CF312A /* UICollectionViewCell+QYIdentifier.m */; };
 		8BF672A31F6FF70200CF312A /* NSTimer+QYAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF672A21F6FF70200CF312A /* NSTimer+QYAddition.m */; };
@@ -708,6 +709,8 @@
 		8BEA74691F9F23F50001F565 /* MNetworkChainRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNetworkChainRequest.m; sourceTree = "<group>"; };
 		8BEA746B1F9F288B0001F565 /* MNetworkChainAgent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNetworkChainAgent.h; sourceTree = "<group>"; };
 		8BEA746C1F9F288B0001F565 /* MNetworkChainAgent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNetworkChainAgent.m; sourceTree = "<group>"; };
+		8BEA74761F9F58FF0001F565 /* MNetworkImageCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNetworkImageCache.h; sourceTree = "<group>"; };
+		8BEA74771F9F58FF0001F565 /* MNetworkImageCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MNetworkImageCache.m; sourceTree = "<group>"; };
 		8BF6729A1F6FF3E400CF312A /* UITableViewCell+QYIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+QYIdentifier.h"; sourceTree = "<group>"; };
 		8BF6729B1F6FF3E400CF312A /* UITableViewCell+QYIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+QYIdentifier.m"; sourceTree = "<group>"; };
 		8BF6729E1F6FF55D00CF312A /* UICollectionViewCell+QYIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+QYIdentifier.h"; sourceTree = "<group>"; };
@@ -1769,6 +1772,8 @@
 				8BEA74691F9F23F50001F565 /* MNetworkChainRequest.m */,
 				8BEA746B1F9F288B0001F565 /* MNetworkChainAgent.h */,
 				8BEA746C1F9F288B0001F565 /* MNetworkChainAgent.m */,
+				8BEA74761F9F58FF0001F565 /* MNetworkImageCache.h */,
+				8BEA74771F9F58FF0001F565 /* MNetworkImageCache.m */,
 			);
 			path = "网络请求";
 			sourceTree = "<group>";
@@ -2442,6 +2447,7 @@
 				8B195BAD1F60EE56005D6321 /* MPhotoCollectionViewCell.m in Sources */,
 				8B5D20001F26F9E900DD1898 /* AppDelegate.m in Sources */,
 				8B9CD0831F8B152200696D73 /* UIDevice+QYHardware.m in Sources */,
+				8BEA74781F9F58FF0001F565 /* MNetworkImageCache.m in Sources */,
 				8BF672A31F6FF70200CF312A /* NSTimer+QYAddition.m in Sources */,
 				8B195CC21F62C140005D6321 /* UIWindow+QYHierarchy.m in Sources */,
 				8B195BA11F60DC95005D6321 /* MPhotoAlbumHelp.m in Sources */,

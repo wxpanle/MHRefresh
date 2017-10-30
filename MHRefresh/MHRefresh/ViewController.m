@@ -34,18 +34,59 @@
 
 @property (nonatomic, assign) NSInteger number;
 
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+
 @end
 
 @implementation ViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self layoutUIOfSelf];
-    [self arithmeti];
+//    [self arithmeti];
 //    [self addImage];
     
-    DLog(@"系统字节数 %ld", [UIDevice ramSize]);
-    DLog(@"系统字节数 %llu", [NSProcessInfo processInfo].physicalMemory);
+//    DLog(@"系统字节数 %ld", [UIDevice ramSize]);
+//    DLog(@"系统字节数 %llu", [NSProcessInfo processInfo].physicalMemory);
+    
+    
+}
+
+- (BOOL)isEmail {
+    
+    NSString *string = _textField.text;
+    
+    NSRegularExpression *regular = [[NSRegularExpression alloc] initWithPattern:@"^[A-Za-z0-9_]{6,18}@[A-Za-z0-9.]+\\.[A-Za-z]{2,3}$" options:0 error:nil];
+    NSArray *array = [regular matchesInString:string options:0 range:NSMakeRange(0, string.length)];
+    BOOL flag = [string hasSuffix:@".com"] || [string hasSuffix:@".cn"] || [string hasSuffix:@".net"];
+    return array.count && flag;
+}
+
+- (BOOL)isPhoneNumber {
+    
+    /**
+     *  手机号以13、15、18、170开头，8个 \d 数字字符
+     */
+    NSString *mobileNoRegex = @"^1((3\\d|5[0-35-9]|8[025-9])\\d|70[059])\\d{7}$";
+    
+    return [self isValidateByRegex:mobileNoRegex];
+}
+
+- (BOOL)isValidateByRegex:(NSString *)regex {
+    NSString *string = _textField.text;
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+    return [pre evaluateWithObject:string];
+}
+
+- (BOOL)isVerifyCode {
+    
+    NSString *string = _textField.text;
+    
+    NSRegularExpression *regular = [[NSRegularExpression alloc] initWithPattern:@"^[0-9]{6}$" options:0 error:nil];
+    NSArray *array = [regular matchesInString:string options:0 range:NSMakeRange(0, string.length)];
+    return array.count != 0 ? YES : NO;
 }
 
 - (void)layoutUIOfSelf {
@@ -91,37 +132,50 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    progressHUD.label.text = @"测试";
-    progressHUD.label.textColor = [UIColor redColor];
-    progressHUD.removeFromSuperViewOnHide = YES;
+//    MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    progressHUD.label.text = @"测试";
+//    progressHUD.label.textColor = [UIColor redColor];
+//    progressHUD.removeFromSuperViewOnHide = YES;
+//
+//    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:@"https://oiijtsooa.qnssl.com/ao1.png"] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+//
+//        if ([NSThread isMainThread]) {
+//            DLog(@"下载进度 当前是主线程");
+//        } else {
+//            DLog(@"下载进度 当前不是主线程");
+//        }
+//
+//    } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+//        if ([NSThread isMainThread]) {
+//            DLog(@"下载完成 当前是主线程");
+//        } else {
+//            DLog(@"下载完成 当前不是主线程");
+//        }
+//    }];
+//
+//    NSString *str = @"中国";
+//
+//    NSString *str1 = [str pinyinWithPhoneticSymbol];
+//    NSString *str2 = [str pinyin];
+//    NSArray *str3 = [str pinyinArray];
+//    NSString *str4 = [str pinyinWithoutBlank];
+//    NSArray *str5 = [str pinyinInitialsArray];
+//    NSString *str6 = [str pinyinInitialsString];
+//
+//    DLog(@"11");
+//
+//    NSString *newInfoStr = @"https://itunes.apple.com/cn/app/%E9%87%8E%E8%9B%AE%E4%BA%BA%E5%A4%A7%E4%BD%9C%E6%88%98-%E5%A4%A7%E9%80%83%E6%9D%80/id1254324286?mt=8";
+//
+//    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:newInfoStr]]) {
+//        DLog(@"可以跳转");
+//        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:newInfoStr] options:@{} completionHandler:nil];
+//    }
     
-    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:@"https://oiijtsooa.qnssl.com/ao1.png"] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-        
-        if ([NSThread isMainThread]) {
-            DLog(@"下载进度 当前是主线程");
-        } else {
-            DLog(@"下载进度 当前不是主线程");
-        }
-        
-    } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
-        if ([NSThread isMainThread]) {
-            DLog(@"下载完成 当前是主线程");
-        } else {
-            DLog(@"下载完成 当前不是主线程");
-        }
-    }];
+//    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://itunes.apple.com/cn/app/%E9%87%8E%E8%9B%AE%E4%BA%BA%E5%A4%A7%E4%BD%9C%E6%88%98-%E5%A4%A7%E9%80%83%E6%9D%80/id1254324286?mt=8"] options:@{} completionHandler:nil];
     
-    NSString *str = @"中国";
-
-    NSString *str1 = [str pinyinWithPhoneticSymbol];
-    NSString *str2 = [str pinyin];
-    NSArray *str3 = [str pinyinArray];
-    NSString *str4 = [str pinyinWithoutBlank];
-    NSArray *str5 = [str pinyinInitialsArray];
-    NSString *str6 = [str pinyinInitialsString];
     
-    DLog(@"11");
+    
+//    方式二：
 }
 
 - (void)logMainThread {
@@ -130,6 +184,28 @@
     } else {
         DLog(@"当前不是主线程");
     }
+}
+
+- (IBAction)judhe:(UIButton *)sender {
+    
+    if ([self isEmail]) {
+        DLog(@"是邮箱");
+    } else {
+        DLog(@"不是邮箱");
+    }
+    
+    if ([self isPhoneNumber]) {
+        DLog(@"是电话");
+    } else {
+        DLog(@"不是电话");
+    }
+    
+    if ([self isVerifyCode]) {
+        DLog(@"是验证码");
+    } else {
+        DLog(@"不是验证码");
+    }
+    
 }
 
 //+ (NSString *)encode(String str) {
