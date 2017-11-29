@@ -15,6 +15,7 @@ typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
     /**
      * By default, when a URL fail to be downloaded, the URL is blacklisted so the library won't keep trying.
      * This flag disable this blacklisting.
+     * 每一个下载都会提供一个URL 如果这个URL是错误的  SD不会在下次继续尝试下载
      */
     SDWebImageRetryFailed = 1 << 0,
 
@@ -25,13 +26,13 @@ typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
     SDWebImageLowPriority = 1 << 1,
 
     /**
-     * This flag disables on-disk caching
+     * This flag disables on-disk caching  不把图片加载到内存中
      */
     SDWebImageCacheMemoryOnly = 1 << 2,
 
     /**
      * This flag enables progressive download, the image is displayed progressively during download as a browser would do.
-     * By default, the image is only displayed once completely downloaded.
+     * By default, the image is only displayed once completely downloaded.  附带下载进度
      */
     SDWebImageProgressiveDownload = 1 << 3,
 
@@ -42,36 +43,42 @@ typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
      * If a cached image is refreshed, the completion block is called once with the cached image and again with the final image.
      *
      * Use this flag only if you can't make your URLs static with embedded cache busting parameter.
+     * 刷新下载的缓存
      */
     SDWebImageRefreshCached = 1 << 4,
 
     /**
      * In iOS 4+, continue the download of the image if the app goes to background. This is achieved by asking the system for
      * extra time in background to let the request finish. If the background task expires the operation will be cancelled.
+     * 后台下载
      */
     SDWebImageContinueInBackground = 1 << 5,
 
     /**
      * Handles cookies stored in NSHTTPCookieStore by setting
      * NSMutableURLRequest.HTTPShouldHandleCookies = YES;
+     * 处理cookies
      */
     SDWebImageHandleCookies = 1 << 6,
 
     /**
      * Enable to allow untrusted SSL certificates.
      * Useful for testing purposes. Use with caution in production.
+     * 允许验证证书
      */
     SDWebImageAllowInvalidSSLCertificates = 1 << 7,
 
     /**
      * By default, images are loaded in the order in which they were queued. This flag moves them to
      * the front of the queue.
+     * 高权限下载
      */
     SDWebImageHighPriority = 1 << 8,
     
     /**
      * By default, placeholder images are loaded while the image is loading. This flag will delay the loading
      * of the placeholder image until after the image has finished loading.
+     * image 结束下载展示占位图片
      */
     SDWebImageDelayPlaceholder = 1 << 9,
 
@@ -79,6 +86,7 @@ typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
      * We usually don't call transformDownloadedImage delegate method on animated images,
      * as most transformation code would mangle it.
      * Use this flag to transform them anyway.
+     * 自定义图片属性
      */
     SDWebImageTransformAnimatedImage = 1 << 10,
     
@@ -86,6 +94,7 @@ typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
      * By default, image is added to the imageView after download. But in some cases, we want to
      * have the hand before setting the image (apply a filter or add it with cross-fade animation for instance)
      * Use this flag if you want to manually set the image in the completion when success
+     * 自己设置image  可以给图片添加动画
      */
     SDWebImageAvoidAutoSetImage = 1 << 11,
     
@@ -93,12 +102,14 @@ typedef NS_OPTIONS(NSUInteger, SDWebImageOptions) {
      * By default, images are decoded respecting their original size. On iOS, this flag will scale down the
      * images to a size compatible with the constrained memory of devices.
      * If `SDWebImageProgressiveDownload` flag is set the scale down is deactivated.
+     * 压缩大图
      */
     SDWebImageScaleDownLargeImages = 1 << 12
 };
 
 typedef void(^SDExternalCompletionBlock)(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL);
 
+//
 typedef void(^SDInternalCompletionBlock)(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL);
 
 typedef NSString * _Nullable (^SDWebImageCacheKeyFilterBlock)(NSURL * _Nullable url);
@@ -112,7 +123,7 @@ typedef NSString * _Nullable (^SDWebImageCacheKeyFilterBlock)(NSURL * _Nullable 
 
 /**
  * Controls which image should be downloaded when the image is not found in the cache.
- *
+ * 在缓存中没发现该图片  是不是应该下载该图片
  * @param imageManager The current `SDWebImageManager`
  * @param imageURL     The url of the image to be downloaded
  *
@@ -123,7 +134,7 @@ typedef NSString * _Nullable (^SDWebImageCacheKeyFilterBlock)(NSURL * _Nullable 
 /**
  * Allows to transform the image immediately after it has been downloaded and just before to cache it on disk and memory.
  * NOTE: This method is called from a global queue in order to not to block the main thread.
- *
+ *  自由转化图片
  * @param imageManager The current `SDWebImageManager`
  * @param image        The image to transform
  * @param imageURL     The url of the image to transform
@@ -160,11 +171,11 @@ SDWebImageManager *manager = [SDWebImageManager sharedManager];
 
 @property (weak, nonatomic, nullable) id <SDWebImageManagerDelegate> delegate;
 
-@property (strong, nonatomic, readonly, nullable) SDImageCache *imageCache;
-@property (strong, nonatomic, readonly, nullable) SDWebImageDownloader *imageDownloader;
+@property (strong, nonatomic, readonly, nullable) SDImageCache *imageCache;       //缓存
+@property (strong, nonatomic, readonly, nullable) SDWebImageDownloader *imageDownloader;  //下载
 
 /**
- * The cache filter is a block used each time SDWebImageManager need to convert an URL into a cache key. This can
+ * The cache filter(过滤) is a block used each time SDWebImageManager need to convert(转化) an URL into a cache key. This can
  * be used to remove dynamic part of an image URL.
  *
  * The following example sets a filter in the application delegate that will remove any query-string from the

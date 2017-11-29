@@ -35,17 +35,18 @@ static char TAG_ACTIVITY_SHOW;
                           progress:(nullable SDWebImageDownloaderProgressBlock)progressBlock
                          completed:(nullable SDExternalCompletionBlock)completedBlock {
     NSString *validOperationKey = operationKey ?: NSStringFromClass([self class]);
-    [self sd_cancelImageLoadOperationWithKey:validOperationKey];
-    objc_setAssociatedObject(self, &imageURLKey, url, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self sd_cancelImageLoadOperationWithKey:validOperationKey];  //取消一个下载
+    objc_setAssociatedObject(self, &imageURLKey, url, OBJC_ASSOCIATION_RETAIN_NONATOMIC); //设置关联
     
     if (!(options & SDWebImageDelayPlaceholder)) {
-        dispatch_main_async_safe(^{
+        dispatch_main_async_safe(^{ //设置占位符
             [self sd_setImage:placeholder imageData:nil basedOnClassOrViaCustomSetImageBlock:setImageBlock];
         });
     }
     
     if (url) {
         // check if activityView is enabled or not
+        //是否需要展示下载活动指示器
         if ([self sd_showActivityIndicatorView]) {
             [self sd_addActivityIndicator];
         }
@@ -53,7 +54,7 @@ static char TAG_ACTIVITY_SHOW;
         __weak __typeof(self)wself = self;
         id <SDWebImageOperation> operation = [SDWebImageManager.sharedManager loadImageWithURL:url options:options progress:progressBlock completed:^(UIImage *image, NSData *data, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
             __strong __typeof (wself) sself = wself;
-            [sself sd_removeActivityIndicator];
+            [sself sd_removeActivityIndicator]; //移除
             if (!sself) {
                 return;
             }
@@ -82,7 +83,7 @@ static char TAG_ACTIVITY_SHOW;
     } else {
         dispatch_main_async_safe(^{
             [self sd_removeActivityIndicator];
-            if (completedBlock) {
+            if (completedBlock) { //回调错误信息
                 NSError *error = [NSError errorWithDomain:SDWebImageErrorDomain code:-1 userInfo:@{NSLocalizedDescriptionKey : @"Trying to load a nil url"}];
                 completedBlock(nil, error, SDImageCacheTypeNone, url);
             }

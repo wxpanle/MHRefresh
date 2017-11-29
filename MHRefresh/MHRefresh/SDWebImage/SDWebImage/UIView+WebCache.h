@@ -12,6 +12,7 @@
 
 #import "SDWebImageManager.h"
 
+//设置imageBlock
 typedef void(^SDSetImageBlock)(UIImage * _Nullable image, NSData * _Nullable imageData);
 
 @interface UIView (WebCache)
@@ -27,7 +28,7 @@ typedef void(^SDSetImageBlock)(UIImage * _Nullable image, NSData * _Nullable ima
 /**
  * Set the imageView `image` with an `url` and optionally a placeholder image.
  *
- * The download is asynchronous and cached.
+ * The download is asynchronous and cached.  异步并且缓存
  *
  * @param url            The url for the image.
  * @param placeholder    The image to be set initially, until the image request finishes.
@@ -65,7 +66,7 @@ typedef void(^SDSetImageBlock)(UIImage * _Nullable image, NSData * _Nullable ima
 - (void)sd_setShowActivityIndicatorView:(BOOL)show;
 
 /**
- *  set desired UIActivityIndicatorViewStyle
+ *  set desired UIActivityIndicatorViewStyle  //图片加载动画
  *
  *  @param style The style of the UIActivityIndicatorView
  */

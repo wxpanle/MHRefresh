@@ -13,7 +13,7 @@ static const size_t kBitsPerComponent = 8;
 @implementation UIImage (QYAlpha)
 
 - (BOOL)hasAlpha {
-    
+
     CGImageAlphaInfo alphaInfo = CGImageGetAlphaInfo(self.CGImage);
     
     if (alphaInfo == kCGImageAlphaFirst ||

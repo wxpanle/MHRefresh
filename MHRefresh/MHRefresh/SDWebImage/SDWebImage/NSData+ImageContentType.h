@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger, SDImageFormat) {
     SDImageFormatGIF,
     SDImageFormatTIFF,
     SDImageFormatWebP
-};
+};// image 格式 枚举
 
 @interface NSData (ImageContentType)
 
@@ -28,6 +28,6 @@ typedef NS_ENUM(NSInteger, SDImageFormat) {
  *
  *  @return the image format as `SDImageFormat` (enum)
  */
-+ (SDImageFormat)sd_imageFormatForImageData:(nullable NSData *)data;
++ (SDImageFormat)sd_imageFormatForImageData:(nullable NSData *)data;   //根据图片二进制信息返回图片对应的格式
 
 @end

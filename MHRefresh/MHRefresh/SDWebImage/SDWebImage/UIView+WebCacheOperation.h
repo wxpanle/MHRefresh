@@ -16,7 +16,7 @@
 
 /**
  *  Set the image load operation (storage in a UIView based dictionary)
- *
+ *  
  *  @param operation the operation
  *  @param key       key for storing the operation
  */
@@ -24,7 +24,7 @@
 
 /**
  *  Cancel all operations for the current UIView and key
- *
+ *  取消所有的操作和当前view
  *  @param key key for identifying the operations
  */
 - (void)sd_cancelImageLoadOperationWithKey:(nullable NSString *)key;

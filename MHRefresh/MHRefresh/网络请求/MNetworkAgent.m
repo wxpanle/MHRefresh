@@ -64,13 +64,14 @@
         
         //配置AF
         _manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:_netWorkConfig.sessionConfiguration];
-        _manager.completionQueue = dispatch_queue_create("com.qydm.network.completion", DISPATCH_QUEUE_CONCURRENT);
+        _completionQueue = dispatch_queue_create("com.qydm.network.completion", DISPATCH_QUEUE_CONCURRENT);
+        _manager.completionQueue = _completionQueue;
         
         pthread_mutex_init(&_lock, NULL);
         
         AFCompoundResponseSerializer *serializer = [AFCompoundResponseSerializer compoundSerializerWithResponseSerializers:@[[AFJSONResponseSerializer serializer], [AFImageResponseSerializer serializer]]];
         _manager.responseSerializer = serializer;
-        serializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"video/mp4", nil];
+        serializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"video/mp4", @"audio/mp3", nil];
         AFJSONRequestSerializer *requestSerialzer = [AFJSONRequestSerializer serializer];
         requestSerialzer.timeoutInterval = 30.0;
         
@@ -406,6 +407,7 @@
                 request.requestFailBlock(request);
             }
         });
+        return nil;
     }
     
     NSURLSessionDownloadTask *downloadTask = [_manager downloadTaskWithRequest:urlRequest progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -415,6 +417,8 @@
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         [self handleDownloadRequestWithRequest:request error:error];
     }];
+    
+    request.requestTask = downloadTask;
     
     return downloadTask;
 }
@@ -469,7 +473,7 @@
         case MNetworkRequestPriorityHight:
         case MNetworkRequestPriorityDefault: {
             
-            if (error != nil) {//请求成功
+            if (error == nil) {//请求成功
                 NSArray *array = self.downloadRequestRecord[request.storeKey];
                 for (MNetworkDownloadRequest *request in array) {
                     [self downloadRequestSuccessCallBack:request];
@@ -571,19 +575,23 @@
     
     if ([request isKindOfClass:[MNetworkDownloadRequest class]]) {
         if (request.customUrl) {
-            return request.customUrl;
+            return [self encodingUrlString:request.customUrl];
         } else {
-            return [NSString stringWithFormat:@"%@/%@", _netWorkConfig.cdnUrl, request.detailurl];
+            return  [self encodingUrlString:[NSString stringWithFormat:@"%@/%@", _netWorkConfig.cdnUrl, request.detailurl]];
         }
     } else {
         if (request.customUrl) {
-            return request.customUrl;
+            return [self encodingUrlString:request.customUrl];
         } else {
-            return [NSString stringWithFormat:@"%@/%@", _netWorkConfig.baseUrl, request.detailurl];
+            return [self encodingUrlString:[NSString stringWithFormat:@"%@/%@", _netWorkConfig.baseUrl, request.detailurl]];
         }
     }
     
     return nil;
+}
+
+- (NSString *)encodingUrlString:(NSString *)urlString {
+    return [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 }
 
 #pragma mark - getter

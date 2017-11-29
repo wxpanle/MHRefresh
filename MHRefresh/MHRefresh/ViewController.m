@@ -22,11 +22,20 @@
 #import "SDWebImageDownloader.h"
 #endif
 
-@interface ViewController () <QYPreviewViewControllerDelegate, QYPreviewViewControllerDataSource>
+#import "QYCToOcheader.h"
+
+#import "MNetworkAgent.h"
+#import "MNetworkDownloadRequest.h"
+
+#if __has_include(<AFNetworking/AFNetworking.h>)
+#import <AFNetworking/AFNetworking.h>
+#else
+#import "AFNetworking.h"
+#endif
+
+@interface ViewController () <QYPreviewViewControllerDelegate, QYPreviewViewControllerDataSource, UITextViewDelegate>
 
 @property (nonatomic, strong) MPreviewCardView *cardView;
-
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
@@ -34,59 +43,188 @@
 
 @property (nonatomic, assign) NSInteger number;
 
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (nonatomic, strong) UITextView *textView;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+@property (nonatomic, strong) UIImageView *tempImageView;
+
+@property (nonatomic, strong) UIButton *btn;
 
 @end
 
 @implementation ViewController
 
-
+__weak NSString *srting_weak_ = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    MNetworkDownloadRequest *downloadRequest = [MNetworkDownloadRequest requestWithCustomUrl:@"https://oiijtsooa.qnssl.com/根回し 染みる 徹する従来.mp3"];
+    MNetworkDownloadRequest *downloadRequest = [MNetworkDownloadRequest downloadRequestWithCustomUrl:@"https://oiijtsooa.qnssl.com/根回し 染みる 徹する従来.mp3" downloadType:MNetworkDownloadTypeAudio downloadPriority:MNetworkRequestPriorityDefault];
+
+    [downloadRequest startWithProgressBlock:^(CGFloat progress) {
+        DLog(@"%f", progress);
+    } success:^(MNetworkBaseRequest * _Nullable request) {
+        DLog(@"下载成功");
+    } failure:^(MNetworkBaseRequest * _Nullable request) {
+        DLog(@"下载失败");
+    } immediately:YES];
+    
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    AFCompoundResponseSerializer *ser = [AFCompoundResponseSerializer compoundSerializerWithResponseSerializers:@[[AFJSONResponseSerializer serializer], [AFImageResponseSerializer serializer]]];
+//    manager.responseSerializer = ser;
+//    ser.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"video/mp4", @"audio/mp3", nil];
+    
+//    [manager GET:urlString parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+//        DLog(@"%f", downloadProgress.totalUnitCount);
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        DLog(@"下载成功");
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        DLog(@"下载失败");
+//    }];
+    
+    
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, 200)];
+//    view.backgroundColor = [UIColor redColor];
+//    [self.view addSubview:view];
+//
+//    self.tempImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_W)];
+//    self.tempImageView.center = CGPointMake(SCREEN_W / 2.0, 200);
+//    self.tempImageView.contentMode = UIViewContentModeCenter;
+//    [view addSubview:self.tempImageView];
+//
+//    self.btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [self.btn setTitle:@"按钮" forState:UIControlStateNormal];
+//    [self.btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [self.btn addTarget:self action:@selector(button:) forControlEvents:UIControlEventTouchUpInside];
+//    self.btn.frame = CGRectMake(0, 300, 60, 40);
+//    [self.view addSubview:self.btn];
 //    [self layoutUIOfSelf];
-//    [self arithmeti];
-//    [self addImage];
+//
+//    UITextView *textView = [[UITextView alloc] init];
+//    textView.frame = CGRectMake(15, 50, SCREEN_W - 30, 100);
+//    [textView becomeFirstResponder];
+//    textView.delegate = self;
+//    [self.view addSubview:textView];
+//    self.textView = textView;
+//
+//    self.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.6];
+//
+//    NSObject *obj = [[NSObject alloc] init];
+//    DLog(@"1 Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)obj));
+//
+//    NSObject *__weak weakObj = obj;
+//    DLog(@"2 Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)obj));
+//    DLog(@"3 Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)weakObj));
+//    NSObject *obj2 = obj;
+//    DLog(@"4 Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)obj));
     
-//    DLog(@"系统字节数 %ld", [UIDevice ramSize]);
-//    DLog(@"系统字节数 %llu", [NSProcessInfo processInfo].physicalMemory);
+//    obj = nil;
+//    NSLog(@"Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)weakObj));
     
+//    void (^aBlock)(void) = ^() {
+        //
+//        DLog(@"%@",weakObj);
+//        DLog(@"5 Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)weakObj));
+//        DLog(@"6 Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)weakObj));
+//    };
+//    aBlock();
+//    DLog(@"7 Retain count is %ld", CFGetRetainCount((__bridge CFTypeRef)obj));
+    
+//    if (@available(iOS 11.0, *)) {
+//        DLog(@"%@", NSStringFromUIEdgeInsets(self.view.safeAreaInsets));
+//    } else {
+//        // Fallback on earlier versions
+//    }
+    
+    
+//    NSString *filePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+//    DLog(@"11%@", filePath);
+//
+//    filePath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
+//    DLog(@"22%@", filePath);
+//
+//    filePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+//    DLog(@"33%@", filePath);
+    
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        
+//        dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+//
+////        dispatch_group_t group = dispatch_group_create();
+////
+////        dispatch_group_enter(group);
+//
+//        __block int count = 0;
+//
+//        void (^test)(void) = ^{
+//            count++;
+//            if (count >= 10) {
+//                dispatch_semaphore_signal(semaphore);
+//                DLog(@"释放信号量");
+//            }
+//        };
+//
+//        for (int i = 0; i < 10; i++) {
+//            DLog(@"开始循环");
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                test();
+//            });
+//        }
+//
+//        dispatch_time_t timeout = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC));
+//        dispatch_semaphore_wait(semaphore, timeout);
+////        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+//        DLog(@"开始执行");
+//    });
+    
+    
+//#define kDevice_iPhoneX CGSizeEqualToSize(CGSizeMake(375, 812), [[UIScreen mainScreen] bounds].size)
+//    // 或者
+//    if (UIScreen.mainScreen.bounds.size.height == 812) {
+//        NSLog(@"this is iPhone X");
+//    }
+
+//
+//    #define KIsiPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen ma
+    //场景一
+//    NSString *string = [NSString stringWithFormat:@"qy"];
+//    srting_weak_ = string;
+    
+    //场景二
+//    @autoreleasepool {
+//        NSString *string = [NSString stringWithFormat:@"qy"];
+//        srting_weak_ = string;
+//    }
+    
+//    //场景三
+//    NSString *string = nil;
+//    @autoreleasepool {
+//        string = [NSString stringWithFormat:@"qy"];
+//        string_weak_ = string;
+//    }
+    
+//    DLog(@"string 0 - %@", srting_weak_);
+    
+    
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    
+    NSInteger user_id = 3725;
+    
+    [dictionary setValue:@(user_id) forKey:@"user_id"];
+    
+    DLog(@"测试");
     
 }
 
-- (BOOL)isEmail {
-    
-    NSString *string = _textField.text;
-    
-    NSRegularExpression *regular = [[NSRegularExpression alloc] initWithPattern:@"^[A-Za-z0-9_]{6,18}@[A-Za-z0-9.]+\\.[A-Za-z]{2,3}$" options:0 error:nil];
-    NSArray *array = [regular matchesInString:string options:0 range:NSMakeRange(0, string.length)];
-    BOOL flag = [string hasSuffix:@".com"] || [string hasSuffix:@".cn"] || [string hasSuffix:@".net"];
-    return array.count && flag;
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    self.textView.inputAccessoryView.backgroundColor = [UIColor blueColor];
+    self.textView.inputView.backgroundColor = [UIColor redColor];
 }
 
-- (BOOL)isPhoneNumber {
-    
-    /**
-     *  手机号以13、15、18、170开头，8个 \d 数字字符
-     */
-    NSString *mobileNoRegex = @"^1((3\\d|5[0-35-9]|8[025-9])\\d|70[059])\\d{7}$";
-    
-    return [self isValidateByRegex:mobileNoRegex];
-}
-
-- (BOOL)isValidateByRegex:(NSString *)regex {
-    NSString *string = _textField.text;
-    NSPredicate *pre = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
-    return [pre evaluateWithObject:string];
-}
-
-- (BOOL)isVerifyCode {
-    
-    NSString *string = _textField.text;
-    
-    NSRegularExpression *regular = [[NSRegularExpression alloc] initWithPattern:@"^[0-9]{6}$" options:0 error:nil];
-    NSArray *array = [regular matchesInString:string options:0 range:NSMakeRange(0, string.length)];
-    return array.count != 0 ? YES : NO;
+- (void)safeAreaInsetsDidChange API_AVAILABLE(ios(11.0),tvos(11.0)) {
+    DLog(@"%@", NSStringFromUIEdgeInsets(self.view.safeAreaInsets));
 }
 
 - (void)layoutUIOfSelf {
@@ -96,6 +234,16 @@
 - (void)layoutUIOtherPreviewCardView {
     self.cardView = [[MPreviewCardView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
     [self.cardView reloadDataWithSuperView:self.view andCurrentIndex:10];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    DLog(@"string 1 - %@", srting_weak_);
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    DLog(@"string 2 - %@", srting_weak_);
 }
 
 - (void)addImage {
@@ -128,56 +276,6 @@
     [[[CakeSortModel alloc] initWithCakeArray:nil] sort];
 }
 
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-//    MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    progressHUD.label.text = @"测试";
-//    progressHUD.label.textColor = [UIColor redColor];
-//    progressHUD.removeFromSuperViewOnHide = YES;
-//
-//    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:@"https://oiijtsooa.qnssl.com/ao1.png"] options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
-//
-//        if ([NSThread isMainThread]) {
-//            DLog(@"下载进度 当前是主线程");
-//        } else {
-//            DLog(@"下载进度 当前不是主线程");
-//        }
-//
-//    } completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
-//        if ([NSThread isMainThread]) {
-//            DLog(@"下载完成 当前是主线程");
-//        } else {
-//            DLog(@"下载完成 当前不是主线程");
-//        }
-//    }];
-//
-//    NSString *str = @"中国";
-//
-//    NSString *str1 = [str pinyinWithPhoneticSymbol];
-//    NSString *str2 = [str pinyin];
-//    NSArray *str3 = [str pinyinArray];
-//    NSString *str4 = [str pinyinWithoutBlank];
-//    NSArray *str5 = [str pinyinInitialsArray];
-//    NSString *str6 = [str pinyinInitialsString];
-//
-//    DLog(@"11");
-//
-//    NSString *newInfoStr = @"https://itunes.apple.com/cn/app/%E9%87%8E%E8%9B%AE%E4%BA%BA%E5%A4%A7%E4%BD%9C%E6%88%98-%E5%A4%A7%E9%80%83%E6%9D%80/id1254324286?mt=8";
-//
-//    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:newInfoStr]]) {
-//        DLog(@"可以跳转");
-//        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:newInfoStr] options:@{} completionHandler:nil];
-//    }
-    
-//    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"https://itunes.apple.com/cn/app/%E9%87%8E%E8%9B%AE%E4%BA%BA%E5%A4%A7%E4%BD%9C%E6%88%98-%E5%A4%A7%E9%80%83%E6%9D%80/id1254324286?mt=8"] options:@{} completionHandler:nil];
-    
-    
-    
-//    方式二：
-}
-
 - (void)logMainThread {
     if ([NSThread isMainThread]) {
         DLog(@"当前是主线程");
@@ -186,79 +284,18 @@
     }
 }
 
-- (IBAction)judhe:(UIButton *)sender {
+- (IBAction)button:(UIButton *)sender {
     
-    if ([self isEmail]) {
-        DLog(@"是邮箱");
-    } else {
-        DLog(@"不是邮箱");
-    }
+    UIImage *image = [UIImage imageNamed:@"ao1"];
     
-    if ([self isPhoneNumber]) {
-        DLog(@"是电话");
-    } else {
-        DLog(@"不是电话");
-    }
+    UIImage *resultImage = [image m_blurImageWithSize:CGSizeMake(8.0, 8.0) tintColor:[UIColor colorWithHexString:@"000000" alpha:0.5] blurFactor:1.0 maskImage:nil];
     
-    if ([self isVerifyCode]) {
-        DLog(@"是验证码");
-    } else {
-        DLog(@"不是验证码");
-    }
+//    UIImage *resultImage = [image lightImage];
+//
+//    UIImage *resultImage1 = [image blurredImageWithSize:self.imageView.sm_size tintColor:nil saturationDeltaFactor:0.2 maskImage:nil];
     
+    self.imageView.image = resultImage;
 }
-
-//+ (NSString *)encode(String str) {
-//
-//}
-
-////将字符转为unicode
-//public static String encode(String str) {
-//    if (null == str || str.equals(""))
-//        return "输入字符";
-//    StringBuffer sb = new StringBuffer();
-//    try {
-//        //用16bit数字编码表示一个字符，每8bit用byte表示。
-//        byte bytesUtf16[] = str.getBytes("UTF-16");
-//        for (int n = 0; n < bytesUtf16.length; n++) {
-//            // 截取后面8位，并用16进制表示。
-//            str = (java.lang.Integer.toHexString(bytesUtf16[n] & 0XFF));
-//            // 将获得的16进制表示连成串
-//            sb.append((str.length() == 1) ? ("0" + str) : str);
-//        }
-//        // 去除第一个标记字符
-//        str = sb.toString().toUpperCase().substring(4);
-//        char[] chs = str.toCharArray();
-//        str = "";
-//        for (int i = 0; i < chs.length; i = i + 4) {
-//            str += "\\u" + chs[i] + chs[i+1] + chs[i+2] + chs[i+3];
-//        }
-//    } catch (Exception e) {
-//        System.out.print(e.getMessage());
-//        str = "程序出现异常";
-//    } finally {
-//        return str;
-//    }
-//}
-//
-////將unicode转为字符
-//public static String decode(final String str) {
-//    if(null == str || str.equals("")){
-//        return "輸入unicode";
-//    }
-//    //用正则表达式验证
-//    Pattern p = Pattern.compile("(\\\\u[0-9a-fA-F]{4})+");
-//    Matcher m = p.matcher(str);
-//    if(!(m.find() && m.group().equals(str))){
-//        return "非法格式";
-//    }
-//    String[] strs = str.split("u");
-//    StringBuffer sb = new StringBuffer();
-//    for (int i = 1; i <= strs.length - 1; i++) {
-//        sb.append(new Character((char) Integer.parseInt(strs[i].replace("\\", ""), 16)));
-//    }
-//    return sb.toString();
-//}
 
 - (void)startPreview:(UITapGestureRecognizer *)tap {
     self.number = tap.view.tag;

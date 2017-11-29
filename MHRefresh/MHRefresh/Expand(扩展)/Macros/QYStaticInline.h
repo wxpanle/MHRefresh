@@ -41,5 +41,13 @@ static inline CGFLOAT_TYPE CGFloat_round(CGFLOAT_TYPE cgfloat) {
 #endif
 }
 
+static inline CGFLOAT_TYPE CGFloat_fab(CGFLOAT_TYPE cgFloat) {
+#if CGFLOAT_IS_DOUBLE
+    return fabs(cgFloat);
+#else
+    return fabsf(cgFloat);
+#endif
+}
+
 
 #endif /* QYStaticInline_h */

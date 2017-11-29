@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^ QYTimerActionBlock) ();
+typedef void (^ QYTimerActionBlock) (void);
 
 @interface NSTimer (QYBlocks)
 

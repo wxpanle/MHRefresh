@@ -30,16 +30,16 @@ typedef NSMutableDictionary<NSString *, id> SDOperationsDictionary;
 
 - (void)sd_setImageLoadOperation:(nullable id)operation forKey:(nullable NSString *)key {
     if (key) {
-        [self sd_cancelImageLoadOperationWithKey:key];
+        [self sd_cancelImageLoadOperationWithKey:key]; //先取消一个下载key  如果这个key值存在
         if (operation) {
-            SDOperationsDictionary *operationDictionary = [self operationDictionary];
+            SDOperationsDictionary *operationDictionary = [self operationDictionary]; //添加key
             operationDictionary[key] = operation;
         }
     }
 }
 
 - (void)sd_cancelImageLoadOperationWithKey:(nullable NSString *)key {
-    // Cancel in progress downloader from queue
+    // Cancel in progress downloader from queue  取消正在下载的图片
     SDOperationsDictionary *operationDictionary = [self operationDictionary];
     id operations = operationDictionary[key];
     if (operations) {
@@ -56,7 +56,7 @@ typedef NSMutableDictionary<NSString *, id> SDOperationsDictionary;
     }
 }
 
-- (void)sd_removeImageLoadOperationWithKey:(nullable NSString *)key {
+- (void)sd_removeImageLoadOperationWithKey:(nullable NSString *)key { //移除一个下载key
     if (key) {
         SDOperationsDictionary *operationDictionary = [self operationDictionary];
         [operationDictionary removeObjectForKey:key];

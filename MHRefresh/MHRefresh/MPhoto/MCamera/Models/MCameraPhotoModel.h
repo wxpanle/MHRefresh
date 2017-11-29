@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MCameraHeader.h"
 
-typedef void (^ MCameraNotAuthorizedBlock) ();
+typedef void (^ MCameraNotAuthorizedBlock) (void);
 
 typedef void (^ MCameraAddVideoLayerBlock) (CALayer *videoLayer);
 

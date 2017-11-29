@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger, QYShakeDirection) {
     QYShakeDirectionVertical
 };
 
-typedef void (^ QYShakeCompleteBlock) ();
+typedef void (^ QYShakeCompleteBlock) (void);
 
 @interface UIView (QYShake)
 
@@ -29,7 +29,7 @@ typedef void (^ QYShakeCompleteBlock) ();
 
 - (void)shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval;
 
-- (void)shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval completion:(void((^)()))handler;
+- (void)shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval completion:(void((^)(void)))handler;
 
 - (void)shake:(int)times withDelta:(CGFloat)delta speed:(NSTimeInterval)interval shakeDirection:(QYShakeDirection)shakeDirection;
 

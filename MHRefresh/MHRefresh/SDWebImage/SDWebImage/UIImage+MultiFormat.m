@@ -23,7 +23,7 @@
     }
     
     UIImage *image;
-    SDImageFormat imageFormat = [NSData sd_imageFormatForImageData:data];
+    SDImageFormat imageFormat = [NSData sd_imageFormatForImageData:data]; //获取格式
     if (imageFormat == SDImageFormatGIF) {
         image = [UIImage sd_animatedGIFWithData:data];
     }
@@ -50,7 +50,7 @@
 }
 
 #if SD_UIKIT || SD_WATCH
-+(UIImageOrientation)sd_imageOrientationFromImageData:(nonnull NSData *)imageData {
++(UIImageOrientation)sd_imageOrientationFromImageData:(nonnull NSData *)imageData {  //获取image方向
     UIImageOrientation result = UIImageOrientationUp;
     CGImageSourceRef imageSource = CGImageSourceCreateWithData((__bridge CFDataRef)imageData, NULL);
     if (imageSource) {

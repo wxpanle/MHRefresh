@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SDWebImageManager.h"
 
+//批量下载
 @class SDWebImagePrefetcher;
 
 @protocol SDWebImagePrefetcherDelegate <NSObject>
@@ -16,7 +17,7 @@
 @optional
 
 /**
- * Called when an image was prefetched.
+ * Called when an image was prefetched.  每次下载完成一个图片的时候
  *
  * @param imagePrefetcher The current image prefetcher
  * @param imageURL        The image url that was prefetched
@@ -26,7 +27,7 @@
 - (void)imagePrefetcher:(nonnull SDWebImagePrefetcher *)imagePrefetcher didPrefetchURL:(nullable NSURL *)imageURL finishedCount:(NSUInteger)finishedCount totalCount:(NSUInteger)totalCount;
 
 /**
- * Called when all images are prefetched.
+ * Called when all images are prefetched.  所有的图片下载完成
  * @param imagePrefetcher The current image prefetcher
  * @param totalCount      The total number of images that were prefetched (whether successful or not)
  * @param skippedCount    The total number of images that were skipped
@@ -35,7 +36,9 @@
 
 @end
 
+//进程block
 typedef void(^SDWebImagePrefetcherProgressBlock)(NSUInteger noOfFinishedUrls, NSUInteger noOfTotalUrls);
+//完成block
 typedef void(^SDWebImagePrefetcherCompletionBlock)(NSUInteger noOfFinishedUrls, NSUInteger noOfSkippedUrls);
 
 /**
@@ -50,11 +53,13 @@ typedef void(^SDWebImagePrefetcherCompletionBlock)(NSUInteger noOfFinishedUrls, 
 
 /**
  * Maximum number of URLs to prefetch at the same time. Defaults to 3.
+ * 同一时间允许下载最大数量
  */
 @property (nonatomic, assign) NSUInteger maxConcurrentDownloads;
 
 /**
  * SDWebImageOptions for prefetcher. Defaults to SDWebImageLowPriority.
+ *
  */
 @property (nonatomic, assign) SDWebImageOptions options;
 
@@ -67,11 +72,13 @@ typedef void(^SDWebImagePrefetcherCompletionBlock)(NSUInteger noOfFinishedUrls, 
 
 /**
  * Return the global image prefetcher instance.
+ * 单例管理
  */
 + (nonnull instancetype)sharedImagePrefetcher;
 
 /**
  * Allows you to instantiate a prefetcher with any arbitrary image manager.
+ * NS_DESIGNATED_INITIALIZER 建议初始化方法
  */
 - (nonnull instancetype)initWithImageManager:(nonnull SDWebImageManager *)manager NS_DESIGNATED_INITIALIZER;
 

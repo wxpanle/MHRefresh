@@ -11,6 +11,7 @@
 
 @interface UIImage (MultiFormat)
 
+//sd对image的处理
 + (nullable UIImage *)sd_imageWithData:(nullable NSData *)data;
 - (nullable NSData *)sd_imageData;
 - (nullable NSData *)sd_imageDataAsFormat:(SDImageFormat)imageFormat;

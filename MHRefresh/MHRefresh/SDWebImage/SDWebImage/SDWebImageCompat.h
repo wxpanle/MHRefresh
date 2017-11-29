@@ -7,8 +7,10 @@
  * file that was distributed with this source code.
  */
 
+//系统配置头文件
 #import <TargetConditionals.h>
 
+//
 #ifdef __OBJC_GC__
     #error SDWebImage does not support Objective-C Garbage Collection
 #endif
@@ -82,7 +84,7 @@
 #endif
 
 #if OS_OBJECT_USE_OBJC
-    #undef SDDispatchQueueRelease
+    #undef SDDispatchQueueRelease //释放掉宏定义
     #undef SDDispatchQueueSetterSementics
     #define SDDispatchQueueRelease(q)
     #define SDDispatchQueueSetterSementics strong

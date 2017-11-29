@@ -10,9 +10,6 @@
 
 @interface UIImage (QYBlur)
 
-- (UIImage *)lightImage;
-- (UIImage *)extraLightImage;
-- (UIImage *)darkImage;
 - (UIImage *)tintedImageWithColor:(UIColor *)tintColor;
 
 - (UIImage *)blurredImageWithRadius:(CGFloat)blurRadius;
@@ -21,5 +18,10 @@
                         tintColor:(UIColor *)tintColor
             saturationDeltaFactor:(CGFloat)saturationDeltaFactor
                         maskImage:(UIImage *)maskImage;
+
+- (UIImage *)m_blurImageWithSize:(CGSize)blurSize
+                       tintColor:(UIColor *)tintColor
+                      blurFactor:(CGFloat)blurFactor
+                       maskImage:(UIImage *)maskImage;
 
 @end

@@ -15,13 +15,13 @@
 
 @interface SDWebImageDownloader () <NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 
-@property (strong, nonatomic, nonnull) NSOperationQueue *downloadQueue;
-@property (weak, nonatomic, nullable) NSOperation *lastAddedOperation;
-@property (assign, nonatomic, nullable) Class operationClass;
-@property (strong, nonatomic, nonnull) NSMutableDictionary<NSURL *, SDWebImageDownloaderOperation *> *URLOperations;
-@property (strong, nonatomic, nullable) SDHTTPHeadersMutableDictionary *HTTPHeaders;
+@property (strong, nonatomic, nonnull) NSOperationQueue *downloadQueue;  //下载队列
+@property (weak, nonatomic, nullable) NSOperation *lastAddedOperation;  //用于记录最后添加的操作
+@property (assign, nonatomic, nullable) Class operationClass;   //支持自定义操作类
+@property (strong, nonatomic, nonnull) NSMutableDictionary<NSURL *, SDWebImageDownloaderOperation *> *URLOperations;  //存放所有的operations
+@property (strong, nonatomic, nullable) SDHTTPHeadersMutableDictionary *HTTPHeaders; //http 请求头
 // This queue is used to serialize the handling of the network responses of all the download operation in a single queue
-@property (SDDispatchQueueSetterSementics, nonatomic, nullable) dispatch_queue_t barrierQueue;
+@property (SDDispatchQueueSetterSementics, nonatomic, nullable) dispatch_queue_t barrierQueue;  //栅栏队列
 
 // The session in which data tasks will run
 @property (strong, nonatomic) NSURLSession *session;
@@ -29,7 +29,10 @@
 @end
 
 @implementation SDWebImageDownloader
-
+/*
+ + (void)load 程序运行后立即执行   自身未定义  不沿用父类的方法 先执行类本身的load  后执行类别的方法
+ + (void)initialize 在当前类第一次调用实例或者类方法时调用  沿用父类的方法   覆盖父类的方法  只执行一个
+ */
 + (void)initialize {
     // Bind SDNetworkActivityIndicator if available (download it here: http://github.com/rs/SDNetworkActivityIndicator )
     // To use it, just add #import "SDNetworkActivityIndicator.h" in addition to the SDWebImage import
@@ -70,18 +73,18 @@
     if ((self = [super init])) {
         _operationClass = [SDWebImageDownloaderOperation class];
         _shouldDecompressImages = YES;
-        _executionOrder = SDWebImageDownloaderFIFOExecutionOrder;
+        _executionOrder = SDWebImageDownloaderFIFOExecutionOrder; //先进先出
         _downloadQueue = [NSOperationQueue new];
-        _downloadQueue.maxConcurrentOperationCount = 6;
+        _downloadQueue.maxConcurrentOperationCount = 6;  //最大执行线程数
         _downloadQueue.name = @"com.hackemist.SDWebImageDownloader";
         _URLOperations = [NSMutableDictionary new];
 #ifdef SD_WEBP
-        _HTTPHeaders = [@{@"Accept": @"image/webp,image/*;q=0.8"} mutableCopy];
+        _HTTPHeaders = [@{@"Accept": @"image/webp,image/*;q=0.8"} mutableCopy]; //q  权重（0 - 1）  默认  优先接受image/webp  其次接受/image
 #else
         _HTTPHeaders = [@{@"Accept": @"image/*;q=0.8"} mutableCopy];
 #endif
-        _barrierQueue = dispatch_queue_create("com.hackemist.SDWebImageDownloaderBarrierQueue", DISPATCH_QUEUE_CONCURRENT);
-        _downloadTimeout = 15.0;
+        _barrierQueue = dispatch_queue_create("com.hackemist.SDWebImageDownloaderBarrierQueue", DISPATCH_QUEUE_CONCURRENT);  //栅栏队列
+        _downloadTimeout = 15.0;  //超时时间
 
         [self createNewSessionWithConfiguration:sessionConfiguration];
     }
@@ -89,13 +92,13 @@
 }
 
 - (void)createNewSessionWithConfiguration:(NSURLSessionConfiguration *)sessionConfiguration {
-    [self cancelAllDownloads];
+    [self cancelAllDownloads];  //清除所有的下载
 
     if (self.session) {
-        [self.session invalidateAndCancel];
+        [self.session invalidateAndCancel];  //失效 session
     }
 
-    sessionConfiguration.timeoutIntervalForRequest = self.downloadTimeout;
+    sessionConfiguration.timeoutIntervalForRequest = self.downloadTimeout;  //设置超时
 
     /**
      *  Create the session for this task
@@ -116,7 +119,7 @@
 }
 
 - (void)setValue:(nullable NSString *)value forHTTPHeaderField:(nullable NSString *)field {
-    if (value) {
+    if (value) {  //设置头
         self.HTTPHeaders[field] = value;
     } else {
         [self.HTTPHeaders removeObjectForKey:field];
@@ -127,23 +130,23 @@
     return self.HTTPHeaders[field];
 }
 
-- (void)setMaxConcurrentDownloads:(NSInteger)maxConcurrentDownloads {
+- (void)setMaxConcurrentDownloads:(NSInteger)maxConcurrentDownloads {  //设置最大下载数
     _downloadQueue.maxConcurrentOperationCount = maxConcurrentDownloads;
 }
 
 - (NSUInteger)currentDownloadCount {
-    return _downloadQueue.operationCount;
+    return _downloadQueue.operationCount; //当前下载个数
 }
 
-- (NSInteger)maxConcurrentDownloads {
+- (NSInteger)maxConcurrentDownloads {// 最大下载个数
     return _downloadQueue.maxConcurrentOperationCount;
 }
 
 - (NSURLSessionConfiguration *)sessionConfiguration {
-    return self.session.configuration;
+    return self.session.configuration; //下载配置
 }
 
-- (void)setOperationClass:(nullable Class)operationClass {
+- (void)setOperationClass:(nullable Class)operationClass { //设置自定义
     if (operationClass && [operationClass isSubclassOfClass:[NSOperation class]] && [operationClass conformsToProtocol:@protocol(SDWebImageDownloaderOperationInterface)]) {
         _operationClass = operationClass;
     } else {
@@ -163,37 +166,45 @@
         if (timeoutInterval == 0.0) {
             timeoutInterval = 15.0;
         }
-
+        //为了防止重复缓存  禁止缓存image
         // In order to prevent from potential duplicate caching (NSURLCache + SDImageCache) we disable the cache for image requests if told otherwise
         NSURLRequestCachePolicy cachePolicy = options & SDWebImageDownloaderUseNSURLCache ? NSURLRequestUseProtocolCachePolicy : NSURLRequestReloadIgnoringLocalCacheData;
+        //创建请求
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url
                                                                     cachePolicy:cachePolicy
                                                                 timeoutInterval:timeoutInterval];
-        
+        //请求缓存策略
         request.HTTPShouldHandleCookies = (options & SDWebImageDownloaderHandleCookies);
         request.HTTPShouldUsePipelining = YES;
-        if (sself.headersFilter) {
+        if (sself.headersFilter) { //添加请求头
             request.allHTTPHeaderFields = sself.headersFilter(url, [sself.HTTPHeaders copy]);
         }
         else {
             request.allHTTPHeaderFields = sself.HTTPHeaders;
         }
+        
+        //创建操作对象
         SDWebImageDownloaderOperation *operation = [[sself.operationClass alloc] initWithRequest:request inSession:sself.session options:options];
         operation.shouldDecompressImages = sself.shouldDecompressImages;
         
+        //设置urlCredential
         if (sself.urlCredential) {
             operation.credential = sself.urlCredential;
         } else if (sself.username && sself.password) {
             operation.credential = [NSURLCredential credentialWithUser:sself.username password:sself.password persistence:NSURLCredentialPersistenceForSession];
         }
         
+        //设置操作级别
         if (options & SDWebImageDownloaderHighPriority) {
             operation.queuePriority = NSOperationQueuePriorityHigh;
         } else if (options & SDWebImageDownloaderLowPriority) {
             operation.queuePriority = NSOperationQueuePriorityLow;
         }
-
+        
+        //添加到队列
         [sself.downloadQueue addOperation:operation];
+        
+        //设置依赖
         if (sself.executionOrder == SDWebImageDownloaderLIFOExecutionOrder) {
             // Emulate LIFO execution order by systematically adding new operations as last operation's dependency
             [sself.lastAddedOperation addDependency:operation];
@@ -204,7 +215,7 @@
     }];
 }
 
-- (void)cancel:(nullable SDWebImageDownloadToken *)token {
+- (void)cancel:(nullable SDWebImageDownloadToken *)token {  //取消某个操作
     dispatch_barrier_async(self.barrierQueue, ^{
         SDWebImageDownloaderOperation *operation = self.URLOperations[token.url];
         BOOL canceled = [operation cancel:token.downloadOperationCancelToken];
@@ -228,7 +239,7 @@
 
     __block SDWebImageDownloadToken *token = nil;
 
-    dispatch_barrier_sync(self.barrierQueue, ^{
+    dispatch_barrier_sync(self.barrierQueue, ^{ //同步创建操作
         SDWebImageDownloaderOperation *operation = self.URLOperations[url];
         if (!operation) {
             operation = createCallback();

@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - FBRetainCycleDetector (0.1.3)
+  - IQKeyboardManager (4.0.13)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
   - MLeaksFinder (1.0.0):
@@ -22,6 +23,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - IQKeyboardManager
   - MBProgressHUD
   - MJRefresh
   - MLeaksFinder
@@ -29,10 +31,11 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   FBRetainCycleDetector: f0c7b290bf48ae77f6ae060843ce34ae341781eb
+  IQKeyboardManager: 8eab4d8111418414619d1df8e4779ce5d0f8d7e2
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
 
-PODFILE CHECKSUM: 30b56f9f86a488cd2e41326858b556969d36e9e5
+PODFILE CHECKSUM: 7f5d298e9d4a3f2def16cfa192650af24921f8f6
 
 COCOAPODS: 1.1.1

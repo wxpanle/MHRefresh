@@ -40,7 +40,4 @@ static inline CGFLOAT_TYPE CGFloat_asinf(CGFLOAT_TYPE cgfloat) {
 #endif
 }
 
-
-
-
 #endif /* QYPreviewImageHeader_h */

@@ -10,6 +10,7 @@
 
 #import "objc/runtime.h"
 
+//非arc工程警告
 #if !__has_feature(objc_arc)
 #error SDWebImage is ARC only. Either turn on ARC for the project or use -fobjc-arc flag
 #endif
@@ -26,10 +27,10 @@ inline UIImage *SDScaledImageForKey(NSString * _Nullable key, UIImage * _Nullabl
         NSMutableArray<UIImage *> *scaledImages = [NSMutableArray array];
 
         for (UIImage *tempImage in image.images) {
-            [scaledImages addObject:SDScaledImageForKey(key, tempImage)];
+            [scaledImages addObject:SDScaledImageForKey(key, tempImage)];  //递归调用
         }
         
-        UIImage *animatedImage = [UIImage animatedImageWithImages:scaledImages duration:image.duration];
+        UIImage *animatedImage = [UIImage animatedImageWithImages:scaledImages duration:image.duration]; //创建图片
 #ifdef SD_WEBP
         if (animatedImage) {
             SEL sd_webpLoopCount = NSSelectorFromString(@"sd_webpLoopCount");
@@ -48,7 +49,7 @@ inline UIImage *SDScaledImageForKey(NSString * _Nullable key, UIImage * _Nullabl
         if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
 #endif
             CGFloat scale = 1;
-            if (key.length >= 8) {
+            if (key.length >= 8) {   //分别图片x@2x.png  图片至少包含8位
                 NSRange range = [key rangeOfString:@"@2x."];
                 if (range.location != NSNotFound) {
                     scale = 2.0;
@@ -59,7 +60,7 @@ inline UIImage *SDScaledImageForKey(NSString * _Nullable key, UIImage * _Nullabl
                     scale = 3.0;
                 }
             }
-
+            //创建缩放后的image
             UIImage *scaledImage = [[UIImage alloc] initWithCGImage:image.CGImage scale:scale orientation:image.imageOrientation];
             image = scaledImage;
         }

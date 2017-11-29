@@ -25,6 +25,25 @@
 #define SCREEN_W_SCALE ([UIScreen mainScreen].bounds.size.width / 375)
 #define SCREEN_H_SCALE ([UIScreen mainScreen].bounds.size.height / 667)
 
+#define MAX_X(frame) CGRectGetMaxX(frame)
+#define MAX_Y(frame) CGRectGetMaxY(frame)
+
+#define DLOG_DEALLOC DLog(@"%@ dealloc", NSStringFromClass([self class]));
+
+//iPhoneX
+#define kIsiPhoneX (CGSizeEqualToSize(CGSizeMake(375.0f, 812.0f), [[UIScreen mainScreen] bounds].size) || \
+CGSizeEqualToSize(CGSizeMake(812.0f, 375.0f), [[UIScreen mainScreen] bounds].size))
+
+#define kStatusExtraHeight 24.0  //x 状态栏额外高度
+#define kHomeIndicator 34.0  //x 底部  额外 高度
+#define K_TOP_Y(number) (kIsiPhoneX ? number + kStatusExtraHeight : number)
+#define K_BOTTOM_OFFSET (kIsiPhoneX ? kHomeIndicator : 0.f)
+
+#define kStatusBarHeight ((kIsiPhoneX == YES) ? 44.0 : 20.0)
+#define kNavBarHeight 44.0
+#define kTabBarHeight ((kIsiPhoneX == YES) ? 83.0 : 49.0)
+#define kTopHeight (kStatusBarHeight + kNavBarHeight)
+
 //当前缩放
 #define SCREEN_SCALE [UIScreen mainScreen].scale
 

@@ -12,18 +12,18 @@
 
 @interface SDWebImageCombinedOperation : NSObject <SDWebImageOperation>
 
-@property (assign, nonatomic, getter = isCancelled) BOOL cancelled;
-@property (copy, nonatomic, nullable) SDWebImageNoParamsBlock cancelBlock;
-@property (strong, nonatomic, nullable) NSOperation *cacheOperation;
+@property (assign, nonatomic, getter = isCancelled) BOOL cancelled; //取消
+@property (copy, nonatomic, nullable) SDWebImageNoParamsBlock cancelBlock; //取消block
+@property (strong, nonatomic, nullable) NSOperation *cacheOperation; //缓存Operation
 
 @end
 
 @interface SDWebImageManager ()
 
-@property (strong, nonatomic, readwrite, nonnull) SDImageCache *imageCache;
-@property (strong, nonatomic, readwrite, nonnull) SDWebImageDownloader *imageDownloader;
-@property (strong, nonatomic, nonnull) NSMutableSet<NSURL *> *failedURLs;
-@property (strong, nonatomic, nonnull) NSMutableArray<SDWebImageCombinedOperation *> *runningOperations;
+@property (strong, nonatomic, readwrite, nonnull) SDImageCache *imageCache;  //缓存
+@property (strong, nonatomic, readwrite, nonnull) SDWebImageDownloader *imageDownloader;  //下载
+@property (strong, nonatomic, nonnull) NSMutableSet<NSURL *> *failedURLs; //是被url
+@property (strong, nonatomic, nonnull) NSMutableArray<SDWebImageCombinedOperation *> *runningOperations;  //运行中Operations
 
 @end
 
@@ -55,7 +55,7 @@
 }
 
 - (nullable NSString *)cacheKeyForURL:(nullable NSURL *)url {
-    if (!url) {
+    if (!url) { //url -> key
         return @"";
     }
 
@@ -65,7 +65,7 @@
         return url.absoluteString;
     }
 }
-
+//查看图片是否存在
 - (void)cachedImageExistsForURL:(nullable NSURL *)url
                      completion:(nullable SDWebImageCheckCacheCompletionBlock)completionBlock {
     NSString *key = [self cacheKeyForURL:url];
@@ -106,16 +106,16 @@
                                      options:(SDWebImageOptions)options
                                     progress:(nullable SDWebImageDownloaderProgressBlock)progressBlock
                                    completed:(nullable SDInternalCompletionBlock)completedBlock {
-    // Invoking this method without a completedBlock is pointless
+    // Invoking(调用) this method without a completedBlock is pointless(无意义的)
     NSAssert(completedBlock != nil, @"If you mean to prefetch the image, use -[SDWebImagePrefetcher prefetchURLs] instead");
 
-    // Very common mistake is to send the URL using NSString object instead of NSURL. For some strange reason, Xcode won't
-    // throw any warning for this type mismatch. Here we failsafe this error by allowing URLs to be passed as NSString.
+    // Very common mistake(错误) is to send the URL using NSString object instead of NSURL. For some strange(奇怪的) reason, Xcode won't
+    // throw any warning for this type mismatch(匹配). Here we failsafe this error by allowing URLs to be passed as NSString.
     if ([url isKindOfClass:NSString.class]) {
         url = [NSURL URLWithString:(NSString *)url];
     }
 
-    // Prevents app crashing on argument type error like sending NSNull instead of NSURL
+    // Prevents(预防) app crashing on argument(参数) type error like sending NSNull instead of NSURL
     if (![url isKindOfClass:NSURL.class]) {
         url = nil;
     }
@@ -124,7 +124,7 @@
     __weak SDWebImageCombinedOperation *weakOperation = operation;
 
     BOOL isFailedUrl = NO;
-    if (url) {
+    if (url) { //加锁判断是不是错误的url
         @synchronized (self.failedURLs) {
             isFailedUrl = [self.failedURLs containsObject:url];
         }
@@ -147,10 +147,10 @@
         }
 
         if ((!cachedImage || options & SDWebImageRefreshCached) && (![self.delegate respondsToSelector:@selector(imageManager:shouldDownloadImageForURL:)] || [self.delegate imageManager:self shouldDownloadImageForURL:url])) {
-            if (cachedImage && options & SDWebImageRefreshCached) {
+            if (cachedImage && options & SDWebImageRefreshCached) { //! > 算数运算符 > 关系运算符 > && > || > 逻辑运算符
                 // If image was found in the cache but SDWebImageRefreshCached is provided, notify about the cached image
                 // AND try to re-download it in order to let a chance to NSURLCache to refresh it from server.
-                [self callCompletionBlockForOperation:weakOperation completion:completedBlock image:cachedImage data:cachedData error:nil cacheType:cacheType finished:YES url:url];
+                [self callCompletionBlockForOperation:weakOperation completion:completedBlock image:cachedImage data:cachedData error:nil cacheType:cacheType finished:YES url:url]; //回调
             }
 
             // download if no image or requested to refresh anyway, and download allowed by delegate
@@ -165,9 +165,11 @@
             if (options & SDWebImageScaleDownLargeImages) downloaderOptions |= SDWebImageDownloaderScaleDownLargeImages;
             
             if (cachedImage && options & SDWebImageRefreshCached) {
+                //如果已经缓存  但是需要刷新缓存  则强制关闭下载
                 // force progressive off if image already cached but forced refreshing
                 downloaderOptions &= ~SDWebImageDownloaderProgressiveDownload;
                 // ignore image read from NSURLCache if image if cached but force refreshing
+                // 忽略缓存
                 downloaderOptions |= SDWebImageDownloaderIgnoreCachedResponse;
             }
             
@@ -200,8 +202,10 @@
                         }
                     }
                     
+                    //是否缓存在磁盘中
                     BOOL cacheOnDisk = !(options & SDWebImageCacheMemoryOnly);
 
+                    // 强制刷新缓存  缓存存在  下载image不存在
                     if (options & SDWebImageRefreshCached && cachedImage && !downloadedImage) {
                         // Image refresh hit the NSURLCache cache, do not call the completion block
                     } else if (downloadedImage && (!downloadedImage.images || (options & SDWebImageTransformAnimatedImage)) && [self.delegate respondsToSelector:@selector(imageManager:transformDownloadedImage:withURL:)]) {
@@ -214,10 +218,11 @@
                                 [self.imageCache storeImage:transformedImage imageData:(imageWasTransformed ? nil : downloadedData) forKey:key toDisk:cacheOnDisk completion:nil];
                             }
                             
+                            //回调
                             [self callCompletionBlockForOperation:strongOperation completion:completedBlock image:transformedImage data:downloadedData error:nil cacheType:SDImageCacheTypeNone finished:finished url:url];
                         });
                     } else {
-                        if (downloadedImage && finished) {
+                        if (downloadedImage && finished) { //缓存
                             [self.imageCache storeImage:downloadedImage imageData:downloadedData forKey:key toDisk:cacheOnDisk completion:nil];
                         }
                         [self callCompletionBlockForOperation:strongOperation completion:completedBlock image:downloadedImage data:downloadedData error:nil cacheType:SDImageCacheTypeNone finished:finished url:url];
@@ -259,6 +264,7 @@
     @synchronized (self.runningOperations) {
         NSArray<SDWebImageCombinedOperation *> *copiedOperations = [self.runningOperations copy];
         [copiedOperations makeObjectsPerformSelector:@selector(cancel)];
+        //取消一个数组
         [self.runningOperations removeObjectsInArray:copiedOperations];
     }
 }

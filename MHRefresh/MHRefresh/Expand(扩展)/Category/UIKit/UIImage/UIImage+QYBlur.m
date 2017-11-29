@@ -8,32 +8,19 @@
 
 #import "UIImage+QYBlur.h"
 #import <Accelerate/Accelerate.h>
+#import "QYStaticInline.h"
+#import "UIImage+QYAlpha.h"
+
+#if CGFLOAT_IS_DOUBLE
+#define MIN_EPSILON __DBL_EPSILON__
+#else
+#define MIN_EPSILON __FLT_EPSILON__
+#endif
+
+#define MIN_BLUR_FACTOR 0.025f
+#define MAX_BLUR_FACTOR 1.f
 
 @implementation UIImage (QYBlur)
-
-//| ----------------------------------------------------------------------------
-- (UIImage *)lightImage
-{
-    UIColor *tintColor = [UIColor colorWithWhite:1.0 alpha:0.3];
-    return [self blurredImageWithSize:CGSizeMake(60, 60) tintColor:tintColor saturationDeltaFactor:1.8 maskImage:nil];
-}
-
-
-//| ----------------------------------------------------------------------------
-- (UIImage *)extraLightImage
-{
-    UIColor *tintColor = [UIColor colorWithWhite:0.97 alpha:0.82];
-    return [self blurredImageWithSize:CGSizeMake(40, 40) tintColor:tintColor saturationDeltaFactor:1.8 maskImage:nil];
-}
-
-
-//| ----------------------------------------------------------------------------
-- (UIImage *)darkImage
-{
-    UIColor *tintColor = [UIColor colorWithWhite:0.11 alpha:0.73];
-    return [self blurredImageWithSize:CGSizeMake(40, 40) tintColor:tintColor saturationDeltaFactor:1.8 maskImage:nil];
-}
-
 
 //| ----------------------------------------------------------------------------
 - (UIImage *)tintedImageWithColor:(UIColor *)tintColor
@@ -76,27 +63,7 @@
 //| ----------------------------------------------------------------------------
 - (UIImage *)blurredImageWithSize:(CGSize)blurSize tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor maskImage:(UIImage *)maskImage
 {
-#define ENABLE_BLUR                     1
-#define ENABLE_SATURATION_ADJUSTMENT    1
-#define ENABLE_TINT                     1
-    
-    // Check pre-conditions.
-    if (self.size.width < 1 || self.size.height < 1)
-    {
-        NSLog(@"*** error: invalid size: (%.2f x %.2f). Both dimensions must be >= 1: %@", self.size.width, self.size.height, self);
-        return nil;
-    }
-    if (!self.CGImage)
-    {
-        NSLog(@"*** error: inputImage must be backed by a CGImage: %@", self);
-        return nil;
-    }
-    if (maskImage && !maskImage.CGImage)
-    {
-        NSLog(@"*** error: effectMaskImage must be backed by a CGImage: %@", maskImage);
-        return nil;
-    }
-    
+
     BOOL hasBlur = blurSize.width > __FLT_EPSILON__ || blurSize.height > __FLT_EPSILON__;
     BOOL hasSaturationChange = fabs(saturationDeltaFactor - 1.) > __FLT_EPSILON__;
     
@@ -142,7 +109,6 @@
         vImage_Error e = vImageBuffer_InitWithCGImage(&effectInBuffer, &format, NULL, self.CGImage, kvImagePrintDiagnosticsToConsole);
         if (e != kvImageNoError)
         {
-            NSLog(@"*** error: vImageBuffer_InitWithCGImage returned error code %zi for inputImage: %@", e, self);
             UIGraphicsEndImageContext();
             return nil;
         }
@@ -151,7 +117,6 @@
         inputBuffer = &effectInBuffer;
         outputBuffer = &scratchBuffer1;
         
-#if ENABLE_BLUR
         if (hasBlur)
         {
             CGFloat radiusX = [self gaussianBlurRadiusWithBlurRadius:blurSize.width * inputImageScale];
@@ -170,9 +135,7 @@
             inputBuffer = outputBuffer;
             outputBuffer = temp;
         }
-#endif
         
-#if ENABLE_SATURATION_ADJUSTMENT
         if (hasSaturationChange)
         {
             CGFloat s = saturationDeltaFactor;
@@ -197,7 +160,6 @@
             inputBuffer = outputBuffer;
             outputBuffer = temp;
         }
-#endif
         
         CGImageRef effectCGImage;
         if ( (effectCGImage = vImageCreateCGImageFromBuffer(inputBuffer, &format, &cleanupBuffer, NULL, kvImageNoAllocate, NULL)) == NULL ) {
@@ -226,7 +188,6 @@
         CGContextDrawImage(outputContext, outputImageRectInPoints, inputCGImage);
     }
     
-#if ENABLE_TINT
     // Add in color tint.
     if (tintColor)
     {
@@ -235,16 +196,242 @@
         CGContextFillRect(outputContext, outputImageRectInPoints);
         CGContextRestoreGState(outputContext);
     }
-#endif
     
     // Output image is ready.
     UIImage *outputImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     return outputImage;
-#undef ENABLE_BLUR
-#undef ENABLE_SATURATION_ADJUSTMENT
-#undef ENABLE_TINT
+}
+
+- (UIImage *)m_blurImageWithSize:(CGSize)blurSize
+                    tintColor:(UIColor *)tintColor
+                      blurFactor:(CGFloat)blurFactor
+                    maskImage:(UIImage *)maskImage {
+    
+    if (nil == self) {
+        return nil;
+    }
+    
+    if (self.size.width < 1.f || self.size.height < 1.f) {
+        return nil;
+    }
+    
+    if (!self.CGImage) {
+        return nil;
+    }
+    
+    if (maskImage && !maskImage.CGImage) {
+        return nil;
+    }
+    
+    CGRect imageRect = { CGPointZero, self.size };
+    UIImage *effectImage = self;
+    
+    CGFloat saturationDeltaFactor = [self adjustBlurFactor:blurFactor];
+    
+    BOOL hasBlur = blurSize.width > MIN_EPSILON || blurSize.height > MIN_EPSILON;
+    BOOL hasSaturationChange =  CGFloat_fab(saturationDeltaFactor - 1.) > MIN_EPSILON;
+    
+    //输入image
+    CGImageRef inputCGImage = self.CGImage;
+    //缩放比
+    CGFloat inputImageScale = self.scale;
+    
+    //输出size
+    CGSize outputImageSizeInPoints = self.size;
+    CGRect outputImageRectInPoints = { CGPointZero, outputImageSizeInPoints };
+    
+    //透明度
+    BOOL useOpaqueContext = [self hasAlpha];
+    
+    if (hasBlur || hasSaturationChange) {
+        
+        //获取图片数据
+        UIGraphicsBeginImageContextWithOptions(outputImageSizeInPoints, useOpaqueContext, inputImageScale);
+        CGContextRef effectInContext = UIGraphicsGetCurrentContext();
+        CGContextScaleCTM(effectInContext, 1.0, -1.0);
+        CGContextTranslateCTM(effectInContext, 0, -outputImageRectInPoints.size.height);
+        CGContextDrawImage(effectInContext, imageRect, inputCGImage);
+        
+        //设置图片初始化信息
+        vImage_Buffer effectInBuffer;
+        effectInBuffer.data = CGBitmapContextGetData(effectInContext);
+        effectInBuffer.width = CGBitmapContextGetWidth(effectInContext);
+        effectInBuffer.height = CGBitmapContextGetHeight(effectInContext);
+        effectInBuffer.rowBytes = CGBitmapContextGetBytesPerRow(effectInContext);
+        
+        //图片输出信息
+        UIGraphicsBeginImageContextWithOptions(outputImageSizeInPoints, useOpaqueContext, inputImageScale);
+        CGContextRef effectOutContext = UIGraphicsGetCurrentContext();
+        vImage_Buffer effectOutBuffer;
+        effectOutBuffer.data = CGBitmapContextGetData(effectOutContext);
+        effectOutBuffer.width = CGBitmapContextGetWidth(effectOutContext);
+        effectOutBuffer.height = CGBitmapContextGetHeight(effectOutContext);
+        effectOutBuffer.rowBytes = CGBitmapContextGetBytesPerRow(effectOutContext);
+        
+        if (hasBlur) {
+            
+            CGFloat radiusX = [self gaussianBlurRadiusWithBlurRadius:blurSize.width * inputImageScale];
+            CGFloat radiusY = [self gaussianBlurRadiusWithBlurRadius:blurSize.height * inputImageScale];
+            
+            vImageBoxConvolve_ARGB8888(&effectInBuffer, &effectOutBuffer, NULL, 0, 0, radiusY, radiusX, NULL, kvImageEdgeExtend);
+            vImageBoxConvolve_ARGB8888(&effectOutBuffer, &effectInBuffer, NULL, 0, 0, radiusY, radiusX, NULL, kvImageEdgeExtend);
+            vImageBoxConvolve_ARGB8888(&effectInBuffer, &effectOutBuffer, NULL, 0, 0, radiusY, radiusX, NULL, kvImageEdgeExtend);
+        }
+        
+        BOOL effectImageBuffersAreSwapped = NO;
+        if (hasSaturationChange) {
+            
+            CGFloat s = saturationDeltaFactor;
+            // These values appear in the W3C Filter Effects spec:
+            // https://dvcs.w3.org/hg/FXTF/raw-file/default/filters/index.html#grayscaleEquivalent
+            //
+            CGFloat floatingPointSaturationMatrix[] = {
+                0.0722 + 0.9278 * s,  0.0722 - 0.0722 * s,  0.0722 - 0.0722 * s,  0,
+                0.7152 - 0.7152 * s,  0.7152 + 0.2848 * s,  0.7152 - 0.7152 * s,  0,
+                0.2126 - 0.2126 * s,  0.2126 - 0.2126 * s,  0.2126 + 0.7873 * s,  0,
+                0,                    0,                    0,                    1,
+            };
+            const int32_t divisor = 256;
+            NSUInteger matrixSize = sizeof(floatingPointSaturationMatrix) / sizeof(floatingPointSaturationMatrix[0]);
+            int16_t saturationMatrix[matrixSize];
+            for (NSUInteger i = 0; i < matrixSize; ++i) {
+                saturationMatrix[i] = (int16_t)CGFloat_round(floatingPointSaturationMatrix[i] * divisor);
+            }
+            
+            if (hasBlur) {
+                vImageMatrixMultiply_ARGB8888(&effectOutBuffer, &effectInBuffer, saturationMatrix, divisor, NULL, NULL, kvImageNoFlags);
+                effectImageBuffersAreSwapped = YES;
+            } else {
+                vImageMatrixMultiply_ARGB8888(&effectInBuffer, &effectOutBuffer, saturationMatrix, divisor, NULL, NULL, kvImageNoFlags);
+            }
+        
+        }
+        
+        //绘制图片
+        effectImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    
+    //设置输出环境
+    UIGraphicsBeginImageContextWithOptions(outputImageSizeInPoints, useOpaqueContext, inputImageScale);
+    CGContextRef outputContext = UIGraphicsGetCurrentContext();
+    CGContextScaleCTM(outputContext, 1.0, -1.0);
+    CGContextTranslateCTM(outputContext, 0, -outputImageSizeInPoints.height);
+    
+    //绘制image
+    CGContextDrawImage(outputContext, imageRect, inputCGImage);
+    
+    if (hasBlur) {
+        CGContextSaveGState(outputContext);
+        
+        if (maskImage) {
+            CGContextClipToMask(outputContext, imageRect, maskImage.CGImage);
+        }
+        CGContextDrawImage(outputContext, imageRect, effectImage.CGImage);
+        CGContextRestoreGState(outputContext);
+    }
+    
+    // Add in color tint.
+    if (tintColor) {
+        CGContextSaveGState(outputContext);
+        CGContextSetFillColorWithColor(outputContext, tintColor.CGColor);
+        CGContextFillRect(outputContext, outputImageRectInPoints);
+        CGContextRestoreGState(outputContext);
+    }
+    
+    // Output image is ready.
+    UIImage *outputImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return outputImage;
+}
+
+- (UIImage *)blurryImage:(UIImage *)image withBlurLevel:(CGFloat)blur
+{
+    if (image==nil)
+    {
+        NSLog(@"error:为图片添加模糊效果时，未能获取原始图片");
+        return nil;
+    }
+    //模糊度,
+    if (blur < 0.025f) {
+        blur = 0.025f;
+    } else if (blur > 1.0f) {
+        blur = 1.0f;
+    }
+    
+    //boxSize必须大于0
+    int boxSize = (int)(blur * 100);
+    boxSize -= (boxSize % 2) + 1;
+    NSLog(@"boxSize:%i",boxSize);
+    //图像处理
+    CGImageRef img = image.CGImage;
+    //需要引入#import <Accelerate/Accelerate.h>
+    
+    //图像缓存,输入缓存，输出缓存
+    vImage_Buffer inBuffer, outBuffer;
+    vImage_Error error;
+    //像素缓存
+    void *pixelBuffer;
+    
+    //数据源提供者，Defines an opaque type that supplies Quartz with data.
+    CGDataProviderRef inProvider = CGImageGetDataProvider(img);
+    // provider’s data.
+    CFDataRef inBitmapData = CGDataProviderCopyData(inProvider);
+    
+    //宽，高，字节/行，data
+    inBuffer.width = CGImageGetWidth(img);
+    inBuffer.height = CGImageGetHeight(img);
+    inBuffer.rowBytes = CGImageGetBytesPerRow(img);
+    inBuffer.data = (void*)CFDataGetBytePtr(inBitmapData);
+    
+    //像数缓存，字节行*图片高
+    pixelBuffer = malloc(CGImageGetBytesPerRow(img) * CGImageGetHeight(img));
+    outBuffer.data = pixelBuffer;
+    outBuffer.width = CGImageGetWidth(img);
+    outBuffer.height = CGImageGetHeight(img);
+    outBuffer.rowBytes = CGImageGetBytesPerRow(img);
+    // 第三个中间的缓存区,抗锯齿的效果
+    void *pixelBuffer2 = malloc(CGImageGetBytesPerRow(img) * CGImageGetHeight(img));
+    vImage_Buffer outBuffer2;
+    outBuffer2.data = pixelBuffer2;
+    outBuffer2.width = CGImageGetWidth(img);
+    outBuffer2.height = CGImageGetHeight(img);
+    outBuffer2.rowBytes = CGImageGetBytesPerRow(img);
+    //Convolves a region of interest within an ARGB8888 source image by an implicit M x N kernel that has the effect of a box filter.
+    error = vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer2, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
+    error = vImageBoxConvolve_ARGB8888(&outBuffer2, &inBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
+    error = vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
+    if (error) {
+        NSLog(@"error from convolution %ld", error);
+    }
+    //    NSLog(@"字节组成部分：%zu",CGImageGetBitsPerComponent(img));
+    //颜色空间DeviceRGB
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    //用图片创建上下文,CGImageGetBitsPerComponent(img),7,8
+    CGContextRef ctx = CGBitmapContextCreate(
+                                             outBuffer.data,
+                                             outBuffer.width,
+                                             outBuffer.height,
+                                             8,
+                                             outBuffer.rowBytes,
+                                             colorSpace,
+                                             CGImageGetBitmapInfo(image.CGImage));
+    
+    //根据上下文，处理过的图片，重新组件
+    CGImageRef imageRef = CGBitmapContextCreateImage (ctx);
+    UIImage *returnImage = [UIImage imageWithCGImage:imageRef];
+    //clean up
+    CGContextRelease(ctx);
+    CGColorSpaceRelease(colorSpace);
+    free(pixelBuffer);
+    free(pixelBuffer2);
+    CFRelease(inBitmapData);
+    //CGColorSpaceRelease(colorSpace);   //多余的释放
+    CGImageRelease(imageRef);
+    return returnImage;
 }
 
 
@@ -260,13 +447,15 @@
 //
 // ... if d is odd, use three box-blurs of size 'd', centered on the output pixel.
 //
-- (CGFloat)gaussianBlurRadiusWithBlurRadius:(CGFloat)blurRadius
-{
-    if (blurRadius - 2. < __FLT_EPSILON__) {
-        blurRadius = 2.;
+- (CGFloat)gaussianBlurRadiusWithBlurRadius:(CGFloat)blurRadius {
+    
+    if (blurRadius - 2.f < MIN_EPSILON) {
+        blurRadius = 2.f;
     }
+    
     uint32_t radius = floor((blurRadius * 3. * sqrt(2 * M_PI) / 4 + 0.5) / 2);
-    radius |= 1; // force radius to be odd so that the three box-blur methodology works.
+    //最后一位置1
+    radius |= 1;
     return radius;
 }
 
@@ -276,5 +465,26 @@
 //
 void cleanupBuffer(void *userData, void *buf_data)
 { free(buf_data); }
+
+#pragma mark - private
+/**
+ 调整模糊因子范围
+
+ @param factor  传入值
+ @return        返回值
+ */
+- (CGFloat)adjustBlurFactor:(CGFloat)factor {
+    
+    
+    if (factor < MIN_BLUR_FACTOR) {
+        return MIN_BLUR_FACTOR;
+    }
+    
+    if (factor > MAX_BLUR_FACTOR) {
+        return MAX_BLUR_FACTOR;
+    }
+    
+    return factor;
+}
 
 @end

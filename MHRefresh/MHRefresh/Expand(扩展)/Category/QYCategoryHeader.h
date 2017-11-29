@@ -9,6 +9,7 @@
 #ifndef QYCategoryHeader_h
 #define QYCategoryHeader_h
 
+#pragma mark - UIKit
 #import "UIWindow+QYHierarchy.h"
 
 #import "UIFont+QYPingFang.h"
@@ -24,6 +25,9 @@
 
 #import "UIDevice+QYHardware.h"
 
+#import "UIImage+QYBlur.h"
+
+#pragma mark - Foundation
 #import "NSString+QYPinyin.h"
 #import "NSString+QYSize.h"
 #import "NSString+QYBase64.h"

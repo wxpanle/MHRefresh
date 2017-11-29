@@ -112,7 +112,7 @@
 - (void)prefetchURLs:(nullable NSArray<NSURL *> *)urls
             progress:(nullable SDWebImagePrefetcherProgressBlock)progressBlock
            completed:(nullable SDWebImagePrefetcherCompletionBlock)completionBlock {
-    [self cancelPrefetching]; // Prevent duplicate prefetch request
+    [self cancelPrefetching]; // Prevent duplicate prefetch request  //防止二次下载
     self.startedTime = CFAbsoluteTimeGetCurrent();
     self.prefetchURLs = urls;
     self.completionBlock = completionBlock;

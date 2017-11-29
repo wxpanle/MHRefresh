@@ -14,6 +14,7 @@
 
 @implementation UIImage (GIF)
 
+//只会获取第一张图
 + (UIImage *)sd_animatedGIFWithData:(NSData *)data {
     if (!data) {
         return nil;
