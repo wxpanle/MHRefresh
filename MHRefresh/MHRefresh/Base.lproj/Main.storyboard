@@ -24,7 +24,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JyD-AE-IF4" customClass="UIImageView">
                                 <rect key="frame" x="0.0" y="113" width="414" height="414"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.77442318925233644" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JyD-AE-IF4" secondAttribute="height" multiplier="1:1" id="8be-ZH-prm"/>
                                 </constraints>
@@ -37,7 +37,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.49626132433113435" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="1" green="0.49658659462616822" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="8Pe-FW-gMk" firstAttribute="centerX" secondItem="MPP-hH-eO7" secondAttribute="centerX" id="Fhf-Qv-SJb"/>
                             <constraint firstItem="JyD-AE-IF4" firstAttribute="top" secondItem="xk8-rk-JuC" secondAttribute="bottom" constant="93" id="Lse-m3-lqC"/>

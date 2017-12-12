@@ -19,10 +19,6 @@
 
 #import "UIColor+QYQuickCreate.h"
 
-#import "NSObject+QYPrintf.h"
-
-#import "NSArray+QYSafeAccess.h"
-
 #import "UIDevice+QYHardware.h"
 
 #import "UIImage+QYBlur.h"
@@ -33,5 +29,13 @@
 #import "NSString+QYBase64.h"
 #import "NSString+QYMD5.h"
 #import "NSString+QYUUID.h"
+
+#import "NSObject+QYPrintf.h"
+#import "NSObject+QYClassIdentify.h"
+
+#import "NSArray+QYSafeAccess.h"
+#import "NSDictionary+QYSafeAccess.h"
+
+
 
 #endif /* QYCategoryHeader_h */

@@ -33,6 +33,8 @@
 #import "AFNetworking.h"
 #endif
 
+#import <AssertMacros.h>
+
 @interface ViewController () <QYPreviewViewControllerDelegate, QYPreviewViewControllerDataSource, UITextViewDelegate>
 
 @property (nonatomic, strong) MPreviewCardView *cardView;
@@ -60,16 +62,26 @@ __weak NSString *srting_weak_ = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSLocalizedString(@"ceshi", @"This is a ceshi");
+    
+//    __Require_Quiet(<#assertion#>, <#exceptionLabel#>)
+//    NSObject *object = nil;
+//    __Require_noErr_Quiet(0, _out);
+//    DLog(@"我被执行了1");
+//
+//_out:
+//    DLog(@"我被执行了");
+    
 //    MNetworkDownloadRequest *downloadRequest = [MNetworkDownloadRequest requestWithCustomUrl:@"https://oiijtsooa.qnssl.com/根回し 染みる 徹する従来.mp3"];
-    MNetworkDownloadRequest *downloadRequest = [MNetworkDownloadRequest downloadRequestWithCustomUrl:@"https://oiijtsooa.qnssl.com/根回し 染みる 徹する従来.mp3" downloadType:MNetworkDownloadTypeAudio downloadPriority:MNetworkRequestPriorityDefault];
-
-    [downloadRequest startWithProgressBlock:^(CGFloat progress) {
-        DLog(@"%f", progress);
-    } success:^(MNetworkBaseRequest * _Nullable request) {
-        DLog(@"下载成功");
-    } failure:^(MNetworkBaseRequest * _Nullable request) {
-        DLog(@"下载失败");
-    } immediately:YES];
+//    MNetworkDownloadRequest *downloadRequest = [MNetworkDownloadRequest downloadRequestWithCustomUrl:@"https://oiijtsooa.qnssl.com/根回し 染みる 徹する従来.mp3" downloadType:MNetworkDownloadTypeAudio downloadPriority:MNetworkRequestPriorityDefault];
+//
+//    [downloadRequest startWithProgressBlock:^(CGFloat progress) {
+//        DLog(@"%f", progress);
+//    } success:^(MNetworkBaseRequest * _Nullable request) {
+//        DLog(@"下载成功");
+//    } failure:^(MNetworkBaseRequest * _Nullable request) {
+//        DLog(@"下载失败");
+//    } immediately:YES];
     
 //    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 //    AFCompoundResponseSerializer *ser = [AFCompoundResponseSerializer compoundSerializerWithResponseSerializers:@[[AFJSONResponseSerializer serializer], [AFImageResponseSerializer serializer]]];

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		26F599390836D839C6C0A3AD /* libPods-MHRefresh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6170A4A14039BBA741EEAAD2 /* libPods-MHRefresh.a */; };
+		8B0583271FCFED56003D3238 /* UrlENcode in Resources */ = {isa = PBXBuildFile; fileRef = 8B0583261FCFED56003D3238 /* UrlENcode */; };
 		8B195B851F5F9C8D005D6321 /* MCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B195B841F5F9C8D005D6321 /* MCameraController.m */; };
 		8B195B881F5F9CBE005D6321 /* MCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B195B871F5F9CBE005D6321 /* MCameraView.m */; };
 		8B195B8B1F5FF54F005D6321 /* MDeviceOrientationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B195B8A1F5FF54F005D6321 /* MDeviceOrientationModel.m */; };
@@ -120,6 +121,14 @@
 		8B9CD0861F8B1B5F00696D73 /* UIDevice+QYPasscodeStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD0851F8B1B5F00696D73 /* UIDevice+QYPasscodeStatus.m */; };
 		8B9CD0B71F8B294E00696D73 /* QYKeychainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD0B61F8B294E00696D73 /* QYKeychainViewController.m */; };
 		8BB098701FA6CF2300A9B377 /* QYKeyBoardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB0986F1FA6CF2300A9B377 /* QYKeyBoardManager.m */; };
+		8BB22A411FDF7E8200284193 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BB22A431FDF7E8200284193 /* InfoPlist.strings */; };
+		8BB22A4D1FDF810800284193 /* TTTLocalizedPluralString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB22A4C1FDF810800284193 /* TTTLocalizedPluralString.m */; };
+		8BB22A501FDF85D000284193 /* NSDictionary+QYSafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB22A4F1FDF85D000284193 /* NSDictionary+QYSafeAccess.m */; };
+		8BB22A531FDF8C4500284193 /* NSObject+QYClassIdentify.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB22A521FDF8C4500284193 /* NSObject+QYClassIdentify.m */; };
+		8BB22A561FDFAAAF00284193 /* NSDictionary+QYJSONString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB22A551FDFAAAF00284193 /* NSDictionary+QYJSONString.m */; };
+		8BB22A591FDFABA200284193 /* NSDictionary+QYMerge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB22A581FDFABA200284193 /* NSDictionary+QYMerge.m */; };
+		8BB22A5C1FDFADE300284193 /* NSDictionary+QYURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB22A5B1FDFADE300284193 /* NSDictionary+QYURL.m */; };
+		8BB22A5F1FDFB01300284193 /* NSDictionary+QYXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB22A5E1FDFB01300284193 /* NSDictionary+QYXML.m */; };
 		8BC118281F8CDBEF00D9F905 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC1155F1F8CD4C400D9F905 /* CoreGraphics.framework */; };
 		8BC118291F8CDBF400D9F905 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC1155D1F8CD4B600D9F905 /* MapKit.framework */; };
 		8BC1182A1F8CDBFD00D9F905 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC114241F8CD2D900D9F905 /* ImageIO.framework */; };
@@ -273,6 +282,7 @@
 
 /* Begin PBXFileReference section */
 		6170A4A14039BBA741EEAAD2 /* libPods-MHRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MHRefresh.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B0583261FCFED56003D3238 /* UrlENcode */ = {isa = PBXFileReference; lastKnownFileType = text; path = UrlENcode; sourceTree = "<group>"; };
 		8B15DC741FB324F800691C23 /* QYCToOcheader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYCToOcheader.h; sourceTree = "<group>"; };
 		8B195B831F5F9C8D005D6321 /* MCameraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCameraController.h; sourceTree = "<group>"; };
 		8B195B841F5F9C8D005D6321 /* MCameraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCameraController.m; sourceTree = "<group>"; };
@@ -515,6 +525,25 @@
 		8B9CD0B61F8B294E00696D73 /* QYKeychainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYKeychainViewController.m; sourceTree = "<group>"; };
 		8BB0986E1FA6CF2300A9B377 /* QYKeyBoardManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYKeyBoardManager.h; sourceTree = "<group>"; };
 		8BB0986F1FA6CF2300A9B377 /* QYKeyBoardManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYKeyBoardManager.m; sourceTree = "<group>"; };
+		8BB22A3B1FDF737A00284193 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		8BB22A3C1FDF737A00284193 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		8BB22A3E1FDF742E00284193 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		8BB22A421FDF7E8200284193 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8BB22A441FDF7E8500284193 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		8BB22A4B1FDF810800284193 /* TTTLocalizedPluralString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTLocalizedPluralString.h; sourceTree = "<group>"; };
+		8BB22A4C1FDF810800284193 /* TTTLocalizedPluralString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTLocalizedPluralString.m; sourceTree = "<group>"; };
+		8BB22A4E1FDF85D000284193 /* NSDictionary+QYSafeAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+QYSafeAccess.h"; sourceTree = "<group>"; };
+		8BB22A4F1FDF85D000284193 /* NSDictionary+QYSafeAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+QYSafeAccess.m"; sourceTree = "<group>"; };
+		8BB22A511FDF8C4500284193 /* NSObject+QYClassIdentify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+QYClassIdentify.h"; sourceTree = "<group>"; };
+		8BB22A521FDF8C4500284193 /* NSObject+QYClassIdentify.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+QYClassIdentify.m"; sourceTree = "<group>"; };
+		8BB22A541FDFAAAF00284193 /* NSDictionary+QYJSONString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+QYJSONString.h"; sourceTree = "<group>"; };
+		8BB22A551FDFAAAF00284193 /* NSDictionary+QYJSONString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+QYJSONString.m"; sourceTree = "<group>"; };
+		8BB22A571FDFABA200284193 /* NSDictionary+QYMerge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+QYMerge.h"; sourceTree = "<group>"; };
+		8BB22A581FDFABA200284193 /* NSDictionary+QYMerge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+QYMerge.m"; sourceTree = "<group>"; };
+		8BB22A5A1FDFADE300284193 /* NSDictionary+QYURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+QYURL.h"; sourceTree = "<group>"; };
+		8BB22A5B1FDFADE300284193 /* NSDictionary+QYURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+QYURL.m"; sourceTree = "<group>"; };
+		8BB22A5D1FDFB01300284193 /* NSDictionary+QYXML.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+QYXML.h"; sourceTree = "<group>"; };
+		8BB22A5E1FDFB01300284193 /* NSDictionary+QYXML.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+QYXML.m"; sourceTree = "<group>"; };
 		8BC114241F8CD2D900D9F905 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		8BC1155D1F8CD4B600D9F905 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8BC1155F1F8CD4C400D9F905 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -942,6 +971,7 @@
 		8B195C5B1F627A8A005D6321 /* Expand(扩展) */ = {
 			isa = PBXGroup;
 			children = (
+				8BB22A491FDF810800284193 /* Third */,
 				8B195C5C1F627A8A005D6321 /* Category */,
 				8B195C9A1F627A8A005D6321 /* Const */,
 				8B195C9B1F627A8A005D6321 /* Controls */,
@@ -1038,6 +1068,16 @@
 		8B195C631F627A8A005D6321 /* NSDictionary */ = {
 			isa = PBXGroup;
 			children = (
+				8BB22A4E1FDF85D000284193 /* NSDictionary+QYSafeAccess.h */,
+				8BB22A4F1FDF85D000284193 /* NSDictionary+QYSafeAccess.m */,
+				8BB22A541FDFAAAF00284193 /* NSDictionary+QYJSONString.h */,
+				8BB22A551FDFAAAF00284193 /* NSDictionary+QYJSONString.m */,
+				8BB22A571FDFABA200284193 /* NSDictionary+QYMerge.h */,
+				8BB22A581FDFABA200284193 /* NSDictionary+QYMerge.m */,
+				8BB22A5A1FDFADE300284193 /* NSDictionary+QYURL.h */,
+				8BB22A5B1FDFADE300284193 /* NSDictionary+QYURL.m */,
+				8BB22A5D1FDFB01300284193 /* NSDictionary+QYXML.h */,
+				8BB22A5E1FDFB01300284193 /* NSDictionary+QYXML.m */,
 			);
 			path = NSDictionary;
 			sourceTree = "<group>";
@@ -1103,6 +1143,8 @@
 			children = (
 				8B846E2E1F8EF67B007C0731 /* NSObject+QYPrintf.h */,
 				8B846E2F1F8EF67B007C0731 /* NSObject+QYPrintf.m */,
+				8BB22A511FDF8C4500284193 /* NSObject+QYClassIdentify.h */,
+				8BB22A521FDF8C4500284193 /* NSObject+QYClassIdentify.m */,
 			);
 			path = NSObject;
 			sourceTree = "<group>";
@@ -1648,6 +1690,7 @@
 				8B5D20011F26F9E900DD1898 /* ViewController.h */,
 				8B5D20021F26F9E900DD1898 /* ViewController.m */,
 				8B5D20041F26F9E900DD1898 /* Main.storyboard */,
+				8B0583261FCFED56003D3238 /* UrlENcode */,
 				8BCC24551FB1643F0096AB2E /* MLearn */,
 				8BB0986D1FA6CEDB00A9B377 /* KeyBoard */,
 				8B846E281F8EF63D007C0731 /* Arithmeti（该model均为编程之美内容） */,
@@ -1677,6 +1720,7 @@
 				8B5D1FFC1F26F9E900DD1898 /* main.m */,
 				8B5D20181F27003100DD1898 /* MPrefixHeader.pch */,
 				8B5BE0EB1F7B96E2005AF229 /* Learn */,
+				8BB22A431FDF7E8200284193 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1863,6 +1907,23 @@
 				8BB0986F1FA6CF2300A9B377 /* QYKeyBoardManager.m */,
 			);
 			path = KeyBoard;
+			sourceTree = "<group>";
+		};
+		8BB22A491FDF810800284193 /* Third */ = {
+			isa = PBXGroup;
+			children = (
+				8BB22A4A1FDF810800284193 /* TTTLocalizString */,
+			);
+			path = Third;
+			sourceTree = "<group>";
+		};
+		8BB22A4A1FDF810800284193 /* TTTLocalizString */ = {
+			isa = PBXGroup;
+			children = (
+				8BB22A4B1FDF810800284193 /* TTTLocalizedPluralString.h */,
+				8BB22A4C1FDF810800284193 /* TTTLocalizedPluralString.m */,
+			);
+			path = TTTLocalizString;
 			sourceTree = "<group>";
 		};
 		8BC11D971F8CEDA700D9F905 /* SDWebImage */ = {
@@ -2262,6 +2323,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 8B5D1FEF1F26F9E900DD1898;
 			productRefGroup = 8B5D1FF91F26F9E900DD1898 /* Products */;
@@ -2282,10 +2344,12 @@
 				8B5D200B1F26F9E900DD1898 /* LaunchScreen.storyboard in Resources */,
 				8B5BE0EC1F7B96E2005AF229 /* Learn in Resources */,
 				8B21F0141F4C49C7004C0508 /* YXMedia.xcassets in Resources */,
+				8B0583271FCFED56003D3238 /* UrlENcode in Resources */,
 				8B195BC21F6119DF005D6321 /* RSKImageCropperStrings.bundle in Resources */,
 				8B5D20081F26F9E900DD1898 /* Assets.xcassets in Resources */,
 				8B5D20061F26F9E900DD1898 /* Main.storyboard in Resources */,
 				8B195B941F60D706005D6321 /* MCameraMedia.xcassets in Resources */,
+				8BB22A411FDF7E8200284193 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2477,8 +2541,11 @@
 				8B846E311F8EF8FF007C0731 /* ChessResultModel.m in Sources */,
 				8B846E321F8EF8FF007C0731 /* CakeSortModel.m in Sources */,
 				8B846E301F8EF67B007C0731 /* NSObject+QYPrintf.m in Sources */,
+				8BB22A5F1FDFB01300284193 /* NSDictionary+QYXML.m in Sources */,
 				8B846E201F8E3DC9007C0731 /* UIImageView+QYReflect.m in Sources */,
 				8B846DF91F8E10DD007C0731 /* UIImage+QYGif.m in Sources */,
+				8BB22A4D1FDF810800284193 /* TTTLocalizedPluralString.m in Sources */,
+				8BB22A5C1FDFADE300284193 /* NSDictionary+QYURL.m in Sources */,
 				8B846E081F8E2B65007C0731 /* UIImage+QYCapture.m in Sources */,
 				8B3C77BF1F989B9E0016FBBF /* MNetworkHelper.m in Sources */,
 				8B846E351F8F025A007C0731 /* NSArray+QYSafeAccess.m in Sources */,
@@ -2504,6 +2571,7 @@
 				8B8BBA9E1F346BA80071D0AF /* MNetworkBaseRequest.m in Sources */,
 				8B8BB9BE1F342DDD0071D0AF /* MWebViewProgress.m in Sources */,
 				8B195BAD1F60EE56005D6321 /* MPhotoCollectionViewCell.m in Sources */,
+				8BB22A501FDF85D000284193 /* NSDictionary+QYSafeAccess.m in Sources */,
 				8B5D20001F26F9E900DD1898 /* AppDelegate.m in Sources */,
 				8B9CD0831F8B152200696D73 /* UIDevice+QYHardware.m in Sources */,
 				8BEA74781F9F58FF0001F565 /* MNetworkImageCache.m in Sources */,
@@ -2527,6 +2595,7 @@
 				8B682CB61F690A9D00C4900D /* NSString+QYReverse.m in Sources */,
 				8B195BD51F611E8A005D6321 /* MPhotoAuthorizationHelpModel.m in Sources */,
 				8B195BC51F6119DF005D6321 /* RSKInternalUtility.m in Sources */,
+				8BB22A591FDFABA200284193 /* NSDictionary+QYMerge.m in Sources */,
 				8B682CEB1F6A215E00C4900D /* QYPreviewImageCell.m in Sources */,
 				8B5CA5CF1F2AE0CD0098EE69 /* MFPSMonitorWindow.m in Sources */,
 				8B195CA41F6284C2005D6321 /* UIView+QYFrame.m in Sources */,
@@ -2538,6 +2607,7 @@
 				8B195B921F60210C005D6321 /* UIImage+SMExtension.m in Sources */,
 				8B195BC71F6119DF005D6321 /* UIApplication+RSKImageCropper.m in Sources */,
 				8B682CA41F68E6DC00C4900D /* NSString+QYSize.m in Sources */,
+				8BB22A531FDF8C4500284193 /* NSObject+QYClassIdentify.m in Sources */,
 				8B195B981F60D762005D6321 /* MPhotoAlbumController.m in Sources */,
 				8B195BC11F6119DF005D6321 /* CGGeometry+RSKImageCropper.m in Sources */,
 				8B21F00F1F4C49C7004C0508 /* YXAnnotationTabbarView.m in Sources */,
@@ -2568,6 +2638,7 @@
 				8B682CF11F6A5BA500C4900D /* QYPreviewViewController.m in Sources */,
 				8BF672C21F73577900CF312A /* UIColor+QYQuickCreate.m in Sources */,
 				8B195BD21F611E22005D6321 /* MImagePickerController.m in Sources */,
+				8BB22A561FDFAAAF00284193 /* NSDictionary+QYJSONString.m in Sources */,
 				8B195B8B1F5FF54F005D6321 /* MDeviceOrientationModel.m in Sources */,
 				8B682C9B1F68E27000C4900D /* UIFont+QYPingFang.m in Sources */,
 				8BF672BA1F71479700CF312A /* NSString+QYUUID.m in Sources */,
@@ -2602,6 +2673,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				8B5D20051F26F9E900DD1898 /* Base */,
+				8BB22A3B1FDF737A00284193 /* zh-Hans */,
+				8BB22A3E1FDF742E00284193 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -2610,8 +2683,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				8B5D200A1F26F9E900DD1898 /* Base */,
+				8BB22A3C1FDF737A00284193 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8BB22A431FDF7E8200284193 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BB22A421FDF7E8200284193 /* en */,
+				8BB22A441FDF7E8500284193 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2621,6 +2704,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -2675,6 +2759,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
