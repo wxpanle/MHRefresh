@@ -66,7 +66,7 @@ typedef void (^MNetworkRequestFailureBlock)(MNetworkBaseRequest * _Nullable requ
 @property (nonatomic, strong, readonly, nullable) NSDictionary *parameter;
 
 /** timeout */
-@property (nonatomic, assign) NSInteger timeoutInterval;
+@property (nonatomic, assign) NSTimeInterval timeoutInterval;
 
 /** method MNetworkRequestMethod */
 @property (nonatomic, assign, readonly) MNetworkRequestMethod requestMethod;

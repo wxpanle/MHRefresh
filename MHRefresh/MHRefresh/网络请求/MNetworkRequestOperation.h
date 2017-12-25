@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MNetworkOperationProtocol.h"
 
-@interface MNetworkRequestOperation : NSOperation
+@interface MNetworkRequestOperation : NSOperation <MNetworkFinishOperationProtocol>
 
 - (instancetype)initWithNetworkBaseRequest:(id)request;
+
+- (BOOL)isOperationOfDataTaskIdentifier:(NSUInteger)identifier;
 
 @end

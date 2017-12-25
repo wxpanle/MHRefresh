@@ -592,7 +592,7 @@ didReceiveResponse:(NSURLResponse *)response
                                 error:(nullable NSError *)error
                              finished:(BOOL)finished {
     NSArray<id> *completionBlocks = [self callbacksForKey:kCompletedCallbackKey];
-    dispatch_main_async_safe(^{  //开启主线程  回调错误响应
+    dispatch_main_async_safe(^{  //开启主线程
         for (SDWebImageDownloaderCompletedBlock completedBlock in completionBlocks) {
             completedBlock(image, imageData, error, finished);
         }

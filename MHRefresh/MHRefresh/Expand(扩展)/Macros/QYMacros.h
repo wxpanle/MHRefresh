@@ -99,6 +99,12 @@ CGSizeEqualToSize(CGSizeMake(812.0f, 375.0f), [[UIScreen mainScreen] bounds].siz
 //获取当前语言
 #define CurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
 
+#ifdef LocalizedString
+#error 宏定义出错
+#else
+#define LocalizedString(key) NSLocalizedString(key, nil)
+#endif
+
 //获取图片资源
 #define GetImage(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
 

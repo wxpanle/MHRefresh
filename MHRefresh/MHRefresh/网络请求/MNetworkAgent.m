@@ -44,7 +44,11 @@
 
 @property (nonatomic, assign) pthread_mutex_t lock;
 
+/** 状态码 */
+@property (nonatomic, strong) NSIndexSet *allStatusCodes;
+
 @end
+
 
 @implementation MNetworkAgent
 
@@ -67,13 +71,10 @@
         _completionQueue = dispatch_queue_create("com.qydm.network.completion", DISPATCH_QUEUE_CONCURRENT);
         _manager.completionQueue = _completionQueue;
         
-        pthread_mutex_init(&_lock, NULL);
-        
         AFCompoundResponseSerializer *serializer = [AFCompoundResponseSerializer compoundSerializerWithResponseSerializers:@[[AFJSONResponseSerializer serializer], [AFImageResponseSerializer serializer]]];
         _manager.responseSerializer = serializer;
         serializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"video/mp4", @"audio/mp3", nil];
         AFJSONRequestSerializer *requestSerialzer = [AFJSONRequestSerializer serializer];
-        requestSerialzer.timeoutInterval = 30.0;
         
         _manager.requestSerializer = requestSerialzer;
         _manager.securityPolicy = _netWorkConfig.securityPolicy;
@@ -84,6 +85,15 @@
         
         _downloadRequestRecord = [NSMutableDictionary dictionary];
         _requestRecord = [NSMutableDictionary dictionary];
+        
+        _allStatusCodes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(100, 500)];
+        
+#ifdef DEBUG
+        int flag = pthread_mutex_init(&_lock, NULL);
+        NSAssert(flag != 0, @"init lock error");
+#else
+        pthread_mutex_init(&_lock, NULL);
+#endif
     }
     return self;
 }
@@ -91,7 +101,14 @@
 #pragma mark - public
 
 - (void)addRequest:(MNetworkBaseRequest *)request {
+    
+#if DEBUG
     NSParameterAssert(request != nil);
+#else
+    if (nil == request) {
+        return;
+    }
+#endif
     
     if ([request isKindOfClass:[MNetworkDownloadRequest class]]) { //下载请求
         [self addDownloadRequest:(MNetworkDownloadRequest *)request];
@@ -101,7 +118,13 @@
 }
 
 - (void)cancelRequest:(MNetworkBaseRequest *)request {
+#if DEBUG
     NSParameterAssert(request != nil);
+#else
+    if (nil == request) {
+        return;
+    }
+#endif
     
     [request.requestTask cancel];
     [request clearBlock];
@@ -125,6 +148,7 @@
 }
 
 #pragma mark - baseRequest
+
 - (void)addBaseRequest:(MNetworkBaseRequest *)request {
     
     NSURLSessionDataTask *dataTask = [self sessionTaskWithRequest:request];
@@ -143,14 +167,10 @@
 
 - (nullable NSURLSessionDataTask *)sessionTaskWithRequest:(MNetworkBaseRequest *)request {
     
-    if (request.requestHeader.allKeys.count) {
-        for (NSString *key in request.requestHeader.allKeys) {
-            [_manager.requestSerializer setValue:[request.requestHeader objectForKey:key] forHTTPHeaderField:key];
-        }
-    }
+    AFHTTPRequestSerializer *requestSerializer = [self requestSerializerForRequest:request];
     
-    NSError *serializationError = nil;
-    NSMutableURLRequest *mutableRequest = [_manager.requestSerializer requestWithMethod:[request requestMethodString] URLString:[self buildRequestUrlWithRequest:request] parameters:request.parameter error:&serializationError];
+    __autoreleasing NSError *serializationError = nil;
+    NSMutableURLRequest *mutableRequest = [requestSerializer requestWithMethod:[request requestMethodString] URLString:[self buildRequestUrlWithRequest:request] parameters:request.parameter error:&serializationError];
     
     if (serializationError) {
         
@@ -191,6 +211,10 @@
         request.error = error;
         [self baseRequestFailCallBack:request];
     }
+    
+    //结束任务  开始下一个任务
+    MNetworkRequestOperation *operation = [self operationWithrequest:request];
+    [operation networkRequestFinish:request];
 }
 
 - (void)baseRequestSuccessCallBack:(MNetworkBaseRequest *)request {
@@ -239,6 +263,9 @@
 
 #pragma mark - downloadRequest
 - (void)addDownloadRequest:(MNetworkDownloadRequest *)request {
+    
+    //下载请求
+    //不同情况分批处理
     
     NSString *urlStr = [self buildRequestUrlWithRequest:request];
     if (!urlStr.length) {
@@ -594,7 +621,42 @@
     return [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 }
 
-#pragma mark - getter
+#pragma mark - ===== private =====
+
+- (AFHTTPRequestSerializer *)requestSerializerForRequest:(MNetworkBaseRequest *)request {
+    
+    //can add other query
+    AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
+    requestSerializer.timeoutInterval = request.timeoutInterval;
+    
+    if (!request.requestHeader.allKeys.count) {
+        return requestSerializer;
+    }
+    
+    for (NSString *key in request.requestHeader.allKeys) {
+        [requestSerializer setValue:[request.requestHeader objectForKey:key] forHTTPHeaderField:key];
+    }
+    
+    return requestSerializer;
+}
+
+- (MNetworkRequestOperation *)operationWithrequest:(MNetworkBaseRequest *)request {
+    MNetworkRequestOperation *returnOperation = nil;
+    
+    NSUInteger taskIdentifier = request.requestTask.taskIdentifier;
+    for (MNetworkRequestOperation *operation in self.requestQueue.operations) {
+
+        if ([operation isOperationOfDataTaskIdentifier:taskIdentifier]) {
+            returnOperation = operation;
+            break;
+        }
+    }
+    return returnOperation;
+}
+
+
+
+#pragma mark - ===== getter =====
 
 - (NSMutableSet *)allRequestRecord {
     if (nil == _allRequestRecord) {

@@ -26,6 +26,8 @@
 @synthesize executing = _executing;
 @synthesize finished = _finished;
 
+#pragma mark - ===== init =====
+
 - (instancetype)initWithNetworkBaseRequest:(id)request {
     if (self = [super init]) {
         _request = request;
@@ -34,6 +36,25 @@
     }
     return self;
 }
+
+
+#pragma mark - ===== public =====
+
+- (BOOL)isOperationOfDataTaskIdentifier:(NSUInteger)identifier {
+    
+    if (!self.request) {
+        return NO;
+    }
+    
+    if (!self.request.requestTask) {
+        return NO;
+    }
+    
+    return self.request.requestTask.taskIdentifier == identifier ? YES : NO;
+}
+
+
+#pragma mark - ===== overwrite =====
 
 - (void)start {
     @synchronized (self) {
@@ -95,30 +116,33 @@
     }
 }
 
-- (void)cancelInternalAndStop {
-    if (self.isFinished) {
-        return;
-    }
-    [self cancelInternal];
-}
-
 - (void)cancelInternal {
     if (self.isFinished) {
         return;
     }
     [super cancel];
+    [self.request cancel];
     [self done];
 }
 
 - (void)done {
     self.finished = YES;
     self.executing = NO;
-    
-    if (self.request) {
-        [self.request cancel];
-        self.request = nil;
-    }
+    self.request = nil;
 }
+
+#pragma mark - ===== MNetworkFinishOperationProtocol =====
+
+- (void)networkRequestFinish:(MNetworkBaseRequest *)request {
+    if (self.isFinished) {
+        return;
+    }
+    
+    [self done];
+}
+
+
+#pragma mark - ===== setter =====
 
 - (void)setFinished:(BOOL)finished {
     [self willChangeValueForKey:@"isFinished"];

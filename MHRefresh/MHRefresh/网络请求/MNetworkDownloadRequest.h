@@ -20,10 +20,10 @@ typedef void (^MNetworkDownloadProgressBlock)(CGFloat progress);
 
 @interface MNetworkDownloadRequest : MNetworkBaseRequest
 
-/** download file save path */
+/** download file save path, if need other path integration Self overwrite getter(storagePath) */
 @property (nonatomic, copy, readonly) NSString *storagePath;
 
-/** download file save name default use file name */
+/** download file save name default use file name, can integration Self overwrite getter(storagePath)  */
 @property (nonatomic, copy, readonly) NSString *storeKey;
 
 /** download type */
@@ -31,6 +31,8 @@ typedef void (^MNetworkDownloadProgressBlock)(CGFloat progress);
 
 /** progress block */
 @property (nonatomic, copy) MNetworkDownloadProgressBlock progressBlock;
+
+@property (nonatomic, assign) BOOL can;
 
 ///-------------------------------
 /// @name 默认请求  GET

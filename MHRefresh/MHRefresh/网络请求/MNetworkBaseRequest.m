@@ -266,6 +266,14 @@
     return (statusCode >= 200 && statusCode <= 299) ? YES : NO;
 }
 
+- (NSTimeInterval)timeoutInterval {
+    if (_timeoutInterval != 0.0) {
+        return _timeoutInterval;
+    }
+    
+    return 60.0;
+}
+
 #pragma mark - dealloc
 - (void)dealloc {
 #ifdef DEBUG
