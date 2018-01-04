@@ -42,7 +42,11 @@ typedef void (^ MNetworkBatchRequestFailBlock) (MNetworkBatchRequest *request);
 
 @property (nonatomic, strong, readonly, nullable) MNetworkBaseRequest *failedRequest;
 
-- (instancetype)initWithRequestArray:(NSArray <MNetworkBaseRequest *> *)requestArray;
+- (instancetype)init NS_UNAVAILABLE;
+
+- (instancetype)new NS_UNAVAILABLE;
+
+- (nullable instancetype)initWithRequestArray:(NSArray <MNetworkBaseRequest *> *)requestArray;
 
 - (void)startWithprogressBlock:(MNetworkBatchRequestProgressBlock)progressBlock
                   successBlock:(MNetworkBatchRequestSuccessBlock)successBlock

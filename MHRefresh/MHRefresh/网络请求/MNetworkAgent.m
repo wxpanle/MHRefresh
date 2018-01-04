@@ -12,6 +12,7 @@
 #import "MNetRequestHeader.h"
 #import "MNetworkHelper.h"
 #import "MNetworkRequestOperation.h"
+#import "MNetworkImageCache.h"
 
 #if __has_include(<AFNetworking/AFNetworking.h>)
 #import <AFNetworking/AFNetworking.h>
@@ -24,6 +25,51 @@
 #else
 #import "SDWebImageDownloader.h"
 #endif
+
+static inline dispatch_queue_t kGlobalQueueWithNetworkRequestPriority(MNetworkRequestPriority priority) {
+    
+    switch (priority) {
+        case MNetworkRequestPriorityLow:
+            return dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_LOW);
+            break;
+            
+        case MNetworkRequestPriorityHight:
+            return dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_HIGH);
+            break;
+            
+        case MNetworkRequestPriorityDefault:
+            return dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT);
+            break;
+            
+        default:
+            
+            break;
+    }
+    
+    return dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT);
+}
+
+static BOOL kImageIsNeedCacheToMemory(MNetworkRequestPriority priority) {
+    
+    switch (priority) {
+        case MNetworkRequestPriorityLow:
+            return NO;
+            break;
+            
+        case MNetworkRequestPriorityHight:
+            return YES;
+            break;
+            
+        case MNetworkRequestPriorityDefault:
+            return YES;
+            break;
+            
+        default:
+            return YES;
+            break;
+    }
+
+}
 
 @interface MNetworkAgent()
 
@@ -46,6 +92,11 @@
 
 /** 状态码 */
 @property (nonatomic, strong) NSIndexSet *allStatusCodes;
+
+@property (nonatomic, strong) MNetworkImageCache *imageCache;
+
+@property (nonatomic, assign) UIBackgroundTaskIdentifier backgroundTaskIdentifier;
+
 
 @end
 
@@ -88,12 +139,23 @@
         
         _allStatusCodes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(100, 500)];
         
+        _imageCache = [MNetworkImageCache sharedImageCacheWithSubPath:nil];
+        
+        //设置图片下载的最大数目
+        [SDWebImageDownloader sharedDownloader].maxConcurrentDownloads = 4;
+        
 #ifdef DEBUG
         int flag = pthread_mutex_init(&_lock, NULL);
         NSAssert(flag != 0, @"init lock error");
 #else
         pthread_mutex_init(&_lock, NULL);
 #endif
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillTerminate:) name:UIApplicationWillTerminateNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidReceiveMemoryWarning:) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+        
     }
     return self;
 }
@@ -277,9 +339,7 @@
     
     __block id image = nil;
     if (request.downloadType == MNetworkDownloadTypeImage) {
-
-        //获取缓存
-        
+        image = [_imageCache imageFromMemoryCacheForKey:key];
         if (image) {
             request.responseObject = image;
             [self downloadRequestSuccessCallBack:request];
@@ -288,34 +348,30 @@
     }
     
     // 2、 判断文件有没有
+    NSString *downloadPath = [self syncSearchFileIsExistWithPath:request.storagePath];
     
-    BOOL downloadDone = [[NSFileManager defaultManager] fileExistsAtPath:request.storagePath];
-    
-    if (downloadDone) {
-        
+    if (downloadPath.length) {
         switch (request.downloadType) {
             case MNetworkDownloadTypeImage: {
                 
-                dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
+                dispatch_async(kGlobalQueueWithNetworkRequestPriority(request.priority), ^{
                     
-//                    NSData *imageDate = [NSData dataWithContentsOfFile:request.storagePath];
-//                    image = [UIImage me_imageWithData:imageDate];      //处理数据
-                    
-                    //缓存处理
+                    UIImage *image = [_imageCache imageFromDiskForCustomPath:downloadPath];
+                    request.responseObject = image;
+                    if (kImageIsNeedCacheToMemory(request.priority)) {
+                        [self.imageCache storeImageAsynchronous:image forKey:key saveDisk:NO completeBlock:nil];
+                    }
                     [self downloadRequestSuccessCallBack:request];
-//                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        [self.memoryCache setObject:image forKey:key withCost:imageDate.length];
-//                        [downloadRequest downloadFileSuccess:image];
-//                    });
                 });
-                
                 break;
             }
                 
             case MNetworkDownloadTypeVideo:
             case MNetworkDownloadTypeFile:
             case MNetworkDownloadTypeAudio: {
-                
+                //将地址赋给请求
+                request.responseObject = downloadPath;
+                [self downloadRequestSuccessCallBack:request];
                 break;
             }
             default:
@@ -325,7 +381,7 @@
         return;
     }
     
-    
+
     //  3、没有的话开始下载,下载存到缓存、文件中
     //  3、1 防止多次同时下载同一个东西
     Lock();
@@ -382,14 +438,24 @@
                             [self downloadRequestFailCallBack:request];
                         } else {
                             //获取image
-                            UIImage *image = nil;
-                            request.responseObject = image;
-                            //缓存image
+                            UIImage *cacheImage = image;
                             
-                            //写入本地文件
-                            [[NSFileManager defaultManager] createFileAtPath:request.storagePath contents:data attributes:nil];
-                            
-                            [self downloadRequestSuccessCallBack:request];
+                            if (cacheImage) {
+                                request.responseObject = image;
+                                //缓存image
+                                
+                                if (kImageIsNeedCacheToMemory(request.priority)) {
+                                    _imageCache.cacheConfig.shouldCacheImagesInMemory = NO;
+                                }
+                                [_imageCache storeImageAsynchronous:image imageData:data forKey:key completeBlock:nil];
+                                _imageCache.cacheConfig.shouldCacheImagesInMemory = YES;
+                                
+                                [self downloadRequestSuccessCallBack:request];
+                            } else {
+                                request.responseObject = nil;
+                                request.error = error;
+                                [self downloadRequestFailCallBack:request];
+                            }
                         }
                     });
                 }];
@@ -621,6 +687,59 @@
     return [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 }
 
+#pragma mark - ========== notifiction ==========
+
+- (void)applicationWillTerminate:(NSNotification *)not {
+    
+    [self suspendAll];
+}
+
+- (void)applicationDidReceiveMemoryWarning:(NSNotification *)not {
+    
+    //暂停正在下载的文件
+    
+    
+}
+
+- (void)applicationWillResignActive:(NSNotification *)not {
+    
+    //app
+    Class UIApplicationClass = NSClassFromString(@"UIApplication");
+    BOOL hasApplication = UIApplicationClass && [UIApplicationClass respondsToSelector:@selector(sharedApplication)];
+    if (hasApplication ) {
+        __weak __typeof__ (self) wself = self;
+        UIApplication * app = [UIApplicationClass performSelector:@selector(sharedApplication)];
+        self.backgroundTaskIdentifier = [app beginBackgroundTaskWithExpirationHandler:^{
+            __strong __typeof (wself) sself = wself;
+            
+            if (sself) {
+                [sself suspendAll];
+                
+                [app endBackgroundTask:sself.backgroundTaskIdentifier];
+                sself.backgroundTaskIdentifier = UIBackgroundTaskInvalid;
+            }
+        }];
+    }
+}
+
+- (void)applicationDidBecomeActive:(NSNotification *)not {
+    
+    Class UIApplicationClass = NSClassFromString(@"UIApplication");
+    if(!UIApplicationClass || ![UIApplicationClass respondsToSelector:@selector(sharedApplication)]) {
+        return;
+    }
+    if (self.backgroundTaskIdentifier != UIBackgroundTaskInvalid) {
+        UIApplication * app = [UIApplication performSelector:@selector(sharedApplication)];
+        [app endBackgroundTask:self.backgroundTaskIdentifier];
+        self.backgroundTaskIdentifier = UIBackgroundTaskInvalid;
+    }
+    
+    if (self.requestQueue.isSuspended) {
+        [self.requestQueue setSuspended:NO];
+    }
+}
+
+
 #pragma mark - ===== private =====
 
 - (AFHTTPRequestSerializer *)requestSerializerForRequest:(MNetworkBaseRequest *)request {
@@ -654,6 +773,34 @@
     return returnOperation;
 }
 
+
+/**
+ 查询file是否存在  如果存在  返回路径  否则返回nil
+
+ @param path 路径
+ @return     路径
+ */
+- (NSString *)syncSearchFileIsExistWithPath:(NSString *)path {
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    if ([fileManager fileExistsAtPath:path]) {
+        return path;
+    }
+    
+    if ([fileManager fileExistsAtPath:path.stringByDeletingPathExtension]) {
+        return path.stringByDeletingPathExtension;
+    }
+    
+    return nil;
+}
+
+- (void)suspendAll {
+
+    if (self.requestQueue.operationCount) {
+        self.requestQueue.suspended = YES;
+    }
+}
 
 
 #pragma mark - ===== getter =====

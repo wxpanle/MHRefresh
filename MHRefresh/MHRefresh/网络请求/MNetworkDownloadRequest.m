@@ -53,13 +53,13 @@
 }
 
 - (void)clearBlock {
-    self.progressBlock = nil;
+    _progressBlock = nil;
     [super clearBlock];
 }
 
 - (NSString *)storeKey {
     
-    if (self.customUrl) {
+    if (self.customUrl.length) {
         NSArray *array = [self.customUrl componentsSeparatedByString:@"/"];
         return array.lastObject;
     }

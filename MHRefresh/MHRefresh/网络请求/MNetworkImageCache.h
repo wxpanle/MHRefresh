@@ -30,7 +30,13 @@ typedef void(^MNetworkCalculateSizeBlock)(NSUInteger fileCount, NSUInteger total
 @property (nonatomic, assign) NSUInteger maxMemoryCost;
 
 /** max memory limit */
-@property (nonatomic, assign) NSUInteger maxMemoryCountLimit;
+@property (nonatomic, assign) NSUInteger maxMemoryCount;
+
+/** current cost */
+@property (nonatomic, assign) NSUInteger currentCost;
+
+/** current count */
+@property (nonatomic, assign) NSUInteger currentCount;
 
 ///-------------------------------
 /// @name init shard
@@ -42,7 +48,7 @@ typedef void(^MNetworkCalculateSizeBlock)(NSUInteger fileCount, NSUInteger total
  @param subPath path=NSCachesDirectory/subPath
  @return        manager
  */
-+ (instancetype)sharedImageCacheWithSubPath:(NSString *)subPath;
++ (instancetype)sharedImageCacheWithSubPath:(nullable NSString *)subPath;
 
 
 ///-------------------------------
@@ -131,7 +137,7 @@ typedef void(^MNetworkCalculateSizeBlock)(NSUInteger fileCount, NSUInteger total
  * @param image           The image to store
  * @param key             The unique image cache key, usually it's image absolute URL
  * @param saveDisk          Store the image to disk cache if YES
- * @param completeBlock A block executed after the operation is finished
+ * @param block            A block executed after the operation is finished
  */
 - (void)storeImageAsynchronous:(nullable UIImage *)image
                         forKey:(nullable NSString *)key
@@ -222,6 +228,15 @@ typedef void(^MNetworkCalculateSizeBlock)(NSUInteger fileCount, NSUInteger total
  @return           nullable
  */
 - (nullable UIImage *)imageFromCacheForCustomPath:(NSString *)customPath;
+
+
+/**
+ sync memory disk
+
+ @param customPath customPath
+ @return           image
+ */
+- (nullable UIImage *)imageFromDiskForCustomPath:(NSString *)customPath;
 
 
 ///-------------------------------

@@ -183,8 +183,8 @@
 }
 
 - (void)clearBlock {
-    self.requestSuccessBlock = nil;
-    self.requestFailBlock = nil;
+    _requestSuccessBlock = nil;
+    _requestFailBlock = nil;
 }
 
 - (NSString *)requestMethodString {
@@ -225,7 +225,7 @@
 #pragma mark - Request and Response Information
 
 - (NSHTTPURLResponse *)requestResponse {
-    return (NSHTTPURLResponse *)self.requestTask.response;
+    return (NSHTTPURLResponse *)_requestTask.response;
 }
 
 - (NSInteger)responseStatusCode {
@@ -237,28 +237,28 @@
 }
 
 - (NSURLRequest *)currentRequest {
-    return self.requestTask.currentRequest;
+    return _requestTask.currentRequest;
 }
 
 - (BOOL)isCancelled {
-    if (!self.requestTask) {
+    if (!_requestTask) {
         return NO;
     }
-    return self.requestTask.state == NSURLSessionTaskStateCanceling;
+    return _requestTask.state == NSURLSessionTaskStateCanceling;
 }
 
 - (BOOL)isExecuting {
-    if (!self.requestTask) {
+    if (!_requestTask) {
         return NO;
     }
-    return self.requestTask.state == NSURLSessionTaskStateRunning;
+    return _requestTask.state == NSURLSessionTaskStateRunning;
 }
 
 - (BOOL)isSuspend {
-    if (!self.requestTask) {
+    if (!_requestTask) {
         return NO;
     }
-    return self.requestTask.state == NSURLSessionTaskStateSuspended;
+    return _requestTask.state == NSURLSessionTaskStateSuspended;
 }
 
 - (BOOL)statusCodeValidator {
@@ -277,8 +277,8 @@
 #pragma mark - dealloc
 - (void)dealloc {
 #ifdef DEBUG
-    NSString *url = self.detailurl.length ? self.detailurl : self.customUrl;
-    if (self.detailurl.length) {
+    NSString *url = _detailurl.length ? _detailurl : _customUrl;
+    if (_detailurl.length) {
         DLog(@"%@", [NSString stringWithFormat:@"%@ 请求移除", url]);
     }
 #endif

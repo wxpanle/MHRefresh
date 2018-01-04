@@ -23,7 +23,7 @@ typedef void (^MNetworkDownloadProgressBlock)(CGFloat progress);
 /** download file save path, if need other path integration Self overwrite getter(storagePath) */
 @property (nonatomic, copy, readonly) NSString *storagePath;
 
-/** download file save name default use file name, can integration Self overwrite getter(storagePath)  */
+/** download file save name default use file name, can integration Self overwrite getter(storeKey)  */
 @property (nonatomic, copy, readonly) NSString *storeKey;
 
 /** download type */

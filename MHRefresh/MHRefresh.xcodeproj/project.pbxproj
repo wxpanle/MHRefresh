@@ -279,6 +279,7 @@
 		8BF672BA1F71479700CF312A /* NSString+QYUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF672B91F71479700CF312A /* NSString+QYUUID.m */; };
 		8BF672BE1F7275D900CF312A /* MCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF672BD1F7275D900CF312A /* MCAlertView.m */; };
 		8BF672C21F73577900CF312A /* UIColor+QYQuickCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF672C11F73577900CF312A /* UIColor+QYQuickCreate.m */; };
+		FE7409681FF4825B00487D70 /* QYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7409671FF4825B00487D70 /* QYMemoryCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -786,6 +787,8 @@
 		8BFC5A4B1FEBA12600DCAE8F /* MNetworkOperationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNetworkOperationProtocol.h; sourceTree = "<group>"; };
 		D6ED4287028751506AB7049B /* Pods-MHRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHRefresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHRefresh/Pods-MHRefresh.release.xcconfig"; sourceTree = "<group>"; };
 		DE5F0F6E9648AF866E342514 /* Pods-MHRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHRefresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHRefresh/Pods-MHRefresh.debug.xcconfig"; sourceTree = "<group>"; };
+		FE7409661FF4825B00487D70 /* QYMemoryCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYMemoryCache.h; sourceTree = "<group>"; };
+		FE7409671FF4825B00487D70 /* QYMemoryCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMemoryCache.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1848,6 +1851,8 @@
 				8BEA746C1F9F288B0001F565 /* MNetworkChainAgent.m */,
 				8BEA74761F9F58FF0001F565 /* MNetworkImageCache.h */,
 				8BEA74771F9F58FF0001F565 /* MNetworkImageCache.m */,
+				FE7409661FF4825B00487D70 /* QYMemoryCache.h */,
+				FE7409671FF4825B00487D70 /* QYMemoryCache.m */,
 			);
 			path = "网络请求";
 			sourceTree = "<group>";
@@ -2630,6 +2635,7 @@
 				8B8BB9BD1F342DDD0071D0AF /* MWebLinkLoadingView.m in Sources */,
 				8B195B8E1F6005E7005D6321 /* MCameraPhotoModel.m in Sources */,
 				8B195BC61F6119DF005D6321 /* RSKTouchView.m in Sources */,
+				FE7409681FF4825B00487D70 /* QYMemoryCache.m in Sources */,
 				8B5CA5CE1F2AE0CD0098EE69 /* MFPSMonitorLabel.m in Sources */,
 				8B8BB9AE1F342C550071D0AF /* MWebKitURLProtocol.m in Sources */,
 				8BB098701FA6CF2300A9B377 /* QYKeyBoardManager.m in Sources */,

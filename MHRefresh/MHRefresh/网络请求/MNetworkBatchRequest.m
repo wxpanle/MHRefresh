@@ -83,7 +83,6 @@
     
     [[MNetworkBatchAgent sharedBatchAgent] addBatchRequest:self];
 
-    
     for (MNetworkBaseRequest *request in _requestArray) {
         request.delegate = self;
         [request clearBlock];
@@ -110,7 +109,7 @@
 
 #pragma mark - MNetworkBaseRequestDelegate
 - (void)mRequestFinishSuccess:(nullable MNetworkBaseRequest *)request {
-    self.finishedCount++;
+    _finishedCount++;
 }
 
 - (void)mRequestFinishFail:(nullable MNetworkBaseRequest *)request {
@@ -118,12 +117,13 @@
     _failedRequest = request;
     
     if (!_considerFailure) {
-        self.finishedCount++;
+        _finishedCount++;
         return;
     }
     
     _failedRequest = request;
-    dispatch_async_main_safe(^{
+    
+    dispatch_block_t block = ^{
         if (self.failure) {
             self.failure(self);
         }
@@ -131,7 +131,13 @@
         if (self.delegate && [self.delegate respondsToSelector:@selector(mBatchRequestFail:)]) {
             [self.delegate mBatchRequestFail:self];
         }
-    });
+    };
+    
+    if (request && request.isGoBackOnMainThread) {
+        dispatch_async_main_safe(block);
+    } else {
+        block();
+    }
     
     [self cancel];
 }
@@ -158,7 +164,7 @@
 }
 
 - (void)dealloc {
-    
+    [self cancel];
     DLog(@"%@ dealloc", NSStringFromClass([self class]));
 }
 

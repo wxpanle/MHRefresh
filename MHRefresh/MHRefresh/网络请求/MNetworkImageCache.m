@@ -13,15 +13,13 @@
 #import "UIImage+GIF.h"
 #import "NSData+ImageContentType.h"
 #import "NSImage+WebCache.h"
+#import "QYMemoryCache.h"
 
 /** 内存允许缓存的最大的图片消耗 60M */
 static NSUInteger kMaxMemoryCost = 1024 * 1024 * 60;
 
-/** 最大允许缓存在内存中的图片大小 10M 超过则不再缓存 */
-static NSUInteger kMaxAllowMemoryCost = 1024 * 1024 * 10;
-
-/** 图片活跃秒数 60s 之内没有被使用会被清除掉 */
-static NSUInteger kActiveSeconds = 60;
+/** 图片活跃秒数 300s 之内没有被使用会被清除掉 */
+static NSUInteger kActiveSeconds = 5 * 60;
 
 static NSString *kDefaultCacheSubPath = @"MCache/image";
 
@@ -29,81 +27,14 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
     return image.size.height * image.size.width * image.scale * image.scale;
 }
 
-@interface NSDate (MNetworkExtension)
-
-+ (NSUInteger)currentTime;
-
-@end
-
-@implementation NSDate (MNetworkExtension)
-
-+ (NSUInteger)currentTime {
-    return [[NSDate date] timeIntervalSince1970];
-}
-
-@end
-
-@protocol MDiscardableComtent <NSObject>
-
-@required
-- (void)invokeObject;
-
-- (BOOL)isCanRemoveObjectWithActiveInterval:(NSUInteger)interval;
-
-@optional
-
-- (void)discardObject;
-
-@end
-
-@interface MImageCacheModel : NSObject <MDiscardableComtent>
-
-@property (nonatomic, strong) UIImage *image;
-
-@property (nonatomic, assign) NSInteger lastUseDate;
-
-@property (nonatomic, assign) NSUInteger cost;
-
-@end
-
-@implementation MImageCacheModel
-
-- (instancetype)initWithImage:(UIImage *)image cost:(NSUInteger)cost {
-    
-    if (self = [super init]) {
-        self.image = image;
-        self.cost = cost;
-    }
-    return self;
-}
-
-#pragma mark - ===== MDiscardableComtent =====
-
-- (void)invokeObject {
-    self.lastUseDate = [NSDate currentTime];
-}
-
-- (BOOL)isCanRemoveObjectWithActiveInterval:(NSUInteger)interval {
-    
-    if ([NSDate currentTime] - self.lastUseDate >= interval) {
-        return YES;
-    }
-    
-    return NO;
-}
-
-- (void)discardObject {
-    self.lastUseDate = 0;
-}
-
-@end
-
 //SDWebImage
 @interface MNetworkImageCache()
 
 @property (nonatomic, strong) NSFileManager *fileManager;
 
-@property (nonatomic, strong, nonnull) NSCache <NSString *, MImageCacheModel *> *memoryCache;
+@property (nonatomic, strong) NSMutableSet *keySet;
+
+@property (nonatomic, strong) QYMemoryCache *memoryCache;
 
 @property (nonatomic, strong, nullable) dispatch_queue_t ioQueue;
 
@@ -112,8 +43,6 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
 @property (nonatomic, copy) NSString *subPath;
 
 @property (nonatomic, copy) NSString *diskPath;
-
-@property (nonatomic, assign) NSUInteger currentMemoryCost;
 
 @property (nonatomic, assign) NSUInteger kActiveSeconds;
 
@@ -162,41 +91,38 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
         
         _cacheConfig = [[SDImageCacheConfig alloc] init];
         
-        _memoryCache = [[NSCache alloc] init];
-        _memoryCache.totalCostLimit = kMaxMemoryCost;
+        //配置缓存
+        _memoryCache = [[QYMemoryCache alloc] init];
+        _memoryCache.costLimit = kMaxMemoryCost;
+        _memoryCache.activeMemorySeconds = kActiveSeconds;
+        _memoryCache.shouldClearUselessData = YES;
+        _memoryCache.shouldRemoveAllObjectsOnMemoryWarning = YES;
+        _memoryCache.shouldRemoveAllObjectsWhenEnteringBackground = NO;
         _memoryCache.name = fullNamespace;
-        //关闭自动废弃选项  由程序控制废除
-        _memoryCache.evictsObjectsWithDiscardedContent = NO;
-        
-        _currentMemoryCost = 0;
+        _memoryCache.queue = _ioQueue;
+
         
         //init base path
         if (directory.length) {
-            self.basePath = directory;
+            _basePath = directory;
         } else {
-            self.basePath = [self baseDiskFirstPath];
+            _basePath = [self baseDiskFirstPath];
         }
         
         //init sub path
         if (subPath.length) {
-            self.subPath = subPath;
+            _subPath = subPath;
         } else {
-            self.subPath = kDefaultCacheSubPath;
+            _subPath = kDefaultCacheSubPath;
         }
         
-        //遥映人间冰雪样 暗香幽浮曲临江
-        
         //disk path
-        self.diskPath = [self.basePath stringByAppendingPathComponent:self.subPath];
+        _diskPath = [_basePath stringByAppendingPathComponent:_subPath];
         
         //init file manager
         dispatch_async(_ioQueue, ^{
             _fileManager = [[NSFileManager alloc] init];
         });
-        
-        //添加通知
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clearMemory) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
     }
     
     return self;
@@ -312,15 +238,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
     
     if (image && self.cacheConfig.shouldCacheImagesInMemory) {
         NSUInteger cost = SDCacheCostForImage(image);
-        
-        if (self.maxMemoryCost >= self.currentMemoryCost) {
-            //清除掉  当前时间内  不再需要的缓存  以保证缓存内存整体上不超出总缓存大小
-            
-        }
-        
-        MImageCacheModel *model = [[MImageCacheModel alloc] initWithImage:image cost:cost];
-        [self.memoryCache setObject:model forKey:key cost:cost];
-        _currentMemoryCost += cost;
+        [_memoryCache setObject:image forKey:key withCost:cost];
     }
     
     //是否允许写入磁盘
@@ -385,15 +303,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
 
 - (nullable UIImage *)imageFromMemoryCacheForKey:(nullable NSString *)key {
     
-    MImageCacheModel *model = [self.memoryCache objectForKey:key];
-    
-    if (!model) {
-        return nil;
-    }
-    
-    [model invokeObject];
-
-    return model.image;
+    return [_memoryCache objectForKey:key];
 }
 
 - (nullable UIImage *)imageFromDiskCacheForKey:(nullable NSString *)key {
@@ -415,10 +325,9 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
             image = [UIImage decodedImageWithImage:image];
         }
         
-        NSUInteger cost = SDCacheCostForImage(image);
-        MImageCacheModel *model = [[MImageCacheModel alloc] initWithImage:image cost:cost];
-        [self.memoryCache setObject:model forKey:key];
-        
+//        NSUInteger cost = SDCacheCostForImage(image);
+//        [_memoryCache setObject:image forKey:key withCost:cost];
+
         return image;
     } else {
         return nil;
@@ -440,6 +349,35 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
     
     NSString *key = [self createStoreKeyWithCustomPath:customPath];
     return [self imageFromMemoryCacheForKey:key];
+}
+
+- (nullable UIImage *)imageFromDiskForCustomPath:(NSString *)customPath {
+    
+    NSData *data = [self diskImageDataBySearchingPath:customPath];
+    
+    if (data) {
+        NSString *key = [self createStoreKeyWithCustomPath:customPath];
+        UIImage *image = [UIImage sd_imageWithData:data];
+        image = [self scaledImageForKey:key image:image];
+        
+#ifdef SD_WEBP
+        SDImageFormat imageFormat = [NSData sd_imageFormatForImageData:data];
+        if (imageFormat == SDImageFormatWebP) {
+            return image;
+        }
+#endif
+        
+        if (self.cacheConfig.shouldDecompressImages) {
+            image = [UIImage decodedImageWithImage:image];
+        }
+        
+//        NSUInteger cost = SDCacheCostForImage(image);
+//        [_memoryCache setObject:image forKey:key withCost:cost];
+        
+        return image;
+    } else {
+        return nil;
+    }
 }
 
 - (nullable NSData *)diskImageDataBySearchingAllPathsForKey:(NSString *)key {
@@ -500,13 +438,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
         savePath = [self cacheDiskPathWithKey:saveKey];
     }
     
-    UIImage *image = [self imageFromMemoryCacheForKey:key];
-    
-    if (image) {
-        MImageCacheModel *model = [self.memoryCache objectForKey:key];
-        _currentMemoryCost -= model.cost;
-        [self.memoryCache removeObjectForKey:key];
-    }
+    [_memoryCache removeObjectForKey:saveKey];
     
     if (withDisk) {
         
@@ -528,8 +460,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
 #pragma mark - ===== clear =====
 
 - (void)clearMemory {
-    [self.memoryCache removeAllObjects];
-    _currentMemoryCost = 0;
+    [_memoryCache removeAllObjects];
 }
 
 - (void)clearDiskCache {
@@ -577,21 +508,6 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
 }
 
 #pragma mark - Cache paths
-
-- (nullable NSString *)cachedFileNameForKey:(nullable NSString *)key {
-    const char *str = key.UTF8String;
-    if (str == NULL) {
-        str = "";
-    }
-    unsigned char r[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(str, (CC_LONG)strlen(str), r);
-    NSString *filename = [NSString stringWithFormat:@"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%@",
-                          r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], r[8], r[9], r[10],
-                          r[11], r[12], r[13], r[14], r[15], [key.pathExtension isEqualToString:@""] ? @"" : [NSString stringWithFormat:@".%@", key.pathExtension]];
-    
-    return filename;
-}
-
 
 - (NSString *)baseDiskFirstPath {
     return NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
@@ -672,7 +588,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
 //        }
 //        return nil;
 //    }
-//
+
 //    NSOperation *operation = [NSOperation new];
 //    dispatch_async(self.ioQueue, ^{
 //        if (operation.isCancelled) {
@@ -695,48 +611,30 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
 //            }
 //        }
 //    });
-//
+
 //    return operation;
 //}
 
-#pragma mark - ===== setter =====
+#pragma mark - ===== setter getter =====
 
 - (void)setMaxMemoryCost:(NSUInteger)maxMemoryCost {
     _maxMemoryCost = maxMemoryCost;
-    
-    if (_currentMemoryCost > maxMemoryCost) {
-        //clear cache
-        
-    }
-    
+    _memoryCache.costLimit = maxMemoryCost;
 }
 
-- (NSUInteger)maxMemoryCountLimit {
-    return self.memoryCache.countLimit;
+- (void)setMaxMemoryCount:(NSUInteger)maxMemoryCount {
+    _maxMemoryCount = maxMemoryCount;
+    _memoryCache.countLimit = maxMemoryCount;
 }
 
-- (void)setMaxMemoryCountLimit:(NSUInteger)maxCountLimit {
-    self.memoryCache.countLimit = maxCountLimit;
+- (NSUInteger)currentCost {
+    return _memoryCache.totalCost;
 }
 
-- (void)appEnterBackground {
-    
-    Class UIApplicationClass = NSClassFromString(@"UIApplication");
-    
-    if (!UIApplicationClass || ![UIApplicationClass respondsToSelector:@selector(sharedApplication)]) {
-        return;
-    }
-    
-    UIApplication *applecation = [UIApplication performSelector:@selector(sharedApplication)];
-    
-    __block UIBackgroundTaskIdentifier bgTask = [applecation beginBackgroundTaskWithExpirationHandler:^{
-        [applecation endBackgroundTask:bgTask];
-        bgTask = UIBackgroundTaskInvalid;
-    }];
-
-
-    //清理内存
+- (NSUInteger)currentCount {
+    return _memoryCache.totalCount;
 }
+
 
 #pragma mark - ===== size =====
 
@@ -771,8 +669,7 @@ FOUNDATION_STATIC_INLINE NSUInteger SDCacheCostForImage(UIImage *image) {
         NSUInteger totalSize = 0;
         
         NSDirectoryEnumerator *fileEnumerator = [_fileManager enumeratorAtURL:diskCacheURL
-                                                   includingPropertiesForKeys:@[NSFileSize]
-                                                                      options:NSDirectoryEnumerationSkipsHiddenFiles
+                                                   includingPropertiesForKeys:@[NSFileSize] options:NSDirectoryEnumerationSkipsHiddenFiles
                                                                  errorHandler:NULL];
         
         for (NSURL *fileURL in fileEnumerator) {

@@ -58,6 +58,15 @@
 
 - (void)cancel {
     
+    NSUInteger currentRequestIndex = _nextRequestIndex;
+    
+    if (currentRequestIndex < [_requestArray count]) {
+        MNetworkBaseRequest *request = _requestArray[currentRequestIndex];
+        [request cancel];
+    }
+    
+    _requestArray = nil;
+    [self clean];
 }
 
 - (void)clean {

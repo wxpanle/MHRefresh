@@ -17,6 +17,8 @@
 
 @implementation MNetworkBatchAgent
 
+#pragma mark - ========== init ==========
+
 + (instancetype)sharedBatchAgent {
     static MNetworkBatchAgent *sharedAgent = nil;
     static dispatch_once_t onceToken;
@@ -25,6 +27,17 @@
     });
     return sharedAgent;
 }
+
+- (instancetype)init {
+    
+    if (self = [super init]) {
+        _requestArray = [NSMutableArray array];
+    }
+    return self;
+}
+
+
+#pragma mark - ========== public ==========
 
 - (void)addBatchRequest:(MNetworkBatchRequest *)request {
     @synchronized(self) {
@@ -37,14 +50,5 @@
         [_requestArray addObject:request];
     }
 }
-
-- (instancetype)init {
-    
-    if (self = [super init]) {
-        
-    }
-    return self;
-}
-
 
 @end
