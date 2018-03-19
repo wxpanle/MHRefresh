@@ -28,6 +28,11 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JyD-AE-IF4" secondAttribute="height" multiplier="1:1" id="8be-ZH-prm"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="8be-ZH-prm"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Pe-FW-gMk">
                                 <rect key="frame" x="184" y="577" width="46" height="30"/>
@@ -46,6 +51,12 @@
                             <constraint firstItem="8Pe-FW-gMk" firstAttribute="top" secondItem="JyD-AE-IF4" secondAttribute="bottom" constant="50" id="h4d-re-RN6"/>
                             <constraint firstAttribute="trailing" secondItem="JyD-AE-IF4" secondAttribute="trailing" id="tgq-RX-NIS"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="JyD-AE-IF4"/>
+                                <exclude reference="8Pe-FW-gMk"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="JyD-AE-IF4" id="Dh5-r9-NCx"/>

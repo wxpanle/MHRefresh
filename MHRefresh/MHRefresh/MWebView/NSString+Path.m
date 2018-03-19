@@ -10,6 +10,10 @@
 
 @implementation NSString (Path)
 
+- (NSString *)imagePath {
+    return nil;
+}
+
 + (CGFloat)getStringHeightWithString:(NSString *)string width:(CGFloat)width font:(UIFont *)font {
     return [self getSizeWithString:string font:font appointSize:CGSizeMake(width, CGFLOAT_MAX)].height;
 }

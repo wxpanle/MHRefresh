@@ -23,6 +23,8 @@
 
 #import "UIImage+QYBlur.h"
 
+#import "UITableViewCell+QYIdentifier.h"
+
 #pragma mark - Foundation
 #import "NSString+QYPinyin.h"
 #import "NSString+QYSize.h"

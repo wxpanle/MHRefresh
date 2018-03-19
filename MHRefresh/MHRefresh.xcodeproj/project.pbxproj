@@ -279,8 +279,118 @@
 		8BF672BA1F71479700CF312A /* NSString+QYUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF672B91F71479700CF312A /* NSString+QYUUID.m */; };
 		8BF672BE1F7275D900CF312A /* MCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF672BD1F7275D900CF312A /* MCAlertView.m */; };
 		8BF672C21F73577900CF312A /* UIColor+QYQuickCreate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF672C11F73577900CF312A /* UIColor+QYQuickCreate.m */; };
+		FE0BA651204794F000736A0F /* QYAscendArray.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0BA650204794F000736A0F /* QYAscendArray.m */; };
+		FE0BA6552047A32C00736A0F /* QYAudioFileStream.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0BA6542047A32C00736A0F /* QYAudioFileStream.m */; };
+		FE0BA6582047A34F00736A0F /* QYAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0BA6572047A34F00736A0F /* QYAudioFile.m */; };
+		FE1567842027FC4200237BD2 /* QYKVOModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1567832027FC4200237BD2 /* QYKVOModel.m */; };
+		FE1567872028007300237BD2 /* QYKVOViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1567862028007300237BD2 /* QYKVOViewController.m */; };
+		FE15678A20280A6000237BD2 /* KeyValueObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FE15678820280A5F00237BD2 /* KeyValueObserver.m */; };
+		FE4F61532015848300A70CB7 /* QYMultiSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4F61522015848300A70CB7 /* QYMultiSelectViewController.m */; };
+		FE4F61562015882700A70CB7 /* QYMultiSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4F61552015882700A70CB7 /* QYMultiSelectTableViewCell.m */; };
+		FE5F76EA2008434B00F9D30E /* markdownlearn.md in Resources */ = {isa = PBXBuildFile; fileRef = FE5F76E92008434B00F9D30E /* markdownlearn.md */; };
+		FE5FB4BC203FA276001318D5 /* QYFlowerArrangement.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5FB4BB203FA276001318D5 /* QYFlowerArrangement.m */; };
+		FE5FB4BF203FA2F8001318D5 /* QYLintcodeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5FB4BE203FA2F8001318D5 /* QYLintcodeBase.m */; };
+		FE5FB4C2203FAC45001318D5 /* QYAirballoon.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5FB4C1203FAC45001318D5 /* QYAirballoon.m */; };
+		FE5FB4C5203FC0D4001318D5 /* QYMaxAverageSubArray.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5FB4C4203FC0D4001318D5 /* QYMaxAverageSubArray.m */; };
+		FE5FB4CE2040062F001318D5 /* testStaticLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5FB4CD2040062F001318D5 /* testStaticLibrary.m */; };
+		FE5FB4CF2040062F001318D5 /* testStaticLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = FE5FB4CC2040062F001318D5 /* testStaticLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE5FB4D6204008C5001318D5 /* QYFlowerArrangement.h in Headers */ = {isa = PBXBuildFile; fileRef = FE5FB4BA203FA276001318D5 /* QYFlowerArrangement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE5FB4D7204008C5001318D5 /* QYAirballoon.h in Headers */ = {isa = PBXBuildFile; fileRef = FE5FB4C0203FAC45001318D5 /* QYAirballoon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE5FB4D8204008FB001318D5 /* QYFlowerArrangement.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FE5FB4BA203FA276001318D5 /* QYFlowerArrangement.h */; };
+		FE5FB4D9204008FB001318D5 /* QYAirballoon.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FE5FB4C0203FAC45001318D5 /* QYAirballoon.h */; };
+		FE5FB4E620401371001318D5 /* QYLintcodeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5FB4BE203FA2F8001318D5 /* QYLintcodeBase.m */; };
+		FE5FB4E720401371001318D5 /* QYFlowerArrangement.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5FB4BB203FA276001318D5 /* QYFlowerArrangement.m */; };
+		FE5FB4E820401371001318D5 /* QYAirballoon.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5FB4C1203FAC45001318D5 /* QYAirballoon.m */; };
+		FE5FB4E920401386001318D5 /* QYLintcodeBase.h in Headers */ = {isa = PBXBuildFile; fileRef = FE5FB4BD203FA2F8001318D5 /* QYLintcodeBase.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		FE5FB4EA204013B8001318D5 /* QYLintcodeBase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FE5FB4BD203FA2F8001318D5 /* QYLintcodeBase.h */; };
+		FE5FB4EB204013C1001318D5 /* testStaticLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FE5FB4CC2040062F001318D5 /* testStaticLibrary.h */; };
+		FE5FB50620401BF3001318D5 /* FrameworkTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5FB4FD20401BF2001318D5 /* FrameworkTool.framework */; };
+		FE5FB50D20401BF3001318D5 /* FrameworkToolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5FB50C20401BF3001318D5 /* FrameworkToolTests.m */; };
+		FE5FB50F20401BF3001318D5 /* FrameworkTool.h in Headers */ = {isa = PBXBuildFile; fileRef = FE5FB4FF20401BF3001318D5 /* FrameworkTool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE5FB51220401BF3001318D5 /* FrameworkTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE5FB4FD20401BF2001318D5 /* FrameworkTool.framework */; };
+		FE5FB51420401BF3001318D5 /* FrameworkTool.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE5FB4FD20401BF2001318D5 /* FrameworkTool.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FE5FB51D20401C42001318D5 /* QYFrameworktest.h in Headers */ = {isa = PBXBuildFile; fileRef = FE5FB51B20401C42001318D5 /* QYFrameworktest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FE5FB51E20401C42001318D5 /* QYFrameworktest.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5FB51C20401C42001318D5 /* QYFrameworktest.m */; };
+		FE60B9072047EE51008E775F /* QYAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FE60B9062047EE51008E775F /* QYAudioPlayer.m */; };
+		FE60B90A2047F12B008E775F /* QYAudioSession.m in Sources */ = {isa = PBXBuildFile; fileRef = FE60B9092047F12B008E775F /* QYAudioSession.m */; };
+		FE60B9102047F383008E775F /* QYAudioBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = FE60B90F2047F383008E775F /* QYAudioBuffer.m */; };
+		FE60B9132047F3B5008E775F /* QYParsedAudioData.m in Sources */ = {isa = PBXBuildFile; fileRef = FE60B9122047F3B5008E775F /* QYParsedAudioData.m */; };
+		FE60B9162047F86F008E775F /* QYAudioOutputQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FE60B9152047F86F008E775F /* QYAudioOutputQueue.m */; };
+		FE6513A51FFF2A7300E8E210 /* QYDIskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6513A41FFF2A7300E8E210 /* QYDIskCache.m */; };
+		FE6B139F20521EEE00A9C1D3 /* PLAudioThread.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6B139E20521EEE00A9C1D3 /* PLAudioThread.m */; };
+		FE6B13A220525C0100A9C1D3 /* PLAudioSession.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6B13A120525C0100A9C1D3 /* PLAudioSession.m */; };
+		FE6B13A820525D9300A9C1D3 /* PLAudioFileStream.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6B13A720525D9300A9C1D3 /* PLAudioFileStream.m */; };
+		FE6B13CD20561D8300A9C1D3 /* PLAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6B13CC20561D8300A9C1D3 /* PLAudioFile.m */; };
+		FE6B923F204E830F00FF318E /* PLAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6B923E204E830F00FF318E /* PLAudioPlayer.m */; };
+		FE6B9242204E883A00FF318E /* PLAudioOutputQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6B9241204E883A00FF318E /* PLAudioOutputQueue.m */; };
+		FE6B92E02050E7AD00FF318E /* PLParsedAudioDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6B92DF2050E7AD00FF318E /* PLParsedAudioDataModel.m */; };
+		FE6B92E320510B1900FF318E /* PLAudioStream.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6B92E220510B1900FF318E /* PLAudioStream.m */; };
+		FE6B92E920510BCA00FF318E /* PLFileProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6B92E820510BCA00FF318E /* PLFileProvider.m */; };
 		FE7409681FF4825B00487D70 /* QYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7409671FF4825B00487D70 /* QYMemoryCache.m */; };
+		FE7F359E205F742000DD68FF /* QYStrangePrintf.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7F359D205F742000DD68FF /* QYStrangePrintf.m */; };
+		FE889442204CDE1F00C1EF9A /* QYMaxLengthOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = FE889441204CDE1F00C1EF9A /* QYMaxLengthOrder.m */; };
+		FEA3D9BE2057D1C8004723D7 /* PLAudioHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA3D9BD2057D1C8004723D7 /* PLAudioHTTPRequest.m */; };
+		FEA3D9C120591489004723D7 /* PLAudioBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA3D9C020591489004723D7 /* PLAudioBuffer.m */; };
+		FEA3D9C6205A0AAD004723D7 /* QYPlayerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA3D9C5205A0AAD004723D7 /* QYPlayerTest.m */; };
+		FEA3D9C9205A269E004723D7 /* AAA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEA3D9C8205A269D004723D7 /* AAA.mp3 */; };
+		FECE7E832043B21300349D30 /* QYCircleSubString.m in Sources */ = {isa = PBXBuildFile; fileRef = FECE7E822043B21300349D30 /* QYCircleSubString.m */; };
+		FECE7E862043C10800349D30 /* QYNumberDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = FECE7E852043C10800349D30 /* QYNumberDecode.m */; };
+		FECE7E8B2043C37E00349D30 /* QYAudioTextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = FECE7E8A2043C37E00349D30 /* QYAudioTextPart.m */; };
+		FECE7E8D2043C39100349D30 /* Objcio-audio.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FECE7E8C2043C39100349D30 /* Objcio-audio.xcassets */; };
+		FECE7E982044F3F900349D30 /* QYArithmeticSubSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = FECE7E972044F3F900349D30 /* QYArithmeticSubSequence.m */; };
+		FED60D3D2029869000855ED6 /* Primes.m in Sources */ = {isa = PBXBuildFile; fileRef = FED60D3C2029869000855ED6 /* Primes.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FE5FB50720401BF3001318D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B5D1FF01F26F9E900DD1898 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FE5FB4FC20401BF2001318D5;
+			remoteInfo = FrameworkTool;
+		};
+		FE5FB50920401BF3001318D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B5D1FF01F26F9E900DD1898 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B5D1FF71F26F9E900DD1898;
+			remoteInfo = MHRefresh;
+		};
+		FE5FB51020401BF3001318D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B5D1FF01F26F9E900DD1898 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FE5FB4FC20401BF2001318D5;
+			remoteInfo = FrameworkTool;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FE5FB4C82040062F001318D5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				FE5FB4EB204013C1001318D5 /* testStaticLibrary.h in CopyFiles */,
+				FE5FB4EA204013B8001318D5 /* QYLintcodeBase.h in CopyFiles */,
+				FE5FB4D8204008FB001318D5 /* QYFlowerArrangement.h in CopyFiles */,
+				FE5FB4D9204008FB001318D5 /* QYAirballoon.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE5FB51320401BF3001318D5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FE5FB51420401BF3001318D5 /* FrameworkTool.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6170A4A14039BBA741EEAAD2 /* libPods-MHRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MHRefresh.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -787,8 +897,98 @@
 		8BFC5A4B1FEBA12600DCAE8F /* MNetworkOperationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MNetworkOperationProtocol.h; sourceTree = "<group>"; };
 		D6ED4287028751506AB7049B /* Pods-MHRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHRefresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHRefresh/Pods-MHRefresh.release.xcconfig"; sourceTree = "<group>"; };
 		DE5F0F6E9648AF866E342514 /* Pods-MHRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHRefresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHRefresh/Pods-MHRefresh.debug.xcconfig"; sourceTree = "<group>"; };
+		FE0BA64F204794F000736A0F /* QYAscendArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYAscendArray.h; sourceTree = "<group>"; };
+		FE0BA650204794F000736A0F /* QYAscendArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYAscendArray.m; sourceTree = "<group>"; };
+		FE0BA6532047A32C00736A0F /* QYAudioFileStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYAudioFileStream.h; sourceTree = "<group>"; };
+		FE0BA6542047A32C00736A0F /* QYAudioFileStream.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYAudioFileStream.m; sourceTree = "<group>"; };
+		FE0BA6562047A34F00736A0F /* QYAudioFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYAudioFile.h; sourceTree = "<group>"; };
+		FE0BA6572047A34F00736A0F /* QYAudioFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYAudioFile.m; sourceTree = "<group>"; };
+		FE1567822027FC4200237BD2 /* QYKVOModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYKVOModel.h; sourceTree = "<group>"; };
+		FE1567832027FC4200237BD2 /* QYKVOModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYKVOModel.m; sourceTree = "<group>"; };
+		FE1567852028007300237BD2 /* QYKVOViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYKVOViewController.h; sourceTree = "<group>"; };
+		FE1567862028007300237BD2 /* QYKVOViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYKVOViewController.m; sourceTree = "<group>"; };
+		FE15678820280A5F00237BD2 /* KeyValueObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyValueObserver.m; sourceTree = "<group>"; };
+		FE15678920280A5F00237BD2 /* KeyValueObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyValueObserver.h; sourceTree = "<group>"; };
+		FE4F61512015848300A70CB7 /* QYMultiSelectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYMultiSelectViewController.h; sourceTree = "<group>"; };
+		FE4F61522015848300A70CB7 /* QYMultiSelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMultiSelectViewController.m; sourceTree = "<group>"; };
+		FE4F61542015882700A70CB7 /* QYMultiSelectTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYMultiSelectTableViewCell.h; sourceTree = "<group>"; };
+		FE4F61552015882700A70CB7 /* QYMultiSelectTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMultiSelectTableViewCell.m; sourceTree = "<group>"; };
+		FE5F76E92008434B00F9D30E /* markdownlearn.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = markdownlearn.md; sourceTree = "<group>"; };
+		FE5FB4BA203FA276001318D5 /* QYFlowerArrangement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYFlowerArrangement.h; sourceTree = "<group>"; };
+		FE5FB4BB203FA276001318D5 /* QYFlowerArrangement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYFlowerArrangement.m; sourceTree = "<group>"; };
+		FE5FB4BD203FA2F8001318D5 /* QYLintcodeBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYLintcodeBase.h; sourceTree = "<group>"; };
+		FE5FB4BE203FA2F8001318D5 /* QYLintcodeBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYLintcodeBase.m; sourceTree = "<group>"; };
+		FE5FB4C0203FAC45001318D5 /* QYAirballoon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYAirballoon.h; sourceTree = "<group>"; };
+		FE5FB4C1203FAC45001318D5 /* QYAirballoon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYAirballoon.m; sourceTree = "<group>"; };
+		FE5FB4C3203FC0D4001318D5 /* QYMaxAverageSubArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYMaxAverageSubArray.h; sourceTree = "<group>"; };
+		FE5FB4C4203FC0D4001318D5 /* QYMaxAverageSubArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMaxAverageSubArray.m; sourceTree = "<group>"; };
+		FE5FB4CA2040062F001318D5 /* libtestStaticLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtestStaticLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE5FB4CC2040062F001318D5 /* testStaticLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testStaticLibrary.h; sourceTree = "<group>"; };
+		FE5FB4CD2040062F001318D5 /* testStaticLibrary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testStaticLibrary.m; sourceTree = "<group>"; };
+		FE5FB4FD20401BF2001318D5 /* FrameworkTool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FrameworkTool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE5FB4FF20401BF3001318D5 /* FrameworkTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrameworkTool.h; sourceTree = "<group>"; };
+		FE5FB50020401BF3001318D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE5FB50520401BF3001318D5 /* FrameworkToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrameworkToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE5FB50C20401BF3001318D5 /* FrameworkToolTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrameworkToolTests.m; sourceTree = "<group>"; };
+		FE5FB50E20401BF3001318D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE5FB51B20401C42001318D5 /* QYFrameworktest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYFrameworktest.h; sourceTree = "<group>"; };
+		FE5FB51C20401C42001318D5 /* QYFrameworktest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYFrameworktest.m; sourceTree = "<group>"; };
+		FE60B9052047EE51008E775F /* QYAudioPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYAudioPlayer.h; sourceTree = "<group>"; };
+		FE60B9062047EE51008E775F /* QYAudioPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYAudioPlayer.m; sourceTree = "<group>"; };
+		FE60B9082047F12B008E775F /* QYAudioSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYAudioSession.h; sourceTree = "<group>"; };
+		FE60B9092047F12B008E775F /* QYAudioSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYAudioSession.m; sourceTree = "<group>"; };
+		FE60B90E2047F383008E775F /* QYAudioBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYAudioBuffer.h; sourceTree = "<group>"; };
+		FE60B90F2047F383008E775F /* QYAudioBuffer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYAudioBuffer.m; sourceTree = "<group>"; };
+		FE60B9112047F3B5008E775F /* QYParsedAudioData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYParsedAudioData.h; sourceTree = "<group>"; };
+		FE60B9122047F3B5008E775F /* QYParsedAudioData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYParsedAudioData.m; sourceTree = "<group>"; };
+		FE60B9142047F86F008E775F /* QYAudioOutputQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYAudioOutputQueue.h; sourceTree = "<group>"; };
+		FE60B9152047F86F008E775F /* QYAudioOutputQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYAudioOutputQueue.m; sourceTree = "<group>"; };
+		FE6513A31FFF2A7300E8E210 /* QYDIskCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYDIskCache.h; sourceTree = "<group>"; };
+		FE6513A41FFF2A7300E8E210 /* QYDIskCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYDIskCache.m; sourceTree = "<group>"; };
+		FE6B139D20521EEE00A9C1D3 /* PLAudioThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLAudioThread.h; sourceTree = "<group>"; };
+		FE6B139E20521EEE00A9C1D3 /* PLAudioThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLAudioThread.m; sourceTree = "<group>"; };
+		FE6B13A020525C0100A9C1D3 /* PLAudioSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLAudioSession.h; sourceTree = "<group>"; };
+		FE6B13A120525C0100A9C1D3 /* PLAudioSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLAudioSession.m; sourceTree = "<group>"; };
+		FE6B13A620525D9300A9C1D3 /* PLAudioFileStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLAudioFileStream.h; sourceTree = "<group>"; };
+		FE6B13A720525D9300A9C1D3 /* PLAudioFileStream.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLAudioFileStream.m; sourceTree = "<group>"; };
+		FE6B13CB20561D8300A9C1D3 /* PLAudioFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLAudioFile.h; sourceTree = "<group>"; };
+		FE6B13CC20561D8300A9C1D3 /* PLAudioFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLAudioFile.m; sourceTree = "<group>"; };
+		FE6B923D204E830F00FF318E /* PLAudioPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLAudioPlayer.h; sourceTree = "<group>"; };
+		FE6B923E204E830F00FF318E /* PLAudioPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLAudioPlayer.m; sourceTree = "<group>"; };
+		FE6B9240204E883A00FF318E /* PLAudioOutputQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLAudioOutputQueue.h; sourceTree = "<group>"; };
+		FE6B9241204E883A00FF318E /* PLAudioOutputQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLAudioOutputQueue.m; sourceTree = "<group>"; };
+		FE6B92DE2050E7AD00FF318E /* PLParsedAudioDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLParsedAudioDataModel.h; sourceTree = "<group>"; };
+		FE6B92DF2050E7AD00FF318E /* PLParsedAudioDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLParsedAudioDataModel.m; sourceTree = "<group>"; };
+		FE6B92E120510B1900FF318E /* PLAudioStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLAudioStream.h; sourceTree = "<group>"; };
+		FE6B92E220510B1900FF318E /* PLAudioStream.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLAudioStream.m; sourceTree = "<group>"; };
+		FE6B92E720510BCA00FF318E /* PLFileProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLFileProvider.h; sourceTree = "<group>"; };
+		FE6B92E820510BCA00FF318E /* PLFileProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLFileProvider.m; sourceTree = "<group>"; };
 		FE7409661FF4825B00487D70 /* QYMemoryCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYMemoryCache.h; sourceTree = "<group>"; };
 		FE7409671FF4825B00487D70 /* QYMemoryCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMemoryCache.m; sourceTree = "<group>"; };
+		FE7F359C205F742000DD68FF /* QYStrangePrintf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYStrangePrintf.h; sourceTree = "<group>"; };
+		FE7F359D205F742000DD68FF /* QYStrangePrintf.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYStrangePrintf.m; sourceTree = "<group>"; };
+		FE889440204CDE1F00C1EF9A /* QYMaxLengthOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYMaxLengthOrder.h; sourceTree = "<group>"; };
+		FE889441204CDE1F00C1EF9A /* QYMaxLengthOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMaxLengthOrder.m; sourceTree = "<group>"; };
+		FEA3D9BC2057D1C8004723D7 /* PLAudioHTTPRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLAudioHTTPRequest.h; sourceTree = "<group>"; };
+		FEA3D9BD2057D1C8004723D7 /* PLAudioHTTPRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLAudioHTTPRequest.m; sourceTree = "<group>"; };
+		FEA3D9BF20591489004723D7 /* PLAudioBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLAudioBuffer.h; sourceTree = "<group>"; };
+		FEA3D9C020591489004723D7 /* PLAudioBuffer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLAudioBuffer.m; sourceTree = "<group>"; };
+		FEA3D9C4205A0AAD004723D7 /* QYPlayerTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYPlayerTest.h; sourceTree = "<group>"; };
+		FEA3D9C5205A0AAD004723D7 /* QYPlayerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYPlayerTest.m; sourceTree = "<group>"; };
+		FEA3D9C7205A0BB3004723D7 /* PLAudioFileSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLAudioFileSource.h; sourceTree = "<group>"; };
+		FEA3D9C8205A269D004723D7 /* AAA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = AAA.mp3; sourceTree = "<group>"; };
+		FECE7E802043AC4B00349D30 /* QYLintCodeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYLintCodeHeader.h; sourceTree = "<group>"; };
+		FECE7E812043B21300349D30 /* QYCircleSubString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYCircleSubString.h; sourceTree = "<group>"; };
+		FECE7E822043B21300349D30 /* QYCircleSubString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYCircleSubString.m; sourceTree = "<group>"; };
+		FECE7E842043C10800349D30 /* QYNumberDecode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYNumberDecode.h; sourceTree = "<group>"; };
+		FECE7E852043C10800349D30 /* QYNumberDecode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYNumberDecode.m; sourceTree = "<group>"; };
+		FECE7E892043C37E00349D30 /* QYAudioTextPart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYAudioTextPart.h; sourceTree = "<group>"; };
+		FECE7E8A2043C37E00349D30 /* QYAudioTextPart.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYAudioTextPart.m; sourceTree = "<group>"; };
+		FECE7E8C2043C39100349D30 /* Objcio-audio.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Objcio-audio.xcassets"; sourceTree = "<group>"; };
+		FECE7E962044F3F900349D30 /* QYArithmeticSubSequence.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYArithmeticSubSequence.h; sourceTree = "<group>"; };
+		FECE7E972044F3F900349D30 /* QYArithmeticSubSequence.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYArithmeticSubSequence.m; sourceTree = "<group>"; };
+		FED60D3B2029869000855ED6 /* Primes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Primes.h; sourceTree = "<group>"; };
+		FED60D3C2029869000855ED6 /* Primes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Primes.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -796,12 +996,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE5FB51220401BF3001318D5 /* FrameworkTool.framework in Frameworks */,
 				8BC118BF1F8CDC7900D9F905 /* Foundation.framework in Frameworks */,
 				8BC118BD1F8CDC7300D9F905 /* UIKit.framework in Frameworks */,
 				8BC1182A1F8CDBFD00D9F905 /* ImageIO.framework in Frameworks */,
 				8BC118291F8CDBF400D9F905 /* MapKit.framework in Frameworks */,
 				8BC118281F8CDBEF00D9F905 /* CoreGraphics.framework in Frameworks */,
 				26F599390836D839C6C0A3AD /* libPods-MHRefresh.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE5FB4C72040062F001318D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE5FB4F920401BF2001318D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE5FB50220401BF3001318D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE5FB50620401BF3001318D5 /* FrameworkTool.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1678,6 +1901,9 @@
 			isa = PBXGroup;
 			children = (
 				8B5D1FFA1F26F9E900DD1898 /* MHRefresh */,
+				FE5FB4CB2040062F001318D5 /* testStaticLibrary */,
+				FE5FB4FE20401BF2001318D5 /* FrameworkTool */,
+				FE5FB50B20401BF3001318D5 /* FrameworkToolTests */,
 				8B5D1FF91F26F9E900DD1898 /* Products */,
 				8AE3C6AB71334B0117E08BC9 /* Pods */,
 				DCB78ECD6614B6ABACD4EABF /* Frameworks */,
@@ -1688,6 +1914,9 @@
 			isa = PBXGroup;
 			children = (
 				8B5D1FF81F26F9E900DD1898 /* MHRefresh.app */,
+				FE5FB4CA2040062F001318D5 /* libtestStaticLibrary.a */,
+				FE5FB4FD20401BF2001318D5 /* FrameworkTool.framework */,
+				FE5FB50520401BF3001318D5 /* FrameworkToolTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1702,6 +1931,10 @@
 				8B5D20021F26F9E900DD1898 /* ViewController.m */,
 				8B5D20041F26F9E900DD1898 /* Main.storyboard */,
 				8B0583261FCFED56003D3238 /* UrlENcode */,
+				FE5F76E92008434B00F9D30E /* markdownlearn.md */,
+				FECE7E872043C2EB00349D30 /* Objcio */,
+				FE4F614C2015841E00A70CB7 /* 自定义控件 */,
+				FE5FB4B9203FA1F5001318D5 /* Lintcode */,
 				8BCC24551FB1643F0096AB2E /* MLearn */,
 				8BB0986D1FA6CEDB00A9B377 /* KeyBoard */,
 				8B846E281F8EF63D007C0731 /* Arithmeti（该model均为编程之美内容） */,
@@ -1717,6 +1950,7 @@
 				8B8BB9C91F3463880071D0AF /* 扩展 */,
 				8B8BB9CD1F34638F0071D0AF /* 预览视图 */,
 				8B195C5B1F627A8A005D6321 /* Expand(扩展) */,
+				FE16238C200D9B22006FD73B /* Media */,
 				8B5D20071F26F9E900DD1898 /* Assets.xcassets */,
 				8B5D20091F26F9E900DD1898 /* LaunchScreen.storyboard */,
 				8B5D200C1F26F9E900DD1898 /* Info.plist */,
@@ -1853,6 +2087,8 @@
 				8BEA74771F9F58FF0001F565 /* MNetworkImageCache.m */,
 				FE7409661FF4825B00487D70 /* QYMemoryCache.h */,
 				FE7409671FF4825B00487D70 /* QYMemoryCache.m */,
+				FE6513A31FFF2A7300E8E210 /* QYDIskCache.h */,
+				FE6513A41FFF2A7300E8E210 /* QYDIskCache.m */,
 			);
 			path = "网络请求";
 			sourceTree = "<group>";
@@ -2237,6 +2473,7 @@
 			isa = PBXGroup;
 			children = (
 				8BCC24561FB164730096AB2E /* c语言封装oc对象 */,
+				FE1567812027FC2600237BD2 /* KVC-KVO */,
 			);
 			path = MLearn;
 			sourceTree = "<group>";
@@ -2290,7 +2527,218 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FE0BA6522047A2B600736A0F /* MSimpleAudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				FEA3D9C8205A269D004723D7 /* AAA.mp3 */,
+				FE60B9082047F12B008E775F /* QYAudioSession.h */,
+				FE60B9092047F12B008E775F /* QYAudioSession.m */,
+				FE60B90E2047F383008E775F /* QYAudioBuffer.h */,
+				FE60B90F2047F383008E775F /* QYAudioBuffer.m */,
+				FE60B9112047F3B5008E775F /* QYParsedAudioData.h */,
+				FE60B9122047F3B5008E775F /* QYParsedAudioData.m */,
+				FE0BA6532047A32C00736A0F /* QYAudioFileStream.h */,
+				FE0BA6542047A32C00736A0F /* QYAudioFileStream.m */,
+				FE60B9142047F86F008E775F /* QYAudioOutputQueue.h */,
+				FE60B9152047F86F008E775F /* QYAudioOutputQueue.m */,
+				FE0BA6562047A34F00736A0F /* QYAudioFile.h */,
+				FE0BA6572047A34F00736A0F /* QYAudioFile.m */,
+				FE60B9052047EE51008E775F /* QYAudioPlayer.h */,
+				FE60B9062047EE51008E775F /* QYAudioPlayer.m */,
+			);
+			path = MSimpleAudioPlayer;
+			sourceTree = "<group>";
+		};
+		FE1567812027FC2600237BD2 /* KVC-KVO */ = {
+			isa = PBXGroup;
+			children = (
+				FE1567822027FC4200237BD2 /* QYKVOModel.h */,
+				FE1567832027FC4200237BD2 /* QYKVOModel.m */,
+				FE15678920280A5F00237BD2 /* KeyValueObserver.h */,
+				FE15678820280A5F00237BD2 /* KeyValueObserver.m */,
+				FE1567852028007300237BD2 /* QYKVOViewController.h */,
+				FE1567862028007300237BD2 /* QYKVOViewController.m */,
+				FED60D3B2029869000855ED6 /* Primes.h */,
+				FED60D3C2029869000855ED6 /* Primes.m */,
+			);
+			path = "KVC-KVO";
+			sourceTree = "<group>";
+		};
+		FE16238C200D9B22006FD73B /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				FE16238E200D9B37006FD73B /* Audio */,
+				FE16238D200D9B36006FD73B /* Player */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		FE16238D200D9B36006FD73B /* Player */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		FE16238E200D9B37006FD73B /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				FE6B923C204E830200FF318E /* PLAudioPlayer */,
+				FE0BA6522047A2B600736A0F /* MSimpleAudioPlayer */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		FE4F614C2015841E00A70CB7 /* 自定义控件 */ = {
+			isa = PBXGroup;
+			children = (
+				FE4F614D2015841E00A70CB7 /* MultiSelect */,
+			);
+			path = "自定义控件";
+			sourceTree = "<group>";
+		};
+		FE4F614D2015841E00A70CB7 /* MultiSelect */ = {
+			isa = PBXGroup;
+			children = (
+				FE4F61512015848300A70CB7 /* QYMultiSelectViewController.h */,
+				FE4F61522015848300A70CB7 /* QYMultiSelectViewController.m */,
+				FE4F61542015882700A70CB7 /* QYMultiSelectTableViewCell.h */,
+				FE4F61552015882700A70CB7 /* QYMultiSelectTableViewCell.m */,
+			);
+			path = MultiSelect;
+			sourceTree = "<group>";
+		};
+		FE5FB4B9203FA1F5001318D5 /* Lintcode */ = {
+			isa = PBXGroup;
+			children = (
+				FECE7E802043AC4B00349D30 /* QYLintCodeHeader.h */,
+				FE5FB4BD203FA2F8001318D5 /* QYLintcodeBase.h */,
+				FE5FB4BE203FA2F8001318D5 /* QYLintcodeBase.m */,
+				FE5FB4BA203FA276001318D5 /* QYFlowerArrangement.h */,
+				FE5FB4BB203FA276001318D5 /* QYFlowerArrangement.m */,
+				FE5FB4C0203FAC45001318D5 /* QYAirballoon.h */,
+				FE5FB4C1203FAC45001318D5 /* QYAirballoon.m */,
+				FE5FB4C3203FC0D4001318D5 /* QYMaxAverageSubArray.h */,
+				FE5FB4C4203FC0D4001318D5 /* QYMaxAverageSubArray.m */,
+				FECE7E812043B21300349D30 /* QYCircleSubString.h */,
+				FECE7E822043B21300349D30 /* QYCircleSubString.m */,
+				FECE7E842043C10800349D30 /* QYNumberDecode.h */,
+				FECE7E852043C10800349D30 /* QYNumberDecode.m */,
+				FECE7E962044F3F900349D30 /* QYArithmeticSubSequence.h */,
+				FECE7E972044F3F900349D30 /* QYArithmeticSubSequence.m */,
+				FE0BA64F204794F000736A0F /* QYAscendArray.h */,
+				FE0BA650204794F000736A0F /* QYAscendArray.m */,
+				FE889440204CDE1F00C1EF9A /* QYMaxLengthOrder.h */,
+				FE889441204CDE1F00C1EF9A /* QYMaxLengthOrder.m */,
+				FE7F359C205F742000DD68FF /* QYStrangePrintf.h */,
+				FE7F359D205F742000DD68FF /* QYStrangePrintf.m */,
+			);
+			path = Lintcode;
+			sourceTree = "<group>";
+		};
+		FE5FB4CB2040062F001318D5 /* testStaticLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				FE5FB4CC2040062F001318D5 /* testStaticLibrary.h */,
+				FE5FB4CD2040062F001318D5 /* testStaticLibrary.m */,
+			);
+			path = testStaticLibrary;
+			sourceTree = "<group>";
+		};
+		FE5FB4FE20401BF2001318D5 /* FrameworkTool */ = {
+			isa = PBXGroup;
+			children = (
+				FE5FB4FF20401BF3001318D5 /* FrameworkTool.h */,
+				FE5FB51B20401C42001318D5 /* QYFrameworktest.h */,
+				FE5FB51C20401C42001318D5 /* QYFrameworktest.m */,
+				FE5FB50020401BF3001318D5 /* Info.plist */,
+			);
+			path = FrameworkTool;
+			sourceTree = "<group>";
+		};
+		FE5FB50B20401BF3001318D5 /* FrameworkToolTests */ = {
+			isa = PBXGroup;
+			children = (
+				FE5FB50C20401BF3001318D5 /* FrameworkToolTests.m */,
+				FE5FB50E20401BF3001318D5 /* Info.plist */,
+			);
+			path = FrameworkToolTests;
+			sourceTree = "<group>";
+		};
+		FE6B923C204E830200FF318E /* PLAudioPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				FE6B923D204E830F00FF318E /* PLAudioPlayer.h */,
+				FE6B923E204E830F00FF318E /* PLAudioPlayer.m */,
+				FE6B139D20521EEE00A9C1D3 /* PLAudioThread.h */,
+				FE6B139E20521EEE00A9C1D3 /* PLAudioThread.m */,
+				FE6B13A020525C0100A9C1D3 /* PLAudioSession.h */,
+				FE6B13A120525C0100A9C1D3 /* PLAudioSession.m */,
+				FE6B92DE2050E7AD00FF318E /* PLParsedAudioDataModel.h */,
+				FE6B92DF2050E7AD00FF318E /* PLParsedAudioDataModel.m */,
+				FE6B9240204E883A00FF318E /* PLAudioOutputQueue.h */,
+				FE6B9241204E883A00FF318E /* PLAudioOutputQueue.m */,
+				FEA3D9BF20591489004723D7 /* PLAudioBuffer.h */,
+				FEA3D9C020591489004723D7 /* PLAudioBuffer.m */,
+				FE6B92E120510B1900FF318E /* PLAudioStream.h */,
+				FE6B92E220510B1900FF318E /* PLAudioStream.m */,
+				FE6B13CB20561D8300A9C1D3 /* PLAudioFile.h */,
+				FE6B13CC20561D8300A9C1D3 /* PLAudioFile.m */,
+				FE6B13A620525D9300A9C1D3 /* PLAudioFileStream.h */,
+				FE6B13A720525D9300A9C1D3 /* PLAudioFileStream.m */,
+				FE6B92E720510BCA00FF318E /* PLFileProvider.h */,
+				FE6B92E820510BCA00FF318E /* PLFileProvider.m */,
+				FEA3D9BC2057D1C8004723D7 /* PLAudioHTTPRequest.h */,
+				FEA3D9BD2057D1C8004723D7 /* PLAudioHTTPRequest.m */,
+				FEA3D9C7205A0BB3004723D7 /* PLAudioFileSource.h */,
+				FEA3D9C4205A0AAD004723D7 /* QYPlayerTest.h */,
+				FEA3D9C5205A0AAD004723D7 /* QYPlayerTest.m */,
+			);
+			path = PLAudioPlayer;
+			sourceTree = "<group>";
+		};
+		FECE7E872043C2EB00349D30 /* Objcio */ = {
+			isa = PBXGroup;
+			children = (
+				FECE7E882043C30000349D30 /* 音频 */,
+			);
+			path = Objcio;
+			sourceTree = "<group>";
+		};
+		FECE7E882043C30000349D30 /* 音频 */ = {
+			isa = PBXGroup;
+			children = (
+				FECE7E8C2043C39100349D30 /* Objcio-audio.xcassets */,
+				FECE7E892043C37E00349D30 /* QYAudioTextPart.h */,
+				FECE7E8A2043C37E00349D30 /* QYAudioTextPart.m */,
+			);
+			path = "音频";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FE5FB4D3204007F8001318D5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE5FB4D7204008C5001318D5 /* QYAirballoon.h in Headers */,
+				FE5FB4D6204008C5001318D5 /* QYFlowerArrangement.h in Headers */,
+				FE5FB4CF2040062F001318D5 /* testStaticLibrary.h in Headers */,
+				FE5FB4E920401386001318D5 /* QYLintcodeBase.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE5FB4FA20401BF2001318D5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE5FB50F20401BF3001318D5 /* FrameworkTool.h in Headers */,
+				FE5FB51D20401C42001318D5 /* QYFrameworktest.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		8B5D1FF71F26F9E900DD1898 /* MHRefresh */ = {
@@ -2303,15 +2751,72 @@
 				8B5D1FF61F26F9E900DD1898 /* Resources */,
 				A2CE5C222D2E7FD568EF514C /* [CP] Embed Pods Frameworks */,
 				D55BFB311DA781163025BB21 /* [CP] Copy Pods Resources */,
+				FE5FB51320401BF3001318D5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FE5FB51120401BF3001318D5 /* PBXTargetDependency */,
 			);
 			name = MHRefresh;
 			productName = MHRefresh;
 			productReference = 8B5D1FF81F26F9E900DD1898 /* MHRefresh.app */;
 			productType = "com.apple.product-type.application";
+		};
+		FE5FB4C92040062F001318D5 /* testStaticLibrary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE5FB4D02040062F001318D5 /* Build configuration list for PBXNativeTarget "testStaticLibrary" */;
+			buildPhases = (
+				FE5FB4C62040062F001318D5 /* Sources */,
+				FE5FB4C72040062F001318D5 /* Frameworks */,
+				FE5FB4C82040062F001318D5 /* CopyFiles */,
+				FE5FB4D3204007F8001318D5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = testStaticLibrary;
+			productName = testStaticLibrary;
+			productReference = FE5FB4CA2040062F001318D5 /* libtestStaticLibrary.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FE5FB4FC20401BF2001318D5 /* FrameworkTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE5FB51520401BF3001318D5 /* Build configuration list for PBXNativeTarget "FrameworkTool" */;
+			buildPhases = (
+				FE5FB4F820401BF2001318D5 /* Sources */,
+				FE5FB4F920401BF2001318D5 /* Frameworks */,
+				FE5FB4FA20401BF2001318D5 /* Headers */,
+				FE5FB4FB20401BF2001318D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FrameworkTool;
+			productName = FrameworkTool;
+			productReference = FE5FB4FD20401BF2001318D5 /* FrameworkTool.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FE5FB50420401BF3001318D5 /* FrameworkToolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE5FB51820401BF3001318D5 /* Build configuration list for PBXNativeTarget "FrameworkToolTests" */;
+			buildPhases = (
+				FE5FB50120401BF3001318D5 /* Sources */,
+				FE5FB50220401BF3001318D5 /* Frameworks */,
+				FE5FB50320401BF3001318D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FE5FB50820401BF3001318D5 /* PBXTargetDependency */,
+				FE5FB50A20401BF3001318D5 /* PBXTargetDependency */,
+			);
+			name = FrameworkToolTests;
+			productName = FrameworkToolTests;
+			productReference = FE5FB50520401BF3001318D5 /* FrameworkToolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -2327,6 +2832,20 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = UMJK262EWA;
 						ProvisioningStyle = Automatic;
+					};
+					FE5FB4C92040062F001318D5 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					FE5FB4FC20401BF2001318D5 = {
+						CreatedOnToolsVersion = 9.1;
+						DevelopmentTeam = UMJK262EWA;
+						ProvisioningStyle = Automatic;
+					};
+					FE5FB50420401BF3001318D5 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8B5D1FF71F26F9E900DD1898;
 					};
 				};
 			};
@@ -2345,6 +2864,9 @@
 			projectRoot = "";
 			targets = (
 				8B5D1FF71F26F9E900DD1898 /* MHRefresh */,
+				FE5FB4C92040062F001318D5 /* testStaticLibrary */,
+				FE5FB4FC20401BF2001318D5 /* FrameworkTool */,
+				FE5FB50420401BF3001318D5 /* FrameworkToolTests */,
 			);
 		};
 /* End PBXProject section */
@@ -2355,7 +2877,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B8BB9991F3316E40071D0AF /* File in Resources */,
+				FEA3D9C9205A269E004723D7 /* AAA.mp3 in Resources */,
 				8B5D200B1F26F9E900DD1898 /* LaunchScreen.storyboard in Resources */,
+				FE5F76EA2008434B00F9D30E /* markdownlearn.md in Resources */,
 				8B5BE0EC1F7B96E2005AF229 /* Learn in Resources */,
 				8B21F0141F4C49C7004C0508 /* YXMedia.xcassets in Resources */,
 				8B0583271FCFED56003D3238 /* UrlENcode in Resources */,
@@ -2363,7 +2887,22 @@
 				8B5D20081F26F9E900DD1898 /* Assets.xcassets in Resources */,
 				8B5D20061F26F9E900DD1898 /* Main.storyboard in Resources */,
 				8B195B941F60D706005D6321 /* MCameraMedia.xcassets in Resources */,
+				FECE7E8D2043C39100349D30 /* Objcio-audio.xcassets in Resources */,
 				8BB22A411FDF7E8200284193 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE5FB4FB20401BF2001318D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE5FB50320401BF3001318D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2433,6 +2972,7 @@
 				8BEA73C21F9D90DD0001F565 /* vp8l.c in Sources */,
 				8BEA73C41F9D90DD0001F565 /* webp.c in Sources */,
 				8BEA73C61F9D90DD0001F565 /* anim_decode.c in Sources */,
+				FE1567872028007300237BD2 /* QYKVOViewController.m in Sources */,
 				8BEA73C71F9D90DD0001F565 /* demux.c in Sources */,
 				8BEA73C81F9D90DD0001F565 /* alpha_processing.c in Sources */,
 				8BEA73C91F9D90DD0001F565 /* alpha_processing_mips_dsp_r2.c in Sources */,
@@ -2465,10 +3005,12 @@
 				8BEA73E51F9D90DD0001F565 /* filters.c in Sources */,
 				8BEA746D1F9F288B0001F565 /* MNetworkChainAgent.m in Sources */,
 				8BEA73E61F9D90DD0001F565 /* filters_mips_dsp_r2.c in Sources */,
+				FE4F61562015882700A70CB7 /* QYMultiSelectTableViewCell.m in Sources */,
 				8BEA73E71F9D90DD0001F565 /* filters_sse2.c in Sources */,
 				8BEA73E81F9D90DD0001F565 /* lossless.c in Sources */,
 				8BEA73EA1F9D90DD0001F565 /* lossless_enc.c in Sources */,
 				8BEA73EB1F9D90DD0001F565 /* lossless_enc_mips32.c in Sources */,
+				FECE7E8B2043C37E00349D30 /* QYAudioTextPart.m in Sources */,
 				8BEA74671F9F1D360001F565 /* MNetworkBatchAgent.m in Sources */,
 				8BEA73EC1F9D90DD0001F565 /* lossless_enc_mips_dsp_r2.c in Sources */,
 				8BEA73ED1F9D90DD0001F565 /* lossless_enc_neon.c in Sources */,
@@ -2476,13 +3018,17 @@
 				8BEA73EF1F9D90DD0001F565 /* lossless_enc_sse41.c in Sources */,
 				8BEA73F01F9D90DD0001F565 /* lossless_mips_dsp_r2.c in Sources */,
 				8BEA73F11F9D90DD0001F565 /* lossless_neon.c in Sources */,
+				FE60B9162047F86F008E775F /* QYAudioOutputQueue.m in Sources */,
 				8BEA73F21F9D90DD0001F565 /* lossless_sse2.c in Sources */,
 				8BEA73F61F9D90DD0001F565 /* rescaler.c in Sources */,
 				8BEA73F71F9D90DD0001F565 /* rescaler_mips32.c in Sources */,
 				8BEA73F81F9D90DD0001F565 /* rescaler_mips_dsp_r2.c in Sources */,
 				8BEA73F91F9D90DD0001F565 /* rescaler_neon.c in Sources */,
+				FE7F359E205F742000DD68FF /* QYStrangePrintf.m in Sources */,
 				8BEA73FA1F9D90DD0001F565 /* rescaler_sse2.c in Sources */,
 				8BEA73FB1F9D90DD0001F565 /* upsampling.c in Sources */,
+				FE6513A51FFF2A7300E8E210 /* QYDIskCache.m in Sources */,
+				FE4F61532015848300A70CB7 /* QYMultiSelectViewController.m in Sources */,
 				8BEA73FC1F9D90DD0001F565 /* upsampling_mips_dsp_r2.c in Sources */,
 				8BEA73FD1F9D90DD0001F565 /* upsampling_neon.c in Sources */,
 				8BEA73FE1F9D90DD0001F565 /* upsampling_sse2.c in Sources */,
@@ -2501,6 +3047,7 @@
 				8BEA740F1F9D90DD0001F565 /* histogram.c in Sources */,
 				8BEA74111F9D90DD0001F565 /* iterator.c in Sources */,
 				8BEA74121F9D90DD0001F565 /* near_lossless.c in Sources */,
+				FE1567842027FC4200237BD2 /* QYKVOModel.m in Sources */,
 				8BEA74131F9D90DD0001F565 /* picture.c in Sources */,
 				8BEA74141F9D90DD0001F565 /* picture_csp.c in Sources */,
 				8BEA74151F9D90DD0001F565 /* picture_psnr.c in Sources */,
@@ -2515,19 +3062,23 @@
 				8BEA74201F9D90DD0001F565 /* anim_encode.c in Sources */,
 				8BEA74211F9D90DD0001F565 /* muxedit.c in Sources */,
 				8BEA74231F9D90DD0001F565 /* muxinternal.c in Sources */,
+				FE889442204CDE1F00C1EF9A /* QYMaxLengthOrder.m in Sources */,
 				8BEA74241F9D90DD0001F565 /* muxread.c in Sources */,
 				8BEA74251F9D90DD0001F565 /* bit_reader.c in Sources */,
 				8BEA74281F9D90DD0001F565 /* bit_writer.c in Sources */,
 				8B2360571FF09E9400C501A3 /* NSDate+QYExtension.m in Sources */,
 				8BEA742A1F9D90DD0001F565 /* color_cache.c in Sources */,
 				8BEA742D1F9D90DD0001F565 /* filters.c in Sources */,
+				FEA3D9C120591489004723D7 /* PLAudioBuffer.m in Sources */,
 				8BEA742F1F9D90DD0001F565 /* huffman.c in Sources */,
+				FE6B92E920510BCA00FF318E /* PLFileProvider.m in Sources */,
 				8BEA74311F9D90DD0001F565 /* huffman_encode.c in Sources */,
 				8BEA74331F9D90DD0001F565 /* quant_levels.c in Sources */,
 				8BEA74351F9D90DD0001F565 /* quant_levels_dec.c in Sources */,
 				8BEA74371F9D90DD0001F565 /* random.c in Sources */,
 				8BCC246A1FB16B640096AB2E /* QYPeople.c in Sources */,
 				8BEA74391F9D90DD0001F565 /* rescaler.c in Sources */,
+				FECE7E832043B21300349D30 /* QYCircleSubString.m in Sources */,
 				8BEA743B1F9D90DD0001F565 /* thread.c in Sources */,
 				8BEA743D1F9D90DD0001F565 /* utils.c in Sources */,
 				8BEA739E1F9D90AC0001F565 /* FLAnimatedImage.m in Sources */,
@@ -2536,10 +3087,12 @@
 				8BEA73A11F9D90AC0001F565 /* MKAnnotationView+WebCache.m in Sources */,
 				8BEA73A21F9D90AC0001F565 /* NSData+ImageContentType.m in Sources */,
 				8BEA73A31F9D90AC0001F565 /* NSImage+WebCache.m in Sources */,
+				FE6B13A220525C0100A9C1D3 /* PLAudioSession.m in Sources */,
 				8BEA73A41F9D90AC0001F565 /* SDImageCache.m in Sources */,
 				8BEA73A51F9D90AC0001F565 /* SDImageCacheConfig.m in Sources */,
 				8BEA73A61F9D90AC0001F565 /* SDWebImageCompat.m in Sources */,
 				8BEA73A71F9D90AC0001F565 /* SDWebImageDecoder.m in Sources */,
+				FED60D3D2029869000855ED6 /* Primes.m in Sources */,
 				8BEA73A81F9D90AC0001F565 /* SDWebImageDownloader.m in Sources */,
 				8BEA73A91F9D90AC0001F565 /* SDWebImageDownloaderOperation.m in Sources */,
 				8BEA73AA1F9D90AC0001F565 /* SDWebImageManager.m in Sources */,
@@ -2549,6 +3102,7 @@
 				8BCC246D1FB16D100096AB2E /* QYArray.c in Sources */,
 				8BEA73AE1F9D90AC0001F565 /* UIImage+MultiFormat.m in Sources */,
 				8BEA73AF1F9D90AC0001F565 /* UIImage+WebP.m in Sources */,
+				FE60B9072047EE51008E775F /* QYAudioPlayer.m in Sources */,
 				8BEA73B01F9D90AC0001F565 /* UIImageView+HighlightedWebCache.m in Sources */,
 				8BEA73B11F9D90AC0001F565 /* UIImageView+WebCache.m in Sources */,
 				8BEA73B21F9D90AC0001F565 /* UIView+WebCache.m in Sources */,
@@ -2560,7 +3114,9 @@
 				8B846E201F8E3DC9007C0731 /* UIImageView+QYReflect.m in Sources */,
 				8B846DF91F8E10DD007C0731 /* UIImage+QYGif.m in Sources */,
 				8BB22A4D1FDF810800284193 /* TTTLocalizedPluralString.m in Sources */,
+				FE0BA651204794F000736A0F /* QYAscendArray.m in Sources */,
 				8BB22A5C1FDFADE300284193 /* NSDictionary+QYURL.m in Sources */,
+				FE6B92E02050E7AD00FF318E /* PLParsedAudioDataModel.m in Sources */,
 				8B846E081F8E2B65007C0731 /* UIImage+QYCapture.m in Sources */,
 				8B3C77BF1F989B9E0016FBBF /* MNetworkHelper.m in Sources */,
 				8B846E351F8F025A007C0731 /* NSArray+QYSafeAccess.m in Sources */,
@@ -2568,9 +3124,11 @@
 				8B846E051F8E2AA3007C0731 /* UIImage+QYBlur.m in Sources */,
 				8B195BC41F6119DF005D6321 /* RSKImageScrollView.m in Sources */,
 				8B846E0E1F8E2BF0007C0731 /* UIImage+QYResize.m in Sources */,
+				FE60B9102047F383008E775F /* QYAudioBuffer.m in Sources */,
 				8BF6729C1F6FF3E400CF312A /* UITableViewCell+QYIdentifier.m in Sources */,
 				8B8BBA971F3466240071D0AF /* MNetworkConfig.m in Sources */,
 				8B8BB9B41F342C550071D0AF /* WKWebView+MClearCache.m in Sources */,
+				FE5FB4C2203FAC45001318D5 /* QYAirballoon.m in Sources */,
 				8B195CB01F6293A8005D6321 /* UIView+QYViewController.m in Sources */,
 				8BCC24671FB169EF0096AB2E /* QYInteger.c in Sources */,
 				8B21F0121F4C49C7004C0508 /* YXButton.m in Sources */,
@@ -2580,7 +3138,9 @@
 				8B682CE51F6A1B2A00C4900D /* QYPreviewImageView.m in Sources */,
 				8B195B9E1F60D8CF005D6321 /* NSData+MImageType.m in Sources */,
 				8B195BC31F6119DF005D6321 /* RSKImageCropViewController.m in Sources */,
+				FE60B9132047F3B5008E775F /* QYParsedAudioData.m in Sources */,
 				8B195CA71F62874D005D6321 /* UIView+QYDebug.m in Sources */,
+				FE0BA6582047A34F00736A0F /* QYAudioFile.m in Sources */,
 				8B195CAA1F628BB2005D6321 /* UIView+QYNib.m in Sources */,
 				8B5D20031F26F9E900DD1898 /* ViewController.m in Sources */,
 				8B8BBA9E1F346BA80071D0AF /* MNetworkBaseRequest.m in Sources */,
@@ -2595,12 +3155,17 @@
 				8B195BA11F60DC95005D6321 /* MPhotoAlbumHelp.m in Sources */,
 				8B21F0111F4C49C7004C0508 /* YXAnnotationViewController.m in Sources */,
 				8B9CD0B71F8B294E00696D73 /* QYKeychainViewController.m in Sources */,
+				FE6B923F204E830F00FF318E /* PLAudioPlayer.m in Sources */,
 				8B8BB9C41F342FE30071D0AF /* UIView+WebViewExtern.m in Sources */,
 				8B195B881F5F9CBE005D6321 /* MCameraView.m in Sources */,
 				8B846E241F8E4090007C0731 /* UIImageView+QYFaceAwareFill.m in Sources */,
 				8B195CBF1F62C0BF005D6321 /* UIViewController+QYVisible.m in Sources */,
+				FEA3D9BE2057D1C8004723D7 /* PLAudioHTTPRequest.m in Sources */,
 				8B195CB31F629560005D6321 /* UIView+QYShake.m in Sources */,
+				FE5FB4C5203FC0D4001318D5 /* QYMaxAverageSubArray.m in Sources */,
 				8B21F00E1F4C49C7004C0508 /* YXAnnotationShapeViewAction.m in Sources */,
+				FECE7E862043C10800349D30 /* QYNumberDecode.m in Sources */,
+				FE6B9242204E883A00FF318E /* PLAudioOutputQueue.m in Sources */,
 				8B8BB9B01F342C550071D0AF /* MWebViewCache.m in Sources */,
 				8B846E111F8E2C7C007C0731 /* UIImage+QYRoundedCorner.m in Sources */,
 				8B195CB91F62BDEB005D6321 /* UIView+QYFind.m in Sources */,
@@ -2622,6 +3187,7 @@
 				8B195B921F60210C005D6321 /* UIImage+SMExtension.m in Sources */,
 				8B195BC71F6119DF005D6321 /* UIApplication+RSKImageCropper.m in Sources */,
 				8B682CA41F68E6DC00C4900D /* NSString+QYSize.m in Sources */,
+				FE0BA6552047A32C00736A0F /* QYAudioFileStream.m in Sources */,
 				8BB22A531FDF8C4500284193 /* NSObject+QYClassIdentify.m in Sources */,
 				8B195B981F60D762005D6321 /* MPhotoAlbumController.m in Sources */,
 				8B195BC11F6119DF005D6321 /* CGGeometry+RSKImageCropper.m in Sources */,
@@ -2632,18 +3198,23 @@
 				8B846DF61F8E00A2007C0731 /* UIImage+QYAlpha.m in Sources */,
 				8B8BB9B51F342C550071D0AF /* WKWebView+MElementFrame.m in Sources */,
 				8B8BB9D31F34638F0071D0AF /* MPreviewCardView.m in Sources */,
+				FE15678A20280A6000237BD2 /* KeyValueObserver.m in Sources */,
 				8B8BB9BD1F342DDD0071D0AF /* MWebLinkLoadingView.m in Sources */,
 				8B195B8E1F6005E7005D6321 /* MCameraPhotoModel.m in Sources */,
 				8B195BC61F6119DF005D6321 /* RSKTouchView.m in Sources */,
 				FE7409681FF4825B00487D70 /* QYMemoryCache.m in Sources */,
 				8B5CA5CE1F2AE0CD0098EE69 /* MFPSMonitorLabel.m in Sources */,
+				FE6B139F20521EEE00A9C1D3 /* PLAudioThread.m in Sources */,
 				8B8BB9AE1F342C550071D0AF /* MWebKitURLProtocol.m in Sources */,
 				8BB098701FA6CF2300A9B377 /* QYKeyBoardManager.m in Sources */,
 				8BCC24641FB1688F0096AB2E /* QYString.c in Sources */,
 				8B846DFF1F8E2879007C0731 /* UIImage+QYColor.m in Sources */,
+				FE5FB4BC203FA276001318D5 /* QYFlowerArrangement.m in Sources */,
 				8B195B9B1F60D7D9005D6321 /* MPhotoAlbumModel.m in Sources */,
 				8BF672B71F71452C00CF312A /* NSString+QYPinyin.m in Sources */,
+				FE6B92E320510B1900FF318E /* PLAudioStream.m in Sources */,
 				8B21F0101F4C49C7004C0508 /* YXAnnotationView.m in Sources */,
+				FECE7E982044F3F900349D30 /* QYArithmeticSubSequence.m in Sources */,
 				8B8BB9C11F342F270071D0AF /* NSString+Path.m in Sources */,
 				8B6AF61C1F7910F900AA5A82 /* UIDevice+QYUnitType.m in Sources */,
 				8B5800961F74E51B000CE03B /* NSString+QYCharNumber.m in Sources */,
@@ -2653,6 +3224,7 @@
 				8B8BB9AF1F342C550071D0AF /* MWebView.m in Sources */,
 				8B682CF11F6A5BA500C4900D /* QYPreviewViewController.m in Sources */,
 				8BF672C21F73577900CF312A /* UIColor+QYQuickCreate.m in Sources */,
+				FE6B13A820525D9300A9C1D3 /* PLAudioFileStream.m in Sources */,
 				8B195BD21F611E22005D6321 /* MImagePickerController.m in Sources */,
 				8BB22A561FDFAAAF00284193 /* NSDictionary+QYJSONString.m in Sources */,
 				8B195B8B1F5FF54F005D6321 /* MDeviceOrientationModel.m in Sources */,
@@ -2660,13 +3232,17 @@
 				8BF672BA1F71479700CF312A /* NSString+QYUUID.m in Sources */,
 				8B195BA41F60DE22005D6321 /* MPhotoModel.m in Sources */,
 				8B195CAD1F628EC1005D6321 /* UIView+QYScreenshot.m in Sources */,
+				FE5FB4BF203FA2F8001318D5 /* QYLintcodeBase.m in Sources */,
 				8B8BB9B11F342C550071D0AF /* NSURLProtocol+MWebKitSupport.m in Sources */,
+				FE60B90A2047F12B008E775F /* QYAudioSession.m in Sources */,
 				8B8BBAA11F3485E70071D0AF /* MNetworkRequest.m in Sources */,
 				8BF672A61F6FF7AD00CF312A /* NSTimer+QYBlocks.m in Sources */,
 				8B8BBAA71F348E130071D0AF /* MNetworkAgent.m in Sources */,
 				8B195BA71F60E65F005D6321 /* MGifDataCache.m in Sources */,
+				FEA3D9C6205A0AAD004723D7 /* QYPlayerTest.m in Sources */,
 				8B846DFC1F8E25BA007C0731 /* UIImage+QYOrientation.m in Sources */,
 				8B682CB41F690A9D00C4900D /* NSString+QYBase64.m in Sources */,
+				FE6B13CD20561D8300A9C1D3 /* PLAudioFile.m in Sources */,
 				8BEA746A1F9F23F50001F565 /* MNetworkChainRequest.m in Sources */,
 				8B5CA5CD1F2AE0CD0098EE69 /* MFPSMonitor.m in Sources */,
 				8B3C77BC1F987EDF0016FBBF /* MNetworkRequestOperation.m in Sources */,
@@ -2682,7 +3258,52 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FE5FB4C62040062F001318D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE5FB4E620401371001318D5 /* QYLintcodeBase.m in Sources */,
+				FE5FB4E720401371001318D5 /* QYFlowerArrangement.m in Sources */,
+				FE5FB4E820401371001318D5 /* QYAirballoon.m in Sources */,
+				FE5FB4CE2040062F001318D5 /* testStaticLibrary.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE5FB4F820401BF2001318D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE5FB51E20401C42001318D5 /* QYFrameworktest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE5FB50120401BF3001318D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE5FB50D20401BF3001318D5 /* FrameworkToolTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FE5FB50820401BF3001318D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FE5FB4FC20401BF2001318D5 /* FrameworkTool */;
+			targetProxy = FE5FB50720401BF3001318D5 /* PBXContainerItemProxy */;
+		};
+		FE5FB50A20401BF3001318D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B5D1FF71F26F9E900DD1898 /* MHRefresh */;
+			targetProxy = FE5FB50920401BF3001318D5 /* PBXContainerItemProxy */;
+		};
+		FE5FB51120401BF3001318D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FE5FB4FC20401BF2001318D5 /* FrameworkTool */;
+			targetProxy = FE5FB51020401BF3001318D5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8B5D20041F26F9E900DD1898 /* Main.storyboard */ = {
@@ -2774,7 +3395,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2823,7 +3444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -2835,6 +3456,7 @@
 			baseConfigurationReference = DE5F0F6E9648AF866E342514 /* Pods-MHRefresh.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = UMJK262EWA;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MHRefresh/MPrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2856,6 +3478,7 @@
 			baseConfigurationReference = D6ED4287028751506AB7049B /* Pods-MHRefresh.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = UMJK262EWA;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MHRefresh/MPrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2869,6 +3492,134 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pl.MHRefresh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FE5FB4D12040062F001318D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FE5FB4D22040062F001318D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FE5FB51620401BF3001318D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UMJK262EWA;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = FrameworkTool/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = panle.FrameworkTool;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FE5FB51720401BF3001318D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = UMJK262EWA;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = FrameworkTool/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = panle.FrameworkTool;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FE5FB51920401BF3001318D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = FrameworkToolTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = panle.FrameworkToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MHRefresh.app/MHRefresh";
+			};
+			name = Debug;
+		};
+		FE5FB51A20401BF3001318D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = FrameworkToolTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = panle.FrameworkToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MHRefresh.app/MHRefresh";
 			};
 			name = Release;
 		};
@@ -2889,6 +3640,33 @@
 			buildConfigurations = (
 				8B5D20101F26F9E900DD1898 /* Debug */,
 				8B5D20111F26F9E900DD1898 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE5FB4D02040062F001318D5 /* Build configuration list for PBXNativeTarget "testStaticLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE5FB4D12040062F001318D5 /* Debug */,
+				FE5FB4D22040062F001318D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE5FB51520401BF3001318D5 /* Build configuration list for PBXNativeTarget "FrameworkTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE5FB51620401BF3001318D5 /* Debug */,
+				FE5FB51720401BF3001318D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE5FB51820401BF3001318D5 /* Build configuration list for PBXNativeTarget "FrameworkToolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE5FB51920401BF3001318D5 /* Debug */,
+				FE5FB51A20401BF3001318D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

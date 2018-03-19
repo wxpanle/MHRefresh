@@ -35,7 +35,20 @@
 
 #import <AssertMacros.h>
 
-@interface ViewController () <QYPreviewViewControllerDelegate, QYPreviewViewControllerDataSource, UITextViewDelegate>
+#import "QYMultiSelectViewController.h"
+
+#import "QYLintCodeHeader.h"
+
+#import "QYAudioPlayer.h"
+
+#import "PLAudioPlayer.h"
+#import "QYPlayerTest.h"
+
+
+@interface ViewController () <QYPreviewViewControllerDelegate, QYPreviewViewControllerDataSource, UITextViewDelegate> {
+    PLAudioPlayer *_audioPlayer;
+    QYAudioPlayer *_qy_audio_player;
+}
 
 @property (nonatomic, strong) MPreviewCardView *cardView;
 
@@ -62,7 +75,8 @@ __weak NSString *srting_weak_ = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLocalizedString(@"ceshi", @"This is a ceshi");
+
+//    NSLocalizedString(@"ceshi", @"This is a ceshi");
     
 //    __Require_Quiet(<#assertion#>, <#exceptionLabel#>)
 //    NSObject *object = nil;
@@ -220,14 +234,69 @@ __weak NSString *srting_weak_ = nil;
 //    DLog(@"string 0 - %@", srting_weak_);
     
     
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+//    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+//
+//    NSInteger user_id = 3725;
+//
+//    [dictionary setValue:@(user_id) forKey:@"user_id"];
+//
+//    DLog(@"测试");
     
-    NSInteger user_id = 3725;
     
-    [dictionary setValue:@(user_id) forKey:@"user_id"];
+    //多选测试
+//    [self multiSelectTest];
     
-    DLog(@"测试");
+    //QYLintcode
+//    [[[QYMaxAverageSubArray alloc] init] qy_lintcodeSolution];
+//    [[[QYCircleSubString alloc] init] qy_lintcodeSolution];
+//    [[[QYMaxLengthOrder alloc] init] qy_lintcodeSolution];
     
+    QYPlayerTest *test = [[QYPlayerTest alloc] init];
+
+    _audioPlayer = [PLAudioPlayer initWithAudioFileSource:test];
+    [_audioPlayer play];
+
+    DLog(@"%f", _audioPlayer.duration);
+
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(8.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _audioPlayer.playRate = 2.0;
+        [_audioPlayer seekTime:80.0];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(14.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [_audioPlayer seekTime:0];
+    });
+    
+    
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(15.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [_audioPlayer play];
+////        [_audioPlayer seekTime:100.0];
+//    });
+
+    
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"AAA" ofType:@"mp3"];
+//    _qy_audio_player = [[QYAudioPlayer alloc] initWithFilePath:path fileType:kAudioFileMP3Type];
+//    [_qy_audio_player play];
+//    _qy_audio_player.duration;
+}
+
+- (void)multiSelectTest {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"测试多选" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(multiSelect:) forControlEvents:UIControlEventTouchUpInside];
+    button.frame = CGRectMake(0, 0, 200, 30);
+    button.center = CGPointMake(self.view.sm_width / 2.0, self.view.sm_height / 2.0);
+    
+    [self.view addSubview:button];
+}
+
+- (void)multiSelect:(UIButton *)btn {
+    QYMultiSelectViewController *vc = [[QYMultiSelectViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {

@@ -14,17 +14,17 @@ int main(int argc, char * argv[]) {
     @autoreleasepool {
         
         
-        struct layout {
-            NSUInteger retained;
-        };
-        
-        int size = sizeof(struct layout) + sizeof(int) * 5;
-        
-        struct layout *p = (struct layout *)calloc(1, size);
-        
-        id obj = (id)CFBridgingRelease(p + 1);
-        
-        DLog(@"%p %p", p, obj);
+//        struct layout {
+//            NSUInteger retained;
+//        };
+//        
+//        int size = sizeof(struct layout) + sizeof(int) * 5;
+//        
+//        struct layout *p = (struct layout *)calloc(1, size);
+//        
+//        id obj = (id)CFBridgingRelease(p + 1);
+//        
+//        DLog(@"%p %p", p, obj);
         
         
 //        Array *arr = newArray();
