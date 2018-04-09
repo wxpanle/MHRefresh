@@ -39,6 +39,16 @@
                ReferencedContainer = "container:MHRefresh.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FE01FE1C20634883007CD777"
+               BuildableName = "FMDBKitTests.xctest"
+               BlueprintName = "FMDBKitTests"
+               ReferencedContainer = "container:MHRefresh.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

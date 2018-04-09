@@ -22,4 +22,6 @@
 
 - (BOOL)isDictionaryClass;
 
+- (BOOL)isClassWithClassString:(NSString *)string;
+
 @end

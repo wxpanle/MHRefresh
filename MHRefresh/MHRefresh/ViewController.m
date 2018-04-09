@@ -44,6 +44,8 @@
 #import "PLAudioPlayer.h"
 #import "QYPlayerTest.h"
 
+#import "FMDB.h"
+
 
 @interface ViewController () <QYPreviewViewControllerDelegate, QYPreviewViewControllerDataSource, UITextViewDelegate> {
     PLAudioPlayer *_audioPlayer;

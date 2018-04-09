@@ -40,4 +40,9 @@
     return QYClassIdentify(NSDictionary);
 }
 
+- (BOOL)isClassWithClassString:(NSString *)string {
+    Class class = NSClassFromString(string);
+    return QYClassIdentify(class);
+}
+
 @end

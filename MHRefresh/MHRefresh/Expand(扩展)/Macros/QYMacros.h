@@ -26,7 +26,9 @@
 #define SCREEN_H_SCALE ([UIScreen mainScreen].bounds.size.height / 667)
 
 #define MAX_X(frame) CGRectGetMaxX(frame)
+#define MIN_X(frame) CGRectGetMinX(frame)
 #define MAX_Y(frame) CGRectGetMaxY(frame)
+#define MIN_Y(frame) CGRectGetMinY(frame)
 
 #define DLOG_DEALLOC DLog(@"%@ dealloc", NSStringFromClass([self class]));
 
@@ -36,13 +38,44 @@ CGSizeEqualToSize(CGSizeMake(812.0f, 375.0f), [[UIScreen mainScreen] bounds].siz
 
 #define kStatusExtraHeight 24.0  //x 状态栏额外高度
 #define kHomeIndicator 34.0  //x 底部  额外 高度
-#define K_TOP_Y(number) (kIsiPhoneX ? number + kStatusExtraHeight : number)
-#define K_BOTTOM_OFFSET (kIsiPhoneX ? kHomeIndicator : 0.f)
 
 #define kStatusBarHeight ((kIsiPhoneX == YES) ? 44.0 : 20.0)
 #define kNavBarHeight 44.0
-#define kTabBarHeight ((kIsiPhoneX == YES) ? 83.0 : 49.0)
 #define kTopHeight (kStatusBarHeight + kNavBarHeight)
+
+#define kTabBarHeight 49.0
+#define kBottomHeight ((kIsiPhoneX == YES) ? kTabBarHeight + kHomeIndicator : kTabBarHeight)
+
+#define K_TOP_H(number) (kIsiPhoneX ? number + kStatusExtraHeight : number)  //x附加状态栏额外高度
+#define K_BOTTOM_H(number) (kIsiPhoneX ? number + kHomeIndicator : number)   //x附加底部高度
+
+#define K_X_CONTENT_BOTTOM_INSET_HEIGHT(inset, height) \
+if (kIsiPhoneX) {  \
+inset.contentInset = UIEdgeInsetsMake(inset.contentInset.top, inset.contentInset.left, inset.contentInset.bottom + height, inset.contentInset.right);  \
+} else {\
+inset.contentInset = UIEdgeInsetsMake(inset.contentInset.top, inset.contentInset.left, inset.contentInset.bottom, inset.contentInset.right);\
+} //传入对象的inset 调整内容边距
+
+#define K_X_CONTENT_BOTTOM_INSET(inset) K_X_CONTENT_BOTTOM_INSET_HEIGHT(inset, kHomeIndicator)
+
+//iOS11 content adjust
+#define K_IOS11_CLOSE_AUTOADJUSTINSET(object)\
+if (@available(iOS 11.0, *)) {  \
+\
+} else {  \
+object.automaticallyAdjustsScrollViewInsets = NO;\
+}
+
+#define K_IOS11_SET_INSET_NEVER_OC(object) \
+if (@available(iOS 11.0, *)) {  \
+object.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;\
+}
+
+#define K_IOS11_SET_INSET_NEVER_AND_ADJUST_WITH_TABBAR_OC(object) \
+if (@available(iOS 11.0, *)) {  \
+object.contentInset = UIEdgeInsetsMake(object.contentInset.top, object.contentInset.left, object.contentInset.bottom + kBottomTotalHeight, object.contentInset.right);\
+object.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;\
+}
 
 //当前缩放
 #define SCREEN_SCALE [UIScreen mainScreen].scale
