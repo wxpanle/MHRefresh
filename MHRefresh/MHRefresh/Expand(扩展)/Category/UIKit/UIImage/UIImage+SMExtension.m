@@ -8,6 +8,12 @@
 
 #import "UIImage+SMExtension.h"
 
+@interface UIImage ()
+
+
+
+@end
+
 @implementation UIImage (SMExtension)
 
 - (UIImage *)fixOrientation {

@@ -99,8 +99,16 @@
 		FE01FE48206348BC007CD777 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = FE01FE3C206348BC007CD777 /* FMDatabasePool.m */; };
 		FE01FE49206348BC007CD777 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FE01FE3D206348BC007CD777 /* FMResultSet.m */; };
 		FE01FE4A206348BC007CD777 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE01FE3E206348BC007CD777 /* Info.plist */; };
+		FE14E88420A141630022486E /* QYSevenTKnowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = FE14E88320A141630022486E /* QYSevenTKnowledge.m */; };
+		FE14E88720A141740022486E /* QYSenveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE14E88620A141740022486E /* QYSenveViewController.m */; };
+		FE14E88B20A154610022486E /* QYEightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE14E88A20A154610022486E /* QYEightViewController.m */; };
+		FE14E88E20A154730022486E /* QYEightTKnowedge.m in Sources */ = {isa = PBXBuildFile; fileRef = FE14E88D20A154730022486E /* QYEightTKnowedge.m */; };
+		FE2B759D2099544E009618CA /* QYSixTKnowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2B759C2099544E009618CA /* QYSixTKnowledge.m */; };
+		FE2B75A02099545B009618CA /* QYSixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2B759F2099545B009618CA /* QYSixViewController.m */; };
 		FE4F61532015848300A70CB7 /* QYMultiSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4F61522015848300A70CB7 /* QYMultiSelectViewController.m */; };
 		FE4F61562015882700A70CB7 /* QYMultiSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4F61552015882700A70CB7 /* QYMultiSelectTableViewCell.m */; };
+		FE52CAF0208978C300C71AD9 /* QYFiveTKnowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = FE52CAEF208978C300C71AD9 /* QYFiveTKnowledge.m */; };
+		FE5670492080445200801A69 /* UPKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5670472080445100801A69 /* UPKeyboardManager.m */; };
 		FE5FB4CE2040062F001318D5 /* testStaticLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5FB4CD2040062F001318D5 /* testStaticLibrary.m */; };
 		FE5FB4CF2040062F001318D5 /* testStaticLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = FE5FB4CC2040062F001318D5 /* testStaticLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FE5FB4EB204013C1001318D5 /* testStaticLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FE5FB4CC2040062F001318D5 /* testStaticLibrary.h */; };
@@ -111,6 +119,16 @@
 		FE5FB51420401BF3001318D5 /* FrameworkTool.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE5FB4FD20401BF2001318D5 /* FrameworkTool.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE5FB51D20401C42001318D5 /* QYFrameworktest.h in Headers */ = {isa = PBXBuildFile; fileRef = FE5FB51B20401C42001318D5 /* QYFrameworktest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FE5FB51E20401C42001318D5 /* QYFrameworktest.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5FB51C20401C42001318D5 /* QYFrameworktest.m */; };
+		FE95D9EA208D6AF4006BBC24 /* QYFiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE95D9E9208D6AF4006BBC24 /* QYFiveViewController.m */; };
+		FE9653402084C4DF00AD67E5 /* QYOneTKnowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = FE96533F2084C4DF00AD67E5 /* QYOneTKnowledge.m */; };
+		FE9653462084C61800AD67E5 /* QYOnePointFive.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9653452084C61800AD67E5 /* QYOnePointFive.m */; };
+		FE9653492084C68500AD67E5 /* QYCoreAnimationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9653482084C68500AD67E5 /* QYCoreAnimationModel.m */; };
+		FE96534E2085811F00AD67E5 /* QYTwoTKnowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = FE96534D2085811F00AD67E5 /* QYTwoTKnowledge.m */; };
+		FE965351208582F800AD67E5 /* QYTwoPointOneController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE965350208582F800AD67E5 /* QYTwoPointOneController.m */; };
+		FEA24FB02088206300945DBF /* QYThreeTKnowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA24FAF2088206300945DBF /* QYThreeTKnowledge.m */; };
+		FEA24FB32088207100945DBF /* QYThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA24FB22088207100945DBF /* QYThreeViewController.m */; };
+		FEA24FB7208833CB00945DBF /* QYFourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA24FB6208833CB00945DBF /* QYFourViewController.m */; };
+		FEA24FBA208833FF00945DBF /* QYFourTKnowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA24FB9208833FF00945DBF /* QYFourTKnowledge.m */; };
 		FEE56C60207B6A430043C2C5 /* MDeviceOrientationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE56BA9207B6A430043C2C5 /* MDeviceOrientationModel.m */; };
 		FEE56C61207B6A430043C2C5 /* MCameraPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE56BAA207B6A430043C2C5 /* MCameraPhotoModel.m */; };
 		FEE56C62207B6A430043C2C5 /* MCameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE56BAE207B6A430043C2C5 /* MCameraController.m */; };
@@ -611,10 +629,26 @@
 		FE01FE3C206348BC007CD777 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
 		FE01FE3D206348BC007CD777 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		FE01FE3E206348BC007CD777 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE14E88220A141630022486E /* QYSevenTKnowledge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYSevenTKnowledge.h; sourceTree = "<group>"; };
+		FE14E88320A141630022486E /* QYSevenTKnowledge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYSevenTKnowledge.m; sourceTree = "<group>"; };
+		FE14E88520A141740022486E /* QYSenveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYSenveViewController.h; sourceTree = "<group>"; };
+		FE14E88620A141740022486E /* QYSenveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYSenveViewController.m; sourceTree = "<group>"; };
+		FE14E88920A154610022486E /* QYEightViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYEightViewController.h; sourceTree = "<group>"; };
+		FE14E88A20A154610022486E /* QYEightViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYEightViewController.m; sourceTree = "<group>"; };
+		FE14E88C20A154730022486E /* QYEightTKnowedge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYEightTKnowedge.h; sourceTree = "<group>"; };
+		FE14E88D20A154730022486E /* QYEightTKnowedge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYEightTKnowedge.m; sourceTree = "<group>"; };
+		FE2B759B2099544E009618CA /* QYSixTKnowledge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYSixTKnowledge.h; sourceTree = "<group>"; };
+		FE2B759C2099544E009618CA /* QYSixTKnowledge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYSixTKnowledge.m; sourceTree = "<group>"; };
+		FE2B759E2099545B009618CA /* QYSixViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYSixViewController.h; sourceTree = "<group>"; };
+		FE2B759F2099545B009618CA /* QYSixViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYSixViewController.m; sourceTree = "<group>"; };
 		FE4F61512015848300A70CB7 /* QYMultiSelectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYMultiSelectViewController.h; sourceTree = "<group>"; };
 		FE4F61522015848300A70CB7 /* QYMultiSelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMultiSelectViewController.m; sourceTree = "<group>"; };
 		FE4F61542015882700A70CB7 /* QYMultiSelectTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYMultiSelectTableViewCell.h; sourceTree = "<group>"; };
 		FE4F61552015882700A70CB7 /* QYMultiSelectTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMultiSelectTableViewCell.m; sourceTree = "<group>"; };
+		FE52CAEE208978C300C71AD9 /* QYFiveTKnowledge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYFiveTKnowledge.h; sourceTree = "<group>"; };
+		FE52CAEF208978C300C71AD9 /* QYFiveTKnowledge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYFiveTKnowledge.m; sourceTree = "<group>"; };
+		FE5670472080445100801A69 /* UPKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPKeyboardManager.m; sourceTree = "<group>"; };
+		FE5670482080445200801A69 /* UPKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPKeyboardManager.h; sourceTree = "<group>"; };
 		FE5FB4CA2040062F001318D5 /* libtestStaticLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtestStaticLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE5FB4CC2040062F001318D5 /* testStaticLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testStaticLibrary.h; sourceTree = "<group>"; };
 		FE5FB4CD2040062F001318D5 /* testStaticLibrary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testStaticLibrary.m; sourceTree = "<group>"; };
@@ -626,6 +660,27 @@
 		FE5FB50E20401BF3001318D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE5FB51B20401C42001318D5 /* QYFrameworktest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYFrameworktest.h; sourceTree = "<group>"; };
 		FE5FB51C20401C42001318D5 /* QYFrameworktest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYFrameworktest.m; sourceTree = "<group>"; };
+		FE95D9E8208D6AF4006BBC24 /* QYFiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYFiveViewController.h; sourceTree = "<group>"; };
+		FE95D9E9208D6AF4006BBC24 /* QYFiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYFiveViewController.m; sourceTree = "<group>"; };
+		FE96533E2084C4DF00AD67E5 /* QYOneTKnowledge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYOneTKnowledge.h; sourceTree = "<group>"; };
+		FE96533F2084C4DF00AD67E5 /* QYOneTKnowledge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYOneTKnowledge.m; sourceTree = "<group>"; };
+		FE9653442084C61800AD67E5 /* QYOnePointFive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYOnePointFive.h; sourceTree = "<group>"; };
+		FE9653452084C61800AD67E5 /* QYOnePointFive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYOnePointFive.m; sourceTree = "<group>"; };
+		FE9653472084C68500AD67E5 /* QYCoreAnimationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYCoreAnimationModel.h; sourceTree = "<group>"; };
+		FE9653482084C68500AD67E5 /* QYCoreAnimationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYCoreAnimationModel.m; sourceTree = "<group>"; };
+		FE96534A2084C70B00AD67E5 /* MLearnHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MLearnHeader.h; sourceTree = "<group>"; };
+		FE96534C2085811F00AD67E5 /* QYTwoTKnowledge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYTwoTKnowledge.h; sourceTree = "<group>"; };
+		FE96534D2085811F00AD67E5 /* QYTwoTKnowledge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYTwoTKnowledge.m; sourceTree = "<group>"; };
+		FE96534F208582F800AD67E5 /* QYTwoPointOneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYTwoPointOneController.h; sourceTree = "<group>"; };
+		FE965350208582F800AD67E5 /* QYTwoPointOneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYTwoPointOneController.m; sourceTree = "<group>"; };
+		FEA24FAE2088206300945DBF /* QYThreeTKnowledge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYThreeTKnowledge.h; sourceTree = "<group>"; };
+		FEA24FAF2088206300945DBF /* QYThreeTKnowledge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYThreeTKnowledge.m; sourceTree = "<group>"; };
+		FEA24FB12088207100945DBF /* QYThreeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYThreeViewController.h; sourceTree = "<group>"; };
+		FEA24FB22088207100945DBF /* QYThreeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYThreeViewController.m; sourceTree = "<group>"; };
+		FEA24FB5208833CB00945DBF /* QYFourViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYFourViewController.h; sourceTree = "<group>"; };
+		FEA24FB6208833CB00945DBF /* QYFourViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYFourViewController.m; sourceTree = "<group>"; };
+		FEA24FB8208833FF00945DBF /* QYFourTKnowledge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYFourTKnowledge.h; sourceTree = "<group>"; };
+		FEA24FB9208833FF00945DBF /* QYFourTKnowledge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYFourTKnowledge.m; sourceTree = "<group>"; };
 		FEE56BA6207B6A430043C2C5 /* MCameraHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCameraHeader.h; sourceTree = "<group>"; };
 		FEE56BA8207B6A430043C2C5 /* MCameraPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCameraPhotoModel.h; sourceTree = "<group>"; };
 		FEE56BA9207B6A430043C2C5 /* MDeviceOrientationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDeviceOrientationModel.m; sourceTree = "<group>"; };
@@ -1869,6 +1924,8 @@
 		8BCC24551FB1643F0096AB2E /* MLearn */ = {
 			isa = PBXGroup;
 			children = (
+				FE96534A2084C70B00AD67E5 /* MLearnHeader.h */,
+				FEE56E8E207B6B5F0043C2C5 /* CoreAnimation */,
 				FEE56CAF207B6A5B0043C2C5 /* Arithmeti（该model均为编程之美内容） */,
 				FEE56CB5207B6A5B0043C2C5 /* csdn */,
 				FEE56CCB207B6A5B0043C2C5 /* Lintcode */,
@@ -1937,6 +1994,39 @@
 			path = source;
 			sourceTree = "<group>";
 		};
+		FE14E88120A141510022486E /* 第七章 */ = {
+			isa = PBXGroup;
+			children = (
+				FE14E88220A141630022486E /* QYSevenTKnowledge.h */,
+				FE14E88320A141630022486E /* QYSevenTKnowledge.m */,
+				FE14E88520A141740022486E /* QYSenveViewController.h */,
+				FE14E88620A141740022486E /* QYSenveViewController.m */,
+			);
+			path = "第七章";
+			sourceTree = "<group>";
+		};
+		FE14E88820A14DD20022486E /* 第八章 */ = {
+			isa = PBXGroup;
+			children = (
+				FE14E88C20A154730022486E /* QYEightTKnowedge.h */,
+				FE14E88D20A154730022486E /* QYEightTKnowedge.m */,
+				FE14E88920A154610022486E /* QYEightViewController.h */,
+				FE14E88A20A154610022486E /* QYEightViewController.m */,
+			);
+			path = "第八章";
+			sourceTree = "<group>";
+		};
+		FE2B759A20995439009618CA /* 第六章 */ = {
+			isa = PBXGroup;
+			children = (
+				FE2B759B2099544E009618CA /* QYSixTKnowledge.h */,
+				FE2B759C2099544E009618CA /* QYSixTKnowledge.m */,
+				FE2B759E2099545B009618CA /* QYSixViewController.h */,
+				FE2B759F2099545B009618CA /* QYSixViewController.m */,
+			);
+			path = "第六章";
+			sourceTree = "<group>";
+		};
 		FE4F614C2015841E00A70CB7 /* 自定义控件 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1958,6 +2048,17 @@
 				FE4F61552015882700A70CB7 /* QYMultiSelectTableViewCell.m */,
 			);
 			path = MultiSelect;
+			sourceTree = "<group>";
+		};
+		FE52CAED208978AE00C71AD9 /* 第五章 */ = {
+			isa = PBXGroup;
+			children = (
+				FE52CAEE208978C300C71AD9 /* QYFiveTKnowledge.h */,
+				FE52CAEF208978C300C71AD9 /* QYFiveTKnowledge.m */,
+				FE95D9E8208D6AF4006BBC24 /* QYFiveViewController.h */,
+				FE95D9E9208D6AF4006BBC24 /* QYFiveViewController.m */,
+			);
+			path = "第五章";
 			sourceTree = "<group>";
 		};
 		FE5FB4CB2040062F001318D5 /* testStaticLibrary */ = {
@@ -1987,6 +2088,50 @@
 				FE5FB50E20401BF3001318D5 /* Info.plist */,
 			);
 			path = FrameworkToolTests;
+			sourceTree = "<group>";
+		};
+		FE96533D2084C4B600AD67E5 /* 第一章 */ = {
+			isa = PBXGroup;
+			children = (
+				FE96533E2084C4DF00AD67E5 /* QYOneTKnowledge.h */,
+				FE96533F2084C4DF00AD67E5 /* QYOneTKnowledge.m */,
+				FE9653442084C61800AD67E5 /* QYOnePointFive.h */,
+				FE9653452084C61800AD67E5 /* QYOnePointFive.m */,
+			);
+			path = "第一章";
+			sourceTree = "<group>";
+		};
+		FE96534B2085810900AD67E5 /* 第二章 */ = {
+			isa = PBXGroup;
+			children = (
+				FE96534C2085811F00AD67E5 /* QYTwoTKnowledge.h */,
+				FE96534D2085811F00AD67E5 /* QYTwoTKnowledge.m */,
+				FE96534F208582F800AD67E5 /* QYTwoPointOneController.h */,
+				FE965350208582F800AD67E5 /* QYTwoPointOneController.m */,
+			);
+			path = "第二章";
+			sourceTree = "<group>";
+		};
+		FEA24FAD2088204700945DBF /* 第三章 */ = {
+			isa = PBXGroup;
+			children = (
+				FEA24FAE2088206300945DBF /* QYThreeTKnowledge.h */,
+				FEA24FAF2088206300945DBF /* QYThreeTKnowledge.m */,
+				FEA24FB12088207100945DBF /* QYThreeViewController.h */,
+				FEA24FB22088207100945DBF /* QYThreeViewController.m */,
+			);
+			path = "第三章";
+			sourceTree = "<group>";
+		};
+		FEA24FB4208833BF00945DBF /* 第四章 */ = {
+			isa = PBXGroup;
+			children = (
+				FEA24FB5208833CB00945DBF /* QYFourViewController.h */,
+				FEA24FB6208833CB00945DBF /* QYFourViewController.m */,
+				FEA24FB8208833FF00945DBF /* QYFourTKnowledge.h */,
+				FEA24FB9208833FF00945DBF /* QYFourTKnowledge.m */,
+			);
+			path = "第四章";
 			sourceTree = "<group>";
 		};
 		FEE56BA3207B6A430043C2C5 /* Tool */ = {
@@ -2253,35 +2398,35 @@
 			isa = PBXGroup;
 			children = (
 				FEE56C13207B6A430043C2C5 /* MNetworkRequest.h */,
-				FEE56C14207B6A430043C2C5 /* QYDIskCache.h */,
+				FEE56C22207B6A430043C2C5 /* MNetworkRequest.m */,
+				FEE56C2C207B6A430043C2C5 /* MNetworkBaseRequest.h */,
+				FEE56C20207B6A430043C2C5 /* MNetworkBaseRequest.m */,
 				FEE56C15207B6A430043C2C5 /* MNetworkBatchRequest.h */,
-				FEE56C16207B6A430043C2C5 /* MNetworkRequestOperation.h */,
-				FEE56C17207B6A430043C2C5 /* QYMemoryCache.m */,
+				FEE56C30207B6A430043C2C5 /* MNetworkAgent.h */,
+				FEE56C1C207B6A430043C2C5 /* MNetworkAgent.m */,
+				FEE56C24207B6A430043C2C5 /* MNetworkBatchRequest.m */,
 				FEE56C18207B6A430043C2C5 /* MNetworkChainRequest.m */,
 				FEE56C19207B6A430043C2C5 /* MNetworkChainAgent.m */,
-				FEE56C1A207B6A430043C2C5 /* MNetworkHelper.m */,
 				FEE56C1B207B6A430043C2C5 /* MNetworkImageCache.m */,
-				FEE56C1C207B6A430043C2C5 /* MNetworkAgent.m */,
+				FEE56C2F207B6A430043C2C5 /* MNetworkDownloadRequest.h */,
 				FEE56C1D207B6A430043C2C5 /* MNetworkDownloadRequest.m */,
 				FEE56C1E207B6A430043C2C5 /* MNetRequestHeader.h */,
+				FEE56C2E207B6A430043C2C5 /* MNetworkConfig.h */,
 				FEE56C1F207B6A430043C2C5 /* MNetworkConfig.m */,
-				FEE56C20207B6A430043C2C5 /* MNetworkBaseRequest.m */,
+				FEE56C2D207B6A430043C2C5 /* MNetworkBatchAgent.h */,
 				FEE56C21207B6A430043C2C5 /* MNetworkBatchAgent.m */,
-				FEE56C22207B6A430043C2C5 /* MNetworkRequest.m */,
+				FEE56C16207B6A430043C2C5 /* MNetworkRequestOperation.h */,
 				FEE56C23207B6A430043C2C5 /* MNetworkRequestOperation.m */,
-				FEE56C24207B6A430043C2C5 /* MNetworkBatchRequest.m */,
-				FEE56C25207B6A430043C2C5 /* QYDIskCache.m */,
-				FEE56C26207B6A430043C2C5 /* MNetworkImageCache.h */,
-				FEE56C27207B6A430043C2C5 /* MNetworkHelper.h */,
 				FEE56C28207B6A430043C2C5 /* MNetworkChainAgent.h */,
 				FEE56C29207B6A430043C2C5 /* MNetworkOperationProtocol.h */,
 				FEE56C2A207B6A430043C2C5 /* MNetworkChainRequest.h */,
+				FEE56C26207B6A430043C2C5 /* MNetworkImageCache.h */,
+				FEE56C14207B6A430043C2C5 /* QYDIskCache.h */,
+				FEE56C25207B6A430043C2C5 /* QYDIskCache.m */,
 				FEE56C2B207B6A430043C2C5 /* QYMemoryCache.h */,
-				FEE56C2C207B6A430043C2C5 /* MNetworkBaseRequest.h */,
-				FEE56C2D207B6A430043C2C5 /* MNetworkBatchAgent.h */,
-				FEE56C2E207B6A430043C2C5 /* MNetworkConfig.h */,
-				FEE56C2F207B6A430043C2C5 /* MNetworkDownloadRequest.h */,
-				FEE56C30207B6A430043C2C5 /* MNetworkAgent.h */,
+				FEE56C17207B6A430043C2C5 /* QYMemoryCache.m */,
+				FEE56C27207B6A430043C2C5 /* MNetworkHelper.h */,
+				FEE56C1A207B6A430043C2C5 /* MNetworkHelper.m */,
 			);
 			path = "网络请求";
 			sourceTree = "<group>";
@@ -2289,8 +2434,10 @@
 		FEE56C31207B6A430043C2C5 /* KeyBoard */ = {
 			isa = PBXGroup;
 			children = (
-				FEE56C32207B6A430043C2C5 /* QYKeyBoardManager.m */,
 				FEE56C33207B6A430043C2C5 /* QYKeyBoardManager.h */,
+				FEE56C32207B6A430043C2C5 /* QYKeyBoardManager.m */,
+				FE5670482080445200801A69 /* UPKeyboardManager.h */,
+				FE5670472080445100801A69 /* UPKeyboardManager.m */,
 			);
 			path = KeyBoard;
 			sourceTree = "<group>";
@@ -2315,31 +2462,31 @@
 		FEE56C36207B6A430043C2C5 /* PLAudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				FEE56C37207B6A430043C2C5 /* PLAudioFileStream.h */,
-				FEE56C38207B6A430043C2C5 /* PLAudioStream.m */,
-				FEE56C39207B6A430043C2C5 /* PLAudioPlayer.m */,
-				FEE56C3A207B6A430043C2C5 /* PLAudioOutputQueue.h */,
 				FEE56C3B207B6A430043C2C5 /* PLAudioSession.h */,
-				FEE56C3C207B6A430043C2C5 /* QYPlayerTest.h */,
-				FEE56C3D207B6A430043C2C5 /* PLAudioHTTPRequest.m */,
-				FEE56C3E207B6A430043C2C5 /* PLAudioFileSource.h */,
-				FEE56C3F207B6A430043C2C5 /* PLAudioFile.h */,
-				FEE56C40207B6A430043C2C5 /* PLParsedAudioDataModel.m */,
-				FEE56C41207B6A430043C2C5 /* PLAudioBuffer.h */,
-				FEE56C42207B6A430043C2C5 /* PLAudioThread.h */,
-				FEE56C43207B6A430043C2C5 /* PLFileProvider.h */,
-				FEE56C44207B6A430043C2C5 /* PLAudioPlayer.h */,
-				FEE56C45207B6A430043C2C5 /* PLAudioStream.h */,
-				FEE56C46207B6A430043C2C5 /* PLAudioFileStream.m */,
-				FEE56C47207B6A430043C2C5 /* PLAudioFile.m */,
-				FEE56C48207B6A430043C2C5 /* QYPlayerTest.m */,
-				FEE56C49207B6A430043C2C5 /* PLAudioHTTPRequest.h */,
 				FEE56C4A207B6A430043C2C5 /* PLAudioSession.m */,
-				FEE56C4B207B6A430043C2C5 /* PLAudioOutputQueue.m */,
-				FEE56C4C207B6A430043C2C5 /* PLParsedAudioDataModel.h */,
-				FEE56C4D207B6A430043C2C5 /* PLFileProvider.m */,
+				FEE56C44207B6A430043C2C5 /* PLAudioPlayer.h */,
+				FEE56C39207B6A430043C2C5 /* PLAudioPlayer.m */,
+				FEE56C42207B6A430043C2C5 /* PLAudioThread.h */,
 				FEE56C4E207B6A430043C2C5 /* PLAudioThread.m */,
+				FEE56C3A207B6A430043C2C5 /* PLAudioOutputQueue.h */,
+				FEE56C4B207B6A430043C2C5 /* PLAudioOutputQueue.m */,
+				FEE56C45207B6A430043C2C5 /* PLAudioStream.h */,
+				FEE56C38207B6A430043C2C5 /* PLAudioStream.m */,
+				FEE56C37207B6A430043C2C5 /* PLAudioFileStream.h */,
+				FEE56C46207B6A430043C2C5 /* PLAudioFileStream.m */,
+				FEE56C3F207B6A430043C2C5 /* PLAudioFile.h */,
+				FEE56C47207B6A430043C2C5 /* PLAudioFile.m */,
+				FEE56C43207B6A430043C2C5 /* PLFileProvider.h */,
+				FEE56C4D207B6A430043C2C5 /* PLFileProvider.m */,
+				FEE56C3E207B6A430043C2C5 /* PLAudioFileSource.h */,
+				FEE56C41207B6A430043C2C5 /* PLAudioBuffer.h */,
 				FEE56C4F207B6A430043C2C5 /* PLAudioBuffer.m */,
+				FEE56C4C207B6A430043C2C5 /* PLParsedAudioDataModel.h */,
+				FEE56C40207B6A430043C2C5 /* PLParsedAudioDataModel.m */,
+				FEE56C49207B6A430043C2C5 /* PLAudioHTTPRequest.h */,
+				FEE56C3D207B6A430043C2C5 /* PLAudioHTTPRequest.m */,
+				FEE56C3C207B6A430043C2C5 /* QYPlayerTest.h */,
+				FEE56C48207B6A430043C2C5 /* QYPlayerTest.m */,
 			);
 			path = PLAudioPlayer;
 			sourceTree = "<group>";
@@ -2370,10 +2517,10 @@
 			isa = PBXGroup;
 			children = (
 				FEE56CB0207B6A5B0043C2C5 /* Arithmetis.h */,
-				FEE56CB1207B6A5B0043C2C5 /* ChessResultModel.m */,
-				FEE56CB2207B6A5B0043C2C5 /* CakeSortModel.m */,
 				FEE56CB3207B6A5B0043C2C5 /* CakeSortModel.h */,
+				FEE56CB2207B6A5B0043C2C5 /* CakeSortModel.m */,
 				FEE56CB4207B6A5B0043C2C5 /* ChessResultModel.h */,
+				FEE56CB1207B6A5B0043C2C5 /* ChessResultModel.m */,
 			);
 			path = "Arithmeti（该model均为编程之美内容）";
 			sourceTree = "<group>";
@@ -2390,14 +2537,14 @@
 		FEE56CB6207B6A5B0043C2C5 /* KVC-KVO */ = {
 			isa = PBXGroup;
 			children = (
-				FEE56CB7207B6A5B0043C2C5 /* QYKVOModel.h */,
-				FEE56CB8207B6A5B0043C2C5 /* Primes.h */,
-				FEE56CB9207B6A5B0043C2C5 /* QYKVOViewController.m */,
 				FEE56CBA207B6A5B0043C2C5 /* KeyValueObserver.h */,
+				FEE56CBE207B6A5B0043C2C5 /* KeyValueObserver.m */,
+				FEE56CB7207B6A5B0043C2C5 /* QYKVOModel.h */,
 				FEE56CBB207B6A5B0043C2C5 /* QYKVOModel.m */,
 				FEE56CBC207B6A5B0043C2C5 /* QYKVOViewController.h */,
+				FEE56CB9207B6A5B0043C2C5 /* QYKVOViewController.m */,
+				FEE56CB8207B6A5B0043C2C5 /* Primes.h */,
 				FEE56CBD207B6A5B0043C2C5 /* Primes.m */,
-				FEE56CBE207B6A5B0043C2C5 /* KeyValueObserver.m */,
 			);
 			path = "KVC-KVO";
 			sourceTree = "<group>";
@@ -2405,12 +2552,12 @@
 		FEE56CBF207B6A5B0043C2C5 /* c语言封装oc对象 */ = {
 			isa = PBXGroup;
 			children = (
+				FEE56CC5207B6A5B0043C2C5 /* QYCToOcheader.h */,
 				FEE56CC0207B6A5B0043C2C5 /* QYInteger.h */,
 				FEE56CC1207B6A5B0043C2C5 /* QYString.c */,
 				FEE56CC2207B6A5B0043C2C5 /* QYPeople.c */,
 				FEE56CC3207B6A5B0043C2C5 /* QYObject.c */,
 				FEE56CC4207B6A5B0043C2C5 /* QYArray.h */,
-				FEE56CC5207B6A5B0043C2C5 /* QYCToOcheader.h */,
 				FEE56CC6207B6A5B0043C2C5 /* QYString.h */,
 				FEE56CC7207B6A5B0043C2C5 /* QYInteger.c */,
 				FEE56CC8207B6A5B0043C2C5 /* QYArray.c */,
@@ -2423,27 +2570,27 @@
 		FEE56CCB207B6A5B0043C2C5 /* Lintcode */ = {
 			isa = PBXGroup;
 			children = (
+				FEE56CD7207B6A5B0043C2C5 /* QYLintCodeHeader.h */,
 				FEE56CCC207B6A5B0043C2C5 /* QYAscendArray.h */,
-				FEE56CCD207B6A5B0043C2C5 /* QYNumberDecode.h */,
+				FEE56CD9207B6A5B0043C2C5 /* QYAscendArray.m */,
 				FEE56CCE207B6A5B0043C2C5 /* QYAirballoon.h */,
-				FEE56CCF207B6A5B0043C2C5 /* QYMaxLengthOrder.h */,
+				FEE56CD6207B6A5B0043C2C5 /* QYAirballoon.m */,
+				FEE56CDD207B6A5B0043C2C5 /* QYStrangePrintf.h */,
 				FEE56CD0207B6A5B0043C2C5 /* QYStrangePrintf.m */,
 				FEE56CD1207B6A5B0043C2C5 /* QYLintcodeBase.h */,
+				FEE56CDC207B6A5B0043C2C5 /* QYLintcodeBase.m */,
 				FEE56CD2207B6A5B0043C2C5 /* QYCircleSubString.h */,
-				FEE56CD3207B6A5B0043C2C5 /* QYMaxAverageSubArray.m */,
+				FEE56CDB207B6A5B0043C2C5 /* QYCircleSubString.m */,
+				FEE56CDF207B6A5B0043C2C5 /* QYFlowerArrangement.h */,
 				FEE56CD4207B6A5B0043C2C5 /* QYFlowerArrangement.m */,
 				FEE56CD5207B6A5B0043C2C5 /* QYArithmeticSubSequence.h */,
-				FEE56CD6207B6A5B0043C2C5 /* QYAirballoon.m */,
-				FEE56CD7207B6A5B0043C2C5 /* QYLintCodeHeader.h */,
-				FEE56CD8207B6A5B0043C2C5 /* QYNumberDecode.m */,
-				FEE56CD9207B6A5B0043C2C5 /* QYAscendArray.m */,
-				FEE56CDA207B6A5B0043C2C5 /* QYMaxLengthOrder.m */,
-				FEE56CDB207B6A5B0043C2C5 /* QYCircleSubString.m */,
-				FEE56CDC207B6A5B0043C2C5 /* QYLintcodeBase.m */,
-				FEE56CDD207B6A5B0043C2C5 /* QYStrangePrintf.h */,
 				FEE56CDE207B6A5B0043C2C5 /* QYArithmeticSubSequence.m */,
-				FEE56CDF207B6A5B0043C2C5 /* QYFlowerArrangement.h */,
+				FEE56CCD207B6A5B0043C2C5 /* QYNumberDecode.h */,
+				FEE56CD8207B6A5B0043C2C5 /* QYNumberDecode.m */,
+				FEE56CCF207B6A5B0043C2C5 /* QYMaxLengthOrder.h */,
+				FEE56CDA207B6A5B0043C2C5 /* QYMaxLengthOrder.m */,
 				FEE56CE0207B6A5B0043C2C5 /* QYMaxAverageSubArray.h */,
+				FEE56CD3207B6A5B0043C2C5 /* QYMaxAverageSubArray.m */,
 			);
 			path = Lintcode;
 			sourceTree = "<group>";
@@ -2459,9 +2606,9 @@
 		FEE56CE2207B6A5B0043C2C5 /* 音频 */ = {
 			isa = PBXGroup;
 			children = (
+				FEE56CE5207B6A5B0043C2C5 /* QYAudioTextPart.h */,
 				FEE56CE3207B6A5B0043C2C5 /* QYAudioTextPart.m */,
 				FEE56CE4207B6A5B0043C2C5 /* Objcio-audio.xcassets */,
-				FEE56CE5207B6A5B0043C2C5 /* QYAudioTextPart.h */,
 			);
 			path = "音频";
 			sourceTree = "<group>";
@@ -2869,6 +3016,23 @@
 			path = TextFile;
 			sourceTree = "<group>";
 		};
+		FEE56E8E207B6B5F0043C2C5 /* CoreAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				FE9653472084C68500AD67E5 /* QYCoreAnimationModel.h */,
+				FE9653482084C68500AD67E5 /* QYCoreAnimationModel.m */,
+				FE96533D2084C4B600AD67E5 /* 第一章 */,
+				FE96534B2085810900AD67E5 /* 第二章 */,
+				FEA24FAD2088204700945DBF /* 第三章 */,
+				FEA24FB4208833BF00945DBF /* 第四章 */,
+				FE52CAED208978AE00C71AD9 /* 第五章 */,
+				FE2B759A20995439009618CA /* 第六章 */,
+				FE14E88120A141510022486E /* 第七章 */,
+				FE14E88820A14DD20022486E /* 第八章 */,
+			);
+			path = CoreAnimation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -3195,6 +3359,7 @@
 				FE01FD5320626370007CD777 /* UIScreen+UPFrame.m in Sources */,
 				FEE56E2A207B6A6F0043C2C5 /* near_lossless.c in Sources */,
 				FEE56C95207B6A430043C2C5 /* MNetworkBatchAgent.m in Sources */,
+				FEA24FB02088206300945DBF /* QYThreeTKnowledge.m in Sources */,
 				FE01FD5F2062655E007CD777 /* UIScrollView+UPPages.m in Sources */,
 				FEE56E1E207B6A6F0043C2C5 /* color_cache.c in Sources */,
 				FE4F61562015882700A70CB7 /* QYMultiSelectTableViewCell.m in Sources */,
@@ -3224,15 +3389,20 @@
 				FEE56E13207B6A6F0043C2C5 /* muxedit.c in Sources */,
 				FEE56C66207B6A430043C2C5 /* MPhotoModel.m in Sources */,
 				FEE56CA7207B6A430043C2C5 /* QYParsedAudioData.m in Sources */,
+				FEA24FBA208833FF00945DBF /* QYFourTKnowledge.m in Sources */,
 				FEE56E6A207B6A6F0043C2C5 /* cost_mips32.c in Sources */,
 				8B846E201F8E3DC9007C0731 /* UIImageView+QYReflect.m in Sources */,
 				FEE56E22207B6A6F0043C2C5 /* delta_palettization.c in Sources */,
+				FE2B759D2099544E009618CA /* QYSixTKnowledge.m in Sources */,
 				8B846DF91F8E10DD007C0731 /* UIImage+QYGif.m in Sources */,
+				FE9653492084C68500AD67E5 /* QYCoreAnimationModel.m in Sources */,
 				FEE56E52207B6A6F0043C2C5 /* alpha_processing.c in Sources */,
 				FEE56E41207B6A6F0043C2C5 /* tree.c in Sources */,
 				FEE56CFA207B6A5B0043C2C5 /* QYArithmeticSubSequence.m in Sources */,
 				FEE56E7E207B6A6F0043C2C5 /* UIImage+GIF.m in Sources */,
+				FE2B75A02099545B009618CA /* QYSixViewController.m in Sources */,
 				FEE56C83207B6A430043C2C5 /* MLagMonitor.m in Sources */,
+				FE95D9EA208D6AF4006BBC24 /* QYFiveViewController.m in Sources */,
 				FEE56C6A207B6A430043C2C5 /* MPhotoCollectionViewCell.m in Sources */,
 				FEE56D37207B6A670043C2C5 /* MWebViewProgress.m in Sources */,
 				FEE56D35207B6A670043C2C5 /* NSURLProtocol+MWebKitSupport.m in Sources */,
@@ -3257,6 +3427,7 @@
 				FEE56E47207B6A6F0043C2C5 /* dec_mips_dsp_r2.c in Sources */,
 				8B846E351F8F025A007C0731 /* NSArray+QYSafeAccess.m in Sources */,
 				FEE56CA1207B6A430043C2C5 /* QYPlayerTest.m in Sources */,
+				FE14E88E20A154730022486E /* QYEightTKnowedge.m in Sources */,
 				8B846E171F8E3C73007C0731 /* UIImage+QYFix.m in Sources */,
 				8B846E051F8E2AA3007C0731 /* UIImage+QYBlur.m in Sources */,
 				FEE56C9A207B6A430043C2C5 /* QYKeyBoardManager.m in Sources */,
@@ -3269,6 +3440,7 @@
 				FEE56C69207B6A430043C2C5 /* MPhotoAlbumController.m in Sources */,
 				FEE56D2F207B6A670043C2C5 /* QYPreviewImageModel.m in Sources */,
 				FEE56C98207B6A430043C2C5 /* MNetworkBatchRequest.m in Sources */,
+				FEA24FB32088207100945DBF /* QYThreeViewController.m in Sources */,
 				FEE56E61207B6A6F0043C2C5 /* dec.c in Sources */,
 				8BF672A91F70AD5900CF312A /* NSString+QYEmoji.m in Sources */,
 				8B846E141F8E3A87007C0731 /* UIImage+QYBetterFace.m in Sources */,
@@ -3305,14 +3477,17 @@
 				FEE56E43207B6A6F0043C2C5 /* lossless_sse2.c in Sources */,
 				FEE56C89207B6A430043C2C5 /* NSObject+MLeaksFinder.m in Sources */,
 				FEE56C9C207B6A430043C2C5 /* PLAudioPlayer.m in Sources */,
+				FE14E88720A141740022486E /* QYSenveViewController.m in Sources */,
 				FEE56E83207B6A6F0043C2C5 /* SDWebImageDownloaderOperation.m in Sources */,
 				8BB22A501FDF85D000284193 /* NSDictionary+QYSafeAccess.m in Sources */,
+				FE9653402084C4DF00AD67E5 /* QYOneTKnowledge.m in Sources */,
 				FEE56C9E207B6A430043C2C5 /* PLParsedAudioDataModel.m in Sources */,
 				FEE56C80207B6A430043C2C5 /* MFPSMonitorLabel.m in Sources */,
 				FEE56E4E207B6A6F0043C2C5 /* argb_sse2.c in Sources */,
 				FEE56E36207B6A6F0043C2C5 /* demux.c in Sources */,
 				FEE56C72207B6A430043C2C5 /* RSKImageCropViewController.m in Sources */,
 				FEE56E2C207B6A6F0043C2C5 /* backward_references.c in Sources */,
+				FEA24FB7208833CB00945DBF /* QYFourViewController.m in Sources */,
 				8B5D20001F26F9E900DD1898 /* AppDelegate.m in Sources */,
 				FEE56D3C207B6A670043C2C5 /* NSString+Path.m in Sources */,
 				FEE56E7C207B6A6F0043C2C5 /* FLAnimatedImageView+WebCache.m in Sources */,
@@ -3321,7 +3496,9 @@
 				FEE56C75207B6A430043C2C5 /* RSKImageScrollView.m in Sources */,
 				FEE56E5F207B6A6F0043C2C5 /* yuv_mips_dsp_r2.c in Sources */,
 				FEE56C97207B6A430043C2C5 /* MNetworkRequestOperation.m in Sources */,
+				FE96534E2085811F00AD67E5 /* QYTwoTKnowledge.m in Sources */,
 				FEE56E4D207B6A6F0043C2C5 /* filters_sse2.c in Sources */,
+				FE14E88420A141630022486E /* QYSevenTKnowledge.m in Sources */,
 				FEE56E39207B6A6F0043C2C5 /* vp8l.c in Sources */,
 				FEE56E5E207B6A6F0043C2C5 /* lossless_enc.c in Sources */,
 				8BF672A31F6FF70200CF312A /* NSTimer+QYAddition.m in Sources */,
@@ -3343,6 +3520,7 @@
 				8B195CBF1F62C0BF005D6321 /* UIViewController+QYVisible.m in Sources */,
 				FEE56E58207B6A6F0043C2C5 /* alpha_processing_mips_dsp_r2.c in Sources */,
 				FEE56E24207B6A6F0043C2C5 /* vp8l.c in Sources */,
+				FE14E88B20A154610022486E /* QYEightViewController.m in Sources */,
 				FEE56C99207B6A430043C2C5 /* QYDIskCache.m in Sources */,
 				FEE56E7A207B6A6F0043C2C5 /* SDWebImageDecoder.m in Sources */,
 				8B195CB31F629560005D6321 /* UIView+QYShake.m in Sources */,
@@ -3389,6 +3567,7 @@
 				FEE56E3F207B6A6F0043C2C5 /* idec.c in Sources */,
 				FEE56D3A207B6A670043C2C5 /* UIWebView+MCache.m in Sources */,
 				8BB22A591FDFABA200284193 /* NSDictionary+QYMerge.m in Sources */,
+				FE965351208582F800AD67E5 /* QYTwoPointOneController.m in Sources */,
 				FEE56E15207B6A6F0043C2C5 /* rescaler.c in Sources */,
 				FEE56D40207B6A670043C2C5 /* MHRefreshScrollView.m in Sources */,
 				8B195CA41F6284C2005D6321 /* UIView+QYFrame.m in Sources */,
@@ -3432,6 +3611,7 @@
 				8B846E1D1F8E3D9B007C0731 /* UIImageView+QYCircleCut.m in Sources */,
 				FEE56C70207B6A430043C2C5 /* RSKTouchView.m in Sources */,
 				FEE56C8E207B6A430043C2C5 /* MNetworkChainAgent.m in Sources */,
+				FE52CAF0208978C300C71AD9 /* QYFiveTKnowledge.m in Sources */,
 				FEE56E81207B6A6F0043C2C5 /* SDWebImagePrefetcher.m in Sources */,
 				FEE56E19207B6A6F0043C2C5 /* random.c in Sources */,
 				FEE56CAD207B6A430043C2C5 /* QYAudioOutputQUeue.m in Sources */,
@@ -3453,6 +3633,7 @@
 				FEE56C8B207B6A430043C2C5 /* QYKeychainViewController.m in Sources */,
 				FEE56E28207B6A6F0043C2C5 /* iterator.c in Sources */,
 				FEE56E73207B6A6F0043C2C5 /* lossless_enc_mips32.c in Sources */,
+				FE9653462084C61800AD67E5 /* QYOnePointFive.m in Sources */,
 				8BF672BA1F71479700CF312A /* NSString+QYUUID.m in Sources */,
 				8B195CAD1F628EC1005D6321 /* UIView+QYScreenshot.m in Sources */,
 				FEE56E63207B6A6F0043C2C5 /* lossless_enc_sse2.c in Sources */,
@@ -3472,6 +3653,7 @@
 				FEE56E86207B6A6F0043C2C5 /* NSImage+WebCache.m in Sources */,
 				FEE56C6C207B6A430043C2C5 /* MImageCropDelegateModel.m in Sources */,
 				FEE56D3F207B6A670043C2C5 /* WKWebView+MElementFrame.m in Sources */,
+				FE5670492080445200801A69 /* UPKeyboardManager.m in Sources */,
 				FEE56E16207B6A6F0043C2C5 /* quant_levels_dec.c in Sources */,
 				FEE56C96207B6A430043C2C5 /* MNetworkRequest.m in Sources */,
 				FEE56E32207B6A6F0043C2C5 /* alpha.c in Sources */,

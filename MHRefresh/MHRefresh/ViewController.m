@@ -11,7 +11,6 @@
 #import "MImagePickerController.h"
 #import "QYPreviewViewController.h"
 #import "NSString+QYEmoji.h"
-#import "Arithmetis.h"
 #import <StoreKit/StoreKit.h>
 #import "MWebView.h"
 #import <MBProgressHUD/MBProgressHUD.h>
@@ -21,8 +20,6 @@
 #else
 #import "SDWebImageDownloader.h"
 #endif
-
-#import "QYCToOcheader.h"
 
 #import "MNetworkAgent.h"
 #import "MNetworkDownloadRequest.h"
@@ -35,9 +32,9 @@
 
 #import <AssertMacros.h>
 
-#import "QYMultiSelectViewController.h"
+#import "MLearnHeader.h"
 
-#import "QYLintCodeHeader.h"
+#import "QYMultiSelectViewController.h"
 
 #import "QYAudioPlayer.h"
 
@@ -50,6 +47,7 @@
 @interface ViewController () <QYPreviewViewControllerDelegate, QYPreviewViewControllerDataSource, UITextViewDelegate> {
     PLAudioPlayer *_audioPlayer;
     QYAudioPlayer *_qy_audio_player;
+    FMDatabaseQueue *_dataSerialQueue;
 }
 
 @property (nonatomic, strong) MPreviewCardView *cardView;
@@ -76,6 +74,46 @@ __weak NSString *srting_weak_ = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    NSString *dataBasePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+//    NSString *fileName = [dataBasePath stringByAppendingPathComponent:@"Memory1.sqlite"];
+//    _dataSerialQueue = [FMDatabaseQueue databaseQueueWithPath:fileName];
+//
+//    NSString *sqlString = @"CREATE TABLE IF NOT EXISTS t_subject(subject_uuid CHAR(32) PRIMARY KEY UNIQUE, title VARCHAR(50), rank INTEGER);";
+//
+//    [_dataSerialQueue inTransaction:^(FMDatabase * _Nonnull db, BOOL * _Nonnull rollback) {
+//        [db executeUpdate:sqlString];
+//    }];
+//
+//    NSString *sqlString1 = @"INSERT INTO t_subject(subject_uuid, title, rank) VALUES (?, ?, ?)";
+//    NSString *sqlString11 = @"INSERT INTO t_subject(subject_uuid, title, rank) VALUES (?, ?, ?)";
+//    NSString *sqlString12 = @"INSERT INTO t_subject(subject_uuid, title, rank) VALUES (?, ?, ?)";
+//    [_dataSerialQueue inTransaction:^(FMDatabase * _Nonnull db, BOOL * _Nonnull rollback) {
+//        [db executeUpdate:sqlString1, @"1", @"这是一个测试1", @(15167)];
+//        [db executeUpdate:sqlString11, @"2", @"这是一个测试2", @(15168)];
+//        [db executeUpdate:sqlString12, @"3", @"这是一个测试3", @(15169)];
+//    }];
+//
+//    NSString *sqlString2 = @"SELECT subject_uuid, title, rank FROM t_subject";
+//    [_dataSerialQueue inTransaction:^(FMDatabase * _Nonnull db, BOOL * _Nonnull rollback) {
+//        FMResultSet *set = [db executeQuery:sqlString2];
+//        while ([set next]) {
+//            NSLog(@"%@/%@/%ld", [set stringForColumn:@"subject_uuid"], [set stringForColumn:@"title"], [set longForColumn:@"rank"]);
+//        }
+//    }];
+//
+//    NSString *sqlString3 = @"UPDATE t_subject SET title = ?, rank = ? WHERE subject_uuid = ?";
+//    [_dataSerialQueue inTransaction:^(FMDatabase * _Nonnull db, BOOL * _Nonnull rollback) {
+//        [db executeUpdate:sqlString3, @"这是一个测试5", @(24455344), @"1"];
+//    }];
+//
+//    [_dataSerialQueue inTransaction:^(FMDatabase * _Nonnull db, BOOL * _Nonnull rollback) {
+//        FMResultSet *set = [db executeQuery:sqlString2];
+//        while ([set next]) {
+//            NSLog(@"%@/%@/%ld", [set stringForColumn:@"subject_uuid"], [set stringForColumn:@"title"], [set longForColumn:@"rank"]);
+//        }
+//    }];
+    
     
 
 //    NSLocalizedString(@"ceshi", @"This is a ceshi");
@@ -253,22 +291,22 @@ __weak NSString *srting_weak_ = nil;
 //    [[[QYCircleSubString alloc] init] qy_lintcodeSolution];
 //    [[[QYMaxLengthOrder alloc] init] qy_lintcodeSolution];
     
-    QYPlayerTest *test = [[QYPlayerTest alloc] init];
-
-    _audioPlayer = [PLAudioPlayer initWithAudioFileSource:test];
-    [_audioPlayer play];
-
-    DLog(@"%f", _audioPlayer.duration);
-
-
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(8.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        _audioPlayer.playRate = 2.0;
-        [_audioPlayer seekTime:80.0];
-    });
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(14.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [_audioPlayer seekTime:0];
-    });
+//    QYPlayerTest *test = [[QYPlayerTest alloc] init];
+//
+//    _audioPlayer = [PLAudioPlayer initWithAudioFileSource:test];
+//    [_audioPlayer play];
+//
+//    DLog(@"%f", _audioPlayer.duration);
+//
+//
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(8.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        _audioPlayer.playRate = 2.0;
+//        [_audioPlayer seekTime:80.0];
+//    });
+//
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(14.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+////        [_audioPlayer seekTime:0];
+//    });
     
     
     
@@ -327,6 +365,8 @@ __weak NSString *srting_weak_ = nil;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     DLog(@"string 2 - %@", srting_weak_);
+    
+    [QYCoreAnimationModel testWithVc:self];
 }
 
 - (void)addImage {

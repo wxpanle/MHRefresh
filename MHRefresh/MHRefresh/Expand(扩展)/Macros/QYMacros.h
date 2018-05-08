@@ -25,10 +25,13 @@
 #define SCREEN_W_SCALE ([UIScreen mainScreen].bounds.size.width / 375)
 #define SCREEN_H_SCALE ([UIScreen mainScreen].bounds.size.height / 667)
 
+//获取当前frame
 #define MAX_X(frame) CGRectGetMaxX(frame)
 #define MIN_X(frame) CGRectGetMinX(frame)
+#define MID_X(frame) CGRectGetMidX(frame)
 #define MAX_Y(frame) CGRectGetMaxY(frame)
 #define MIN_Y(frame) CGRectGetMinY(frame)
+#define MID_Y(frame) CGRectGetMidX(frame)
 
 #define DLOG_DEALLOC DLog(@"%@ dealloc", NSStringFromClass([self class]));
 
