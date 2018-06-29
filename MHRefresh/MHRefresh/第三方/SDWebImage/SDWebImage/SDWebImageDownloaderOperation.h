@@ -11,29 +11,71 @@
 #import "SDWebImageOperation.h"
 
 //通知 任务开始 接收到数据 暂停 结束
+//下载开始
 FOUNDATION_EXPORT NSString * _Nonnull const SDWebImageDownloadStartNotification;
+//收到响应
 FOUNDATION_EXPORT NSString * _Nonnull const SDWebImageDownloadReceiveResponseNotification;
+//停止通知
 FOUNDATION_EXPORT NSString * _Nonnull const SDWebImageDownloadStopNotification;
+//结束通知
 FOUNDATION_EXPORT NSString * _Nonnull const SDWebImageDownloadFinishNotification;
 
 
 
 /**
  Describes a downloader operation. If one wants to use a custom downloader op, it needs to inherit from `NSOperation` and conform to this protocol
+ 如果想自定义下载器的一些操作  需要继承NSOperation  并且实现该协议
  */
 @protocol SDWebImageDownloaderOperationInterface<NSObject>
-//初始化一个下载operation
+
+/**
+ 初始化一个请求
+
+ @param request request description
+ @param session session description
+ @param options options description
+ @return return value description
+ */
 - (nonnull instancetype)initWithRequest:(nullable NSURLRequest *)request
                               inSession:(nullable NSURLSession *)session
                                 options:(SDWebImageDownloaderOptions)options;
 
+/**
+ 添加对下载进度的处理
+
+ @param progressBlock progressBlock description
+ @param completedBlock completedBlock description
+ @return return value description
+ */
 - (nullable id)addHandlersForProgress:(nullable SDWebImageDownloaderProgressBlock)progressBlock
                             completed:(nullable SDWebImageDownloaderCompletedBlock)completedBlock;
 
+/**
+ 是否压缩该图片
+
+ @return return value description
+ */
 - (BOOL)shouldDecompressImages;
+
+/**
+ 设置是否压缩图片
+
+ @param value <#value description#>
+ */
 - (void)setShouldDecompressImages:(BOOL)value;
 
+/**
+ SSL验证证明
+
+ @return return value description
+ */
 - (nullable NSURLCredential *)credential;
+
+/**
+ 设置一个证明
+
+ @param value value description
+ */
 - (void)setCredential:(nullable NSURLCredential *)value;
 
 @end
@@ -42,16 +84,18 @@ FOUNDATION_EXPORT NSString * _Nonnull const SDWebImageDownloadFinishNotification
 @interface SDWebImageDownloaderOperation : NSOperation <SDWebImageDownloaderOperationInterface, SDWebImageOperation, NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 
 /**
- * The request used by the operation's task.
+ * The request used by the operation's task. 当前线程执行的请求
  */
 @property (strong, nonatomic, readonly, nullable) NSURLRequest *request;
 
 /**
- * The operation's task
+ * The operation's task  任务
  */
 @property (strong, nonatomic, readonly, nullable) NSURLSessionTask *dataTask;
 
-
+/**
+ 是否压缩图片 默认NO
+ */
 @property (assign, nonatomic) BOOL shouldDecompressImages;
 
 /**
@@ -73,17 +117,17 @@ FOUNDATION_EXPORT NSString * _Nonnull const SDWebImageDownloadFinishNotification
 @property (assign, nonatomic, readonly) SDWebImageDownloaderOptions options;
 
 /**
- * The expected size of data.
+ * The expected size of data.  期望接收的数据
  */
 @property (assign, nonatomic) NSInteger expectedSize;
 
 /**
- * The response returned by the operation's connection.
+ * The response returned by the operation's connection.  请求的响应
  */
 @property (strong, nonatomic, nullable) NSURLResponse *response;
 
 /**
- *  Initializes a `SDWebImageDownloaderOperation` object
+ *  Initializes a `SDWebImageDownloaderOperation` object  初始化一个请求
  *
  *  @see SDWebImageDownloaderOperation
  *

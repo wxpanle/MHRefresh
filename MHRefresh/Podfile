@@ -7,5 +7,9 @@ pod 'AFNetworking'
 pod 'MJRefresh'
 pod 'MBProgressHUD'
 pod 'IQKeyboardManager'
+pod 'SVProgressHUD'
+
+source 'https://github.com/CocoaPods/Specs.git'
+pod 'libPhoneNumber-iOS', '~> 0.8'
 
 end

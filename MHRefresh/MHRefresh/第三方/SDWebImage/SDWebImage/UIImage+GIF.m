@@ -24,13 +24,15 @@
     return [[UIImage alloc] initWithData:data];
 #else
 
+    //获取image source
     CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)data, NULL);
 
+    //获取image数量
     size_t count = CGImageSourceGetCount(source);
 
     UIImage *staticImage;
 
-    if (count <= 1) {
+    if (count <= 1) {  //对于小于1的直接返回
         staticImage = [[UIImage alloc] initWithData:data];
     } else {
         // we will only retrieve the 1st frame. the full GIF support is available via the FLAnimatedImageView category.
@@ -42,7 +44,7 @@
         CGFloat scale = 1;
         scale = [UIScreen mainScreen].scale;
 #endif
-        
+        //只处理第一张图片  其后的使用第三方进行播放
         CGImageRef CGImage = CGImageSourceCreateImageAtIndex(source, 0, NULL);
 #if SD_UIKIT || SD_WATCH
         UIImage *frameImage = [UIImage imageWithCGImage:CGImage scale:scale orientation:UIImageOrientationUp];
@@ -58,6 +60,7 @@
 }
 
 - (BOOL)isGIF {
+    //判断当前图片是不是一个gif图片
     return (self.images != nil);
 }
 

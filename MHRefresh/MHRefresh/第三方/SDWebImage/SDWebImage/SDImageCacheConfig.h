@@ -14,8 +14,9 @@
 /**
  * Decompressing images that are downloaded and cached can improve performance but can consume lot of memory.
  * Defaults to YES. Set this to NO if you are experiencing a crash due to excessive memory consumption.
+ 是否允许解压
  */
-@property (assign, nonatomic) BOOL shouldDecompressImages;  //是否解压
+@property (assign, nonatomic) BOOL shouldDecompressImages;
 
 /**
  *  disable iCloud backup [defaults to YES]

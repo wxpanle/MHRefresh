@@ -27,6 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The `AFURLResponseSerialization` protocol is adopted by an object that decodes data into a more useful object representation, according to details in the server response. Response serializers may additionally perform validation on the incoming response and data.
 
+ 响应序列化对象  类似于父类的方法  子类重写
+ 
+ 响应对象实现该协议  由相应的子类去实现该逻辑代码  业务和对象分离  更加清晰明了各自的职责
+ 
  For example, a JSON response serializer may check for an acceptable status code (`2XX` range) and content type (`application/json`), decoding a valid JSON response into an object.
  */
 @protocol AFURLResponseSerialization <NSObject, NSSecureCoding, NSCopying>
@@ -51,6 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  `AFHTTPResponseSerializer` conforms to the `AFURLRequestSerialization` & `AFURLResponseSerialization` protocols, offering a concrete base implementation of query string / URL form-encoded parameter serialization and default request headers, as well as response status code and content type validation.
 
+ 响应序列化基类
+ 
  Any request or response serializer dealing with HTTP is encouraged to subclass `AFHTTPResponseSerializer` in order to ensure consistent default behavior.
  */
 @interface AFHTTPResponseSerializer : NSObject <AFURLResponseSerialization>
@@ -59,11 +65,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The string encoding used to serialize data received from the server, when no string encoding is specified by the response. `NSUTF8StringEncoding` by default.
+ 服务器返回的字符串编码格式
  */
 @property (nonatomic, assign) NSStringEncoding stringEncoding;
 
 /**
  Creates and returns a serializer with default configuration.
+ 默认的序列化方法
  */
 + (instancetype)serializer;
 
@@ -74,12 +82,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The acceptable HTTP status codes for responses. When non-`nil`, responses with status codes not contained by the set will result in an error during validation.
 
+ 设置可接受的状态码  不在范围时返回验证错误
+ 
  See http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
  */
 @property (nonatomic, copy, nullable) NSIndexSet *acceptableStatusCodes;
 
 /**
  The acceptable MIME types for responses. When non-`nil`, responses with a `Content-Type` with MIME types that do not intersect with the set will result in an error during validation.
+ 
+ 响应对象的接受类型
  */
 @property (nonatomic, copy, nullable) NSSet <NSString *> *acceptableContentTypes;
 
@@ -87,6 +99,8 @@ NS_ASSUME_NONNULL_BEGIN
  Validates the specified response and data.
 
  In its base implementation, this method checks for an acceptable status code and content type. Subclasses may wish to add other domain-specific checks.
+ 
+ 验证服务端的返回数据  acceptableStatusCodes
 
  @param response The response to be validated.
  @param data The data associated with the response.
@@ -108,6 +122,8 @@ NS_ASSUME_NONNULL_BEGIN
 
  By default, `AFJSONResponseSerializer` accepts the following MIME types, which includes the official standard, `application/json`, as well as other commonly-used types:
 
+ json序列化
+ 
  - `application/json`
  - `text/json`
  - `text/javascript`
@@ -118,11 +134,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Options for reading the response JSON data and creating the Foundation objects. For possible values, see the `NSJSONSerialization` documentation section "NSJSONReadingOptions". `0` by default.
+ 
+ typedef enum NSJSONReadingOptions : NSUInteger {
+ NSJSONReadingMutableContainers = (1UL << 0),  //json解析后返回一个可变容器
+ NSJSONReadingMutableLeaves = (1UL << 1),      //返回中的json对象字符串为NSMutableString
+ NSJSONReadingAllowFragments = (1UL << 2)
+ } NSJSONReadingOptions;
+ 
  */
 @property (nonatomic, assign) NSJSONReadingOptions readingOptions;
 
 /**
  Whether to remove keys with `NSNull` values from response JSON. Defaults to `NO`.
+ 
+ 用来控制是否过滤NSNull值
  */
 @property (nonatomic, assign) BOOL removesKeysWithNullValues;
 
@@ -243,6 +268,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Whether to automatically inflate response image data for compressed formats (such as PNG or JPEG). Enabling this can significantly improve drawing performance on iOS when used with `setCompletionBlockWithSuccess:failure:`, as it allows a bitmap representation to be constructed in the background rather than on the main thread. `YES` by default.
+ 
+ 是否对图片进行处理
  */
 @property (nonatomic, assign) BOOL automaticallyInflatesResponseImage;
 #endif
@@ -253,6 +280,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  `AFCompoundSerializer` is a subclass of `AFHTTPResponseSerializer` that delegates the response serialization to the first `AFHTTPResponseSerializer` object that returns an object for `responseObjectForResponse:data:error:`, falling back on the default behavior of `AFHTTPResponseSerializer`. This is useful for supporting multiple potential types and structures of server responses with a single serializer.
+ 
+ 混合序列化
  */
 @interface AFCompoundResponseSerializer : AFHTTPResponseSerializer
 

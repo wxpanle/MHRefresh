@@ -14,6 +14,13 @@
 #import "QYSixViewController.h"
 #import "QYSenveViewController.h"
 #import "QYEightViewController.h"
+#import "QYNineViewController.h"
+#import "QYTenViewController.h"
+#import "QYElevenViewController.h"
+#import "QYTwenvenViewController.h"
+#import "QYThirteenVideController.h"
+#import "QYFourteenViewController.h"
+#import "QYFiveteenViewController.h"
 
 @implementation QYCoreAnimationModel
 
@@ -28,7 +35,14 @@
 //    QYThreeViewController *vc1 = [[QYThreeViewController alloc] init];
 //    QYSixViewController *vc1 = [[QYSixViewController alloc] init];
 //    QYSenveViewController *vc1 = [[QYSenveViewController alloc] init];
-    QYEightViewController *vc1 = [[QYEightViewController alloc] init];
+//    QYEightViewController *vc1 = [[QYEightViewController alloc] init];
+//    QYNineViewController *vc1 = [[QYNineViewController alloc] init];
+//    QYTenViewController *vc1 = [[QYTenViewController alloc] init];
+//    QYElevenViewController *vc1 = [[QYElevenViewController alloc] init];
+//    QYTwenvenViewController *vc1 = [[QYTwenvenViewController alloc] init];
+//    QYThirteenVideController *vc1 = [[QYThirteenVideController alloc] init];
+    QYFourteenViewController *vc1 = [[QYFourteenViewController alloc] init];
+//    QYFiveteenViewController *vc1 = [[QYFiveteenViewController alloc] init];
     
     [self vc:vc vc1:vc1];
 }

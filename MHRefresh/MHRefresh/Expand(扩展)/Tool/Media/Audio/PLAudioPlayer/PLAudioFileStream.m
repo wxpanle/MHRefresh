@@ -324,7 +324,7 @@ static void PLAudioFileStreamPacketsProc(void *inClientData,
         
         
         AudioFormatListItem *formatList = malloc(formatListSize);
-        status = AudioFileStreamGetProperty(inAudioFileStream, kAudioFileStreamProperty_FormatList, &formatListSize, &formatList);
+        status = AudioFileStreamGetProperty(inAudioFileStream, kAudioFileStreamProperty_FormatList, &formatListSize, formatList);
         if (status != noErr) {
             DLog(@"kAudioFileStreamProperty_FormatList fail");
             free(formatList);

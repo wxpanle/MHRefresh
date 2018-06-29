@@ -200,12 +200,17 @@
                 self.audioStatus = PLATStatusFlushing;
             }
         } else if (_audioBuffer.isEnd) {
-            
-            if (![_audioBuffer hasData] && _audioQueue.isRunning) {
-                [_audioQueue stop:NO];
-                //等待结束
-                self.audioStatus = PLATStatusFlushing;
+//
+//            if (![_audioBuffer hasData] && _audioQueue.isRunning) {
+//                [_audioQueue stop:NO];
+//                //等待结束
+//                self.audioStatus = PLATStatusFlushing;
+//            }
+//
+            if (![_audioBuffer hasData] && !_audioQueue.isRunning) {
+                self.audioStatus = PLATStatusStopped;
             }
+            
         } else {
             
             self.audioStatus = PLATStatusBufferError;
@@ -314,6 +319,8 @@
     
     _volume = 1.0;
     _playRate = 1.0;
+    
+    self.audioStatus = PLATStatusStopped;
 }
 
 #pragma mark - ======== mutex ========

@@ -28,17 +28,25 @@
 #import <WatchKit/WatchKit.h>
 #endif
 
+/*
+ 该类实现了根据不同情况和参数初始化NSURLRequest对象的功能
+ 
+ 实现了复杂的请求头拼接的过程
+ */
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Returns a percent-escaped string following RFC 3986 for a query string key or value.
- RFC 3986 states that the following characters are "reserved" characters.
- - General Delimiters: ":", "#", "[", "]", "@", "?", "/"
- - Sub-Delimiters: "!", "$", "&", "'", "(", ")", "*", "+", ",", ";", "="
+ Returns a percent-escaped(百分比引用) string following RFC 3986 for a query string key or value.
+ RFC 3986 states that the following characters are "reserved"(保留) characters.
+ - General Delimiters(一般的分隔符): ":", "#", "[", "]", "@", "?", "/"
+ - Sub-Delimiters(子类分隔符): "!", "$", "&", "'", "(", ")", "*", "+", ",", ";", "="
 
- In RFC 3986 - Section 3.4, it states that the "?" and "/" characters should not be escaped to allow
+ In RFC 3986 - Section 3.4, it states that the "?" and "/" characters should not be escaped（逃脱） to allow
  query strings to include a URL. Therefore, all "reserved" characters with the exception of "?" and "/"
  should be percent-escaped in the query string.
+ 
+ 编码string  返回一个字符串的百分号编码格式的字符串，因为url只有普通英文和数字，特殊字符还有保留字符
  
  @param string The string to be percent-escaped.
  
@@ -47,8 +55,10 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString * AFPercentEscapedStringFromString(NSString *string);
 
 /**
- A helper method to generate encoded url query parameters for appending to the end of a URL.
+ A helper method to generate(生成) encoded url query parameters for appending to the end of a URL.
 
+ 处理参数
+ 
  @param parameters A dictionary of key/values to be encoded.
 
  @return A url encoded query string
@@ -65,6 +75,8 @@ FOUNDATION_EXPORT NSString * AFQueryStringFromParameters(NSDictionary *parameter
 /**
  Returns a request with the specified parameters encoded into a copy of the original request.
 
+ 提供了一个序列化请求参数的方法  我们可以把参数转化为查询字符串、HTTP请求体、设置恰当的请求头
+ 
  @param request The original request.
  @param parameters The parameters to be encoded.
  @param error The error that occurred while attempting to encode the request parameters.
@@ -97,47 +109,63 @@ typedef NS_ENUM(NSUInteger, AFHTTPRequestQueryStringSerializationStyle) {
 
 /**
  The string encoding used to serialize parameters. `NSUTF8StringEncoding` by default.
+ 参数编码的格式 NSUTF8StringEncoding
  */
 @property (nonatomic, assign) NSStringEncoding stringEncoding;
 
 /**
  Whether created requests can use the device’s cellular radio (if present). `YES` by default.
-
+ 是否可以通过手机网络发送请求
  @see NSMutableURLRequest -setAllowsCellularAccess:
  */
 @property (nonatomic, assign) BOOL allowsCellularAccess;
 
 /**
  The cache policy of created requests. `NSURLRequestUseProtocolCachePolicy` by default.
-
+ 缓存策略
  @see NSMutableURLRequest -setCachePolicy:
  */
 @property (nonatomic, assign) NSURLRequestCachePolicy cachePolicy;
 
+/*
+
+ NSURLRequestUseProtocolCachePolicy      这个是默认的缓存策略，缓存不存在，就请求服务器，缓存存在，会根据response中的Cache-Control字段判断下一步操作，如: Cache-Control字段为must-revalidata, 则询问服务端该数据是否有更新，无更新的话直接返回给用户缓存数据，若已更新，则请求服务端。
+ 
+ NSURLRequestReloadIgnoringLocalCacheData   这个策略是不管有没有本地缓存，都请求服务器。
+ 
+ NSURLRequestReloadIgnoringLocalAndRemoteCacheData   这个策略会忽略本地缓存和中间代理 直接访问源server
+ 
+ NSURLRequestReturnCacheDataElseLoad    这个策略指，有缓存就是用，不管其有效性，即Cache-Control字段 ，没有就访问源server
+ 
+ NSURLRequestReturnCacheDataDontLoad   这个策略只加载本地数据，不做其他操作，适用于没有网路的情况
+ 
+ NSURLRequestReloadRevalidatingCacheData  这个策略标示缓存数据必须得到服务器确认才能使用，未实现。
+ */
+
 /**
  Whether created requests should use the default cookie handling. `YES` by default.
-
+ 是否对cookies进行默认处理
  @see NSMutableURLRequest -setHTTPShouldHandleCookies:
  */
 @property (nonatomic, assign) BOOL HTTPShouldHandleCookies;
 
 /**
  Whether created requests can continue transmitting data before receiving a response from an earlier transmission. `NO` by default
-
+ 是否可以在上个数据传输的请求完成后继续胡参数数据
  @see NSMutableURLRequest -setHTTPShouldUsePipelining:
  */
 @property (nonatomic, assign) BOOL HTTPShouldUsePipelining;
 
 /**
  The network service type for created requests. `NSURLNetworkServiceTypeDefault` by default.
-
+ 服务器类型
  @see NSMutableURLRequest -setNetworkServiceType:
  */
 @property (nonatomic, assign) NSURLRequestNetworkServiceType networkServiceType;
 
 /**
  The timeout interval, in seconds, for created requests. The default timeout interval is 60 seconds.
-
+ 一个请求的超时时长
  @see NSMutableURLRequest -setTimeoutInterval:
  */
 @property (nonatomic, assign) NSTimeInterval timeoutInterval;
@@ -149,6 +177,7 @@ typedef NS_ENUM(NSUInteger, AFHTTPRequestQueryStringSerializationStyle) {
 /**
  Default HTTP header field values to be applied to serialized requests. By default, these include the following:
 
+ http请求的请求头 默认包含 下面两项
  - `Accept-Language` with the contents of `NSLocale +preferredLanguages`
  - `User-Agent` with the contents of various bundle identifiers and OS designations
 
@@ -158,12 +187,13 @@ typedef NS_ENUM(NSUInteger, AFHTTPRequestQueryStringSerializationStyle) {
 
 /**
  Creates and returns a serializer with default configuration.
+ 默认的配置
  */
 + (instancetype)serializer;
 
 /**
  Sets the value for the HTTP headers set in request objects made by the HTTP client. If `nil`, removes the existing value for that header.
-
+ 设置请求头
  @param field The HTTP header to set a default value for
  @param value The value set as default for the specified header, or `nil`
  */
@@ -181,7 +211,7 @@ forHTTPHeaderField:(NSString *)field;
 
 /**
  Sets the "Authorization" HTTP header set in request objects made by the HTTP client to a basic authentication value with Base64-encoded username and password. This overwrites any existing value for this header.
-
+ 授权客户端的账号和密码
  @param username The HTTP basic auth username
  @param password The HTTP basic auth password
  */
@@ -190,6 +220,7 @@ forHTTPHeaderField:(NSString *)field;
 
 /**
  Clears any existing value for the "Authorization" HTTP header.
+ 清除客户端认证
  */
 - (void)clearAuthorizationHeader;
 
@@ -199,6 +230,7 @@ forHTTPHeaderField:(NSString *)field;
 
 /**
  HTTP methods for which serialized requests will encode parameters as a query string. `GET`, `HEAD`, and `DELETE` by default.
+ 序列化请求将参数编码成一个查询字符串
  */
 @property (nonatomic, strong) NSSet <NSString *> *HTTPMethodsEncodingParametersInURI;
 
@@ -213,6 +245,8 @@ forHTTPHeaderField:(NSString *)field;
 
 /**
  Set the a custom method of query string serialization according to the specified block.
+ 
+ 自定义编码字符串
 
  @param block A block that defines a process of encoding parameters into a query string. This block returns the query string and takes three arguments: the request, the parameters to encode, and the error that occurred when attempting to encode parameters for the given request.
  */
@@ -224,8 +258,10 @@ forHTTPHeaderField:(NSString *)field;
 
 /**
  Creates an `NSMutableURLRequest` object with the specified HTTP method and URL string.
+ 用指定的方法创建请求体
 
  If the HTTP method is `GET`, `HEAD`, or `DELETE`, the parameters will be used to construct a url-encoded query string that is appended to the request's URL. Otherwise, the parameters will be encoded according to the value of the `parameterEncoding` property, and set as the request body.
+ 根据方法决定参数是被编码追加到查询字符串之后  还是作为请求的主体
 
  @param method The HTTP method for the request, such as `GET`, `POST`, `PUT`, or `DELETE`. This parameter must not be `nil`.
  @param URLString The URL string used to create the request URL.
@@ -243,6 +279,8 @@ forHTTPHeaderField:(NSString *)field;
  Creates an `NSMutableURLRequest` object with the specified HTTP method and URLString, and constructs a `multipart/form-data` HTTP body, using the specified parameters and multipart form data block. See http://www.w3.org/TR/html4/interact/forms.html#h-17.13.4.2
 
  Multipart form requests are automatically streamed, reading files directly from disk along with in-memory data in a single HTTP body. The resulting `NSMutableURLRequest` object has an `HTTPBodyStream` property, so refrain from setting `HTTPBodyStream` or `HTTPBody` on this request object, as it will clear out the multipart form body stream.
+ 
+ 创建请求体  可以自己决定追加参数的方法
 
  @param method The HTTP method for the request. This parameter must not be `GET` or `HEAD`, or `nil`.
  @param URLString The URL string used to create the request URL.
@@ -265,7 +303,7 @@ forHTTPHeaderField:(NSString *)field;
  @param fileURL The file URL to write multipart form contents to.
  @param handler A handler block to execute.
 
- @discussion There is a bug in `NSURLSessionTask` that causes requests to not send a `Content-Length` header when streaming contents from an HTTP body, which is notably problematic when interacting with the Amazon S3 webservice. As a workaround, this method takes a request constructed with `multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock:error:`, or any other request with an `HTTPBodyStream`, writes the contents to the specified file and returns a copy of the original request with the `HTTPBodyStream` property set to `nil`. From here, the file can either be passed to `AFURLSessionManager -uploadTaskWithRequest:fromFile:progress:completionHandler:`, or have its contents read into an `NSData` that's assigned to the `HTTPBody` property of the request.
+ @discussion There is a bug in `NSURLSessionTask` that causes requests to not send a `Content-Length` header when streaming contents from an HTTP body, which is notably problematic when interacting with the Amazon S3 webservice. As a workaround(解决办法), this method takes a request constructed with `multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock:error:`, or any other request with an `HTTPBodyStream`, writes the contents to the specified file and returns a copy of the original request with the `HTTPBodyStream` property set to `nil`. From here, the file can either be passed to `AFURLSessionManager -uploadTaskWithRequest:fromFile:progress:completionHandler:`, or have its contents read into an `NSData` that's assigned to the `HTTPBody` property of the request.
 
  @see https://github.com/AFNetworking/AFNetworking/issues/1398
  */
@@ -433,7 +471,7 @@ forHTTPHeaderField:(NSString *)field;
 ///----------------
 
 /**
- ## Error Domains
+ ## Error Domains  请求序列化域名错误
 
  The following error domain is predefined.
 
@@ -447,7 +485,7 @@ forHTTPHeaderField:(NSString *)field;
 FOUNDATION_EXPORT NSString * const AFURLRequestSerializationErrorDomain;
 
 /**
- ## User info dictionary keys
+ ## User info dictionary keys  用户信息字典键
 
  These keys may exist in the user info dictionary, in addition to those defined for NSError.
 

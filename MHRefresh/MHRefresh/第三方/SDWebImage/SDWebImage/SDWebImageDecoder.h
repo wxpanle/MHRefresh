@@ -12,6 +12,12 @@
 
 @interface UIImage (ForceDecode)
 
+/**
+ 解码图片
+
+ @param image image description
+ @return return value description
+ */
 + (nullable UIImage *)decodedImageWithImage:(nullable UIImage *)image;
 
 + (nullable UIImage *)decodedAndScaledDownImageWithImage:(nullable UIImage *)image;

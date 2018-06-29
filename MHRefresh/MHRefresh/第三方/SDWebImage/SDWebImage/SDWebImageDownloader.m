@@ -15,13 +15,18 @@
 
 @interface SDWebImageDownloader () <NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 
-@property (strong, nonatomic, nonnull) NSOperationQueue *downloadQueue;  //下载队列
-@property (weak, nonatomic, nullable) NSOperation *lastAddedOperation;  //用于记录最后添加的操作
-@property (assign, nonatomic, nullable) Class operationClass;   //支持自定义操作类
-@property (strong, nonatomic, nonnull) NSMutableDictionary<NSURL *, SDWebImageDownloaderOperation *> *URLOperations;  //存放所有的operations
-@property (strong, nonatomic, nullable) SDHTTPHeadersMutableDictionary *HTTPHeaders; //http 请求头
-// This queue is used to serialize the handling of the network responses of all the download operation in a single queue
-@property (SDDispatchQueueSetterSementics, nonatomic, nullable) dispatch_queue_t barrierQueue;  //栅栏队列
+//下载队列
+@property (strong, nonatomic, nonnull) NSOperationQueue *downloadQueue;
+//用于记录最后添加的操作
+@property (weak, nonatomic, nullable) NSOperation *lastAddedOperation;
+  //支持自定义操作类
+@property (assign, nonatomic, nullable) Class operationClass;
+//存放所有的operations
+@property (strong, nonatomic, nonnull) NSMutableDictionary<NSURL *, SDWebImageDownloaderOperation *> *URLOperations;
+//http 请求头
+@property (strong, nonatomic, nullable) SDHTTPHeadersMutableDictionary *HTTPHeaders;
+// This queue is used to serialize the handling of the network responses of all the download operation in a single queue  栅栏队列
+@property (SDDispatchQueueSetterSementics, nonatomic, nullable) dispatch_queue_t barrierQueue;
 
 // The session in which data tasks will run
 @property (strong, nonatomic) NSURLSession *session;
@@ -71,9 +76,12 @@
 
 - (nonnull instancetype)initWithSessionConfiguration:(nullable NSURLSessionConfiguration *)sessionConfiguration {
     if ((self = [super init])) {
+        //设置默认class
         _operationClass = [SDWebImageDownloaderOperation class];
+        //默认支持图片解压
         _shouldDecompressImages = YES;
-        _executionOrder = SDWebImageDownloaderFIFOExecutionOrder; //先进先出
+        //默认下载方式先进先出
+        _executionOrder = SDWebImageDownloaderFIFOExecutionOrder;
         _downloadQueue = [NSOperationQueue new];
         _downloadQueue.maxConcurrentOperationCount = 6;  //最大执行线程数
         _downloadQueue.name = @"com.hackemist.SDWebImageDownloader";
@@ -83,8 +91,10 @@
 #else
         _HTTPHeaders = [@{@"Accept": @"image/*;q=0.8"} mutableCopy];
 #endif
-        _barrierQueue = dispatch_queue_create("com.hackemist.SDWebImageDownloaderBarrierQueue", DISPATCH_QUEUE_CONCURRENT);  //栅栏队列
-        _downloadTimeout = 15.0;  //超时时间
+        //栅栏队列
+        _barrierQueue = dispatch_queue_create("com.hackemist.SDWebImageDownloaderBarrierQueue", DISPATCH_QUEUE_CONCURRENT);
+        //超时时间
+        _downloadTimeout = 15.0;
 
         [self createNewSessionWithConfiguration:sessionConfiguration];
     }
@@ -94,11 +104,12 @@
 - (void)createNewSessionWithConfiguration:(NSURLSessionConfiguration *)sessionConfiguration {
     [self cancelAllDownloads];  //清除所有的下载
 
+    //失效session
     if (self.session) {
-        [self.session invalidateAndCancel];  //失效 session
+        [self.session invalidateAndCancel];
     }
-
-    sessionConfiguration.timeoutIntervalForRequest = self.downloadTimeout;  //设置超时
+     //设置超时
+    sessionConfiguration.timeoutIntervalForRequest = self.downloadTimeout;
 
     /**
      *  Create the session for this task
@@ -119,13 +130,14 @@
 }
 
 - (void)setValue:(nullable NSString *)value forHTTPHeaderField:(nullable NSString *)field {
-    if (value) {  //设置头
+    if (value) {  //设置请求头
         self.HTTPHeaders[field] = value;
     } else {
         [self.HTTPHeaders removeObjectForKey:field];
     }
 }
 
+//获取请求头的value
 - (nullable NSString *)valueForHTTPHeaderField:(nullable NSString *)field {
     return self.HTTPHeaders[field];
 }
@@ -173,13 +185,18 @@
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url
                                                                     cachePolicy:cachePolicy
                                                                 timeoutInterval:timeoutInterval];
-        //请求缓存策略
+        //使用cookies  允许追踪
         request.HTTPShouldHandleCookies = (options & SDWebImageDownloaderHandleCookies);
+        //安全策略
         request.HTTPShouldUsePipelining = YES;
-        if (sself.headersFilter) { //添加请求头
+        
+        //添加请求头
+        if (sself.headersFilter) {
+            //用户自定义处理请求头
             request.allHTTPHeaderFields = sself.headersFilter(url, [sself.HTTPHeaders copy]);
         }
         else {
+            //添加默认的请求头
             request.allHTTPHeaderFields = sself.HTTPHeaders;
         }
         
@@ -194,7 +211,7 @@
             operation.credential = [NSURLCredential credentialWithUser:sself.username password:sself.password persistence:NSURLCredentialPersistenceForSession];
         }
         
-        //设置操作级别
+        //设置请求的优先级
         if (options & SDWebImageDownloaderHighPriority) {
             operation.queuePriority = NSOperationQueuePriorityHigh;
         } else if (options & SDWebImageDownloaderLowPriority) {
@@ -207,6 +224,7 @@
         //设置依赖
         if (sself.executionOrder == SDWebImageDownloaderLIFOExecutionOrder) {
             // Emulate LIFO execution order by systematically adding new operations as last operation's dependency
+            //最后一个请求添加依赖
             [sself.lastAddedOperation addDependency:operation];
             sself.lastAddedOperation = operation;
         }
@@ -216,7 +234,7 @@
 }
 
 - (void)cancel:(nullable SDWebImageDownloadToken *)token {  //取消某个操作
-    dispatch_barrier_async(self.barrierQueue, ^{
+    dispatch_barrier_async(self.barrierQueue, ^{ //异步开启栅栏函数
         SDWebImageDownloaderOperation *operation = self.URLOperations[token.url];
         BOOL canceled = [operation cancel:token.downloadOperationCancelToken];
         if (canceled) {

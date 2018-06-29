@@ -15,5 +15,6 @@
 #import "QYCircleSubString.h"
 #import "QYAscendArray.h"
 #import "QYMaxLengthOrder.h"
+#import "QYMinimumCycleSection.h"
 
 #endif /* QYLintCodeHeader_h */

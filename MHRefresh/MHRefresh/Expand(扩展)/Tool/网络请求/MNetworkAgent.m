@@ -444,7 +444,7 @@ static BOOL kImageIsNeedCacheToMemory(MNetworkRequestPriority priority) {
                                 request.responseObject = image;
                                 //缓存image
                                 
-                                if (kImageIsNeedCacheToMemory(request.priority)) {
+                                if (!kImageIsNeedCacheToMemory(request.priority)) {
                                     _imageCache.cacheConfig.shouldCacheImagesInMemory = NO;
                                 }
                                 [_imageCache storeImageAsynchronous:image imageData:data forKey:key completeBlock:nil];

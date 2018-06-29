@@ -18,7 +18,7 @@
     }
     
     uint8_t c;
-    [data getBytes:&c length:1];
+    [data getBytes:&c length:1]; //取一个字节的位置
     switch (c) {
         case 0xFF:
             return SDImageFormatJPEG; //FFD8DDE1
@@ -41,6 +41,7 @@
             if ([testString hasPrefix:@"RIFF"] && [testString hasSuffix:@"WEBP"]) { //
                 return SDImageFormatWebP;
             }
+            //字符串是否包含前缀  和  字符串是否包含后缀
     }
     return SDImageFormatUndefined;
 }

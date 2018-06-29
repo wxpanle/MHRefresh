@@ -17,6 +17,13 @@ typedef NS_ENUM(NSInteger, PLAudioPlayerStatus) {
     PLAPStatusError,
 };
 
+@class PLAudioPlayer;
+@protocol PLAudioPlayerDelegate <NSObject>
+
+- (void)pl_audioPlay:(PLAudioPlayer *)player statusChange:(PLAudioPlayerStatus)status;
+
+@end
+
 @interface PLAudioPlayer : NSObject
 
 - (instancetype)init NS_UNAVAILABLE;
@@ -24,12 +31,15 @@ typedef NS_ENUM(NSInteger, PLAudioPlayerStatus) {
 
 + (instancetype)initWithAudioFileSource:(id <PLAudioFileSource>)audioFileSource;
 
+@property (nonatomic, weak) id <PLAudioPlayerDelegate> delegate;
+
 @property (nonatomic, assign, readonly) PLAudioPlayerStatus status;
 @property (nonatomic, readonly) NSError *error;
 
 @property (nonatomic, readonly) id <PLAudioFileSource> audioFileSource;
 @property (nonatomic, readonly) NSURL *url;
 
+@property (readonly) CGFloat playProgress;
 @property (nonatomic, assign, readonly) NSTimeInterval duration;
 @property (nonatomic, assign, readonly) NSTimeInterval currentTime;
 
@@ -44,7 +54,7 @@ typedef NS_ENUM(NSInteger, PLAudioPlayerStatus) {
 @property (nonatomic, assign) CGFloat volume;
 /** value [0.5, 2.0] */
 @property (nonatomic, assign) CGFloat playRate;
-
+@property (nonatomic, assign, getter=isPlaying) BOOL playing;
 
 - (void)play;
 - (void)pause;

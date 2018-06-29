@@ -10,7 +10,11 @@
 //系统配置头文件
 #import <TargetConditionals.h>
 
-//
+///------------------------------
+/// @name 为了兼容其它iOS设备
+///------------------------------
+
+//不支持垃圾回收机制
 #ifdef __OBJC_GC__
     #error SDWebImage does not support Objective-C Garbage Collection
 #endif
@@ -18,6 +22,7 @@
 // Apple's defines from TargetConditionals.h are a bit weird.
 // Seems like TARGET_OS_MAC is always defined (on all platforms).
 // To determine if we are running on OSX, we can only rely on TARGET_OS_IPHONE=0 and all the other platforms
+//判断当前平台是不是mac
 #if !TARGET_OS_IPHONE && !TARGET_OS_IOS && !TARGET_OS_TV && !TARGET_OS_WATCH
     #define SD_MAC 1
 #else
@@ -101,6 +106,7 @@ typedef void(^SDWebImageNoParamsBlock)(void);
 
 FOUNDATION_EXPORT NSString *const SDWebImageErrorDomain;
 
+//主线程安全
 #ifndef dispatch_main_async_safe
 #define dispatch_main_async_safe(block)\
     if (strcmp(dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL), dispatch_queue_get_label(dispatch_get_main_queue())) == 0) {\

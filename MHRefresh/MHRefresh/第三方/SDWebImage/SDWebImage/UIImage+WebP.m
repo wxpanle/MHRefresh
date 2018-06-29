@@ -23,7 +23,7 @@
 
 #import "objc/runtime.h"
 
-// Callback for CGDataProviderRelease
+// Callback for CGDataProviderRelease 静态函数
 static void FreeImageData(void *info, const void *data, size_t size) {
     free((void *)data);
 }

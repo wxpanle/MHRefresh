@@ -15,6 +15,10 @@
 
 @property (nonatomic, strong) UIView *containerView;
 
+@property (nonatomic, strong) UIImageView *imageView;
+
+@property (nonatomic, strong) CALayer *shipLayer;
+
 @end
 
 @implementation QYEightViewController
@@ -27,7 +31,121 @@
 //    [self propertyAnimation];
 //    [self keyFrameAnimation];
 //    [self inventedproperty];
-    [self groupAnimation];
+//    [self groupAnimation];
+//    [self animationCustom];
+    [self cancelAnimation];
+}
+
+#pragma mark - ===== 在动画过程中取消动画 =====
+
+- (void)cancelAnimation {
+    
+    _containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    _containerView.center = CGPointMake(SCREEN_W / 2.0, SCREEN_H / 2.0);
+    _containerView.backgroundColor = [UIColor grayColor];
+    [self.view addSubview:_containerView];
+    
+    //add the ship
+    self.shipLayer = [CALayer layer];
+    self.shipLayer.frame = CGRectMake(0, 0, 128, 128);
+    self.shipLayer.position = CGPointMake(150, 150);
+    self.shipLayer.contents = (__bridge id)[UIImage imageNamed: @"ao1"].CGImage;
+    [self.containerView.layer addSublayer:self.shipLayer];
+    
+    [self start];
+}
+
+- (void)start {
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        CABasicAnimation *animation = [CABasicAnimation animation];
+        animation.keyPath = @"transform.rotation";
+        animation.duration = 3.0;
+        animation.byValue = @(M_PI * 2);
+        animation.delegate = self;
+        [self.shipLayer addAnimation:animation forKey:@"rotateAnimation"];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self stop];
+        });
+        
+        [self start];
+    });
+}
+
+- (void)stop {
+    [self.shipLayer removeAnimationForKey:@"rotateAnimation"];
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    
+    //log that the animation stopped
+    NSLog(@"The animation stopped (finished: %@)", flag? @"YES": @"NO");
+}
+
+#pragma mark - ===== 过渡 自定义动画 =====
+
+- (void)animationCustom {
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _imageView = [[UIImageView alloc] init];
+        _imageView.image = [UIImage imageNamed:@"ao1"];
+        _imageView.frame = CGRectMake(0, 0, 100, 100);
+        _imageView.center = CGPointMake(SCREEN_W / 2.0, SCREEN_H / 2.0);
+        [self.view addSubview:_imageView];
+        
+        //    [self switchView];
+        
+        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, YES, 0.0);
+        [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+        UIImage *coverImage = UIGraphicsGetImageFromCurrentImageContext();
+        //insert snapshot view in front of this one
+        UIView *coverView = [[UIImageView alloc] initWithImage:coverImage];
+        coverView.frame = self.view.bounds;
+        [self.view addSubview:coverView];
+        //update the view (we'll simply randomize the layer background color)
+        CGFloat red = arc4random() / (CGFloat)INT_MAX;
+        CGFloat green = arc4random() / (CGFloat)INT_MAX;
+        CGFloat blue = arc4random() / (CGFloat)INT_MAX;
+        self.view.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+        //perform animation (anything you like)
+        [UIView animateWithDuration:1.0 animations:^{
+            //scale, rotate and fade the view
+            CGAffineTransform transform = CGAffineTransformMakeScale(0.01, 0.01);
+            transform = CGAffineTransformRotate(transform, M_PI_2);
+            coverView.transform = transform;
+            coverView.alpha = 0.0;
+        } completion:^(BOOL finished) {
+            //remove the cover view now we're finished with it
+            [coverView removeFromSuperview];
+            
+            [self animationCustom];
+        }];
+    });
+
+
+}
+
+- (void)switchView {
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        static NSUInteger i = 0;
+        UIViewAnimationOptions options = (UIViewAnimationOptions)(i << 20);
+        
+        i++;
+        
+        if (i >= 7) {
+            i = 0;
+        }
+        
+        [UIView transitionWithView:self.imageView duration:1.0 options:UIViewAnimationOptionTransitionCurlUp animations:^{
+            
+        } completion:^(BOOL finished) {
+            [self switchView];
+        }];
+    });
+    
 }
 
 #pragma mark - ===== group =====

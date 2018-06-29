@@ -91,17 +91,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The managed session.
+ 下载任务使用的session
  */
 @property (readonly, nonatomic, strong) NSURLSession *session;
 
 /**
  The operation queue on which delegate callbacks are run.
+ NSURLSession的绑定队列，这个队列的最大并发数为1
  */
 @property (readonly, nonatomic, strong) NSOperationQueue *operationQueue;
 
 /**
  Responses sent from the server in data tasks created with `dataTaskWithRequest:success:failure:` and run using the `GET` / `POST` / et al. convenience methods are automatically validated and serialized by the response serializer. By default, this property is set to an instance of `AFJSONResponseSerializer`.
 
+ 序列化响应对象 不能为nil
+ 
  @warning `responseSerializer` must not be `nil`.
  */
 @property (nonatomic, strong) id <AFURLResponseSerialization> responseSerializer;
@@ -112,6 +116,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The security policy used by created session to evaluate server trust for secure connections. `AFURLSessionManager` uses the `defaultPolicy` unless otherwise specified.
+ 
+ 安全策略
  */
 @property (nonatomic, strong) AFSecurityPolicy *securityPolicy;
 
@@ -122,6 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The network reachability manager. `AFURLSessionManager` uses the `sharedManager` by default.
+ 网络监控
  */
 @property (readwrite, nonatomic, strong) AFNetworkReachabilityManager *reachabilityManager;
 #endif
@@ -132,21 +139,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The data, upload, and download tasks currently run by the managed session.
+ 当前被管理的session的所有任务的集合
  */
 @property (readonly, nonatomic, strong) NSArray <NSURLSessionTask *> *tasks;
 
 /**
  The data tasks currently run by the managed session.
+ 当前正在运行的任务的集合
  */
 @property (readonly, nonatomic, strong) NSArray <NSURLSessionDataTask *> *dataTasks;
 
 /**
  The upload tasks currently run by the managed session.
+ 上传的任务的集合
  */
 @property (readonly, nonatomic, strong) NSArray <NSURLSessionUploadTask *> *uploadTasks;
 
 /**
  The download tasks currently run by the managed session.
+ 下载的任务的集合
  */
 @property (readonly, nonatomic, strong) NSArray <NSURLSessionDownloadTask *> *downloadTasks;
 
@@ -156,11 +167,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The dispatch queue for `completionBlock`. If `NULL` (default), the main queue is used.
+ 请求完成后的回调queue  默认主队列
  */
 @property (nonatomic, strong, nullable) dispatch_queue_t completionQueue;
 
 /**
  The dispatch group for `completionBlock`. If `NULL` (default), a private dispatch group is used.
+ 请求完成后   回调block组  如果为nil  会使用私有的组
  */
 @property (nonatomic, strong, nullable) dispatch_group_t completionGroup;
 
@@ -172,6 +185,8 @@ NS_ASSUME_NONNULL_BEGIN
  Whether to attempt to retry creation of upload tasks for background sessions when initial call returns `nil`. `NO` by default.
 
  @bug As of iOS 7.0, there is a bug where upload tasks created for background tasks are sometimes `nil`. As a workaround, if this property is `YES`, AFNetworking will follow Apple's recommendation to try creating the task again.
+ 
+ 是否重新创建上传任务失败返回nil的bug  默认不执行
 
  @see https://github.com/AFNetworking/AFNetworking/issues/1675
  */
@@ -184,7 +199,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Creates and returns a manager for a session created with the specified configuration. This is the designated initializer.
 
- @param configuration The configuration used to create the managed session.
+ //NS_DESIGNATED_INITIALIZER  指定的初始化方法
+ 
+ @param configuration The configuration used to create the managed session.  session 配置
 
  @return A manager for a newly-created session.
  */
@@ -193,6 +210,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Invalidates the managed session, optionally canceling pending tasks.
 
+ 是否取消未完成任务来使session失效
+ 
  @param cancelPendingTasks Whether or not to cancel pending tasks.
  */
 - (void)invalidateSessionCancelingTasks:(BOOL)cancelPendingTasks;
@@ -203,6 +222,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Creates an `NSURLSessionDataTask` with the specified request.
+ 
+ 创建任务
 
  @param request The HTTP request for the request.
  @param completionHandler A block object to be executed when the task finishes. This block has no return value and takes three arguments: the server response, the response object created by that serializer, and the error that occurred, if any.
@@ -212,6 +233,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Creates an `NSURLSessionDataTask` with the specified request.
+ 
+ 
 
  @param request The HTTP request for the request.
  @param uploadProgressBlock A block object to be executed when the upload progress is updated. Note this block is called on the session queue, not the main queue.
@@ -229,6 +252,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Creates an `NSURLSessionUploadTask` with the specified request for a local file.
+ 
+ 上传任务
 
  @param request The HTTP request for the request.
  @param fileURL A URL to the local file to be uploaded.
@@ -245,6 +270,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Creates an `NSURLSessionUploadTask` with the specified request for an HTTP body.
 
+ 上传任务
+ 
  @param request The HTTP request for the request.
  @param bodyData A data object containing the HTTP body to be uploaded.
  @param uploadProgressBlock A block object to be executed when the upload progress is updated. Note this block is called on the session queue, not the main queue.
@@ -257,6 +284,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Creates an `NSURLSessionUploadTask` with the specified streaming request.
+ 
+ 上传任务
 
  @param request The HTTP request for the request.
  @param uploadProgressBlock A block object to be executed when the upload progress is updated. Note this block is called on the session queue, not the main queue.
@@ -448,52 +477,63 @@ NS_ASSUME_NONNULL_BEGIN
 ///--------------------
 
 /**
- Posted when a task resumes.
+ Posted when a task resumes.  任务开始的通知
  */
 FOUNDATION_EXPORT NSString * const AFNetworkingTaskDidResumeNotification;
 
 /**
  Posted when a task finishes executing. Includes a userInfo dictionary with additional information about the task.
+ 任务完成的通知
  */
 FOUNDATION_EXPORT NSString * const AFNetworkingTaskDidCompleteNotification;
 
 /**
  Posted when a task suspends its execution.
+ 任务暂停的通知
  */
 FOUNDATION_EXPORT NSString * const AFNetworkingTaskDidSuspendNotification;
 
 /**
  Posted when a session is invalidated.
+ session 无效
+ 
  */
 FOUNDATION_EXPORT NSString * const AFURLSessionDidInvalidateNotification;
 
 /**
- Posted when a session download task encountered an error when moving the temporary download file to a specified destination.
+ Posted when a session download task encountered(遭遇) an error when moving the temporary download file to a specified destination.
+ 下载完成  移动文件发生错误
  */
 FOUNDATION_EXPORT NSString * const AFURLSessionDownloadTaskDidFailToMoveFileNotification;
 
 /**
  The raw response data of the task. Included in the userInfo dictionary of the `AFNetworkingTaskDidCompleteNotification` if response data exists for the task.
+ 任务接收到响应
  */
 FOUNDATION_EXPORT NSString * const AFNetworkingTaskDidCompleteResponseDataKey;
 
 /**
  The serialized response object of the task. Included in the userInfo dictionary of the `AFNetworkingTaskDidCompleteNotification` if the response was serialized.
+ 任务的序列化响应对象
  */
 FOUNDATION_EXPORT NSString * const AFNetworkingTaskDidCompleteSerializedResponseKey;
 
 /**
  The response serializer used to serialize the response. Included in the userInfo dictionary of the `AFNetworkingTaskDidCompleteNotification` if the task has an associated response serializer.
+ 
  */
 FOUNDATION_EXPORT NSString * const AFNetworkingTaskDidCompleteResponseSerializerKey;
 
 /**
  The file path associated with the download task. Included in the userInfo dictionary of the `AFNetworkingTaskDidCompleteNotification` if an the response data has been stored directly to disk.
+ 
+ 下载任务的路径已经关联
  */
 FOUNDATION_EXPORT NSString * const AFNetworkingTaskDidCompleteAssetPathKey;
 
 /**
  Any error associated with the task, or the serialization of the response. Included in the userInfo dictionary of the `AFNetworkingTaskDidCompleteNotification` if an error exists.
+ 任务发生错误
  */
 FOUNDATION_EXPORT NSString * const AFNetworkingTaskDidCompleteErrorKey;
 

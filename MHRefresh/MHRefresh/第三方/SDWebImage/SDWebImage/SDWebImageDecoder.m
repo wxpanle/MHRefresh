@@ -12,8 +12,8 @@
 @implementation UIImage (ForceDecode)
 
 #if SD_UIKIT || SD_WATCH
-static const size_t kBytesPerPixel = 4;       //每个像素占用4个内存字节
-static const size_t kBitsPerComponent = 8;    //每个组件占多少位
+static const size_t kBytesPerPixel = 4;       //每个像素占用4个字节
+static const size_t kBitsPerComponent = 8;    //每个组件占8位
 
 + (nullable UIImage *)decodedImageWithImage:(nullable UIImage *)image {
     if (![UIImage shouldDecodeImage:image]) {
@@ -22,25 +22,31 @@ static const size_t kBitsPerComponent = 8;    //每个组件占多少位
     
     // autorelease the bitmap context and all vars to help system to free memory when there are memory warning.
     // on iOS7, do not forget to call [[SDImageCache sharedImageCache] clearMemory];
+    //自动释放池
     @autoreleasepool{
         
+        //CGImageRef 可以拿到和图像有关的各种数据
         CGImageRef imageRef = image.CGImage;
+        
+        //获取颜色空间
         CGColorSpaceRef colorspaceRef = [UIImage colorSpaceForImageRef:imageRef];
         
         size_t width = CGImageGetWidth(imageRef);
         size_t height = CGImageGetHeight(imageRef);
+        //计算出每一行的像素
         size_t bytesPerRow = kBytesPerPixel * width;
 
         // kCGImageAlphaNone is not supported in CGBitmapContextCreate.
         // Since the original image here has no alpha info, use kCGImageAlphaNoneSkipLast
         // to create bitmap graphics contexts without alpha info.
+        //创建没有透明因素的位图  使用位图创建上下文
         CGContextRef context = CGBitmapContextCreate(NULL,
                                                      width,
                                                      height,
                                                      kBitsPerComponent,
                                                      bytesPerRow,
                                                      colorspaceRef,
-                                                     kCGBitmapByteOrderDefault|kCGImageAlphaNoneSkipLast);  //使用位图创建上下文
+                                                     kCGBitmapByteOrderDefault|kCGImageAlphaNoneSkipLast);
         if (context == NULL) {
             return image;
         }
@@ -214,7 +220,19 @@ static const CGFloat kDestSeemOverlap = 2.0f;   // the numbers of pixels to over
     }
 }
 
+/**
+ 判断一个图片需不需要解码
+
+ 不需要解码的条件
+ 1.image == nil;
+ 2.image.images != nil
+ 3.图片带有透明度
+ 
+ @param image image description
+ @return return value description
+ */
 + (BOOL)shouldDecodeImage:(nullable UIImage *)image {
+    
     // Prevent "CGBitmapContextCreateImage: invalid context 0x0" error
     if (image == nil) {
         return NO;
@@ -240,6 +258,12 @@ static const CGFloat kDestSeemOverlap = 2.0f;   // the numbers of pixels to over
     return YES;
 }
 
+/**
+ 判断图像是否应该被压缩  小于提供的最大尺寸才会被压缩
+
+ @param image image description
+ @return return value description
+ */
 + (BOOL)shouldScaleDownImage:(nonnull UIImage *)image {
     BOOL shouldScaleDown = YES;
         
@@ -258,6 +282,13 @@ static const CGFloat kDestSeemOverlap = 2.0f;   // the numbers of pixels to over
     return shouldScaleDown;
 }
 
+
+/**
+ 获取图片的颜色空间
+
+ @param imageRef imageRef description
+ @return return value description
+ */
 + (CGColorSpaceRef)colorSpaceForImageRef:(CGImageRef)imageRef {
     // current
     CGColorSpaceModel imageColorSpaceModel = CGColorSpaceGetModel(CGImageGetColorSpace(imageRef));
@@ -267,7 +298,7 @@ static const CGFloat kDestSeemOverlap = 2.0f;   // the numbers of pixels to over
                                   imageColorSpaceModel == kCGColorSpaceModelMonochrome ||   //黑白
                                   imageColorSpaceModel == kCGColorSpaceModelCMYK ||
                                   imageColorSpaceModel == kCGColorSpaceModelIndexed);
-    if (unsupportedColorSpace) {
+    if (unsupportedColorSpace) { //不支持颜色空间
         colorspaceRef = CGColorSpaceCreateDeviceRGB();
         CFAutorelease(colorspaceRef);
     }

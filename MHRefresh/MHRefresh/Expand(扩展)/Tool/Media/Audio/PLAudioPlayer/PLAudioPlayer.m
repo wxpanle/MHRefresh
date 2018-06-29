@@ -45,10 +45,24 @@
 - (instancetype)initWithAudioFileSource:(id <PLAudioFileSource>)audioFileSource {
     if (self = [super init]) {
         _thread = [[PLAudioThread alloc] initWithAudioFileSource:audioFileSource];
+        
+        if (_thread) {
+            [_thread addObserver:self forKeyPath:@"audioStatus" options:NSKeyValueObservingOptionNew context:nil];
+        }
     }
     return self;
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    
+    if ([keyPath isEqualToString:@"audioStatus"]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (_delegate && [_delegate respondsToSelector:@selector(pl_audioPlay:statusChange:)]) {
+                [_delegate pl_audioPlay:self statusChange:self.status];
+            }
+        });
+    }
+}
 
 #pragma mark - ======== public ========
 
@@ -113,6 +127,11 @@
     return status;
 }
 
+- (BOOL)isPlaying {
+    
+    return self.status == PLAPStatusPlaying || self.status == PLAPStatusBuffering;
+}
+
 - (NSError *)error {
     return [_thread error];
 }
@@ -120,6 +139,16 @@
 - (NSTimeInterval)duration {
     [self pprintf];
     return [_thread duration];
+}
+
+- (CGFloat)playProgress {
+    
+    if (self.currentTime <= 0 ||
+        self.duration <= 0) {
+        return 0.1;
+    }
+    
+    return self.currentTime / self.duration;
 }
 
 - (void)pprintf {
@@ -150,7 +179,9 @@
 }
 
 - (CGFloat)bufferingRation {
-    return [_thread bufferingRation];
+    
+    CGFloat buffingRation = [_thread bufferingRation];
+    return buffingRation <= 0 ? 0.1 : buffingRation;;
 }
 
 - (CGFloat)volume {

@@ -85,4 +85,57 @@
  kCATransitionMoveIn
  kCATransitionPush
  kCATransitionReveal
+ 
+ kCATransitionFromRight
+ kCATransitionFromLeft
+ kCATransitionFromTop
+ kCATransitionFromBottom
+ 
+ 8.3.1 隐式过渡
+ 
+ CATransision可以对图层任何变化平滑过渡的事实使得它成为那些不好做动画的属性图层行为的理想候选。苹果当然意识到了这点，并且当设置了CALayer的content属性的时候，CATransition的确是默认的行为。但是对于视图关联的图层，或者是其他隐式动画的行为，这个特性依然是被禁用的，但是对于你自己创建的图层，这意味着对图层contents图片做的改动都会自动附上淡入淡出的动画。
+ 
+ 8.3.2 对图层树的动画
+ 
+ CATransition并不作用于指定的图层属性，这就是说你可以在即使不能准确得知改变了什么的情况下对图层做动画，例如，在不知道UITableView哪一行被添加或者删除的情况下，直接就可以平滑地刷新它，或者在不知道UIViewController内部的视图层级的情况下对两个不同的实例做过渡动画。
+ 
+ 这些例子和我们之前所讨论的情况完全不同，因为它们不仅涉及到图层的属性，而且是整个图层树的改变--我们在这种动画的过程中手动在层级关系中添加或者移除图层。
+ 
+ 这里用到了一个小诡计，要确保CATransition添加到的图层在过渡动画发生时不会在树状结构中被移除，否则CATransition将会和图层一起被移除。一般来说，你只需要将动画添加到被影响图层的superlayer。
+
+ 
+ 8.3.3 自定义动画
+ 
+ 我们证实了过渡是一种对那些不太好做平滑动画属性的强大工具，但是CATransition的提供的动画类型太少了。
+ 
+ 更奇怪的是苹果通过UIView +transitionFromView:toView:duration:options:completion:和+transitionWithView:duration:options:animations:方法提供了Core Animation的过渡特性。但是这里的可用的过渡选项和CATransition的type属性提供的常量完全不同。UIView过渡方法中options参数可以由如下常量指定：
+ UIViewAnimationOptionTransitionFlipFromLeft
+ UIViewAnimationOptionTransitionFlipFromRight UIViewAnimationOptionTransitionCurlUp UIViewAnimationOptionTransitionCurlDown UIViewAnimationOptionTransitionCrossDissolve UIViewAnimationOptionTransitionFlipFromTop UIViewAnimationOptionTransitionFlipFromBottom
+ 
+ 除了UIViewAnimationOptionTransitionCrossDissolve之外，剩下的值和CATransition类型完全没关系。
+ 
+ 这里有个警告：-renderInContext:捕获了图层的图片和子图层，但是不能对子图层正确地处理变换效果，而且对视频和OpenGL内容也不起作用。但是用CATransition，或者用私有的截屏方式就没有这个限制了。
+
+
  */
+
+/**
+ 8.4 在动画过程中取消动画
+ 
+ 之前提到过，你可以用-addAnimation:forKey:方法中的key参数来在添加动画之后检索一个动画，使用如下方法：
+ - (CAAnimation *)animationForKey:(NSString *)key;
+ 
+ 但并不支持在动画运行过程中修改动画，所以这个方法主要用来检测动画的属性，或者判断它是否被添加到当前图层中。
+ 
+ 为了终止一个指定的动画，你可以用如下方法把它从图层移除掉：
+ - (void)removeAnimationForKey:(NSString *)key;
+ 
+ 或者移除所有动画：
+ - (void)removeAllAnimations;
+ 
+ 动画一旦被移除，图层的外观就立刻更新到当前的模型图层的值。一般说来，动画在结束之后被自动移除，除非设置removedOnCompletion为NO，如果你设置动画在结束之后不被自动移除，那么当它不需要的时候你要手动移除它；否则它会一直存在于内存中，直到图层被销毁。
+ 
+ 我们来扩展之前旋转飞船的示例，这里添加一个按钮来停止或者启动动画。这一次我们用一个非nil的值作为动画的键，以便之后可以移除它。-animationDidStop:finished:方法中的flag参数表明了动画是自然结束还是被打断，我们可以在控制台打印出来。如果你用停止按钮来终止动画，它会打印NO，如果允许它完成，它会打印YES。
+ */
+
+

@@ -35,7 +35,9 @@ static char TAG_ACTIVITY_SHOW;
                           progress:(nullable SDWebImageDownloaderProgressBlock)progressBlock
                          completed:(nullable SDExternalCompletionBlock)completedBlock {
     NSString *validOperationKey = operationKey ?: NSStringFromClass([self class]);
-    [self sd_cancelImageLoadOperationWithKey:validOperationKey];  //取消一个下载
+    //将之前的下载取消
+    [self sd_cancelImageLoadOperationWithKey:validOperationKey];
+    //关联新的下载
     objc_setAssociatedObject(self, &imageURLKey, url, OBJC_ASSOCIATION_RETAIN_NONATOMIC); //设置关联
     
     if (!(options & SDWebImageDelayPlaceholder)) {
@@ -46,15 +48,18 @@ static char TAG_ACTIVITY_SHOW;
     
     if (url) {
         // check if activityView is enabled or not
-        //是否需要展示下载活动指示器
+        
+        //检测是否活动指示器可用
         if ([self sd_showActivityIndicatorView]) {
+            //如果需要展示活动指示器  就展示
             [self sd_addActivityIndicator];
         }
         
         __weak __typeof(self)wself = self;
         id <SDWebImageOperation> operation = [SDWebImageManager.sharedManager loadImageWithURL:url options:options progress:progressBlock completed:^(UIImage *image, NSData *data, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
             __strong __typeof (wself) sself = wself;
-            [sself sd_removeActivityIndicator]; //移除
+            //移除活动指示器
+            [sself sd_removeActivityIndicator];
             if (!sself) {
                 return;
             }
@@ -62,6 +67,7 @@ static char TAG_ACTIVITY_SHOW;
                 if (!sself) {
                     return;
                 }
+                
                 if (image && (options & SDWebImageAvoidAutoSetImage) && completedBlock) {
                     completedBlock(image, error, cacheType, url);
                     return;
@@ -82,8 +88,10 @@ static char TAG_ACTIVITY_SHOW;
         [self sd_setImageLoadOperation:operation forKey:validOperationKey];
     } else {
         dispatch_main_async_safe(^{
+            //移除活动指示器
             [self sd_removeActivityIndicator];
-            if (completedBlock) { //回调错误信息
+            //回调错误信息
+            if (completedBlock) {
                 NSError *error = [NSError errorWithDomain:SDWebImageErrorDomain code:-1 userInfo:@{NSLocalizedDescriptionKey : @"Trying to load a nil url"}];
                 completedBlock(nil, error, SDImageCacheTypeNone, url);
             }

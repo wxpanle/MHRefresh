@@ -15,6 +15,7 @@
 #error SDWebImage is ARC only. Either turn on ARC for the project or use -fobjc-arc flag
 #endif
 
+//缩放image  inline  内联函数
 inline UIImage *SDScaledImageForKey(NSString * _Nullable key, UIImage * _Nullable image) {
     if (!image) {
         return nil;
@@ -23,11 +24,11 @@ inline UIImage *SDScaledImageForKey(NSString * _Nullable key, UIImage * _Nullabl
 #if SD_MAC
     return image;
 #elif SD_UIKIT || SD_WATCH
-    if ((image.images).count > 0) {
+    if ((image.images).count > 0) {  //图片是个动图
         NSMutableArray<UIImage *> *scaledImages = [NSMutableArray array];
 
         for (UIImage *tempImage in image.images) {
-            [scaledImages addObject:SDScaledImageForKey(key, tempImage)];  //递归调用
+            [scaledImages addObject:SDScaledImageForKey(key, tempImage)];  //递归调用  缩放每一张图片
         }
         
         UIImage *animatedImage = [UIImage animatedImageWithImages:scaledImages duration:image.duration]; //创建图片

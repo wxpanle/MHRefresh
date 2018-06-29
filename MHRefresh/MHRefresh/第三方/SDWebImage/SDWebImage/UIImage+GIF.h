@@ -9,7 +9,9 @@
 
 #import "SDWebImageCompat.h"
 
-//对于gif的处理
+///------------------------------
+/// @name 对于gif文件的处理
+///------------------------------
 
 @interface UIImage (GIF)
 

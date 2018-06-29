@@ -43,6 +43,9 @@
 
 #import "FMDB.h"
 
+#import "NBPhoneNumberUtil.h"
+#import "NBMetadataHelper.h"
+
 
 @interface ViewController () <QYPreviewViewControllerDelegate, QYPreviewViewControllerDataSource, UITextViewDelegate> {
     PLAudioPlayer *_audioPlayer;
@@ -74,6 +77,53 @@ __weak NSString *srting_weak_ = nil;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    calendar.firstWeekday = 2;
+    calendar.minimumDaysInFirstWeek = 4;
+    
+    NSDateComponents *com = [[NSDateComponents alloc] init];
+    [com setWeekday:2];
+    [com setWeekOfYear:1];
+//    [com setWeekdayOrdinal:1];
+    [com setYear:2018];
+    
+//    com.day = 1;
+//    com.month = 1;
+//    com.year = 2018;
+    
+//    com.timeZone = [NSTimeZone systemTimeZone];
+    
+    NSDate *date = [calendar dateFromComponents:com];
+    
+    NSLog(@"%@", date.description);
+    
+    NSInteger weekday = [calendar component:NSCalendarUnitWeekday fromDate:date];
+    
+    NSInteger weekday1 = [calendar component:NSCalendarUnitWeekOfYear fromDate:date];
+    
+    NSLog(@"%ld %ld", weekday, weekday1);
+    
+//    NBPhoneNumberUtil *util = [NBPhoneNumberUtil sharedInstance];
+    
+//    NSLog(@"%@", [util DIGIT_MAPPINGS]);
+//
+//    NSLog(@"%@", [NBMetadataHelper CCode2CNMap]);
+//
+//    NSLog(@"%@", [[[NBMetadataHelper alloc] init] getAllMetadata]);
+    
+//    __autoreleasing NSError *error = nil;
+//    if ([[NBPhoneNumberUtil sharedInstance] isViablePhoneNumber:@"0"]) {
+//        DLog(@"是电话号码");
+//    } else {
+//        DLog(@"不是电话号码");
+//    }
+//
+//    if (error) {
+//        DLog(@"%@", error.description);
+//    }
     
 //    NSString *dataBasePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 //    NSString *fileName = [dataBasePath stringByAppendingPathComponent:@"Memory1.sqlite"];
@@ -290,6 +340,7 @@ __weak NSString *srting_weak_ = nil;
 //    [[[QYMaxAverageSubArray alloc] init] qy_lintcodeSolution];
 //    [[[QYCircleSubString alloc] init] qy_lintcodeSolution];
 //    [[[QYMaxLengthOrder alloc] init] qy_lintcodeSolution];
+    [[[QYMinimumCycleSection alloc] init] qy_lintcodeSolution];
     
 //    QYPlayerTest *test = [[QYPlayerTest alloc] init];
 //

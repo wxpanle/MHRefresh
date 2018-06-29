@@ -169,10 +169,13 @@ SDWebImageManager *manager = [SDWebImageManager sharedManager];
  */
 @interface SDWebImageManager : NSObject
 
+//代理
 @property (weak, nonatomic, nullable) id <SDWebImageManagerDelegate> delegate;
 
-@property (strong, nonatomic, readonly, nullable) SDImageCache *imageCache;       //缓存
-@property (strong, nonatomic, readonly, nullable) SDWebImageDownloader *imageDownloader;  //下载
+//缓存中心
+@property (strong, nonatomic, readonly, nullable) SDImageCache *imageCache;
+//下载中心
+@property (strong, nonatomic, readonly, nullable) SDWebImageDownloader *imageDownloader;
 
 /**
  * The cache filter(过滤) is a block used each time SDWebImageManager need to convert(转化) an URL into a cache key. This can

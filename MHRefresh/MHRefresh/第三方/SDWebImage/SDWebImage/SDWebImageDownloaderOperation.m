@@ -18,7 +18,9 @@ NSString *const SDWebImageDownloadReceiveResponseNotification = @"SDWebImageDown
 NSString *const SDWebImageDownloadStopNotification = @"SDWebImageDownloadStopNotification";    //下载停止
 NSString *const SDWebImageDownloadFinishNotification = @"SDWebImageDownloadFinishNotification"; //下载结束
 
+//回调进程key
 static NSString *const kProgressCallbackKey = @"progress";  //回调进程key
+//下载完成key
 static NSString *const kCompletedCallbackKey = @"completed"; //下载完成key
 
 typedef NSMutableDictionary<NSString *, id> SDCallbacksDictionary;  //宏定义
@@ -27,23 +29,31 @@ typedef NSMutableDictionary<NSString *, id> SDCallbacksDictionary;  //宏定义
 
 @property (strong, nonatomic, nonnull) NSMutableArray<SDCallbacksDictionary *> *callbackBlocks;  //回调数组
 
-@property (assign, nonatomic, getter = isExecuting) BOOL executing; //线程正在执行
-@property (assign, nonatomic, getter = isFinished) BOOL finished;   //线程结束执行
-@property (strong, nonatomic, nullable) NSMutableData *imageData;   //图片数据
-@property (copy, nonatomic, nullable) NSData *cachedData;           //缓存数据
+//线程正在执行
+@property (assign, nonatomic, getter = isExecuting) BOOL executing;
+//线程结束执行
+@property (assign, nonatomic, getter = isFinished) BOOL finished;
+//请求响应的数据
+@property (strong, nonatomic, nullable) NSMutableData *imageData;
+//缓存的数据
+@property (copy, nonatomic, nullable) NSData *cachedData;
 
 // This is weak because it is injected（注入、引入） by whoever manages this session. If this gets nil-ed out, we won't be able to run
 // the task associated（关联）with this operation
-@property (weak, nonatomic, nullable) NSURLSession *unownedSession; //无主的
+//弱引用的session
+@property (weak, nonatomic, nullable) NSURLSession *unownedSession;
 // This is set if we're using not using an injected NSURLSession. We're responsible（负责） of invalidating（无效） this one
-@property (strong, nonatomic, nullable) NSURLSession *ownedSession; //自身拥有的
+//自身拥有
+@property (strong, nonatomic, nullable) NSURLSession *ownedSession;
 
-@property (strong, nonatomic, readwrite, nullable) NSURLSessionTask *dataTask;  //下载任务
+//当前的下载任务
+@property (strong, nonatomic, readwrite, nullable) NSURLSessionTask *dataTask;
 
-@property (SDDispatchQueueSetterSementics, nonatomic, nullable) dispatch_queue_t barrierQueue; //栅栏队列
+//栅栏队列
+@property (SDDispatchQueueSetterSementics, nonatomic, nullable) dispatch_queue_t barrierQueue;
 
 #if SD_UIKIT
-@property (assign, nonatomic) UIBackgroundTaskIdentifier backgroundTaskId;  //后台下载识别符
+@property (assign, nonatomic) UIBackgroundTaskIdentifier backgroundTaskId;
 #endif
 
 @end
@@ -56,6 +66,7 @@ typedef NSMutableDictionary<NSString *, id> SDCallbacksDictionary;  //宏定义
     CGImageSourceRef _imageSource;  //图片源
 }
 
+//告诉编译器 由我们提供setter和getter方法
 @synthesize executing = _executing;  //重写父类方法
 @synthesize finished = _finished;
 
@@ -63,19 +74,20 @@ typedef NSMutableDictionary<NSString *, id> SDCallbacksDictionary;  //宏定义
     return [self initWithRequest:nil inSession:nil options:0];
 }
 
+//指定的初始化方法
 - (nonnull instancetype)initWithRequest:(nullable NSURLRequest *)request
                               inSession:(nullable NSURLSession *)session
                                 options:(SDWebImageDownloaderOptions)options {
     if ((self = [super init])) {
         _request = [request copy];
         _shouldDecompressImages = YES;  //默认开启图片解压
-        _options = options;             //操作级别
+        _options = options;   //当前下载属性
         _callbackBlocks = [NSMutableArray new];  //回调主线程数组
         _executing = NO;      //是否正在执行
         _finished = NO;       //是否结束
         _expectedSize = 0;    //初始化接受数据
         _unownedSession = session; //配置sesseion
-        _barrierQueue = dispatch_queue_create("com.hackemist.SDWebImageDownloaderOperationBarrierQueue", DISPATCH_QUEUE_CONCURRENT);  //开启栅栏函数
+        _barrierQueue = dispatch_queue_create("com.hackemist.SDWebImageDownloaderOperationBarrierQueue", DISPATCH_QUEUE_CONCURRENT);  //创建栅栏函数
     }
     return self;
 }
@@ -93,7 +105,7 @@ typedef NSMutableDictionary<NSString *, id> SDCallbacksDictionary;  //宏定义
     SDCallbacksDictionary *callbacks = [NSMutableDictionary new];
     if (progressBlock) callbacks[kProgressCallbackKey] = [progressBlock copy];
     if (completedBlock) callbacks[kCompletedCallbackKey] = [completedBlock copy];
-    dispatch_barrier_async(self.barrierQueue, ^{//异步开启栅栏函数  //dispatch_barrier_async  后续任务可以继续插入  队列  并且等待此次人去知心话完成后 才会执行后续任务
+    dispatch_barrier_async(self.barrierQueue, ^{//异步开启栅栏函数  //dispatch_barrier_async  后续任务可以继续插入  队列  并且等待此次任务执行完成后 才会执行后续任务
         //dispatch_barrier_sync  后续任务无法继续插入队列   等待此次任务执行完成后  才会将后续任务继续插入队列  并执行后续任务
         //两者区别  都会等待当前任务执行完成后才会继续执行下一个任务 不同:是否允许后续任务插入队列  使用具体情况具体对待
         [self.callbackBlocks addObject:callbacks];  //添加回调
@@ -103,7 +115,7 @@ typedef NSMutableDictionary<NSString *, id> SDCallbacksDictionary;  //宏定义
 
 - (nullable NSArray<id> *)callbacksForKey:(NSString *)key {  //回调
     __block NSMutableArray<id> *callbacks = nil;
-    dispatch_sync(self.barrierQueue, ^{ //同步开启栅栏函数
+    dispatch_sync(self.barrierQueue, ^{ //同步开启栅栏函数  此时不再接受回调函数
         // We need to remove [NSNull null] because there might not always be a progress block for each callback
         callbacks = [[self.callbackBlocks valueForKey:key] mutableCopy];
         [callbacks removeObjectIdenticalTo:[NSNull null]]; //移除数组中指定相同地址的元素
@@ -114,8 +126,10 @@ typedef NSMutableDictionary<NSString *, id> SDCallbacksDictionary;  //宏定义
 - (BOOL)cancel:(nullable id)token { //取消一个任务
     __block BOOL shouldCancel = NO;
     dispatch_barrier_sync(self.barrierQueue, ^{ //同步开启栅栏函数
-        [self.callbackBlocks removeObjectIdenticalTo:token]; //[array removeObject:(id)] :删除数组中指定元素，根据对象isEqual消息判断。 //[array               removeObjectIdenticalTo:(id)] : 删除数组中指定元素,根据对象的地址判断
-        if (self.callbackBlocks.count == 0) {  //如果还有别的地方调用了这张图片  不允许结束线程
+        [self.callbackBlocks removeObjectIdenticalTo:token]; //[array removeObject:(id)] :删除数组中指定元素，根据对象isEqual消息判断。
+        //[array  removeObjectIdenticalTo:(id)] : 删除数组中指定元素,根据对象的地址判断
+        if (self.callbackBlocks.count == 0) { //是否结束当前线程
+            //如果还有别的地方调用了这张图片  不允许结束线程
             shouldCancel = YES;
         }
     });
@@ -169,6 +183,7 @@ typedef NSMutableDictionary<NSString *, id> SDCallbacksDictionary;  //宏定义
              *  We send nil as delegate queue so that the session creates a serial operation queue for performing all delegate
              *  method calls and completion handler calls.
              */
+            //自己创建一个seeesion
             self.ownedSession = [NSURLSession sessionWithConfiguration:sessionConfig
                                                               delegate:self
                                                          delegateQueue:nil];
@@ -182,9 +197,11 @@ typedef NSMutableDictionary<NSString *, id> SDCallbacksDictionary;  //宏定义
     [self.dataTask resume];
 
     if (self.dataTask) {
+        //回调进程开始下载
         for (SDWebImageDownloaderProgressBlock progressBlock in [self callbacksForKey:kProgressCallbackKey]) {
             progressBlock(0, NSURLResponseUnknownLength, self.request.URL);
         }
+        //发出请求开始下载
         __weak typeof(self) weakSelf = self;
         dispatch_async(dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter] postNotificationName:SDWebImageDownloadStartNotification object:weakSelf];
@@ -208,7 +225,7 @@ typedef NSMutableDictionary<NSString *, id> SDCallbacksDictionary;  //宏定义
 }
 
 - (void)cancel {  //取消当前操作
-    @synchronized (self) {
+    @synchronized (self) { //
         [self cancelInternal];
     }
 }
@@ -217,7 +234,7 @@ typedef NSMutableDictionary<NSString *, id> SDCallbacksDictionary;  //宏定义
     if (self.isFinished) return; //如果已经结束  返回
     [super cancel];  //通知父类取消
 
-    if (self.dataTask) { //如果当前操作存在任务
+    if (self.dataTask) { //如果下载任务存在
         [self.dataTask cancel]; //取消任务执行
         __weak typeof(self) weakSelf = self;
         dispatch_async(dispatch_get_main_queue(), ^{  //发出下载停止的通知
@@ -244,7 +261,7 @@ typedef NSMutableDictionary<NSString *, id> SDCallbacksDictionary;  //宏定义
     dispatch_barrier_async(self.barrierQueue, ^{  //异步开启栅栏删除  清除所有操作函数
         [weakSelf.callbackBlocks removeAllObjects];
     });
-    self.dataTask = nil;
+    self.dataTask = nil; //置nil请求
     
     NSOperationQueue *delegateQueue;
     if (self.unownedSession) {
@@ -289,7 +306,7 @@ typedef NSMutableDictionary<NSString *, id> SDCallbacksDictionary;  //宏定义
 didReceiveResponse:(NSURLResponse *)response
  completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler {
     
-    //'304 Not Modified' is an exceptional one  //图片没有被修改过
+    //'304 Not Modified' is an exceptional(异常的) one  //图片没有被修改过
     if (![response respondsToSelector:@selector(statusCode)] || (((NSHTTPURLResponse *)response).statusCode < 400 && ((NSHTTPURLResponse *)response).statusCode != 304)) {  //正确状态码
         NSInteger expected = (NSInteger)response.expectedContentLength;  //预期的长度
         expected = expected > 0 ? expected : 0;  //清除错误长度
@@ -298,10 +315,12 @@ didReceiveResponse:(NSURLResponse *)response
             progressBlock(0, expected, self.request.URL);   //回调进度
         }
         
-        self.imageData = [[NSMutableData alloc] initWithCapacity:expected];  //正式数据
+        //初始化数据 准备接受数据
+        self.imageData = [[NSMutableData alloc] initWithCapacity:expected];
         self.response = response; //响应
         __weak typeof(self) weakSelf = self;
-        dispatch_async(dispatch_get_main_queue(), ^{  //发出下载完成接受响应通知
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //任务开始接收到响应
             [[NSNotificationCenter defaultCenter] postNotificationName:SDWebImageDownloadReceiveResponseNotification object:weakSelf];
         });
     } else {  //错误状态码
@@ -309,13 +328,16 @@ didReceiveResponse:(NSURLResponse *)response
         
         //This is the case when server returns '304 Not Modified'. It means that remote image is not changed.
         //In case of 304 we need just cancel the operation and return cached image from the cache.
-        if (code == 304) {   //如果是304 返回缓存值
+        if (code == 304) {
+            //如果当前状态码是304  意味着图片没有发生改变  返回缓存的图片即可
             [self cancelInternal];
         } else {
+            //取消当前任务
             [self.dataTask cancel];  //取消当前任务
         }
         __weak typeof(self) weakSelf = self;
-        dispatch_async(dispatch_get_main_queue(), ^{ //发出通知  停止下载
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //停止下载
             [[NSNotificationCenter defaultCenter] postNotificationName:SDWebImageDownloadStopNotification object:weakSelf];
         });
         //回调
@@ -330,7 +352,9 @@ didReceiveResponse:(NSURLResponse *)response
 }
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
-    [self.imageData appendData:data]; //追加数据
+    
+    //接受到数据 开始拼接数据
+    [self.imageData appendData:data];
 
     if ((self.options & SDWebImageDownloaderProgressiveDownload) && self.expectedSize > 0) {  //下载进度
         // The following code is from http://www.cocoaintheshell.com/2011/05/progressive-images-download-imageio/
@@ -452,7 +476,7 @@ didReceiveResponse:(NSURLResponse *)response
         __weak typeof(self) weakSelf = self;
         dispatch_async(dispatch_get_main_queue(), ^{  //下载已经停止
             [[NSNotificationCenter defaultCenter] postNotificationName:SDWebImageDownloadStopNotification object:weakSelf];
-            if (!error) { //系在已经完成
+            if (!error) { //下载已经完成
                 [[NSNotificationCenter defaultCenter] postNotificationName:SDWebImageDownloadFinishNotification object:weakSelf];
             }
         });
@@ -579,6 +603,11 @@ didReceiveResponse:(NSURLResponse *)response
     return SDScaledImageForKey(key, image);
 }
 
+/**
+ 判断任务是否允许在后台执行
+
+ @return return value description
+ */
 - (BOOL)shouldContinueWhenAppEntersBackground {
     return self.options & SDWebImageDownloaderContinueInBackground;
 }
@@ -587,6 +616,14 @@ didReceiveResponse:(NSURLResponse *)response
     [self callCompletionBlocksWithImage:nil imageData:nil error:error finished:YES];
 }
 
+/**
+ 回调任务
+
+ @param image image description
+ @param imageData imageData description
+ @param error error description
+ @param finished finished description
+ */
 - (void)callCompletionBlocksWithImage:(nullable UIImage *)image
                             imageData:(nullable NSData *)imageData
                                 error:(nullable NSError *)error
