@@ -8,6 +8,12 @@ pod 'MJRefresh'
 pod 'MBProgressHUD'
 pod 'IQKeyboardManager'
 pod 'SVProgressHUD'
+pod 'YYKit'
+pod 'YTKNetwork'
+pod 'RESideMenu','~> 4.0.7'
+pod 'ReactiveCocoa','~> 7.0'
+pod 'PNChart'
+
 
 source 'https://github.com/CocoaPods/Specs.git'
 pod 'libPhoneNumber-iOS', '~> 0.8'
