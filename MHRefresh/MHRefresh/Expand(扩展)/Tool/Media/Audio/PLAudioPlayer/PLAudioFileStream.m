@@ -76,7 +76,7 @@ static void PLAudioFileStreamPacketsProc(void *inClientData,
 
 #pragma mark - ======== init && dealloc ========
 
-- (instancetype)initWithFileProvider:(PLFileProvider *)fileProvider {
+- (nullable instancetype)initWithAudioFileProvider:(nonnull PLFileProvider *)fileProvider {
     if (self = [super initWithAudioFileProvider:fileProvider]) {
         
         _isNeedCalculateBitRate = YES;
@@ -322,7 +322,6 @@ static void PLAudioFileStreamPacketsProc(void *inClientData,
             return;
         }
         
-        
         AudioFormatListItem *formatList = malloc(formatListSize);
         status = AudioFileStreamGetProperty(inAudioFileStream, kAudioFileStreamProperty_FormatList, &formatListSize, formatList);
         if (status != noErr) {
@@ -362,8 +361,8 @@ static void PLAudioFileStreamPacketsProc(void *inClientData,
             }
         }
         
-        free(supportedFormats);
         free(formatList);
+        free(supportedFormats);
         
     } else if (inPropertyID == kAudioFileStreamProperty_BitRate) {
         
@@ -434,9 +433,10 @@ static void PLAudioFileStreamPacketsProc(void *inClientData,
         if (_processedPacketsCount < BitRateEstimationMaxPackets) {
             _processedPacketsCount += 1;
             _processedPacketsSizeTotal += packetSize;
-            [self p_calculateBitRate];
-            [self p_calculateDuration];
         }
+        
+        [self p_calculateBitRate];
+        [self p_calculateDuration];
     }
     
     if ([self.delegate respondsToSelector:@selector(pl_audioFileStream:audioDataArray:)]) {
@@ -463,8 +463,7 @@ static void PLAudioFileStreamPacketsProc(void *inClientData,
 - (void)p_calculateDuration {
     
     if ([self fileProvider].expectedLength > 0 && _bitRate > 0) {
-//        DLog(@"%llu %lld %u", [self fileProvider].expectedLength, _dataOffset, (unsigned int)_bitRate);
-        _duration = ([self fileProvider].expectedLength - _dataOffset) * 8.0 / _bitRate;
+        _duration = ([self fileProvider].expectedLength - _dataOffset) / (_bitRate * 0.125);
     }
 }
 

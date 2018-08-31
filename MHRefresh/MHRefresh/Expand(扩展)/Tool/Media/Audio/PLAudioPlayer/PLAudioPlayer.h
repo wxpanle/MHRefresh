@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger, PLAudioPlayerStatus) {
     PLAPStatusStopped,
     PLAPStatusBuffering,
     PLAPStatusError,
+    PLAPStatusFlushing, //即将暂停
 };
 
 @class PLAudioPlayer;
@@ -39,9 +40,9 @@ typedef NS_ENUM(NSInteger, PLAudioPlayerStatus) {
 @property (nonatomic, readonly) id <PLAudioFileSource> audioFileSource;
 @property (nonatomic, readonly) NSURL *url;
 
-@property (readonly) CGFloat playProgress;
 @property (nonatomic, assign, readonly) NSTimeInterval duration;
 @property (nonatomic, assign, readonly) NSTimeInterval currentTime;
+@property (nonatomic, readonly) CGFloat playProgress;
 
 @property (nonatomic, readonly) NSString *cachedPath;
 @property (nonatomic, readonly) NSURL *cacheURL;
@@ -54,6 +55,7 @@ typedef NS_ENUM(NSInteger, PLAudioPlayerStatus) {
 @property (nonatomic, assign) CGFloat volume;
 /** value [0.5, 2.0] */
 @property (nonatomic, assign) CGFloat playRate;
+
 @property (nonatomic, assign, getter=isPlaying) BOOL playing;
 
 - (void)play;

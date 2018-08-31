@@ -13,5 +13,6 @@
 #import "Arithmetis.h"
 #import "QYCToOcheader.h"
 #import "QYLintCodeHeader.h"
+#import "QYGCDLearn.h"
 
 #endif /* MLearnHeader_h */

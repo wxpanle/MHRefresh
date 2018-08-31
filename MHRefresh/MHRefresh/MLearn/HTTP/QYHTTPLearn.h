@@ -9,4 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface QYHTTPLearn : NSObject
+
+
 @end

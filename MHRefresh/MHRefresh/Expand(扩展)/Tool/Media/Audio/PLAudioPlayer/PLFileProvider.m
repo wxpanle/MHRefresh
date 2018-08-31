@@ -8,9 +8,11 @@
 
 #import "PLFileProvider.h"
 #import "PLAudioHTTPRequest.h"
-#include <AudioToolbox/AudioToolbox.h>
-#include <CommonCrypto/CommonDigest.h>
-#include <MobileCoreServices/MobileCoreServices.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <CommonCrypto/CommonDigest.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import "NSString+QYMD5.h"
+#import "PLAudioFileSource.h"
 
 @interface PLFileProvider () {
 @protected
@@ -35,7 +37,10 @@
 
 @interface PLLocalFileProvider : PLFileProvider {
     NSFileHandle *_fileHandler;
+    BOOL _isReady;
 }
+
+@property (nonatomic, copy) NSData *audioData;
 
 @end
 
@@ -45,18 +50,69 @@
     
     if (self = [super initWithAudioFileSource:audioFile]) {
         
-        _cachedURL = [audioFile audioFileSourceUrl];
-        _cachedPath = [_cachedURL path];
+        NSURL *url = [audioFile audioFileSourceUrl];
         
-        BOOL isDirectory = NO;
-        if (![[NSFileManager defaultManager] fileExistsAtPath:_cachedPath isDirectory:&isDirectory] || isDirectory) {
-            return nil;
+        if (url != nil) {
+
+            _cachedURL = url;
+            _cachedPath = [_cachedURL path];
+            
+            BOOL isDirectory = NO;
+            if (![[NSFileManager defaultManager] fileExistsAtPath:_cachedPath isDirectory:&isDirectory] || isDirectory) {
+                return nil;
+            }
+            
+            _expectedLength = [[NSFileManager defaultManager] attributesOfItemAtPath:_cachedPath error:nil].fileSize;
+            _receivedLength = _expectedLength;
+            
+            _isReady = YES;
+            
+        } else {
+            _expectedLength = 0;
+            _receivedLength = 0;
+            _isReady = NO;
+            WeakSelf
+            [audioFile audioFileSourceUrl:^(NSURL *audioUrl) {
+                StrongSelf
+                if (!strongSelf) {
+                    return;
+                }
+                [strongSelf startLoadDataWithAudioUrl:audioUrl];
+            }];
         }
-        
-        _expectedLength = [[NSFileManager defaultManager] attributesOfItemAtPath:_cachedPath error:nil].fileSize;
-        _receivedLength = _expectedLength;
     }
     return self;
+}
+
+- (void)startLoadDataWithAudioUrl:(NSURL *)audioUrl {
+    
+    _cachedURL = audioUrl;
+    _cachedPath = [_cachedURL path];
+    
+    BOOL isDirectory = NO;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:_cachedPath isDirectory:&isDirectory] || isDirectory) {
+        return;
+    }
+    
+    __autoreleasing NSError *error = nil;
+    NSData *data = nil;
+    
+    if (error) {
+        _failed = YES;
+        return;
+    }
+    
+    if (!data.length) {
+        _failed = YES;
+        return;
+    }
+    
+    self.audioData = data;
+    _expectedLength = _audioData.length;
+    _receivedLength = _expectedLength;
+    
+    _isReady = YES;
+    _failed = NO;
 }
 
 - (nullable NSData *)readDataAtOffset:(SInt64)inPosition length:(UInt32)length {
@@ -64,10 +120,39 @@
 }
 
 - (nullable NSData *)p_readDataAtOffset:(SInt64)inPosition length:(UInt32)length {
+    
+    if (_audioData.length) {
+        return [self p_readDataFromDataAtOffset:inPosition length:length];
+    }
+    return [self p_readDataFromFileAtOffset:inPosition length:length];
+}
+
+- (nullable NSData *)p_readDataFromDataAtOffset:(SInt64)inPosition length:(UInt32)length {
+    if (inPosition >= _audioData.length) {
+        return nil;
+    }
+    
+    NSUInteger tempLength = length;
+    
+    if (inPosition + length <= [_audioData length]) {
+        return [_audioData subdataWithRange:NSMakeRange((NSUInteger)inPosition, length)];
+    }
+    
+    tempLength = [_audioData length] - (NSUInteger)inPosition;
+    
+    if (tempLength <= 0) {
+        return nil;
+    }
+    
+    return [_audioData subdataWithRange:NSMakeRange((NSUInteger)inPosition, tempLength)];
+}
+
+- (nullable NSData *)p_readDataFromFileAtOffset:(SInt64)inPosition length:(UInt32)length {
+
     if (!_fileHandler) {
         _fileHandler = [NSFileHandle fileHandleForReadingAtPath:_cachedPath];
     }
-    
+
     [_fileHandler seekToFileOffset:inPosition];
     return [_fileHandler readDataOfLength:length];
 }
@@ -100,19 +185,23 @@
 }
 
 - (CGFloat)downloadProgress {
+    
+    if (_receivedLength == 0) {
+        return 0;
+    }
     return _receivedLength / _expectedLength;
 }
 
 - (BOOL)isReady {
-    return YES;
+    return _isReady;
 }
 
 - (BOOL)isFinished {
-    return YES;
+    return _isReady;
 }
 
 - (BOOL)isFailed {
-    return NO;
+    return _failed;
 }
 
 - (void)dealloc {
@@ -149,11 +238,7 @@
 - (instancetype)initWithAudioFileSource:(id<PLAudioFileSource>)audioFile {
     
     if (self = [super initWithAudioFileSource:audioFile]) {
-        _audioFileURL = [audioFile audioFileSourceUrl];
-
-        [self p_openAudioFileStream];
-        [self p_createRequest];
-        [_request start];
+        [self p_gainAudioUrl];
     }
     return self;
 }
@@ -177,6 +262,32 @@
     [[NSFileManager defaultManager] removeItemAtPath:_cachedPath error:NULL];
 }
 
+- (void)p_gainAudioUrl {
+    
+    NSURL *url = [self.audioFileSource audioFileSourceUrl];
+    
+    if (nil != url) {
+        [self p_gainAudioUrlSuccess:url];
+    } else {
+        WeakSelf
+        [self.audioFileSource audioFileSourceUrl:^(NSURL *audioUrl) {
+            StrongSelf
+            if (!strongSelf) {
+                return;
+            }
+            [strongSelf p_gainAudioUrlSuccess:audioUrl];
+        }];
+    }
+}
+
+- (void)p_gainAudioUrlSuccess:(NSURL *)url {
+    _audioFileURL = url;
+    
+    [self p_openAudioFileStream];
+    [self p_createRequest];
+    [_request start];
+}
+
 - (nullable NSData *)readDataAtOffset:(SInt64)inPosition length:(UInt32)length {
     return [self p_readDataAtOffset:inPosition length:length];
 }
@@ -192,8 +303,8 @@
 
 + (NSString *)p_cachedPathForAudioFileURL:(NSURL *)audioFileURL {
     
-    NSArray *array = [audioFileURL.absoluteString componentsSeparatedByString:@"/"];
-    NSString *filename = [NSString stringWithFormat:@"plaudio-%@.tmp", array.lastObject];
+    NSString *string = [audioFileURL.absoluteString getMD5String];
+    NSString *filename = [NSString stringWithFormat:@"plaudio-%@.tmp", string];
     return [NSTemporaryDirectory() stringByAppendingPathComponent:filename];
 }
 
@@ -486,19 +597,35 @@ static void audio_file_stream_packets_proc(void *inClientData,
         return nil;
     }
     
+    
+    UPAudioSourceFrom from = [aduioFileSource audioFileSourceFrom];
+    
+    switch (from) {
+        case UPAudioSourceFromNet: {
+            return [[PLRemoteFileProvider alloc] initWithAudioFileSource:aduioFileSource];
+        }
+            break;
+            
+        case UPAudioSourceFromLocal: {
+            return [[PLLocalFileProvider alloc] initWithAudioFileSource:aduioFileSource];
+        }
+            break;
+    }
+    
     NSURL *audioFileURL = [aduioFileSource audioFileSourceUrl];
     
-    if (nil == audioFileURL) {
-        return nil;
+    if (nil != audioFileURL) {
+        
+        BOOL isFile = [[audioFileURL absoluteString] hasPrefix:@"http://"] || [[audioFileURL absoluteString] hasPrefix:@"https://"];
+        
+        if (!isFile) {
+            return [[PLLocalFileProvider alloc] initWithAudioFileSource:aduioFileSource];
+        }
+        
+        return [[PLRemoteFileProvider alloc] initWithAudioFileSource:aduioFileSource];
     }
     
-    BOOL isFile = [[audioFileURL absoluteString] hasPrefix:@"http://"] || [[audioFileURL absoluteString] hasPrefix:@"https://"];
-    
-    if (!isFile) {
-        return [[PLLocalFileProvider alloc] initWithAudioFileSource:aduioFileSource];
-    }
-    
-    return [[PLRemoteFileProvider alloc] initWithAudioFileSource:aduioFileSource];
+    return nil;
 }
 
 - (instancetype)initWithAudioFileSource:(id<PLAudioFileSource>)audioFileSource {

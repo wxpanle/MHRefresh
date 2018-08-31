@@ -11,19 +11,12 @@
 @interface PLAudioHTTPRequest () <NSURLSessionDataDelegate> {
     
     NSURL *_requestUrl;
-    
     NSError *_error;
-
     NSUInteger _requestStartTime;
-    
     NSUInteger _downloadSpeed;
-    
     BOOL _failed;
-    
     NSProgress *_progress;
-    
     UInt64 _receivedLength;
-    
     NSURLSession *_urlSession;
 }
 
@@ -48,7 +41,6 @@
     }
     return [[self alloc] initWithURL:url];
 }
-
 
 - (instancetype)initWithURL:(NSURL *)url {
     

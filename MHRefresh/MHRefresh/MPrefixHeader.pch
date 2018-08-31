@@ -15,6 +15,10 @@
 
 #import "QYCategoryHeader.h"
 
+#import "UPConst.h"
+
+#import "QYStaticInline.h"
+
 #endif
 
 #endif /* MPrefixHeader_pch */

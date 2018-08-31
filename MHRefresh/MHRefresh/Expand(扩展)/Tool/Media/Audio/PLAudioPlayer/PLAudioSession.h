@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AVFoundation/AVAudioSession.h>
+#import <AVFoundation/AVFoundation.h>
 
 @protocol PLAudioSessionDelegate <NSObject>
 

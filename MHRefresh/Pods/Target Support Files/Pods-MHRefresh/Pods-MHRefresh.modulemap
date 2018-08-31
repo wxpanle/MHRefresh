@@ -1,0 +1,6 @@
+framework module Pods_MHRefresh {
+  umbrella header "Pods-MHRefresh-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -9,6 +9,12 @@
 #ifndef PLAudioFileSource_h
 #define PLAudioFileSource_h
 
+typedef void (^ UPAuiodFileSourceCallback) (NSURL *audioUrl);
+
+typedef NS_ENUM(NSInteger, UPAudioSourceFrom) {
+    UPAudioSourceFromNet,
+    UPAudioSourceFromLocal
+};
 
 @protocol PLAudioFileSource <NSObject>
 
@@ -22,6 +28,10 @@
  @return Audio source
  */
 - (NSURL *)audioFileSourceUrl;
+
+- (UPAudioSourceFrom)audioFileSourceFrom;
+
+- (void)audioFileSourceUrl:(UPAuiodFileSourceCallback)urlCallBack;
 
 @optional
 

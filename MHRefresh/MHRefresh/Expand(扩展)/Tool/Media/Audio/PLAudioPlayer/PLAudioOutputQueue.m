@@ -172,7 +172,7 @@ const unsigned int kAQMaxPacketDescs = 512;
 
 - (void)stop:(BOOL)immediately {
     
-    if ([self p_initialized]) {
+    if (![self p_initialized]) {
         return;
     }
     
@@ -261,9 +261,15 @@ const unsigned int kAQMaxPacketDescs = 512;
     }
 #endif
     
-    UInt32 enableTimePitchConversion = 1;
+//    UInt32 enableTimePitchConversion = 1;
+//    status = AudioQueueSetProperty (_audioQueue, kAudioQueueProperty_EnableTimePitch, &enableTimePitchConversion, sizeof(enableTimePitchConversion));
     
-    status = AudioQueueSetProperty (_audioQueue, kAudioQueueProperty_EnableTimePitch, &enableTimePitchConversion, sizeof(enableTimePitchConversion));
+    UInt32 propValue = 1;
+    AudioQueueSetProperty(_audioQueue, kAudioQueueProperty_EnableTimePitch, &propValue, sizeof(propValue));
+    propValue = 1;
+    AudioQueueSetProperty(_audioQueue, kAudioQueueProperty_TimePitchBypass, &propValue, sizeof(propValue));
+    propValue = kAudioQueueTimePitchAlgorithm_Spectral;
+    AudioQueueSetProperty(_audioQueue, kAudioQueueProperty_TimePitchAlgorithm, &propValue, sizeof(propValue));
     
     if (magicCookie) {
         AudioQueueSetProperty(_audioQueue, kAudioQueueProperty_MagicCookie, [magicCookie bytes], (UInt32)[magicCookie length]);
@@ -296,7 +302,7 @@ const unsigned int kAQMaxPacketDescs = 512;
 }
 
 - (void)p_cleanUp {
-    if ([self p_initialized]) {
+    if (![self p_initialized]) {
         return;
     }
     
@@ -373,13 +379,16 @@ const unsigned int kAQMaxPacketDescs = 512;
     if (_status != PLAudioQueueStatusPlaying) {
         return;
     }
-    
-    OSStatus status;
-    
-    AudioQueueParameterValue value = _playRate;
-    status = AudioQueueSetParameter(_audioQueue, kAudioQueueParam_PlayRate, value);
-    if (status != noErr) {
-        DLog(@"set kAudioQueueParam_PlayRate fail");
+
+    if (CGFloat_fab(_playRate - 1.0f) <= 0.000001) {
+        UInt32 propValue = 1;
+        AudioQueueSetProperty(_audioQueue, kAudioQueueProperty_TimePitchBypass, &propValue, sizeof(propValue));
+        AudioQueueSetParameter(_audioQueue, kAudioQueueParam_PlayRate, 1.0f);
+    } else {
+        AudioQueueParameterValue value = _playRate;
+        UInt32 propValue = 0;
+        AudioQueueSetProperty(_audioQueue, kAudioQueueProperty_TimePitchBypass, &propValue, sizeof(propValue));
+        AudioQueueSetParameter(_audioQueue, kAudioQueueParam_PlayRate, value);
     }
 }
 
@@ -512,6 +521,7 @@ static void AudioQueueIsRunningCallBack(void *inclientData, AudioQueueRef inAQ, 
             DLog(@"%@ isRunning fail", NSStringFromClass([self class]));
             return;
         }
+        _running = isRunning;
         if (isRunning) {
             self.status = PLAudioQueueStatusRunning;
         } else {

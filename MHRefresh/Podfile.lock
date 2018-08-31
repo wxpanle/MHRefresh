@@ -21,7 +21,21 @@ PODS:
   - MJRefresh (3.1.12)
   - MLeaksFinder (1.0.0):
     - FBRetainCycleDetector
+  - PNChart (0.8.9):
+    - UICountingLabel (~> 1.2.0)
+  - ReactiveCocoa (7.1.0):
+    - ReactiveSwift (~> 3.1)
+  - ReactiveSwift (3.1.0):
+    - Result (~> 3.2)
+  - RESideMenu (4.0.7)
+  - Result (3.2.4)
   - SVProgressHUD (2.2.5)
+  - UICountingLabel (1.2.0)
+  - YTKNetwork (2.0.4):
+    - AFNetworking (~> 3.0)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - AFNetworking
@@ -30,7 +44,12 @@ DEPENDENCIES:
   - MBProgressHUD
   - MJRefresh
   - MLeaksFinder
+  - PNChart
+  - ReactiveCocoa (~> 7.0)
+  - RESideMenu (~> 4.0.7)
   - SVProgressHUD
+  - YTKNetwork
+  - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -40,8 +59,16 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
+  PNChart: 84774d225c2126ded6c93d4dbe6ae98c3a73c2d2
+  ReactiveCocoa: 105ad96f6b8711f1ee7d165fc96587479298053b
+  ReactiveSwift: 5b26d2e988fe0eed2daf48c4054d1de74db50184
+  RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
+  YTKNetwork: df8a7a5597bda1664a4efaa7ef871a818a887fe0
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: b3681820fb8879b8bafece83192a9cad9d32736d
+PODFILE CHECKSUM: 7733c574fc42600ca5c932960904cfd4c2f9e79f
 
 COCOAPODS: 1.4.0

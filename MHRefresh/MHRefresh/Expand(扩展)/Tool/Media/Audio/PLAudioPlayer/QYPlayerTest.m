@@ -10,6 +10,10 @@
 
 @implementation QYPlayerTest
 
+- (UPAudioSourceFrom)audioFileSourceFrom {
+    return UPAudioSourceFromNet;
+}
+
 - (NSURL *)audioFileSourceUrl {
     
     

@@ -157,6 +157,8 @@ object.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
 #define DEPRECATED(explain) __attribute__((deprecated(explain)))
 #define ALREADY_DEPRECTED MEMORY_DEPRECATED("already deprected")
 
+#define CallBackBlock(block) !block ? : block()
+
 #ifndef dispatch_async_main_safe
 #define dispatch_async_main_safe(block)\
 if (strcmp(dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL), dispatch_queue_get_label(dispatch_get_main_queue())) == 0) {\

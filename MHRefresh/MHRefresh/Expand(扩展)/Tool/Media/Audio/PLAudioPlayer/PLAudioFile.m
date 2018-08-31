@@ -67,7 +67,7 @@ static SInt64 PLAudioFileGetSizeProc(void *inClientData) {
 
 #pragma mark - ======== init && dealloc ========
 
-- (instancetype)initWithFileProvider:(PLFileProvider *)fileProvider {
+- (nullable instancetype)initWithAudioFileProvider:(nonnull PLFileProvider *)fileProvider {
     if (self = [super initWithAudioFileProvider:fileProvider]) {
         
     }

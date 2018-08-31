@@ -17,25 +17,6 @@
 
 @implementation PLAudioPlayer
 
-@synthesize audioFileSource = _audioFileSource;
-@synthesize url = _url;
-
-@synthesize status = _status;
-@synthesize error = _error;
-
-@synthesize duration = _duration;
-@synthesize currentTime = _currentTime;
-
-@synthesize cachedPath = _cachedPath;
-@synthesize cacheURL = _cacheURL;
-
-@synthesize audioLength = _audioLength;
-@synthesize bufferingRation = _bufferingRation;
-
-@synthesize volume = _volume;
-@synthesize playRate = _playRate;
-
-
 #pragma mark - ======== init ========
 
 + (instancetype)initWithAudioFileSource:(id <PLAudioFileSource>)audioFileSource {
@@ -79,6 +60,9 @@
 }
 
 - (void)seekTime:(NSTimeInterval)time {
+    if (time < 0) {
+        time = 0;
+    }
     [_thread seekTime:time];
 }
 
@@ -99,6 +83,9 @@
     
     switch ([_thread status]) {
         case PLATStatusFlushing:
+            status = PLAPStatusFlushing;
+            break;
+            
         case PLATStatusPlaying:
             status = PLAPStatusPlaying;
             break;
@@ -129,7 +116,7 @@
 
 - (BOOL)isPlaying {
     
-    return self.status == PLAPStatusPlaying || self.status == PLAPStatusBuffering;
+    return self.status == PLAPStatusPlaying || self.status == PLAPStatusBuffering || self.status == PLAPStatusFlushing;
 }
 
 - (NSError *)error {
@@ -137,33 +124,16 @@
 }
 
 - (NSTimeInterval)duration {
-    [self pprintf];
     return [_thread duration];
-}
-
-- (CGFloat)playProgress {
-    
-    if (self.currentTime <= 0 ||
-        self.duration <= 0) {
-        return 0.1;
-    }
-    
-    return self.currentTime / self.duration;
-}
-
-- (void)pprintf {
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        DLog(@"%f %f", [_thread duration], [_thread currentTime]);
-//        DLog(@"%f", [_thread bufferingRation]);
-//        DLog(@"%llu", [_thread audioLength]);
-        
-        [self pprintf];
-    });
 }
 
 - (NSTimeInterval)currentTime {
     return [_thread currentTime];
+}
+
+- (CGFloat)playProgress {
+    CGFloat result = self.currentTime / self.duration;
+    return isnan(result) ? 0.01 : result;
 }
 
 - (NSString *)cachedPath {
@@ -181,7 +151,7 @@
 - (CGFloat)bufferingRation {
     
     CGFloat buffingRation = [_thread bufferingRation];
-    return buffingRation <= 0 ? 0.1 : buffingRation;;
+    return isnan(buffingRation) ? 0.001 : buffingRation;
 }
 
 - (CGFloat)volume {
@@ -203,6 +173,14 @@
 
 - (void)setPlayRate:(CGFloat)playRate {
     [_thread setPlayRate:playRate];
+}
+
+- (void)dealloc {
+    DLOG_DEALLOC;
+    
+    if (_thread) {
+        [_thread removeObserver:self forKeyPath:@"audioStatus"];
+    }
 }
 
 @end

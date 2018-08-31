@@ -173,12 +173,11 @@
     
     //play
     if ([_audioBuffer bufferedSize] >= _audioStream.maxPacketSize || _audioBuffer.isEnd) {
-        UInt32 packetCount;
+        UInt32 packetCount = 0;
         AudioStreamPacketDescription *desces = NULL;
         NSData *data = [_audioBuffer dequeueDataWithSize:_audioStream.maxPacketSize packetCount:&packetCount descriptions:&desces];
         
         if (packetCount != 0) {
-            
             if (![_audioQueue start]) {
                 self.audioStatus = PLATStatusQueueError;
                 return;
@@ -200,17 +199,16 @@
                 self.audioStatus = PLATStatusFlushing;
             }
         } else if (_audioBuffer.isEnd) {
-//
+            
 //            if (![_audioBuffer hasData] && _audioQueue.isRunning) {
 //                [_audioQueue stop:NO];
 //                //等待结束
 //                self.audioStatus = PLATStatusFlushing;
-//            }
-//
+//            } else
+            
             if (![_audioBuffer hasData] && !_audioQueue.isRunning) {
                 self.audioStatus = PLATStatusStopped;
             }
-            
         } else {
             
             self.audioStatus = PLATStatusBufferError;
