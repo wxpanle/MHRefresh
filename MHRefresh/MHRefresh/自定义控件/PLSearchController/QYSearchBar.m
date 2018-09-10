@@ -112,16 +112,16 @@ static const CGFloat kClearIconW = 38.0;
     self.defaultStatePlaceLabel.hidden = NO;
     self.searchIconImageView.hidden = NO;
     [UIView animateWithDuration:0.25 animations:^{
-        _cancelButton.hidden = NO;
-        _cancelButton.alpha = 1.0;
+        self.cancelButton.hidden = NO;
+        self.cancelButton.alpha = 1.0;
         self.searchIconImageView.sm_x = kEdgeSpace;
         self.defaultStatePlaceLabel.sm_x = kEdgeSpace + CGRectGetWidth(self.searchIconImageView.frame);
-        _textField.sm_width = SCREEN_W - _cancelButton.sm_width - kEdgeSpace * 2.0 - kCancelBLeading;
+        self.textField.sm_width = SCREEN_W - self.cancelButton.sm_width - kEdgeSpace * 2.0 - kCancelBLeading;
     } completion:^(BOOL finished) {
         self.searchIconImageView.hidden = YES;
         self.defaultStatePlaceLabel.hidden = YES;
-        _textField.placeholder = [self.placeholdStringDictionary objectForKey:@(UPSearchBarStateEditing).stringValue];
-        _textField.leftView.hidden = NO;
+        self.textField.placeholder = [self.placeholdStringDictionary objectForKey:@(UPSearchBarStateEditing).stringValue];
+        self.textField.leftView.hidden = NO;
     }];
 }
 
@@ -133,11 +133,11 @@ static const CGFloat kClearIconW = 38.0;
     self.defaultStatePlaceLabel.hidden = NO;
     self.searchIconImageView.hidden = NO;
     [UIView animateWithDuration:0.25 animations:^{
-        _cancelButton.hidden = YES;
-        _cancelButton.alpha = 0.0;
+        self.cancelButton.hidden = YES;
+        self.cancelButton.alpha = 0.0;
         self.searchIconImageView.sm_x = (SCREEN_W - width - self.searchIconImageView.sm_width) / 2.0;
         self.defaultStatePlaceLabel.sm_x = CGRectGetMaxX(self.searchIconImageView.frame);
-        _textField.sm_width = SCREEN_W - kEdgeSpace * 2.0;
+        self.textField.sm_width = SCREEN_W - kEdgeSpace * 2.0;
     } completion:^(BOOL finished) {
         [self qy_resignFirstResponder];
     }];

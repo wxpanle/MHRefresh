@@ -407,7 +407,7 @@ static const CGFloat kSliderActionSpeed = 600;
         }
             
         case UIGestureRecognizerStateChanged: {
-            CGPoint point = [gestureRecognizer locationInView:self];
+//            CGPoint point = [gestureRecognizer locationInView:self];
             DLog(@"滑动中");
             break;
         }

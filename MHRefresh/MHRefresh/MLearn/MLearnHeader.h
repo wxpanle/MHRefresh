@@ -14,5 +14,6 @@
 #import "QYCToOcheader.h"
 #import "QYLintCodeHeader.h"
 #import "QYGCDLearn.h"
+#import "QYSoftHeader.h"
 
 #endif /* MLearnHeader_h */

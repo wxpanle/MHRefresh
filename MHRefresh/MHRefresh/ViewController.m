@@ -99,20 +99,8 @@ typedef void (^blk_t)(id obj);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    blk_t blk;
     
-    {
-        NSMutableArray *array = [NSMutableArray array];
-        __weak NSMutableArray *array2 = array;
-        blk = ^ (id obj) {
-            [array2 addObject:obj];
-            NSLog(@"%ld", array2.count);
-        };
-    }
-    
-    blk([[NSObject alloc] init]);
-    blk([[NSObject alloc] init]);
-    blk([[NSObject alloc] init]);
+    [[[QYBinaryHeapSoft alloc] init] start];
 
 //    _barrierQueue = dispatch_queue_create("com.hackemist.SDWebImageDownloaderBarrierQueue", DISPATCH_QUEUE_SERIAL);
 //
