@@ -60,6 +60,10 @@
 #import "UPBaseTableView.h"
 #import "UPPackageCell.h"
 
+#import "UPEventLabel.h"
+
+#import "QYCenterRefreshController.h"
+
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource, UPBaseSliderCellDelegate> {
     PLAudioPlayer *_audioPlayer;
     QYAudioPlayer *_qy_audio_player;
@@ -96,11 +100,67 @@ typedef void (^blk_t)(id obj);
 
 @implementation ViewController
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    QYCenterRefreshController *vc = [[QYCenterRefreshController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     
-    [[[QYBinaryHeapSoft alloc] init] start];
+//    NSString *string = @"这是一个测试这是一个测试这是一个测试这是一是一个测试这是";
+//
+//    NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+//    paragraph.lineBreakMode = NSLineBreakByWordWrapping;
+//    NSDictionary *attributes = @{NSFontAttributeName: [UIFont fontPingFang:QYPingFangSCRegular size:15.0],
+//                                 NSParagraphStyleAttributeName: paragraph,
+//                                 };
+//
+//    NSAttributedString *string1 = [[NSAttributedString alloc] initWithString:string attributes:attributes];
+//
+//    CGSize size = [UPEventLabel sizeThatFitsAttributedString:string1 withConstraints:CGSizeMake(SCREEN_W - 30, CGFLOAT_MAX) limitedToNumberOfLines:3];
+//
+//    CGFloat height = [string heightWithFont:[UIFont fontPingFang:QYPingFangSCRegular size:15.0] constrainedToWidth:SCREEN_W - 30];
+//
+//    CGFloat height1 = [string heightWithFont:[UIFont fontPingFang:QYPingFangSCRegular size:15.0] constrainedToWidth:SCREEN_W - 30 numberLines:3];
+//
+//    NSLog(@"%f %f %f", size.height, height, height1);
+//
+//
+//    UILabel *label = [[UILabel alloc] init];
+//    label.backgroundColor = [UIColor redColor];
+//    label.font = [UIFont fontPingFang:QYPingFangSCRegular size:15.0];
+//    label.textColor = [UIColor greenColor];
+//    label.numberOfLines = 3;
+//    label.frame = CGRectMake(15, 200, SCREEN_W - 30.0, size.height);
+//    label.text = string;
+//    [self.view addSubview:label];
+//
+//    UILabel *label1 = [[UILabel alloc] init];
+//    label1.backgroundColor = [UIColor redColor];
+//    label1.font = [UIFont fontPingFang:QYPingFangSCRegular size:15.0];
+//    label1.textColor = [UIColor greenColor];
+//    label1.numberOfLines = 3;
+//    label1.frame = CGRectMake(15, 200 + size.height + 15, SCREEN_W - 30.0, height);
+//    label1.text = string;
+//    [self.view addSubview:label1];
+//
+//    UILabel *label2 = [[UILabel alloc] init];
+//    label2.backgroundColor = [UIColor redColor];
+//    label2.font = [UIFont fontPingFang:QYPingFangSCRegular size:15.0];
+//    label2.textColor = [UIColor greenColor];
+//    label2.numberOfLines = 3;
+//    label2.frame = CGRectMake(15, 200 + size.height + height + 15 + 15, SCREEN_W - 30.0, height1);
+//    label2.text = string;
+//    [self.view addSubview:label2];
+
+    
+//    [[[QYBinaryHeapSoft alloc] init] start];
 
 //    _barrierQueue = dispatch_queue_create("com.hackemist.SDWebImageDownloaderBarrierQueue", DISPATCH_QUEUE_SERIAL);
 //

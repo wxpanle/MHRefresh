@@ -14,10 +14,20 @@
 
 - (CGFloat)widthWithFont:(UIFont *)font constrainedToHeight:(CGFloat)height;
 
+- (CGFloat)heightWithFont:(UIFont *)font constrainedToWidth:(CGFloat)width numberLines:(NSInteger)numberLines;
+
 - (CGSize)sizeWithFont:(UIFont *)font constrainedToWidth:(CGFloat)width;
+
+- (CGSize)sizeWithFont:(UIFont *)font constrainedToWidth:(CGFloat)width numberLines:(NSInteger)numberLines;
 
 - (CGSize)sizeWithFont:(UIFont *)font constrainedToHeight:(CGFloat)height;
 
 - (CGSize)sizeWithFont:(UIFont *)font constrainedSize:(CGSize)size;
+
+- (CGSize)sizeWithFont:(UIFont *)font constrainedSize:(CGSize)size numberLines:(NSInteger)numberLines;
+
++ (CGFloat)singleHeightWithFont:(UIFont *)font constrainedToWidth:(CGFloat)width;
+
++ (NSString *)singleString;
 
 @end
