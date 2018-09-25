@@ -102,15 +102,25 @@ typedef void (^blk_t)(id obj);
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    QYCenterRefreshController *vc = [[QYCenterRefreshController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    
-    [self presentViewController:nav animated:YES completion:nil];
+//
+//    QYCenterRefreshController *vc = [[QYCenterRefreshController alloc] init];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+//
+//    [self presentViewController:nav animated:YES completion:nil];
+}
+
+- (void)test {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        DLog(@"%@", NSStringFromCGSize([[UIScreen mainScreen] currentMode].size));
+        [self test];
+    });
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self test];
+    
+    
     
     
 //    NSString *string = @"这是一个测试这是一个测试这是一个测试这是一是一个测试这是";

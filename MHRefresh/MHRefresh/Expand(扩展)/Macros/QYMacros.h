@@ -35,9 +35,26 @@
 
 #define DLOG_DEALLOC DLog(@"%@ dealloc", NSStringFromClass([self class]));
 
-//iPhoneX
-#define kIsiPhoneX (CGSizeEqualToSize(CGSizeMake(375.0f, 812.0f), [[UIScreen mainScreen] bounds].size) || \
-CGSizeEqualToSize(CGSizeMake(812.0f, 375.0f), [[UIScreen mainScreen] bounds].size))
+//判断是否是ipad
+#define isPad ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+//判断iPhone4系列
+#define kiPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) && !isPad : NO)
+//判断iPhone5系列
+#define kiPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) && !isPad : NO)
+//判断iPhone6系列
+#define kiPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) && !isPad : NO)
+//判断iphone6+系列
+#define kiPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) && !isPad : NO)
+//判断iPhoneX
+#define kIsiPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) && !isPad : NO)
+//判断iPHoneXr
+#define kIsiPhoneXR ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) && !isPad : NO)
+//判断iPhoneXs
+#define kIsiPhoneXS ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) && !isPad : NO)
+//判断iPhoneXs Max
+#define kIsiPhoneXsMAX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) && !isPad : NO)
+//判断是不是刘海系列屏
+#define kIsXSeries ((kIsiPhoneX == YES || kIsiPhoneXR == YES || kIsiPhoneXS == YES || kIsiPhoneXsMAX == YES) ? YES : NO)
 
 #define kStatusExtraHeight 24.0  //x 状态栏额外高度
 #define kHomeIndicator 34.0  //x 底部  额外 高度
@@ -47,13 +64,13 @@ CGSizeEqualToSize(CGSizeMake(812.0f, 375.0f), [[UIScreen mainScreen] bounds].siz
 #define kTopHeight (kStatusBarHeight + kNavBarHeight)
 
 #define kTabBarHeight 49.0
-#define kBottomHeight ((kIsiPhoneX == YES) ? kTabBarHeight + kHomeIndicator : kTabBarHeight)
+#define kBottomHeight ((kIsXSeries == YES) ? kTabBarHeight + kHomeIndicator : kTabBarHeight)
 
-#define K_TOP_H(number) (kIsiPhoneX ? number + kStatusExtraHeight : number)  //x附加状态栏额外高度
-#define K_BOTTOM_H(number) (kIsiPhoneX ? number + kHomeIndicator : number)   //x附加底部高度
+#define K_TOP_H(number) (kIsXSeries ? number + kStatusExtraHeight : number)  //x附加状态栏额外高度
+#define K_BOTTOM_H(number) (kIsXSeries ? number + kHomeIndicator : number)   //x附加底部高度
 
 #define K_X_CONTENT_BOTTOM_INSET_HEIGHT(inset, height) \
-if (kIsiPhoneX) {  \
+if (kIsXSeries) {  \
 inset.contentInset = UIEdgeInsetsMake(inset.contentInset.top, inset.contentInset.left, inset.contentInset.bottom + height, inset.contentInset.right);  \
 } else {\
 inset.contentInset = UIEdgeInsetsMake(inset.contentInset.top, inset.contentInset.left, inset.contentInset.bottom, inset.contentInset.right);\
