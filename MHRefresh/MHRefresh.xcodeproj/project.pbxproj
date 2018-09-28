@@ -221,6 +221,7 @@
 		FEA258D52111A746001122CA /* QYPhotoBrowerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA258D42111A746001122CA /* QYPhotoBrowerView.m */; };
 		FEA258DD2114438E001122CA /* CALayer+QYUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA258DC2114438E001122CA /* CALayer+QYUIColor.m */; };
 		FEA258E0211444BF001122CA /* CAShapeLayer+QYCornerCut.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA258DF211444BF001122CA /* CAShapeLayer+QYCornerCut.m */; };
+		FEA50837215E1858007253E2 /* QYKeyboardTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA50836215E1858007253E2 /* QYKeyboardTextView.m */; };
 		FEAABB3F20FEE37E00F0B97C /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAABB3E20FEE37D00F0B97C /* libxml2.2.tbd */; };
 		FEAABB4120FEE38E00F0B97C /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAABB4020FEE38E00F0B97C /* libxml2.tbd */; };
 		FEB6C6CA20FF2C15006D9CFC /* QYSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB6C6C920FF2C15006D9CFC /* QYSearchController.m */; };
@@ -1009,6 +1010,8 @@
 		FEA258DC2114438E001122CA /* CALayer+QYUIColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CALayer+QYUIColor.m"; sourceTree = "<group>"; };
 		FEA258DE211444BF001122CA /* CAShapeLayer+QYCornerCut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CAShapeLayer+QYCornerCut.h"; sourceTree = "<group>"; };
 		FEA258DF211444BF001122CA /* CAShapeLayer+QYCornerCut.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CAShapeLayer+QYCornerCut.m"; sourceTree = "<group>"; };
+		FEA50835215E1858007253E2 /* QYKeyboardTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYKeyboardTextView.h; sourceTree = "<group>"; };
+		FEA50836215E1858007253E2 /* QYKeyboardTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYKeyboardTextView.m; sourceTree = "<group>"; };
 		FEAABB3E20FEE37D00F0B97C /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		FEAABB4020FEE38E00F0B97C /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		FEB6C6C820FF2C15006D9CFC /* QYSearchController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYSearchController.h; sourceTree = "<group>"; };
@@ -2948,6 +2951,15 @@
 			path = PreviewImage;
 			sourceTree = "<group>";
 		};
+		FEA50834215E1842007253E2 /* KeyBoardTextView */ = {
+			isa = PBXGroup;
+			children = (
+				FEA50835215E1858007253E2 /* QYKeyboardTextView.h */,
+				FEA50836215E1858007253E2 /* QYKeyboardTextView.m */,
+			);
+			path = KeyBoardTextView;
+			sourceTree = "<group>";
+		};
 		FEB6C6C720FF2B27006D9CFC /* PLSearchController */ = {
 			isa = PBXGroup;
 			children = (
@@ -3486,6 +3498,7 @@
 				FE5CDD2C214B64EB00DCF3DB /* QYTextLayout */,
 				FE5CDD40214B8BA700DCF3DB /* EventLabel */,
 				FEBD7A60214DF3CD0037A1DF /* CenterRefresh */,
+				FEA50834215E1842007253E2 /* KeyBoardTextView */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -4871,6 +4884,7 @@
 				FEE56D32207B6A670043C2C5 /* QYPreviewWindow.m in Sources */,
 				FEC6FD062146118C003FF973 /* enc_avx2.c in Sources */,
 				FE14E8DC20A3E12A0022486E /* QYMinimumCycleSection.m in Sources */,
+				FEA50837215E1858007253E2 /* QYKeyboardTextView.m in Sources */,
 				FE99C7A020F5F6B600CFAE0C /* PLFileProvider.m in Sources */,
 				FEC6FC9F2146118C003FF973 /* MASCompositeConstraint.m in Sources */,
 				8B682CB41F690A9D00C4900D /* NSString+QYBase64.m in Sources */,

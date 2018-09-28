@@ -118,10 +118,25 @@ typedef void (^blk_t)(id obj);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test];
+//    [self test];
     
-    
-    
+//    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(15, 200, SCREEN_W - 30, 0)];
+//    textView.layer.borderColor = [UIColor redColor].CGColor;
+//    textView.font = [UIFont fontPingFang:(QYPingFangSCRegular) size:16.0];
+//    textView.layer.borderWidth = 1.0;
+//    textView.clipsToBounds = YES;
+////    textView.contentInset = UIEdgeInsetsMake(8.0, 15.0, 8.0, 15.0);
+//    textView.textContainerInset = UIEdgeInsetsMake(8.0, 15.0, 8.0, 15.0);
+////    textView.scrollEnabled = NO;
+//    textView.showsVerticalScrollIndicator = NO;
+//    textView.showsHorizontalScrollIndicator = NO;
+//    [self.view addSubview:textView];
+//    
+//    NSString *string = @"测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试";
+//    CGFloat height = [string heightWithFont:[UIFont fontPingFang:(QYPingFangSCRegular) size:16.0] constrainedToWidth:SCREEN_W - 60.0 numberLines:3];
+//    textView.sm_height = height + 16.0;
+//    
+//    textView.text = string;
     
 //    NSString *string = @"这是一个测试这是一个测试这是一个测试这是一是一个测试这是";
 //
