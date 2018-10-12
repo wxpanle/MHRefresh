@@ -209,4 +209,13 @@
     [self performSelector:@selector(onDeviceOrientationChangeWithObserver) withObject:nil afterDelay:0.25 + 0.2];
 }
 
+
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+    return [super forwardingTargetForSelector:aSelector];
+}
+
+- (BOOL)respondsToSelector:(SEL)aSelector {
+    return [super respondsToSelector:aSelector];
+}
+
 @end

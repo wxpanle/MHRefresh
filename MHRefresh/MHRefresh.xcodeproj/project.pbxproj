@@ -212,6 +212,7 @@
 		FE99C81A20F6053300CFAE0C /* DOUAudioSpatialAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = FE99C80320F6053300CFAE0C /* DOUAudioSpatialAnalyzer.m */; };
 		FE99C81B20F6053300CFAE0C /* DOUAudioFrequencyAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = FE99C80520F6053300CFAE0C /* DOUAudioFrequencyAnalyzer.m */; };
 		FE99C81C20F6053300CFAE0C /* DOUMPMediaLibraryAssetLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = FE99C80820F6053300CFAE0C /* DOUMPMediaLibraryAssetLoader.m */; };
+		FE9C7D1D2170594A000450CB /* UPAudioPlayFloaterView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9C7D1B21705949000450CB /* UPAudioPlayFloaterView.m */; };
 		FE9D6A0520D0CA0200A7D876 /* QYHTTPLearn.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9D6A0420D0CA0200A7D876 /* QYHTTPLearn.m */; };
 		FEA24FB02088206300945DBF /* QYThreeTKnowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA24FAF2088206300945DBF /* QYThreeTKnowledge.m */; };
 		FEA24FB32088207100945DBF /* QYThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA24FB22088207100945DBF /* QYThreeViewController.m */; };
@@ -992,6 +993,8 @@
 		FE99C80820F6053300CFAE0C /* DOUMPMediaLibraryAssetLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUMPMediaLibraryAssetLoader.m; sourceTree = "<group>"; };
 		FE99C80920F6053300CFAE0C /* NSData+DOUMappedFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+DOUMappedFile.h"; sourceTree = "<group>"; };
 		FE99C80A20F6053300CFAE0C /* DOUAudioBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioBase.h; sourceTree = "<group>"; };
+		FE9C7D1B21705949000450CB /* UPAudioPlayFloaterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPAudioPlayFloaterView.m; sourceTree = "<group>"; };
+		FE9C7D1C21705949000450CB /* UPAudioPlayFloaterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPAudioPlayFloaterView.h; sourceTree = "<group>"; };
 		FE9D6A0320D0CA0200A7D876 /* QYHTTPLearn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYHTTPLearn.h; sourceTree = "<group>"; };
 		FE9D6A0420D0CA0200A7D876 /* QYHTTPLearn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYHTTPLearn.m; sourceTree = "<group>"; };
 		FEA24FAE2088206300945DBF /* QYThreeTKnowledge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYThreeTKnowledge.h; sourceTree = "<group>"; };
@@ -2634,6 +2637,7 @@
 				FEB6C6C720FF2B27006D9CFC /* PLSearchController */,
 				FE28E3AB2106CC7A00498090 /* NightMode */,
 				FEA258CF2111A71D001122CA /* PreviewImage */,
+				FE9C7D1A21705949000450CB /* Floater1 */,
 			);
 			path = "自定义控件";
 			sourceTree = "<group>";
@@ -2916,6 +2920,15 @@
 				FE99C7F120F6053300CFAE0C /* NSData+DOUMappedFile.m */,
 			);
 			path = Dou;
+			sourceTree = "<group>";
+		};
+		FE9C7D1A21705949000450CB /* Floater1 */ = {
+			isa = PBXGroup;
+			children = (
+				FE9C7D1B21705949000450CB /* UPAudioPlayFloaterView.m */,
+				FE9C7D1C21705949000450CB /* UPAudioPlayFloaterView.h */,
+			);
+			path = Floater1;
 			sourceTree = "<group>";
 		};
 		FEA24FAD2088204700945DBF /* 第三章 */ = {
@@ -4756,6 +4769,7 @@
 				8B195CA41F6284C2005D6321 /* UIView+QYFrame.m in Sources */,
 				FE99C7D920F604D600CFAE0C /* FSAudioController.m in Sources */,
 				FEBD7A71214E04480037A1DF /* NSString+UPFileCenter.m in Sources */,
+				FE9C7D1D2170594A000450CB /* UPAudioPlayFloaterView.m in Sources */,
 				8B3941E31F46D153002100F6 /* UIView+SMExtension.m in Sources */,
 				8BF672A01F6FF55D00CF312A /* UICollectionViewCell+QYIdentifier.m in Sources */,
 				FE99C7D820F604D600CFAE0C /* input_stream.cpp in Sources */,
