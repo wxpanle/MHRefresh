@@ -142,7 +142,7 @@
     
     //stop
     if (_stopRequired) {
-        _stopRequired = NO;
+//        _stopRequired = NO;
         [_audioQueue stop];
         self.audioStatus = PLATStatusStopped;
         return;
@@ -308,7 +308,7 @@
     _seekTime = 0;
     
     _pauseRequired = NO;
-    _stopRequired = NO;
+//    _stopRequired = NO;
     _seekRequired = NO;
     _playRateRequired = NO;
     _volumeRequired = NO;

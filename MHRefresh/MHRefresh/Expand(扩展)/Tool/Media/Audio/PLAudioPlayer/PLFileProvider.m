@@ -252,6 +252,8 @@
         [_request cancel];
     }
     
+    _request = nil;
+    
     [self p_closeAudioFileStream];
     
     //移除缓存文件

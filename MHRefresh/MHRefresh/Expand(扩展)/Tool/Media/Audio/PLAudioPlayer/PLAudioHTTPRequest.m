@@ -107,6 +107,9 @@
         [_sessionTask cancel];
     }
     
+    _sessionTask = nil;
+    [_urlSession invalidateAndCancel];
+    
     [self p_clearCallBlock];
 }
 

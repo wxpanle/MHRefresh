@@ -94,6 +94,8 @@
 
 @property (nonatomic, strong) dispatch_queue_t barrierQueue;
 
+@property (nonatomic, strong) NSMutableArray *resultArray;
+
 @end
 
 typedef void (^blk_t)(id obj);
@@ -118,6 +120,24 @@ typedef void (^blk_t)(id obj);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _resultArray = [@[@"1", @"2", @"3"] mutableCopy];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return [@"1" isEqualToString:evaluatedObject];
+    }];
+    
+    DLog(@"%@", _resultArray);
+    
+    [_resultArray filterUsingPredicate:predicate];
+    
+    DLog(@"%@", _resultArray);
+    
+    
+    NSArray *array = @[@"1", @"2", @"3"];
+    DLog(@"%@", array);
+    array = [array filteredArrayUsingPredicate:predicate];
+    DLog(@"%@", array);
 //    [self test];
     
 //    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(15, 200, SCREEN_W - 30, 0)];

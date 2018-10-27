@@ -53,6 +53,7 @@
     self.navigationController.navigationBar.translucent = YES;
     
     self.navigationItem.title = @"test";
+    
 }
 
 - (UIScrollView *)bgScrollView {
