@@ -14,6 +14,8 @@ typedef NS_ENUM(NSInteger, PhoneSize) {
     PhoneSize4_7,           // 4'7
     PhoneSize5_5,           // 5'5
     PhoneSize5_8,           // 5‘8
+    PhoneSize6_1,           // 6'1
+    PhoneSize6_5,           // 6'5
 };
 
 @interface UIDevice (UPSize)

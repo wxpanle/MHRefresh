@@ -33,6 +33,7 @@
 #import "NSString+QYBase64.h"
 #import "NSString+QYMD5.h"
 #import "NSString+QYUUID.h"
+#import "NSString+QYCharNumber.h"
 
 #import "NSObject+QYPrintf.h"
 #import "NSObject+QYClassIdentify.h"

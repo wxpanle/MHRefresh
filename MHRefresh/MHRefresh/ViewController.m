@@ -121,23 +121,65 @@ typedef void (^blk_t)(id obj);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _resultArray = [@[@"1", @"2", @"3"] mutableCopy];
+    NSString *string = @"中国";
+    NSString *string1 = @"ABCD";
+    NSString *string3 = @"☺";
     
-    NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-        return [@"1" isEqualToString:evaluatedObject];
-    }];
+    DLog(@"%ld - %ld - %ld", string.length, string1.length, string3.length);
     
-    DLog(@"%@", _resultArray);
+    DLog(@"%ld - %ld - %ld", string.charNumber, string1.charNumber, string3.charNumber);
     
-    [_resultArray filterUsingPredicate:predicate];
-    
-    DLog(@"%@", _resultArray);
+//    string = [string substringWithRange:NSMakeRange(0, 0)];
     
     
-    NSArray *array = @[@"1", @"2", @"3"];
-    DLog(@"%@", array);
-    array = [array filteredArrayUsingPredicate:predicate];
-    DLog(@"%@", array);
+    NSInteger sum = 0;
+    
+    
+    NSInteger index = 4;
+    
+    NSString *subStr = [[NSString alloc] init];
+    
+    for(int i = 0; i<[string3 length]; i++){
+        
+        unichar strChar = [string3 characterAtIndex:i];
+        
+        if(strChar < 256){
+            sum += 1;
+        }
+        else {
+            sum += 2;
+        }
+        
+        if (sum >= index) {
+            
+            subStr = [string3 substringToIndex:i+1];
+            break;
+        }
+    }
+    
+    if (string3.charNumber < index) {
+        subStr = string3;
+    }
+    
+    DLog(@"%@", subStr);
+    
+//    _resultArray = [@[@"1", @"2", @"3"] mutableCopy];
+//
+//    NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSString * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+//        return [@"1" isEqualToString:evaluatedObject];
+//    }];
+//
+//    DLog(@"%@", _resultArray);
+//
+//    [_resultArray filterUsingPredicate:predicate];
+//
+//    DLog(@"%@", _resultArray);
+//
+//
+//    NSArray *array = @[@"1", @"2", @"3"];
+//    DLog(@"%@", array);
+//    array = [array filteredArrayUsingPredicate:predicate];
+//    DLog(@"%@", array);
 //    [self test];
     
 //    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(15, 200, SCREEN_W - 30, 0)];

@@ -8,11 +8,11 @@
 
 #import "UIDevice+UPSize.h"
 
-static const CGFloat HeightOf3_5InchScreen = 480;
-static const CGFloat HeightOf4_0InchScreen = 568;
-static const CGFloat HeightOf4_7InchScreen = 667;
-static const CGFloat HeightOf5_5InchScreen = 736;
-static const CGFloat HeightOf5_8InchScreen = 812;
+//static const CGFloat HeightOf3_5InchScreen = 480;
+//static const CGFloat HeightOf4_0InchScreen = 568;
+//static const CGFloat HeightOf4_7InchScreen = 667;
+//static const CGFloat HeightOf5_5InchScreen = 736;
+//static const CGFloat HeightOf5_8InchScreen = 812;
 
 @implementation UIDevice (UPSize)
 
@@ -22,18 +22,22 @@ static const CGFloat HeightOf5_8InchScreen = 812;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         
-        if (SCREEN_W == HeightOf3_5InchScreen) {
+        if (kiPhone4) {
             size = PhoneSize3_5;
-        } else if (SCREEN_W == HeightOf4_0InchScreen) {
+        } else if (kiPhone5) {
             size = PhoneSize4_0;
-        } else if (SCREEN_W == HeightOf4_7InchScreen) {
+        } else if (kiPhone6) {
             size = PhoneSize4_7;
-        } else if (SCREEN_W == HeightOf5_5InchScreen) {
+        } else if (kiPhone6Plus) {
             size = PhoneSize5_5;
-        } else if (SCREEN_W == HeightOf5_8InchScreen) {
+        } else if (kIsiPhoneX || kIsiPhoneXS) {
             size = PhoneSize5_8;
+        } else if (kIsiPhoneXR) {
+            size = PhoneSize6_1;
+        } else if (kIsiPhoneXsMAX) {
+            size = PhoneSize6_5;
         } else {
-            size = PhoneSize4_0;
+            size = PhoneSize5_8;
         }
         
     });
