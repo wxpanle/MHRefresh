@@ -118,50 +118,77 @@ typedef void (^blk_t)(id obj);
     });
 }
 
+- (int)sqrt:(int)x {
+    // write your code here
+    int y = x;
+    float xhalf = 0.5f*y;
+    int i = *(int*)&x; // get bits for floating VALUE
+    i = 0x5f375a86- (i>>1); // gives initial guess y0
+    y = *(float*)&i; // convert bits BACK to float
+    y = y*(1.5f-xhalf*y*y); // Newton step, repeating increases accuracy
+    y = y*(1.5f-xhalf*y*y); // Newton step, repeating increases accuracy
+    y = y*(1.5f-xhalf*y*y); // Newton step, repeating increases accuracy
+    NSLog(@"%d %d", y, 1 / y);
+    return 1 / y;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *string = @"中国";
-    NSString *string1 = @"ABCD";
-    NSString *string3 = @"☺";
+//    [self sqrt:10];
     
-    DLog(@"%ld - %ld - %ld", string.length, string1.length, string3.length);
-    
-    DLog(@"%ld - %ld - %ld", string.charNumber, string1.charNumber, string3.charNumber);
+//    [[[QYMaoPaoSoft alloc] init] start];
+//    [[[QYXuanZeSoft alloc] init] start];
+    [[[QYZhiJieChaRuSoft alloc] init] start];
+//    DLog(@"%ld", NSIntegerMin);
+//
+//    NSString *string = @"中国";
+//    NSString *string1 = @"ABCD";
+//    NSString *string3 = @"☺";
+//
+//
+//
+//    DLog(@"%ld - %ld - %ld", string.length, string1.length, string3.length);
+//
+//    DLog(@"%ld - %ld - %ld", string.charNumber, string1.charNumber, string3.charNumber);
     
 //    string = [string substringWithRange:NSMakeRange(0, 0)];
     
     
-    NSInteger sum = 0;
+//    NSInteger sum = 0;
+//
+//
+//    NSInteger index = 4;
+//
+//    NSString *subStr = [[NSString alloc] init];
+//
+//    for(int i = 0; i<[string3 length]; i++){
+//
+//        unichar strChar = [string3 characterAtIndex:i];
+//
+//        if(strChar < 256){
+//            sum += 1;
+//        }
+//        else {
+//            sum += 2;
+//        }
+//
+//        if (sum >= index) {
+//
+//            subStr = [string3 substringToIndex:i+1];
+//            break;
+//        }
+//    }
+//
+//    if (string3.charNumber < index) {
+//        subStr = string3;
+//    }
+//
+//    DLog(@"%@", subStr);
     
     
-    NSInteger index = 4;
     
-    NSString *subStr = [[NSString alloc] init];
-    
-    for(int i = 0; i<[string3 length]; i++){
-        
-        unichar strChar = [string3 characterAtIndex:i];
-        
-        if(strChar < 256){
-            sum += 1;
-        }
-        else {
-            sum += 2;
-        }
-        
-        if (sum >= index) {
-            
-            subStr = [string3 substringToIndex:i+1];
-            break;
-        }
-    }
-    
-    if (string3.charNumber < index) {
-        subStr = string3;
-    }
-    
-    DLog(@"%@", subStr);
     
 //    _resultArray = [@[@"1", @"2", @"3"] mutableCopy];
 //

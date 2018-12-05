@@ -12,4 +12,14 @@
 
 - (void)start;
 
+- (NSArray *)qy_softArray;
+
+- (void)qy_insertTime;
+
+- (void)qy_endTime;
+
+- (void)qy_swap:(int *)nums left:(int)i right:(int)j;
+
+- (void)qy_printf:(int *)nums count:(int)count;
+
 @end

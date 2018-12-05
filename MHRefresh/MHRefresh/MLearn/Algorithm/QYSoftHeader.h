@@ -12,7 +12,9 @@
 #if __OBJC__
 
 #import "QYBinaryHeapSoft.h"
-
+#import "QYMaoPaoSoft.h"
+#import "QYXuanZeSoft.h"
+#import "QYZhiJieChaRuSoft.h"
 #endif
 
 

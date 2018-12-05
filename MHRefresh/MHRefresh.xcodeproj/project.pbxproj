@@ -154,6 +154,7 @@
 		FE5FB51420401BF3001318D5 /* FrameworkTool.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE5FB4FD20401BF2001318D5 /* FrameworkTool.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE5FB51D20401C42001318D5 /* QYFrameworktest.h in Headers */ = {isa = PBXBuildFile; fileRef = FE5FB51B20401C42001318D5 /* QYFrameworktest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FE5FB51E20401C42001318D5 /* QYFrameworktest.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5FB51C20401C42001318D5 /* QYFrameworktest.m */; };
+		FE6D932121B690FF00C21CD3 /* QYZhiJieChaRuSoft.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6D932021B690FF00C21CD3 /* QYZhiJieChaRuSoft.m */; };
 		FE728FA720A53DF200ED967C /* QYElevenTKnowdege.m in Sources */ = {isa = PBXBuildFile; fileRef = FE728FA620A53DF200ED967C /* QYElevenTKnowdege.m */; };
 		FE728FAA20A53E0500ED967C /* QYElevenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE728FA920A53E0500ED967C /* QYElevenViewController.m */; };
 		FE95B2EA20EE0E5D00FF004A /* QYGCDLearn.m in Sources */ = {isa = PBXBuildFile; fileRef = FE95B2E920EE0E5D00FF004A /* QYGCDLearn.m */; };
@@ -237,6 +238,8 @@
 		FEBB382C214123EC008DC012 /* CityData.plist in Resources */ = {isa = PBXBuildFile; fileRef = FEBB3822214123EC008DC012 /* CityData.plist */; };
 		FEBB382D214123EC008DC012 /* GYZCityHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBB3823214123EC008DC012 /* GYZCityHeaderView.m */; };
 		FEBB382E214123EC008DC012 /* GYZCity.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBB3824214123EC008DC012 /* GYZCity.m */; };
+		FEBC716221AEB02300F114AD /* QYMaoPaoSoft.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC716121AEB02300F114AD /* QYMaoPaoSoft.m */; };
+		FEBC716521AEBB5600F114AD /* QYXuanZeSoft.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBC716421AEBB5600F114AD /* QYXuanZeSoft.m */; };
 		FEBD7A63214DF3DE0037A1DF /* QYCenterRefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBD7A62214DF3DE0037A1DF /* QYCenterRefreshController.m */; };
 		FEBD7A68214E041B0037A1DF /* NSString+UPLinkUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBD7A66214E041B0037A1DF /* NSString+UPLinkUrl.m */; };
 		FEBD7A69214E041B0037A1DF /* NSString+UPHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = FEBD7A67214E041B0037A1DF /* NSString+UPHTML.m */; };
@@ -871,6 +874,8 @@
 		FE5FB50E20401BF3001318D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE5FB51B20401C42001318D5 /* QYFrameworktest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYFrameworktest.h; sourceTree = "<group>"; };
 		FE5FB51C20401C42001318D5 /* QYFrameworktest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYFrameworktest.m; sourceTree = "<group>"; };
+		FE6D931F21B690FF00C21CD3 /* QYZhiJieChaRuSoft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYZhiJieChaRuSoft.h; sourceTree = "<group>"; };
+		FE6D932021B690FF00C21CD3 /* QYZhiJieChaRuSoft.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYZhiJieChaRuSoft.m; sourceTree = "<group>"; };
 		FE728FA520A53DF200ED967C /* QYElevenTKnowdege.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYElevenTKnowdege.h; sourceTree = "<group>"; };
 		FE728FA620A53DF200ED967C /* QYElevenTKnowdege.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYElevenTKnowdege.m; sourceTree = "<group>"; };
 		FE728FA820A53E0500ED967C /* QYElevenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYElevenViewController.h; sourceTree = "<group>"; };
@@ -1039,6 +1044,10 @@
 		FEBB3827214123EC008DC012 /* GYZChooseCityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZChooseCityController.h; sourceTree = "<group>"; };
 		FEBB3828214123EC008DC012 /* GYZCityHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZCityHeaderView.h; sourceTree = "<group>"; };
 		FEBB3829214123EC008DC012 /* GYZCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYZCity.h; sourceTree = "<group>"; };
+		FEBC716021AEB02300F114AD /* QYMaoPaoSoft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYMaoPaoSoft.h; sourceTree = "<group>"; };
+		FEBC716121AEB02300F114AD /* QYMaoPaoSoft.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMaoPaoSoft.m; sourceTree = "<group>"; };
+		FEBC716321AEBB5600F114AD /* QYXuanZeSoft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYXuanZeSoft.h; sourceTree = "<group>"; };
+		FEBC716421AEBB5600F114AD /* QYXuanZeSoft.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYXuanZeSoft.m; sourceTree = "<group>"; };
 		FEBD7A61214DF3DE0037A1DF /* QYCenterRefreshController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYCenterRefreshController.h; sourceTree = "<group>"; };
 		FEBD7A62214DF3DE0037A1DF /* QYCenterRefreshController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYCenterRefreshController.m; sourceTree = "<group>"; };
 		FEBD7A64214E041A0037A1DF /* NSString+UPHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UPHTML.h"; sourceTree = "<group>"; };
@@ -3461,6 +3470,12 @@
 				FEC6FD2F21461272003FF973 /* QYSoft.m */,
 				FEC6FD2B21461260003FF973 /* QYBinaryHeapSoft.h */,
 				FEC6FD2C21461260003FF973 /* QYBinaryHeapSoft.m */,
+				FEBC716021AEB02300F114AD /* QYMaoPaoSoft.h */,
+				FEBC716121AEB02300F114AD /* QYMaoPaoSoft.m */,
+				FEBC716321AEBB5600F114AD /* QYXuanZeSoft.h */,
+				FEBC716421AEBB5600F114AD /* QYXuanZeSoft.m */,
+				FE6D931F21B690FF00C21CD3 /* QYZhiJieChaRuSoft.h */,
+				FE6D932021B690FF00C21CD3 /* QYZhiJieChaRuSoft.m */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -4770,6 +4785,7 @@
 				FE99C7D920F604D600CFAE0C /* FSAudioController.m in Sources */,
 				FEBD7A71214E04480037A1DF /* NSString+UPFileCenter.m in Sources */,
 				FE9C7D1D2170594A000450CB /* UPAudioPlayFloaterView.m in Sources */,
+				FEBC716221AEB02300F114AD /* QYMaoPaoSoft.m in Sources */,
 				8B3941E31F46D153002100F6 /* UIView+SMExtension.m in Sources */,
 				8BF672A01F6FF55D00CF312A /* UICollectionViewCell+QYIdentifier.m in Sources */,
 				FE99C7D820F604D600CFAE0C /* input_stream.cpp in Sources */,
@@ -4785,6 +4801,7 @@
 				8B9CD0861F8B1B5F00696D73 /* UIDevice+QYPasscodeStatus.m in Sources */,
 				FEE56D30207B6A670043C2C5 /* QYPreviewImageCell.m in Sources */,
 				FEE56C61207B6A430043C2C5 /* MCameraPhotoModel.m in Sources */,
+				FE6D932121B690FF00C21CD3 /* QYZhiJieChaRuSoft.m in Sources */,
 				8B195B921F60210C005D6321 /* UIImage+SMExtension.m in Sources */,
 				FEE56C7C207B6A430043C2C5 /* YXAnnotationShapeView.m in Sources */,
 				FEE56D34207B6A670043C2C5 /* WKWebView+MClearCache.m in Sources */,
@@ -4800,6 +4817,7 @@
 				FEE56C82207B6A430043C2C5 /* MFPSMonitor.m in Sources */,
 				8B682CA11F68E40900C4900D /* UIFont+QYTTF.m in Sources */,
 				8B195CB61F62AC7C005D6321 /* UIView+QYVisuals.m in Sources */,
+				FEBC716521AEBB5600F114AD /* QYXuanZeSoft.m in Sources */,
 				FEE56D33207B6A670043C2C5 /* MCAlertView.m in Sources */,
 				FEC6FCDF2146118C003FF973 /* vp8.c in Sources */,
 				8B846DF61F8E00A2007C0731 /* UIImage+QYAlpha.m in Sources */,
