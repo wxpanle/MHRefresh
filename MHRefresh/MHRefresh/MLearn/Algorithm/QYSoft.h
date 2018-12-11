@@ -10,6 +10,8 @@
 
 @interface QYSoft : NSObject
 
++ (instancetype)new NS_UNAVAILABLE;
+
 - (void)start;
 
 - (NSArray *)qy_softArray;

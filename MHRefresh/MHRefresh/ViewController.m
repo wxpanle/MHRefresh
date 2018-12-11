@@ -138,10 +138,13 @@ typedef void (^blk_t)(id obj);
     
 //    [self sqrt:10];
     
+//    [[[QYBinaryHeapSoft alloc] init] start];
 //    [[[QYMaoPaoSoft alloc] init] start];
 //    [[[QYXuanZeSoft alloc] init] start];
-    [[[QYZhiJieChaRuSoft alloc] init] start];
+//    [[[QYZhiJieChaRuSoft alloc] init] start];
+    [[[QYGuiBingSoft alloc] init] start];
 //    DLog(@"%ld", NSIntegerMin);
+    
 //
 //    NSString *string = @"中国";
 //    NSString *string1 = @"ABCD";

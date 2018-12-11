@@ -15,6 +15,8 @@
 #import "QYMaoPaoSoft.h"
 #import "QYXuanZeSoft.h"
 #import "QYZhiJieChaRuSoft.h"
+#import "QYGuiBingSoft.h"
+
 #endif
 
 

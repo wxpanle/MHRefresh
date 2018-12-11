@@ -117,6 +117,7 @@
 		FE14E8C620A2839C0022486E /* QYTenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE14E8C520A2839C0022486E /* QYTenViewController.m */; };
 		FE14E8D920A3D9F10022486E /* QYLogSorting.m in Sources */ = {isa = PBXBuildFile; fileRef = FE14E8D820A3D9F10022486E /* QYLogSorting.m */; };
 		FE14E8DC20A3E12A0022486E /* QYMinimumCycleSection.m in Sources */ = {isa = PBXBuildFile; fileRef = FE14E8DB20A3E12A0022486E /* QYMinimumCycleSection.m */; };
+		FE195C7621B944F7006CE88A /* QYGuiBingSoft.m in Sources */ = {isa = PBXBuildFile; fileRef = FE195C7521B944F6006CE88A /* QYGuiBingSoft.m */; };
 		FE28E3AE2106CDE700498090 /* QYNightModeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE28E3AD2106CDE700498090 /* QYNightModeManager.m */; };
 		FE28E3B72106DB7600498090 /* NSObject+QYNightMode.m in Sources */ = {isa = PBXBuildFile; fileRef = FE28E3B62106DB7600498090 /* NSObject+QYNightMode.m */; };
 		FE28E3BA2107152E00498090 /* UIView+QYNightMode.m in Sources */ = {isa = PBXBuildFile; fileRef = FE28E3B92107152E00498090 /* UIView+QYNightMode.m */; };
@@ -805,6 +806,8 @@
 		FE14E8D820A3D9F10022486E /* QYLogSorting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYLogSorting.m; sourceTree = "<group>"; };
 		FE14E8DA20A3E12A0022486E /* QYMinimumCycleSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYMinimumCycleSection.h; sourceTree = "<group>"; };
 		FE14E8DB20A3E12A0022486E /* QYMinimumCycleSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMinimumCycleSection.m; sourceTree = "<group>"; };
+		FE195C7421B944F6006CE88A /* QYGuiBingSoft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYGuiBingSoft.h; sourceTree = "<group>"; };
+		FE195C7521B944F6006CE88A /* QYGuiBingSoft.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYGuiBingSoft.m; sourceTree = "<group>"; };
 		FE28E3AC2106CDE700498090 /* QYNightModeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYNightModeManager.h; sourceTree = "<group>"; };
 		FE28E3AD2106CDE700498090 /* QYNightModeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYNightModeManager.m; sourceTree = "<group>"; };
 		FE28E3B52106DB7600498090 /* NSObject+QYNightMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+QYNightMode.h"; sourceTree = "<group>"; };
@@ -3476,6 +3479,8 @@
 				FEBC716421AEBB5600F114AD /* QYXuanZeSoft.m */,
 				FE6D931F21B690FF00C21CD3 /* QYZhiJieChaRuSoft.h */,
 				FE6D932021B690FF00C21CD3 /* QYZhiJieChaRuSoft.m */,
+				FE195C7421B944F6006CE88A /* QYGuiBingSoft.h */,
+				FE195C7521B944F6006CE88A /* QYGuiBingSoft.m */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -3559,9 +3564,9 @@
 			isa = PBXGroup;
 			children = (
 				FEE56BA8207B6A430043C2C5 /* MCameraPhotoModel.h */,
-				FEE56BA9207B6A430043C2C5 /* MDeviceOrientationModel.m */,
 				FEE56BAA207B6A430043C2C5 /* MCameraPhotoModel.m */,
 				FEE56BAB207B6A430043C2C5 /* MDeviceOrientationModel.h */,
+				FEE56BA9207B6A430043C2C5 /* MDeviceOrientationModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -3578,8 +3583,8 @@
 		FEE56BAF207B6A430043C2C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FEE56BB0207B6A430043C2C5 /* MCameraView.m */,
 				FEE56BB1207B6A430043C2C5 /* MCameraView.h */,
+				FEE56BB0207B6A430043C2C5 /* MCameraView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -3686,22 +3691,22 @@
 		FEE56BE2207B6A430043C2C5 /* YXImageEdit */ = {
 			isa = PBXGroup;
 			children = (
-				FEE56BE3207B6A430043C2C5 /* YXAnnotationView.h */,
-				FEE56BE4207B6A430043C2C5 /* YXMedia.xcassets */,
-				FEE56BE5207B6A430043C2C5 /* YXAnnotationViewController.m */,
-				FEE56BE6207B6A430043C2C5 /* YXCollectionViewCell.h */,
-				FEE56BE7207B6A430043C2C5 /* YXAnnotationShapeViewAction.h */,
-				FEE56BE8207B6A430043C2C5 /* YXAnnotationTabbarView.h */,
-				FEE56BE9207B6A430043C2C5 /* YXButton.h */,
-				FEE56BEA207B6A430043C2C5 /* YXAnnotationShapeView.h */,
 				FEE56BEB207B6A430043C2C5 /* YXAnnotationConfig.h */,
+				FEE56BEA207B6A430043C2C5 /* YXAnnotationShapeView.h */,
+				FEE56BF0207B6A430043C2C5 /* YXAnnotationShapeView.m */,
+				FEE56BE7207B6A430043C2C5 /* YXAnnotationShapeViewAction.h */,
+				FEE56BEE207B6A430043C2C5 /* YXAnnotationShapeViewAction.m */,
+				FEE56BE8207B6A430043C2C5 /* YXAnnotationTabbarView.h */,
+				FEE56BF2207B6A430043C2C5 /* YXAnnotationTabbarView.m */,
+				FEE56BE3207B6A430043C2C5 /* YXAnnotationView.h */,
 				FEE56BEC207B6A430043C2C5 /* YXAnnotationView.m */,
 				FEE56BED207B6A430043C2C5 /* YXAnnotationViewController.h */,
-				FEE56BEE207B6A430043C2C5 /* YXAnnotationShapeViewAction.m */,
-				FEE56BEF207B6A430043C2C5 /* YXCollectionViewCell.m */,
-				FEE56BF0207B6A430043C2C5 /* YXAnnotationShapeView.m */,
+				FEE56BE5207B6A430043C2C5 /* YXAnnotationViewController.m */,
+				FEE56BE9207B6A430043C2C5 /* YXButton.h */,
 				FEE56BF1207B6A430043C2C5 /* YXButton.m */,
-				FEE56BF2207B6A430043C2C5 /* YXAnnotationTabbarView.m */,
+				FEE56BE6207B6A430043C2C5 /* YXCollectionViewCell.h */,
+				FEE56BEF207B6A430043C2C5 /* YXCollectionViewCell.m */,
+				FEE56BE4207B6A430043C2C5 /* YXMedia.xcassets */,
 			);
 			path = YXImageEdit;
 			sourceTree = "<group>";
@@ -3720,14 +3725,14 @@
 		FEE56BF4207B6A430043C2C5 /* 流畅值监控 */ = {
 			isa = PBXGroup;
 			children = (
-				FEE56BF5207B6A430043C2C5 /* MFPSMonitorWindow.h */,
-				FEE56BF6207B6A430043C2C5 /* MFPSMonitorLabel.h */,
 				FEE56BF7207B6A430043C2C5 /* File */,
 				FEE56BF8207B6A430043C2C5 /* MFPSMonitor.h */,
-				FEE56BF9207B6A430043C2C5 /* MMonitor.h */,
-				FEE56BFA207B6A430043C2C5 /* MFPSMonitorLabel.m */,
-				FEE56BFB207B6A430043C2C5 /* MFPSMonitorWindow.m */,
 				FEE56BFC207B6A430043C2C5 /* MFPSMonitor.m */,
+				FEE56BF6207B6A430043C2C5 /* MFPSMonitorLabel.h */,
+				FEE56BFA207B6A430043C2C5 /* MFPSMonitorLabel.m */,
+				FEE56BF5207B6A430043C2C5 /* MFPSMonitorWindow.h */,
+				FEE56BFB207B6A430043C2C5 /* MFPSMonitorWindow.m */,
+				FEE56BF9207B6A430043C2C5 /* MMonitor.h */,
 			);
 			path = "流畅值监控";
 			sourceTree = "<group>";
@@ -3735,9 +3740,9 @@
 		FEE56BFD207B6A430043C2C5 /* 卡顿监测 */ = {
 			isa = PBXGroup;
 			children = (
-				FEE56BFE207B6A430043C2C5 /* MLagMonitor.m */,
 				FEE56BFF207B6A430043C2C5 /* CrashReporter.framework */,
 				FEE56C00207B6A430043C2C5 /* MLagMonitor.h */,
+				FEE56BFE207B6A430043C2C5 /* MLagMonitor.m */,
 			);
 			path = "卡顿监测";
 			sourceTree = "<group>";
@@ -3745,16 +3750,16 @@
 		FEE56C01207B6A430043C2C5 /* 内存监测 */ = {
 			isa = PBXGroup;
 			children = (
-				FEE56C02207B6A430043C2C5 /* UINavigationController+MTracking.h */,
-				FEE56C03207B6A430043C2C5 /* UIViewController+Tracking.h */,
-				FEE56C04207B6A430043C2C5 /* UITabBarController+MTracking.m */,
-				FEE56C05207B6A430043C2C5 /* UIView+MTracking.m */,
 				FEE56C06207B6A430043C2C5 /* NSObject+MLeaksFinder.h */,
-				FEE56C07207B6A430043C2C5 /* UINavigationController+MTracking.m */,
-				FEE56C08207B6A430043C2C5 /* UIViewController+Tracking.m */,
-				FEE56C09207B6A430043C2C5 /* UITabBarController+MTracking.h */,
 				FEE56C0A207B6A430043C2C5 /* NSObject+MLeaksFinder.m */,
+				FEE56C02207B6A430043C2C5 /* UINavigationController+MTracking.h */,
+				FEE56C07207B6A430043C2C5 /* UINavigationController+MTracking.m */,
+				FEE56C09207B6A430043C2C5 /* UITabBarController+MTracking.h */,
+				FEE56C04207B6A430043C2C5 /* UITabBarController+MTracking.m */,
 				FEE56C0B207B6A430043C2C5 /* UIView+MTracking.h */,
+				FEE56C05207B6A430043C2C5 /* UIView+MTracking.m */,
+				FEE56C03207B6A430043C2C5 /* UIViewController+Tracking.h */,
+				FEE56C08207B6A430043C2C5 /* UIViewController+Tracking.m */,
 			);
 			path = "内存监测";
 			sourceTree = "<group>";
@@ -3771,8 +3776,8 @@
 		FEE56C0F207B6A430043C2C5 /* MKeychainServices */ = {
 			isa = PBXGroup;
 			children = (
-				FEE56C10207B6A430043C2C5 /* QYKeychainViewController.m */,
 				FEE56C11207B6A430043C2C5 /* QYKeychainViewController.h */,
+				FEE56C10207B6A430043C2C5 /* QYKeychainViewController.m */,
 			);
 			path = MKeychainServices;
 			sourceTree = "<group>";
@@ -4685,6 +4690,7 @@
 				FEC6FCCA2146118C003FF973 /* picture.c in Sources */,
 				FEC6FD122146118C003FF973 /* lossless_enc_mips32.c in Sources */,
 				FE14E88420A141630022486E /* QYSevenTKnowledge.m in Sources */,
+				FE195C7621B944F7006CE88A /* QYGuiBingSoft.m in Sources */,
 				FE99C7AA20F6031C00CFAE0C /* AudioStreamer.m in Sources */,
 				FEC6FD242146118C003FF973 /* UIImageView+WebCache.m in Sources */,
 				8BF672A31F6FF70200CF312A /* NSTimer+QYAddition.m in Sources */,
