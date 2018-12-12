@@ -134,6 +134,7 @@
 		FE2B75A02099545B009618CA /* QYSixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2B759F2099545B009618CA /* QYSixViewController.m */; };
 		FE4F61532015848300A70CB7 /* QYMultiSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4F61522015848300A70CB7 /* QYMultiSelectViewController.m */; };
 		FE4F61562015882700A70CB7 /* QYMultiSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4F61552015882700A70CB7 /* QYMultiSelectTableViewCell.m */; };
+		FE4FEA9221C12B1C00128C51 /* QYKuaisupaixu.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA9121C12B1C00128C51 /* QYKuaisupaixu.m */; };
 		FE52CAF0208978C300C71AD9 /* QYFiveTKnowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = FE52CAEF208978C300C71AD9 /* QYFiveTKnowledge.m */; };
 		FE5670492080445200801A69 /* UPKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5670472080445100801A69 /* UPKeyboardManager.m */; };
 		FE5A90D3211BECFC0031F12D /* UPBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5A90D2211BECFC0031F12D /* UPBaseTableView.m */; };
@@ -844,6 +845,8 @@
 		FE4F61522015848300A70CB7 /* QYMultiSelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMultiSelectViewController.m; sourceTree = "<group>"; };
 		FE4F61542015882700A70CB7 /* QYMultiSelectTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYMultiSelectTableViewCell.h; sourceTree = "<group>"; };
 		FE4F61552015882700A70CB7 /* QYMultiSelectTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMultiSelectTableViewCell.m; sourceTree = "<group>"; };
+		FE4FEA9021C12B1C00128C51 /* QYKuaisupaixu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYKuaisupaixu.h; sourceTree = "<group>"; };
+		FE4FEA9121C12B1C00128C51 /* QYKuaisupaixu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYKuaisupaixu.m; sourceTree = "<group>"; };
 		FE52CAEE208978C300C71AD9 /* QYFiveTKnowledge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYFiveTKnowledge.h; sourceTree = "<group>"; };
 		FE52CAEF208978C300C71AD9 /* QYFiveTKnowledge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYFiveTKnowledge.m; sourceTree = "<group>"; };
 		FE5670472080445100801A69 /* UPKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPKeyboardManager.m; sourceTree = "<group>"; };
@@ -3481,6 +3484,8 @@
 				FE6D932021B690FF00C21CD3 /* QYZhiJieChaRuSoft.m */,
 				FE195C7421B944F6006CE88A /* QYGuiBingSoft.h */,
 				FE195C7521B944F6006CE88A /* QYGuiBingSoft.m */,
+				FE4FEA9021C12B1C00128C51 /* QYKuaisupaixu.h */,
+				FE4FEA9121C12B1C00128C51 /* QYKuaisupaixu.m */,
 			);
 			path = Algorithm;
 			sourceTree = "<group>";
@@ -4618,6 +4623,7 @@
 				FEA24FB32088207100945DBF /* QYThreeViewController.m in Sources */,
 				FECD95F620B279D100C8D92C /* QYTwenvenViewController.m in Sources */,
 				FE99C81520F6053300CFAE0C /* DOUAudioStreamer.m in Sources */,
+				FE4FEA9221C12B1C00128C51 /* QYKuaisupaixu.m in Sources */,
 				FE12131020C628B400FC9BBD /* QYTFiveteenKnowedge.m in Sources */,
 				8BF672A91F70AD5900CF312A /* NSString+QYEmoji.m in Sources */,
 				8B846E141F8E3A87007C0731 /* UIImage+QYBetterFace.m in Sources */,

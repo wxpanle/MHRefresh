@@ -142,7 +142,8 @@ typedef void (^blk_t)(id obj);
 //    [[[QYMaoPaoSoft alloc] init] start];
 //    [[[QYXuanZeSoft alloc] init] start];
 //    [[[QYZhiJieChaRuSoft alloc] init] start];
-    [[[QYGuiBingSoft alloc] init] start];
+//    [[[QYGuiBingSoft alloc] init] start];
+    [[[QYKuaisupaixu alloc] init] start];
 //    DLog(@"%ld", NSIntegerMin);
     
 //

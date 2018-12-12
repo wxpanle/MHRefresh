@@ -16,6 +16,7 @@
 #import "QYXuanZeSoft.h"
 #import "QYZhiJieChaRuSoft.h"
 #import "QYGuiBingSoft.h"
+#import "QYKuaisupaixu.h"
 
 #endif
 
