@@ -36,8 +36,12 @@ const unsigned int kAQMaxPacketDescs = 512;
     UInt32 _packetsFilled;
     UInt32 _bytesFilled;
     
+    UInt32 _fillIndex;
+    
+    bool _inUse[kNumAQBufs];
+    
     NSMutableArray <PLAudioQueueBuffer *>*_buffers;
-    NSMutableArray <PLAudioQueueBuffer *>*_inUseBuffers;
+//    NSMutableArray <PLAudioQueueBuffer *>*_inUseBuffers;
     
 //    NSMutableArray <PLAudioStreamPacketDescription *>*_packetDescs;
     
@@ -78,7 +82,7 @@ const unsigned int kAQMaxPacketDescs = 512;
         
         _buffers = [[NSMutableArray alloc] initWithCapacity:kNumAQBufs];
 //        _packetDescs = [[NSMutableArray alloc] initWithCapacity:kNumAQBufs];
-        _inUseBuffers = [[NSMutableArray alloc] initWithCapacity:kNumAQBufs];
+//        _inUseBuffers = [[NSMutableArray alloc] initWithCapacity:kNumAQBufs];
         
         [self p_createQueueWithMagicCookie:macgicCookie];
         [self p_mutexInit];
@@ -99,39 +103,30 @@ const unsigned int kAQMaxPacketDescs = 512;
         return NO;
     }
     
-    if (_inUseBuffers.count == 0) {
-        if (!_started && ![self start]) {
-            return NO;
-        }
-        [self p_mutexWait];
+    pthread_mutex_lock(&_mutex);
+    while (_inUse[_fillIndex]) {
+        pthread_cond_wait(&_cond, &_mutex);
     }
+    pthread_mutex_unlock(&_mutex);
     
-    PLAudioQueueBuffer *model = [_inUseBuffers firstObject];
-    [_inUseBuffers removeObject:model];
-    
-    if (!model) {
-        AudioQueueBufferRef queueBuffer;
-        OSStatus status = AudioQueueAllocateBuffer(_audioQueue, _bufferSize, &queueBuffer);
-        
-        if (status != noErr) {
-            return NO;
-        }
-        
-        model = [[PLAudioQueueBuffer alloc] init];
-        model.queueBuffer = queueBuffer;
-    }
+    _inUse[_fillIndex] = true;
+    PLAudioQueueBuffer *model = [_buffers up_objectWithIndex:_fillIndex];
     
     memcpy(model.queueBuffer->mAudioData, [data bytes], [data length]);
     model.queueBuffer->mAudioDataByteSize = (UInt32)[data length];
     
-    _buffersUsed++;
+    if (++_fillIndex >= kNumAQBufs) {
+        _fillIndex = 0;
+    }
+    
+    NSAssert(model.queueBuffer != nil, @"播放过程中播放队列不存在");
+    
     OSStatus status = AudioQueueEnqueueBuffer(_audioQueue, model.queueBuffer, numberPackets, inPacketDescriptions);
     if (status != noErr) {
         return NO;
     }
     
     BOOL start = [self start];
-    
     _status = PLAudioQueueStatusPlaying;
     self.playRate = _playRate;
     
@@ -250,7 +245,7 @@ const unsigned int kAQMaxPacketDescs = 512;
         PLAudioQueueBuffer *queueBuffer = [[PLAudioQueueBuffer alloc] init];
         queueBuffer.queueBuffer = buffer;
         [_buffers addObject:queueBuffer];
-        [_inUseBuffers addObject:queueBuffer];
+        _inUse[i] = false;
     }
     
 #if TARGET_OS_IPHONE
@@ -475,20 +470,18 @@ static void AudioQueueOutputCallBack(void *inclientData, AudioQueueRef inAQ, Aud
     for (unsigned int i = 0; i < kNumAQBufs; i++) {
         if (inBuffer == _buffers[i].queueBuffer) {
             bufferIndex = i;
-            [_inUseBuffers addObject:_buffers[i]];
             break;
         }
     }
     
     if (bufferIndex == -1) {
-        DLog(@"%@ buffer mismatch", NSStringFromClass([self class]));
-        [self p_mutexSignal];
+        NSAssert(false, @"释放数据发生错误");
         return;
     }
     
     pthread_mutex_lock(&_mutex);
     _buffersUsed--;
-    
+    _inUse[_fillIndex] = false;
     pthread_cond_signal(&_cond);
     
     if (_buffersUsed == 0 && _delegate) {

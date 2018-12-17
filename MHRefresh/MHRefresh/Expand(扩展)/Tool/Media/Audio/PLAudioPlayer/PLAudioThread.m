@@ -308,7 +308,6 @@
     _seekTime = 0;
     
     _pauseRequired = NO;
-//    _stopRequired = NO;
     _seekRequired = NO;
     _playRateRequired = NO;
     _volumeRequired = NO;
@@ -321,7 +320,7 @@
     self.audioStatus = PLATStatusStopped;
 }
 
-#pragma mark - ======== mutex ========
+#pragma mark - mutex
 
 - (void)p_mutexInit {
     pthread_mutex_init(&_mutex, NULL);
@@ -346,7 +345,7 @@
     pthread_mutex_unlock(&_mutex);
 }
 
-#pragma mark - ======== PLAudioSessionDelegate ========
+#pragma mark - PLAudioSessionDelegate
 
 - (void)audioRouteChangeDetectorDidDetectAudioSessionPropertyChangeWithReason:(AVAudioSessionRouteChangeReason)reason notification:(NSNotification *)notification {
     
@@ -397,7 +396,7 @@
     }
 }
 
-#pragma mark - ======== PLAudioStreamDataDelegate ========
+#pragma mark - PLAudioStreamDataDelegate
 
 - (void)pl_audioFileStream:(PLAudioStream *)audioStream audioDataArray:(NSArray <PLParsedAudioDataModel *>*)audioDataArray {
     if (!_audioBuffer) {
@@ -412,7 +411,7 @@
     DLog(@"PLAudioFileStreamReadyToProducePackets");
 }
 
-#pragma mark - ======== setter ========
+#pragma mark - setter
 
 - (void)setAudioStatus:(PLAudioThreadStatus)audioStatus {
     
@@ -425,7 +424,7 @@
     [self didChangeValueForKey:@"status"];
 }
 
-#pragma mark - ======== public ========
+#pragma mark - public
 
 - (PLAudioThreadStatus)status {
     return _audioStatus;

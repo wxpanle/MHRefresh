@@ -24,8 +24,6 @@ typedef NS_ENUM(NSInteger, PLAudioThreadStatus) {
     PLATStatusFileError, //文件不存在  或下载失败
 };
 
-
-
 @interface PLAudioThread : NSObject
 
 - (instancetype)initWithAudioFileSource:(nonnull id <PLAudioFileSource>)audioFileSource;
