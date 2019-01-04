@@ -68,6 +68,8 @@ FOUNDATION_EXPORT NSString * AFQueryStringFromParameters(NSDictionary *parameter
 /**
  The `AFURLRequestSerialization` protocol is adopted by an object that encodes parameters for a specified HTTP requests. Request serializers may encode parameters as query strings, HTTP bodies, setting the appropriate HTTP header fields as necessary.
 
+ 协议
+ 
  For example, a JSON request serializer may set the HTTP body of the request to a JSON representation, and set the `Content-Type` HTTP header field value to `application/json`.
  */
 @protocol AFURLRequestSerialization <NSObject, NSSecureCoding, NSCopying>
@@ -151,7 +153,7 @@ typedef NS_ENUM(NSUInteger, AFHTTPRequestQueryStringSerializationStyle) {
 
 /**
  Whether created requests can continue transmitting data before receiving a response from an earlier transmission. `NO` by default
- 是否可以在上个数据传输的请求完成后继续胡参数数据
+ 创建的请求是否接受一个来自之前的传输数据
  @see NSMutableURLRequest -setHTTPShouldUsePipelining:
  */
 @property (nonatomic, assign) BOOL HTTPShouldUsePipelining;
@@ -197,8 +199,7 @@ typedef NS_ENUM(NSUInteger, AFHTTPRequestQueryStringSerializationStyle) {
  @param field The HTTP header to set a default value for
  @param value The value set as default for the specified header, or `nil`
  */
-- (void)setValue:(nullable NSString *)value
-forHTTPHeaderField:(NSString *)field;
+- (void)setValue:(nullable NSString *)value forHTTPHeaderField:(NSString *)field;
 
 /**
  Returns the value for the HTTP headers set in the request serializer.
@@ -220,7 +221,7 @@ forHTTPHeaderField:(NSString *)field;
 
 /**
  Clears any existing value for the "Authorization" HTTP header.
- 清除客户端认证
+ 清除客户端认证 客户端的账号和密码
  */
 - (void)clearAuthorizationHeader;
 
@@ -325,7 +326,7 @@ forHTTPHeaderField:(NSString *)field;
 
  The filename and MIME type for this data in the form will be automatically generated, using the last path component of the `fileURL` and system associated MIME type for the `fileURL` extension, respectively.
 
- @param fileURL The URL corresponding to the file whose content will be appended to the form. This parameter must not be `nil`.
+ @param fileURL The URL corresponding(相应) to the file whose content will be appended to the form. This parameter must not be `nil`.
  @param name The name to be associated with the specified data. This parameter must not be `nil`.
  @param error If an error occurs, upon return contains an `NSError` object that describes the problem.
 
@@ -421,7 +422,7 @@ forHTTPHeaderField:(NSString *)field;
 @interface AFJSONRequestSerializer : AFHTTPRequestSerializer
 
 /**
- Options for writing the request JSON data from Foundation objects. For possible values, see the `NSJSONSerialization` documentation section "NSJSONWritingOptions". `0` by default.
+ Options(选项) for writing the request JSON data from Foundation objects. For possible values, see the `NSJSONSerialization` documentation(文件) section "NSJSONWritingOptions". `0` by default.
  */
 @property (nonatomic, assign) NSJSONWritingOptions writingOptions;
 
@@ -438,6 +439,7 @@ forHTTPHeaderField:(NSString *)field;
 
 /**
  `AFPropertyListRequestSerializer` is a subclass of `AFHTTPRequestSerializer` that encodes parameters as JSON using `NSPropertyListSerializer`, setting the `Content-Type` of the encoded request to `application/x-plist`.
+ 解析plist文件
  */
 @interface AFPropertyListRequestSerializer : AFHTTPRequestSerializer
 
@@ -473,7 +475,7 @@ forHTTPHeaderField:(NSString *)field;
 /**
  ## Error Domains  请求序列化域名错误
 
- The following error domain is predefined.
+ The following error domain(域) is predefined(预定义).
 
  - `NSString * const AFURLRequestSerializationErrorDomain`
 
@@ -499,7 +501,7 @@ FOUNDATION_EXPORT NSString * const AFURLRequestSerializationErrorDomain;
 FOUNDATION_EXPORT NSString * const AFNetworkingOperationFailingURLRequestErrorKey;
 
 /**
- ## Throttling Bandwidth for HTTP Request Input Streams
+ ## Throttling(节流) Bandwidth(宽带) for HTTP Request Input Streams
 
  @see -throttleBandwidthWithPacketSize:delay:
 

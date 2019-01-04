@@ -27,20 +27,22 @@
 #import <CoreServices/CoreServices.h>
 #endif
 
+//请求的域发生错误
 NSString * const AFURLRequestSerializationErrorDomain = @"com.alamofire.error.serialization.request";
+//请求的操作错误
 NSString * const AFNetworkingOperationFailingURLRequestErrorKey = @"com.alamofire.serialization.request.error.response";
 
 typedef NSString * (^AFQueryStringSerializationBlock)(NSURLRequest *request, id parameters, NSError *__autoreleasing *error);
 
 /**
- Returns a percent-escaped string following RFC 3986 for a query string key or value.
+ Returns a percent-escaped(百分号) string following RFC 3986 for a query string key or value.
  RFC 3986 states that the following characters are "reserved" characters.
     - General Delimiters: ":", "#", "[", "]", "@", "?", "/"
     - Sub-Delimiters: "!", "$", "&", "'", "(", ")", "*", "+", ",", ";", "="
  
  返回一个字符串的百分号编码格式的字符串。因为url只有普通英文字符和数字，特殊字符$-_.+!*’()还有保留字符。所以很多字符都需要编码,非ASCII编码的字符串先转换为ASCII编码，然后再转换为百分号编码。
 
- In RFC 3986 - Section 3.4, it states that the "?" and "/" characters should not be escaped to allow
+ In RFC 3986 - Section 3.4, it states(声明) that the "?" and "/" characters should not be escaped to allow
  query strings to include a URL. Therefore, all "reserved" characters with the exception of "?" and "/"
  should be percent-escaped in the query string.
     - parameter string: The string to be percent-escaped.
@@ -51,6 +53,8 @@ NSString * AFPercentEscapedStringFromString(NSString *string) {
     static NSString * const kAFCharactersGeneralDelimitersToEncode = @":#[]@"; // does not include "?" or "/" due to RFC 3986 - Section 3.4
     static NSString * const kAFCharactersSubDelimitersToEncode = @"!$&'()*+,;=";
 
+    //？/是允许存在于url中的
+    
     //不需要做编码处理的字符串
     NSMutableCharacterSet * allowedCharacterSet = [[NSCharacterSet URLQueryAllowedCharacterSet] mutableCopy];
     //获取目前系统中最终需要做百分号编码转换的字符集合
@@ -59,9 +63,11 @@ NSString * AFPercentEscapedStringFromString(NSString *string) {
 	// FIXME: https://github.com/AFNetworking/AFNetworking/pull/3028
     // return [string stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacterSet];
 
+    //每次处理的字符串个数
     static NSUInteger const batchSize = 50;
 
     NSUInteger index = 0;
+    //最终返回的结果字符串
     NSMutableString *escaped = @"".mutableCopy;
 
     while (index < string.length) {
@@ -72,11 +78,12 @@ NSString * AFPercentEscapedStringFromString(NSString *string) {
         NSRange range = NSMakeRange(index, length);
 
         // To avoid breaking up character sequences such as 👴🏻👮🏽
-        //移除字符串中的一些非法字符
+        //返回字符串的正确子序列范围
         range = [string rangeOfComposedCharacterSequencesForRange:range];
 
         //指定范围内的字符做百分号编码
         NSString *substring = [string substringWithRange:range];
+        //返回一个新的字符串  不在allowedCharacterSet范围里的都会被进行转义
         NSString *encoded = [substring stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacterSet];
         [escaped appendString:encoded];
 
@@ -115,6 +122,7 @@ NSString * AFPercentEscapedStringFromString(NSString *string) {
     if (!self.value || [self.value isEqual:[NSNull null]]) {
         return AFPercentEscapedStringFromString([self.field description]);
     } else {
+        //key==value
         return [NSString stringWithFormat:@"%@=%@", AFPercentEscapedStringFromString([self.field description]), AFPercentEscapedStringFromString([self.value description])];
     }
 }
@@ -127,10 +135,10 @@ FOUNDATION_EXPORT NSArray * AFQueryStringPairsFromDictionary(NSDictionary *dicti
 FOUNDATION_EXPORT NSArray * AFQueryStringPairsFromKeyAndValue(NSString *key, id value);
 
 /**
- 把一个字典转化为百分号编码的query参数
+ 把一个字典转化为百分号编码的query参数 用& 将参数拼接起来
 
  @param parameters parameters
- @return <#return value description#>
+ @return return value description
  */
 NSString * AFQueryStringFromParameters(NSDictionary *parameters) {
     NSMutableArray *mutablePairs = [NSMutableArray array];
@@ -204,7 +212,12 @@ static NSArray * AFHTTPRequestSerializerObservedKeyPaths() {
     static NSArray *_AFHTTPRequestSerializerObservedKeyPaths = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _AFHTTPRequestSerializerObservedKeyPaths = @[NSStringFromSelector(@selector(allowsCellularAccess)), NSStringFromSelector(@selector(cachePolicy)), NSStringFromSelector(@selector(HTTPShouldHandleCookies)), NSStringFromSelector(@selector(HTTPShouldUsePipelining)), NSStringFromSelector(@selector(networkServiceType)), NSStringFromSelector(@selector(timeoutInterval))];
+        _AFHTTPRequestSerializerObservedKeyPaths = @[NSStringFromSelector(@selector(allowsCellularAccess)),
+                                                     NSStringFromSelector(@selector(cachePolicy)),
+                                                     NSStringFromSelector(@selector(HTTPShouldHandleCookies)),
+                                                     NSStringFromSelector(@selector(HTTPShouldUsePipelining)),
+                                                     NSStringFromSelector(@selector(networkServiceType)),
+                                                     NSStringFromSelector(@selector(timeoutInterval))];
     });
 
     return _AFHTTPRequestSerializerObservedKeyPaths;
@@ -244,7 +257,7 @@ static void *AFHTTPRequestSerializerObserverContext = &AFHTTPRequestSerializerOb
 
     // Accept-Language HTTP Header; see http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4
     NSMutableArray *acceptLanguagesComponents = [NSMutableArray array];
-    //q代表优先级
+    //q代表优先级  设置接收语言的优先级
     [[NSLocale preferredLanguages] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         float q = 1.0f - (idx * 0.1f);
         [acceptLanguagesComponents addObject:[NSString stringWithFormat:@"%@;q=%0.1g", obj, q]];
@@ -282,7 +295,7 @@ static void *AFHTTPRequestSerializerObserverContext = &AFHTTPRequestSerializerOb
 
     //添加对监测属性的观察  蜂窝数据  缓存策略  cookie  安全策略  网络状态  超时
     self.mutableObservedChangedKeyPaths = [NSMutableSet set];
-    for (NSString *keyPath in AFHTTPRequestSerializerObservedKeyPaths()) {
+    for (NSString *keyPath in AFHTTPRequestSerializerObservedKeyPaths()) {  //添加可以监测的属性
         if ([self respondsToSelector:NSSelectorFromString(keyPath)]) {
             [self addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:AFHTTPRequestSerializerObserverContext];
         }
@@ -349,6 +362,7 @@ static void *AFHTTPRequestSerializerObserverContext = &AFHTTPRequestSerializerOb
  @return return value description
  */
 - (NSDictionary *)HTTPRequestHeaders {
+    //不要直接返回字节
     return [NSDictionary dictionaryWithDictionary:self.mutableHTTPRequestHeaders];
 }
 
@@ -381,8 +395,8 @@ forHTTPHeaderField:(NSString *)field
  @param password password description
  */
 - (void)setAuthorizationHeaderFieldWithUsername:(NSString *)username
-                                       password:(NSString *)password
-{
+                                       password:(NSString *)password {
+    //设置用户的关联验证
     NSData *basicAuthCredentials = [[NSString stringWithFormat:@"%@:%@", username, password] dataUsingEncoding:NSUTF8StringEncoding];
     NSString *base64AuthCredentials = [basicAuthCredentials base64EncodedStringWithOptions:(NSDataBase64EncodingOptions)0];
     [self setValue:[NSString stringWithFormat:@"Basic %@", base64AuthCredentials] forHTTPHeaderField:@"Authorization"];
@@ -606,7 +620,7 @@ forHTTPHeaderField:(NSString *)field
         }
     }
 
-    
+    //判断参数是拼接到末尾 还是添加到请求体中 GET DELETE HEAD
     if ([self.HTTPMethodsEncodingParametersInURI containsObject:[[request HTTPMethod] uppercaseString]]) {
         if (query && query.length > 0) { //处理 拼接到请求末尾
             mutableRequest.URL = [NSURL URLWithString:[[mutableRequest.URL absoluteString] stringByAppendingFormat:mutableRequest.URL.query ? @"&%@" : @"?%@", query]];
@@ -707,6 +721,7 @@ forHTTPHeaderField:(NSString *)field
  @return return value description
  */
 static NSString * AFCreateMultipartFormBoundary() {
+    //%X 读入16进制整数
     return [NSString stringWithFormat:@"Boundary+%08X%08X", arc4random(), arc4random()];
 }
 
@@ -775,7 +790,7 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
  
  */
 
-@interface AFHTTPBodyPart : NSObject
+@interface AFHTTPBodyPart : NSObject   //拼接方式
 //编码方式
 @property (nonatomic, assign) NSStringEncoding stringEncoding;
 //头
@@ -810,7 +825,7 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
         maxLength:(NSUInteger)length;
 @end
 
-@interface AFMultipartBodyStream : NSInputStream <NSStreamDelegate>
+@interface AFMultipartBodyStream : NSInputStream <NSStreamDelegate> //传送body的数据流管道
 //读取的包的大小
 @property (nonatomic, assign) NSUInteger numberOfBytesInPacket;
 //延时
@@ -829,7 +844,7 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
 
 #pragma mark -
 
-@interface AFStreamingMultipartFormData ()
+@interface AFStreamingMultipartFormData ()  //用于创建文件流需要的数据块
 //请求
 @property (readwrite, nonatomic, copy) NSMutableURLRequest *request;
 //编码方式
@@ -887,7 +902,7 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
 
     if (![fileURL isFileURL]) { //判断是不是文件url
         NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey: NSLocalizedStringFromTable(@"Expected URL to be a file URL", @"AFNetworking", nil)};
-        if (error) {
+        if (error) { //文件错误
             *error = [[NSError alloc] initWithDomain:AFURLRequestSerializationErrorDomain code:NSURLErrorBadURL userInfo:userInfo];
         }
 
@@ -901,7 +916,7 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
         return NO;
     }
 
-    //获取文件属性
+    //获取文件属性 attributesOfItemAtPath
     NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[fileURL path] error:error];
     if (!fileAttributes) {
         return NO;
@@ -911,6 +926,7 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
     [mutableHeaders setValue:[NSString stringWithFormat:@"form-data; name=\"%@\"; filename=\"%@\"", name, fileName] forKey:@"Content-Disposition"];
     [mutableHeaders setValue:mimeType forKey:@"Content-Type"];
 
+    //添加初始
     AFHTTPBodyPart *bodyPart = [[AFHTTPBodyPart alloc] init];
     bodyPart.stringEncoding = self.stringEncoding;
     bodyPart.headers = mutableHeaders;
@@ -1072,7 +1088,6 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
         [[self.HTTPBodyParts firstObject] setHasInitialBoundary:YES];
         [[self.HTTPBodyParts lastObject] setHasFinalBoundary:YES];
     }
-    
     //处理只需要拼接一个头和尾
 }
 

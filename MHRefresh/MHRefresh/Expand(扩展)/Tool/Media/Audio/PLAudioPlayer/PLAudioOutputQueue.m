@@ -110,7 +110,7 @@ const unsigned int kAQMaxPacketDescs = 512;
     pthread_mutex_unlock(&_mutex);
     
     _inUse[_fillIndex] = true;
-    PLAudioQueueBuffer *model = [_buffers up_objectWithIndex:_fillIndex];
+    PLAudioQueueBuffer *model = [_buffers objectAtIndex:_fillIndex];
     
     memcpy(model.queueBuffer->mAudioData, [data bytes], [data length]);
     model.queueBuffer->mAudioDataByteSize = (UInt32)[data length];

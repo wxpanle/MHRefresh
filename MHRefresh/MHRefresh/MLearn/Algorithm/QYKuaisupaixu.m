@@ -32,10 +32,14 @@
     int mid = [self partition:num start:start end:end];
     
     [self digui:num start:start end:mid - 1];
-    start = mid + 1;
+    [self digui:num start:mid + 1 end:end];
 }
 
 - (int)partition:(int [])num start:(int)start end:(int)end {
+    
+    if (start == end) {
+        return start;
+    }
 
     int index = num[start];
     
@@ -51,6 +55,9 @@
             start++;
         }
         
+        if (start == end) {
+            break;
+        }
         [self qy_swap:num left:start right:end];
     }
     

@@ -28,6 +28,7 @@
 #import <ifaddrs.h>
 #import <netdb.h>
 
+//网络状态改变通知
 NSString * const AFNetworkingReachabilityDidChangeNotification = @"com.alamofire.networking.reachability.change";
 NSString * const AFNetworkingReachabilityNotificationStatusItem = @"AFNetworkingReachabilityNotificationStatusItem";
 

@@ -136,6 +136,16 @@ typedef void (^blk_t)(id obj);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    for (int i = 0; i < 30; i++) {
+//        NSLog(@"%d", arc4random() % 100);
+//    }
+//
+//    NSLog(@"-------------------------");
+//
+//    for (int i = 0; i < 30; i++) {
+//        NSLog(@"%d", arc4random() % 100);
+//    }
+    
 //    [self sqrt:10];
     
 //    [[[QYBinaryHeapSoft alloc] init] start];
@@ -433,3 +443,4 @@ typedef void (^blk_t)(id obj);
 
 
 @end
+
