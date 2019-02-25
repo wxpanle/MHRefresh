@@ -146,6 +146,13 @@
 		FE5CDD32214B659D00DCF3DB /* QYTextLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5CDD31214B659D00DCF3DB /* QYTextLayout.m */; };
 		FE5CDD35214B708500DCF3DB /* NSObject+QYTextLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5CDD34214B708500DCF3DB /* NSObject+QYTextLayout.m */; };
 		FE5CDD43214B8BAB00DCF3DB /* UPEventLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5CDD41214B8BAB00DCF3DB /* UPEventLabel.m */; };
+		FE5E258521F84DEF0066073D /* QYStarScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5E258421F84DEF0066073D /* QYStarScoreView.m */; };
+		FE5E259321F95A970066073D /* UPReportInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5E258821F95A970066073D /* UPReportInputCell.m */; };
+		FE5E259421F95A970066073D /* UPReportDoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5E258D21F95A970066073D /* UPReportDoneCell.m */; };
+		FE5E259521F95A970066073D /* UPDReportHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5E258E21F95A970066073D /* UPDReportHeaderCell.m */; };
+		FE5E259621F95A970066073D /* UPReportEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5E258F21F95A970066073D /* UPReportEntryCell.m */; };
+		FE5E259721F95A970066073D /* UPMessageReportView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5E259121F95A970066073D /* UPMessageReportView.m */; };
+		FE5E259B21F95CFF0066073D /* QYReportModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5E259A21F95CFF0066073D /* QYReportModel.m */; };
 		FE5FB4CE2040062F001318D5 /* testStaticLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5FB4CD2040062F001318D5 /* testStaticLibrary.m */; };
 		FE5FB4CF2040062F001318D5 /* testStaticLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = FE5FB4CC2040062F001318D5 /* testStaticLibrary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FE5FB4EB204013C1001318D5 /* testStaticLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FE5FB4CC2040062F001318D5 /* testStaticLibrary.h */; };
@@ -531,6 +538,12 @@
 		FEE56D40207B6A670043C2C5 /* MHRefreshScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE56D2B207B6A670043C2C5 /* MHRefreshScrollView.m */; };
 		FEE56D41207B6A670043C2C5 /* MPreviewCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE56D2C207B6A670043C2C5 /* MPreviewCardView.m */; };
 		FEE56E8D207B6AA80043C2C5 /* markdownlearn.md in Resources */ = {isa = PBXBuildFile; fileRef = FEE56E8C207B6AA80043C2C5 /* markdownlearn.md */; };
+		FEEB11B9221E49560031E48C /* QYStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEB11B8221E49560031E48C /* QYStack.m */; };
+		FEEB11BC221E4B7C0031E48C /* QYQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEB11BB221E4B7C0031E48C /* QYQueue.m */; };
+		FEEB11C2221E4CF40031E48C /* QYGetMinStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEB11C1221E4CF40031E48C /* QYGetMinStack.m */; };
+		FEEB11CB221E4D340031E48C /* QYTestPrintf.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEB11CA221E4D340031E48C /* QYTestPrintf.m */; };
+		FEEB11CF221E5D570031E48C /* QYTwoStackQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEB11CE221E5D570031E48C /* QYTwoStackQueue.m */; };
+		FEEB11D2221E98740031E48C /* QYRecursionInvertedStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEB11D1221E98740031E48C /* QYRecursionInvertedStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -869,6 +882,20 @@
 		FE5CDD34214B708500DCF3DB /* NSObject+QYTextLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+QYTextLayout.m"; sourceTree = "<group>"; };
 		FE5CDD41214B8BAB00DCF3DB /* UPEventLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPEventLabel.m; sourceTree = "<group>"; };
 		FE5CDD42214B8BAB00DCF3DB /* UPEventLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPEventLabel.h; sourceTree = "<group>"; };
+		FE5E258321F84DEF0066073D /* QYStarScoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYStarScoreView.h; sourceTree = "<group>"; };
+		FE5E258421F84DEF0066073D /* QYStarScoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYStarScoreView.m; sourceTree = "<group>"; };
+		FE5E258821F95A970066073D /* UPReportInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPReportInputCell.m; sourceTree = "<group>"; };
+		FE5E258921F95A970066073D /* UPDReportHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPDReportHeaderCell.h; sourceTree = "<group>"; };
+		FE5E258A21F95A970066073D /* UPReportDoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPReportDoneCell.h; sourceTree = "<group>"; };
+		FE5E258B21F95A970066073D /* UPReportEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPReportEntryCell.h; sourceTree = "<group>"; };
+		FE5E258C21F95A970066073D /* UPReportInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPReportInputCell.h; sourceTree = "<group>"; };
+		FE5E258D21F95A970066073D /* UPReportDoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPReportDoneCell.m; sourceTree = "<group>"; };
+		FE5E258E21F95A970066073D /* UPDReportHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPDReportHeaderCell.m; sourceTree = "<group>"; };
+		FE5E258F21F95A970066073D /* UPReportEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPReportEntryCell.m; sourceTree = "<group>"; };
+		FE5E259121F95A970066073D /* UPMessageReportView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPMessageReportView.m; sourceTree = "<group>"; };
+		FE5E259221F95A970066073D /* UPMessageReportView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPMessageReportView.h; sourceTree = "<group>"; };
+		FE5E259921F95CFF0066073D /* QYReportModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYReportModel.h; sourceTree = "<group>"; };
+		FE5E259A21F95CFF0066073D /* QYReportModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYReportModel.m; sourceTree = "<group>"; };
 		FE5FB4CA2040062F001318D5 /* libtestStaticLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtestStaticLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE5FB4CC2040062F001318D5 /* testStaticLibrary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testStaticLibrary.h; sourceTree = "<group>"; };
 		FE5FB4CD2040062F001318D5 /* testStaticLibrary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testStaticLibrary.m; sourceTree = "<group>"; };
@@ -1584,6 +1611,20 @@
 		FEE56D2C207B6A670043C2C5 /* MPreviewCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPreviewCardView.m; sourceTree = "<group>"; };
 		FEE56D2D207B6A670043C2C5 /* MHRefreshScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHRefreshScrollView.h; sourceTree = "<group>"; };
 		FEE56E8C207B6AA80043C2C5 /* markdownlearn.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = markdownlearn.md; sourceTree = "<group>"; };
+		FEEB11B7221E49560031E48C /* QYStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYStack.h; sourceTree = "<group>"; };
+		FEEB11B8221E49560031E48C /* QYStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYStack.m; sourceTree = "<group>"; };
+		FEEB11BA221E4B7C0031E48C /* QYQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYQueue.h; sourceTree = "<group>"; };
+		FEEB11BB221E4B7C0031E48C /* QYQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYQueue.m; sourceTree = "<group>"; };
+		FEEB11BE221E4CC70031E48C /* MAlgorithmicLearningHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAlgorithmicLearningHeader.h; sourceTree = "<group>"; };
+		FEEB11C0221E4CF40031E48C /* QYGetMinStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYGetMinStack.h; sourceTree = "<group>"; };
+		FEEB11C1221E4CF40031E48C /* QYGetMinStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYGetMinStack.m; sourceTree = "<group>"; };
+		FEEB11C9221E4D340031E48C /* QYTestPrintf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYTestPrintf.h; sourceTree = "<group>"; };
+		FEEB11CA221E4D340031E48C /* QYTestPrintf.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYTestPrintf.m; sourceTree = "<group>"; };
+		FEEB11CC221E4DF90031E48C /* QYProtocolHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYProtocolHeader.h; sourceTree = "<group>"; };
+		FEEB11CD221E5D570031E48C /* QYTwoStackQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYTwoStackQueue.h; sourceTree = "<group>"; };
+		FEEB11CE221E5D570031E48C /* QYTwoStackQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYTwoStackQueue.m; sourceTree = "<group>"; };
+		FEEB11D0221E98740031E48C /* QYRecursionInvertedStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYRecursionInvertedStack.h; sourceTree = "<group>"; };
+		FEEB11D1221E98740031E48C /* QYRecursionInvertedStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYRecursionInvertedStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2407,6 +2448,7 @@
 			isa = PBXGroup;
 			children = (
 				FE96534A2084C70B00AD67E5 /* MLearnHeader.h */,
+				FEEB11BD221E4C9F0031E48C /* AlgorithmicLearning */,
 				FE12132F20C8D75E00FC9BBD /* iOS */,
 				FE627B0820C8E2ED00AD5B53 /* HTTP */,
 				FEE56E8E207B6B5F0043C2C5 /* CoreAnimation */,
@@ -2653,6 +2695,8 @@
 				FE28E3AB2106CC7A00498090 /* NightMode */,
 				FEA258CF2111A71D001122CA /* PreviewImage */,
 				FE9C7D1A21705949000450CB /* Floater1 */,
+				FE5E257F21F846600066073D /* QYStarScore */,
+				FE5E258621F951830066073D /* QYReport */,
 			);
 			path = "自定义控件";
 			sourceTree = "<group>";
@@ -2714,6 +2758,58 @@
 				FE5CDD41214B8BAB00DCF3DB /* UPEventLabel.m */,
 			);
 			path = EventLabel;
+			sourceTree = "<group>";
+		};
+		FE5E257F21F846600066073D /* QYStarScore */ = {
+			isa = PBXGroup;
+			children = (
+				FE5E258321F84DEF0066073D /* QYStarScoreView.h */,
+				FE5E258421F84DEF0066073D /* QYStarScoreView.m */,
+			);
+			path = QYStarScore;
+			sourceTree = "<group>";
+		};
+		FE5E258621F951830066073D /* QYReport */ = {
+			isa = PBXGroup;
+			children = (
+				FE5E259821F95C100066073D /* Model */,
+				FE5E258721F95A970066073D /* Cell */,
+				FE5E259021F95A970066073D /* View */,
+			);
+			path = QYReport;
+			sourceTree = "<group>";
+		};
+		FE5E258721F95A970066073D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FE5E258921F95A970066073D /* UPDReportHeaderCell.h */,
+				FE5E258E21F95A970066073D /* UPDReportHeaderCell.m */,
+				FE5E258A21F95A970066073D /* UPReportDoneCell.h */,
+				FE5E258D21F95A970066073D /* UPReportDoneCell.m */,
+				FE5E258B21F95A970066073D /* UPReportEntryCell.h */,
+				FE5E258F21F95A970066073D /* UPReportEntryCell.m */,
+				FE5E258C21F95A970066073D /* UPReportInputCell.h */,
+				FE5E258821F95A970066073D /* UPReportInputCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		FE5E259021F95A970066073D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FE5E259221F95A970066073D /* UPMessageReportView.h */,
+				FE5E259121F95A970066073D /* UPMessageReportView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FE5E259821F95C100066073D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FE5E259921F95CFF0066073D /* QYReportModel.h */,
+				FE5E259A21F95CFF0066073D /* QYReportModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FE5FB4CB2040062F001318D5 /* testStaticLibrary */ = {
@@ -4107,6 +4203,43 @@
 			path = CoreAnimation;
 			sourceTree = "<group>";
 		};
+		FEEB11B6221E49460031E48C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FEEB11B7221E49560031E48C /* QYStack.h */,
+				FEEB11B8221E49560031E48C /* QYStack.m */,
+				FEEB11BA221E4B7C0031E48C /* QYQueue.h */,
+				FEEB11BB221E4B7C0031E48C /* QYQueue.m */,
+				FEEB11C9221E4D340031E48C /* QYTestPrintf.h */,
+				FEEB11CA221E4D340031E48C /* QYTestPrintf.m */,
+				FEEB11CC221E4DF90031E48C /* QYProtocolHeader.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		FEEB11BD221E4C9F0031E48C /* AlgorithmicLearning */ = {
+			isa = PBXGroup;
+			children = (
+				FEEB11BE221E4CC70031E48C /* MAlgorithmicLearningHeader.h */,
+				FEEB11B6221E49460031E48C /* Common */,
+				FEEB11BF221E4CDD0031E48C /* 栈和队列 */,
+			);
+			path = AlgorithmicLearning;
+			sourceTree = "<group>";
+		};
+		FEEB11BF221E4CDD0031E48C /* 栈和队列 */ = {
+			isa = PBXGroup;
+			children = (
+				FEEB11C0221E4CF40031E48C /* QYGetMinStack.h */,
+				FEEB11C1221E4CF40031E48C /* QYGetMinStack.m */,
+				FEEB11CD221E5D570031E48C /* QYTwoStackQueue.h */,
+				FEEB11CE221E5D570031E48C /* QYTwoStackQueue.m */,
+				FEEB11D0221E98740031E48C /* QYRecursionInvertedStack.h */,
+				FEEB11D1221E98740031E48C /* QYRecursionInvertedStack.m */,
+			);
+			path = "栈和队列";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -4487,8 +4620,10 @@
 				FE99C7D020F604D600CFAE0C /* Reachability.m in Sources */,
 				FEC6FC9D2146118C003FF973 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				FEC6FCF32146118C003FF973 /* upsampling_sse2.c in Sources */,
+				FE5E258521F84DEF0066073D /* QYStarScoreView.m in Sources */,
 				FEC6FCEC2146118C003FF973 /* filters_sse2.c in Sources */,
 				FEC6FD0D2146118C003FF973 /* dec_mips32.c in Sources */,
+				FEEB11BC221E4B7C0031E48C /* QYQueue.m in Sources */,
 				FEA24FB02088206300945DBF /* QYThreeTKnowledge.m in Sources */,
 				FE01FD5F2062655E007CD777 /* UIScrollView+UPPages.m in Sources */,
 				FE4F61562015882700A70CB7 /* QYMultiSelectTableViewCell.m in Sources */,
@@ -4498,6 +4633,8 @@
 				FEC6FCDD2146118C003FF973 /* quant.c in Sources */,
 				FEC6FCC22146118C003FF973 /* histogram.c in Sources */,
 				FEC6FCD92146118C003FF973 /* io.c in Sources */,
+				FE5E259B21F95CFF0066073D /* QYReportModel.m in Sources */,
+				FEEB11B9221E49560031E48C /* QYStack.m in Sources */,
 				FE4F61532015848300A70CB7 /* QYMultiSelectViewController.m in Sources */,
 				FEC6FD0A2146118C003FF973 /* alpha_processing_sse41.c in Sources */,
 				FEE56D2E207B6A670043C2C5 /* QYPreviewViewController.m in Sources */,
@@ -4519,6 +4656,7 @@
 				FEC6FCCB2146118C003FF973 /* backward_references.c in Sources */,
 				FEE56C8D207B6A430043C2C5 /* MNetworkChainRequest.m in Sources */,
 				FEC6FCB72146118C003FF973 /* bit_writer.c in Sources */,
+				FE5E259321F95A970066073D /* UPReportInputCell.m in Sources */,
 				FEE56C7A207B6A430043C2C5 /* YXAnnotationShapeViewAction.m in Sources */,
 				FEC6FCB02146118C003FF973 /* muxinternal.c in Sources */,
 				8B2360571FF09E9400C501A3 /* NSDate+QYExtension.m in Sources */,
@@ -4610,6 +4748,7 @@
 				FEBD7A8D214E05900037A1DF /* UIImage+UPWebView.m in Sources */,
 				FEC6FD0E2146118C003FF973 /* cost_mips_dsp_r2.c in Sources */,
 				8B846E0E1F8E2BF0007C0731 /* UIImage+QYResize.m in Sources */,
+				FE5E259421F95A970066073D /* UPReportDoneCell.m in Sources */,
 				8BF6729C1F6FF3E400CF312A /* UITableViewCell+QYIdentifier.m in Sources */,
 				FE95B2EA20EE0E5D00FF004A /* QYGCDLearn.m in Sources */,
 				FEC6FCDC2146118C003FF973 /* alpha.c in Sources */,
@@ -4763,6 +4902,7 @@
 				FEC6FCC52146118C003FF973 /* analysis.c in Sources */,
 				FEE56C67207B6A430043C2C5 /* MGifDataCache.m in Sources */,
 				FEC6FD192146118C003FF973 /* SDWebImageDecoder.m in Sources */,
+				FE5E259521F95A970066073D /* UPDReportHeaderCell.m in Sources */,
 				FE5CDD2F214B652100DCF3DB /* QYTextLayoutManager.m in Sources */,
 				FEE56C60207B6A430043C2C5 /* MDeviceOrientationModel.m in Sources */,
 				FEC6FCE82146118C003FF973 /* cost_sse2.c in Sources */,
@@ -4797,6 +4937,7 @@
 				FE99C7D920F604D600CFAE0C /* FSAudioController.m in Sources */,
 				FEBD7A71214E04480037A1DF /* NSString+UPFileCenter.m in Sources */,
 				FE9C7D1D2170594A000450CB /* UPAudioPlayFloaterView.m in Sources */,
+				FE5E259621F95A970066073D /* UPReportEntryCell.m in Sources */,
 				FEBC716221AEB02300F114AD /* QYMaoPaoSoft.m in Sources */,
 				8B3941E31F46D153002100F6 /* UIView+SMExtension.m in Sources */,
 				8BF672A01F6FF55D00CF312A /* UICollectionViewCell+QYIdentifier.m in Sources */,
@@ -4814,6 +4955,7 @@
 				FEE56D30207B6A670043C2C5 /* QYPreviewImageCell.m in Sources */,
 				FEE56C61207B6A430043C2C5 /* MCameraPhotoModel.m in Sources */,
 				FE6D932121B690FF00C21CD3 /* QYZhiJieChaRuSoft.m in Sources */,
+				FEEB11CB221E4D340031E48C /* QYTestPrintf.m in Sources */,
 				8B195B921F60210C005D6321 /* UIImage+SMExtension.m in Sources */,
 				FEE56C7C207B6A430043C2C5 /* YXAnnotationShapeView.m in Sources */,
 				FEE56D34207B6A670043C2C5 /* WKWebView+MClearCache.m in Sources */,
@@ -4862,6 +5004,8 @@
 				FEC6FCF52146118C003FF973 /* lossless_neon.c in Sources */,
 				FEE56CAB207B6A430043C2C5 /* QYAudioPlayer.m in Sources */,
 				FEC6FCC02146118C003FF973 /* picture_csp.c in Sources */,
+				FEEB11CF221E5D570031E48C /* QYTwoStackQueue.m in Sources */,
+				FE5E259721F95A970066073D /* UPMessageReportView.m in Sources */,
 				FEC6FCB52146118C003FF973 /* quant_levels_dec.c in Sources */,
 				FE99C79B20F5F6B600CFAE0C /* PLAudioFileStream.m in Sources */,
 				FEC6FCA42146118C003FF973 /* MASConstraint.m in Sources */,
@@ -4869,6 +5013,7 @@
 				FEC6FCC12146118C003FF973 /* delta_palettization.c in Sources */,
 				FEC6FCA92146118C003FF973 /* ALView+PureLayout.m in Sources */,
 				8B682C9B1F68E27000C4900D /* UIFont+QYPingFang.m in Sources */,
+				FEEB11C2221E4CF40031E48C /* QYGetMinStack.m in Sources */,
 				FEC6FD262146118C003FF973 /* SDImageCacheConfig.m in Sources */,
 				FEE56D3B207B6A670043C2C5 /* MWebViewCache.m in Sources */,
 				FEC6FCEB2146118C003FF973 /* upsampling_neon.c in Sources */,
@@ -4900,6 +5045,7 @@
 				FEC6FCD42146118C003FF973 /* tree.c in Sources */,
 				FEE56C8A207B6A430043C2C5 /* UIView+MMainThreadMonitor.m in Sources */,
 				FE99C80F20F6053300CFAE0C /* DOUAudioAnalyzer+Default.m in Sources */,
+				FEEB11D2221E98740031E48C /* QYRecursionInvertedStack.m in Sources */,
 				FEC6FD152146118C003FF973 /* dec_msa.c in Sources */,
 				FE99C7D220F604D600CFAE0C /* http_stream.cpp in Sources */,
 				8B846DFC1F8E25BA007C0731 /* UIImage+QYOrientation.m in Sources */,

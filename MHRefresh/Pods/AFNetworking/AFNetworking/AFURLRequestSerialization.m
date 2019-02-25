@@ -1120,7 +1120,7 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
 
     NSInteger totalNumberOfBytesRead = 0;
 
-#pragma clang diagnostic push
+#pragma clang diagnostic push  //保存当前编译上下文
 #pragma clang diagnostic ignored "-Wgnu"
     while ((NSUInteger)totalNumberOfBytesRead < MIN(length, self.numberOfBytesInPacket)) {
         if (!self.currentHTTPBodyPart || ![self.currentHTTPBodyPart hasBytesAvailable]) {
@@ -1143,7 +1143,7 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
             }
         }
     }
-#pragma clang diagnostic pop
+#pragma clang diagnostic pop  //恢复当前编译上下文
 
     return totalNumberOfBytesRead;
 }
@@ -1163,13 +1163,16 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
 #pragma mark - NSStream
 //开启流
 - (void)open {
+    //不要重复开启
     if (self.streamStatus == NSStreamStatusOpen) {
         return;
     }
 
     self.streamStatus = NSStreamStatusOpen;
 
+    //设置初始化边界
     [self setInitialAndFinalBoundaries];
+    //设置枚举
     self.HTTPBodyPartEnumerator = [self.HTTPBodyParts objectEnumerator];
 }
 
@@ -1306,6 +1309,7 @@ typedef enum {
         } else if ([self.body isKindOfClass:[NSInputStream class]]) {
             _inputStream = self.body;
         } else {
+            //传入一个空的数据流
             _inputStream = [NSInputStream inputStreamWithData:[NSData data]];
         }
     }
@@ -1433,6 +1437,7 @@ typedef enum {
     [data getBytes:buffer range:range];
 #pragma clang diagnostic pop
 
+    //移动到新的偏移
     _phaseReadOffset += range.length;
 
     if (((NSUInteger)_phaseReadOffset) >= [data length]) {
@@ -1456,7 +1461,7 @@ typedef enum {
         });
         return YES;
     }
-
+//在4个枚举之间循环替换
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wcovered-switch-default"
     switch (_phase) {
@@ -1536,8 +1541,8 @@ typedef enum {
         }
     }];
 
-    if (parameters) {
-        if (![mutableRequest valueForHTTPHeaderField:@"Content-Type"]) {
+    if (parameters) { //设置主体
+        if (![mutableRequest valueForHTTPHeaderField:@"Content-Type"]) { //内容类型
             [mutableRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         }
 

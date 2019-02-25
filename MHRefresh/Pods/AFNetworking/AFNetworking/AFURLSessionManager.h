@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The operation queue on which delegate callbacks are run.
- NSURLSession的绑定队列，这个队列的最大并发数为1
+ NSURLSession的绑定队列，这个队列的最大并发数为1  串行队列
  */
 @property (readonly, nonatomic, strong) NSOperationQueue *operationQueue;
 
@@ -167,7 +167,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The dispatch queue for `completionBlock`. If `NULL` (default), the main queue is used.
- 请求完成后的回调queue  默认主队列
+ 请求完成后的回调queue  默认mainQueue
  */
 @property (nonatomic, strong, nullable) dispatch_queue_t completionQueue;
 

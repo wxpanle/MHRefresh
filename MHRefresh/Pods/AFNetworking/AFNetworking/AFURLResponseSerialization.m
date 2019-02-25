@@ -41,6 +41,7 @@ static NSError * AFErrorWithUnderlyingError(NSError *error, NSError *underlyingE
     }
 
     if (!underlyingError || error.userInfo[NSUnderlyingErrorKey]) { //优先的错误
+        //判断优先的错误是否存在  如果已经存在  或者传入的参数不存在  返回
         return error;
     }
 
@@ -79,7 +80,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     
     if ([JSONObject isKindOfClass:[NSArray class]]) { //处理数组
         
-        //使用容量创建数组  可以一定程度上提高性能
+        //使用容量创建数组  可以一定程度上提高性能  创建初始容量的数组  可提高性能
         NSMutableArray *mutableArray = [NSMutableArray arrayWithCapacity:[(NSArray *)JSONObject count]];
         for (id value in (NSArray *)JSONObject) {
             [mutableArray addObject:AFJSONObjectByRemovingKeysWithNullValues(value, readingOptions)];
@@ -100,7 +101,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
             }
         }
 
-        //是否返回可变数组
+        //是否返回可变字典
         return (readingOptions & NSJSONReadingMutableContainers) ? mutableDictionary : [NSDictionary dictionaryWithDictionary:mutableDictionary];
     }
 
@@ -123,7 +124,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     //编码方式
     self.stringEncoding = NSUTF8StringEncoding;
 
-    //可接受的状态码  200-299
+    //可接受的状态码  200-299  默认的可接受状态码  使用NSIndexSet创建
     self.acceptableStatusCodes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(200, 100)];
     self.acceptableContentTypes = nil;
 
@@ -145,7 +146,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     //响应类型时 NSHTTPURLResponse
     if (response && [response isKindOfClass:[NSHTTPURLResponse class]]) {
         
-        //响应无效
+        //允许接受的响应类型存在   响应的类型不包含这些  收到了响应数据
         if (self.acceptableContentTypes && ![self.acceptableContentTypes containsObject:[response MIMEType]] &&
             !([response MIMEType] == nil && [data length] == 0)) {
 

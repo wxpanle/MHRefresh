@@ -15,5 +15,6 @@
 #import "QYLintCodeHeader.h"
 #import "QYGCDLearn.h"
 #import "QYSoftHeader.h"
+#import "MAlgorithmicLearningHeader.h"
 
 #endif /* MLearnHeader_h */

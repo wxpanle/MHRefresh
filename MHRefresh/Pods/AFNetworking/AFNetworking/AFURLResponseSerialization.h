@@ -91,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The acceptable MIME types for responses. When non-`nil`, responses with a `Content-Type` with MIME types that do not intersect with the set will result in an error during validation.
  
- 响应对象的接受类型
+ 响应对象的接受类型  由用户设定
  */
 @property (nonatomic, copy, nullable) NSSet <NSString *> *acceptableContentTypes;
 
@@ -153,6 +153,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  Creates and returns a JSON serializer with specified reading and writing options.
+ 
+ //创建类方法
 
  @param readingOptions The specified JSON reading options.
  */

@@ -7,6 +7,7 @@
 //
 
 #import "NSString+QYSize.h"
+
 #import <CoreText/CoreText.h>
 
 static inline CGSize CTFramesetterSuggestFrameSizeForAttributedStringWithConstraints(CTFramesetterRef framesetter, NSAttributedString *attributedString, CGSize size, NSUInteger numberOfLines) {
@@ -77,7 +78,6 @@ static inline CGSize CTFramesetterSuggestFrameSizeForAttributedStringWithConstra
         tempString = @"字符串为空";
     }
     
-    
     NSStringDrawingOptions options =  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
     CGRect frame = [tempString boundingRectWithSize:size options:options attributes:[self p_attributesDictionaryWithFont:font] context:nil];
     return CGSizeMake(CGFloat_ceil(frame.size.width), CGFloat_ceil(frame.size.height) + 2.0);
@@ -96,7 +96,7 @@ static inline CGSize CTFramesetterSuggestFrameSizeForAttributedStringWithConstra
 }
 
 + (NSString *)singleString {
-    return @"单行高度";
+    return LocalizedString(@"ui.singleHeight.title");
 }
 
 + (CGFloat)singleHeightWithFont:(UIFont *)font constrainedToWidth:(CGFloat)width {
@@ -118,6 +118,30 @@ static inline CGSize CTFramesetterSuggestFrameSizeForAttributedStringWithConstra
 
 - (NSAttributedString *)p_attributedStringWithFont:(UIFont *)font {
     return [[NSAttributedString alloc] initWithString:self attributes:[self p_attributesDictionaryWithFont:font]];
+}
+
+@end
+
+
+@implementation NSAttributedString (QYSize)
+
+- (CGSize)sizeWithConstrainedSize:(CGSize)size {
+    return [self sizeWithConstrainedSize:size numberLines:0];
+}
+
+- (CGSize)sizeWithConstrainedSize:(CGSize)size numberLines:(NSInteger)numberLines {
+    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)self);
+    CGSize calculatedSize = CTFramesetterSuggestFrameSizeForAttributedStringWithConstraints(framesetter, self, size, 0);
+    CFRelease(framesetter);
+    return calculatedSize;
+}
+
+- (CGFloat)heightWithConstrainedWidth:(CGFloat)width {
+    return [self heightWithConstrainedWidth:width numberLines:0];
+}
+
+- (CGFloat)heightWithConstrainedWidth:(CGFloat)width numberLines:(NSInteger)numberLines {
+    return [self sizeWithConstrainedSize:CGSizeMake(width, CGFLOAT_MAX) numberLines:numberLines].height;
 }
 
 @end

@@ -31,3 +31,13 @@
 + (NSString *)singleString;
 
 @end
+
+
+@interface NSAttributedString (QYSize)
+
+- (CGSize)sizeWithConstrainedSize:(CGSize)size;
+- (CGSize)sizeWithConstrainedSize:(CGSize)size numberLines:(NSInteger)numberLines;
+- (CGFloat)heightWithConstrainedWidth:(CGFloat)width;
+- (CGFloat)heightWithConstrainedWidth:(CGFloat)width numberLines:(NSInteger)numberLines;
+
+@end

@@ -64,6 +64,8 @@
 
 #import "QYCenterRefreshController.h"
 
+#import "QYStarScoreView.h"
+
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource, UPBaseSliderCellDelegate> {
     PLAudioPlayer *_audioPlayer;
     QYAudioPlayer *_qy_audio_player;
@@ -95,6 +97,9 @@
 @property (nonatomic, strong) dispatch_queue_t barrierQueue;
 
 @property (nonatomic, strong) NSMutableArray *resultArray;
+
+
+@property (nonatomic, strong) dispatch_queue_t dispatch_queue;
 
 @end
 
@@ -132,29 +137,54 @@ typedef void (^blk_t)(id obj);
     return 1 / y;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    for (int i = 0; i < 30; i++) {
-//        NSLog(@"%d", arc4random() % 100);
-//    }
-//
-//    NSLog(@"-------------------------");
-//
-//    for (int i = 0; i < 30; i++) {
-//        NSLog(@"%d", arc4random() % 100);
-//    }
+    QYStarScoreView *view = [[QYStarScoreView alloc] initWithFrame:CGRectMake(50.0, 100.0, 209.0, 37.0)];
+    view.starScoreType = QYStarScoreTypeRandom;
+    view.unselectedStarImage = [UIImage imageNamed:@"star_unselected"];
+    view.selectedStarImage = [UIImage imageNamed:@"star_selected"];
+    view.currentScore = 8.4;
+    view.eventEnable = YES;
+    view.scoreUpdateCallBack = ^(CGFloat newScore) {
+        NSLog(@"%.1f", newScore);
+    };
+    [self.view addSubview:view];
     
-//    [self sqrt:10];
+    [[[QYTestPrintf alloc] init] qy_test];
+    
+    //同步分发任务到队列中  任务会根据分发的顺序执行
+    //异步分发任务到同步队列中  任务也会按照顺序执行
+    //异步分发任务到异步队列中  任务不会按照顺序执行
+//    DISPATCH_QUEUE_SERIAL DISPATCH_QUEUE_CONCURRENT
+
+    
+//    UILabel *label = [[UILabel alloc] init];
+//
+//    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"8.4" attributes:@{NSFontAttributeName : [UIFont fontPingFang:(QYPingFangSCRegular) size:21.0], NSForegroundColorAttributeName : [UIColor redColor]}];
+//    [string appendAttributedString:[[NSAttributedString alloc] initWithString:@"分" attributes:@{NSFontAttributeName : [UIFont fontPingFang:(QYPingFangSCRegular) size:15.0], NSForegroundColorAttributeName : [UIColor blueColor]}]];
+//
+//    label.frame = CGRectMake(100.0, 100.0, 100.0, 80.0);
+//
+//    label.attributedText = string;
+//
+//    [self.view addSubview:label];
+    
     
 //    [[[QYBinaryHeapSoft alloc] init] start];
 //    [[[QYMaoPaoSoft alloc] init] start];
 //    [[[QYXuanZeSoft alloc] init] start];
 //    [[[QYZhiJieChaRuSoft alloc] init] start];
 //    [[[QYGuiBingSoft alloc] init] start];
-    [[[QYKuaisupaixu alloc] init] start];
+//    [[[QYKuaisupaixu alloc] init] start];
 //    DLog(@"%ld", NSIntegerMin);
+    
+    
+//    if (20 > 20) {
+//        DLog(@"20 > 20");
+//    } else {
+//        DLog(@"20 < 20");
+//    }
     
 //
 //    NSString *string = @"中国";
