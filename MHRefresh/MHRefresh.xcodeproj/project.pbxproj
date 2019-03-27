@@ -134,6 +134,8 @@
 		FE2B75A02099545B009618CA /* QYSixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2B759F2099545B009618CA /* QYSixViewController.m */; };
 		FE4F61532015848300A70CB7 /* QYMultiSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4F61522015848300A70CB7 /* QYMultiSelectViewController.m */; };
 		FE4F61562015882700A70CB7 /* QYMultiSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4F61552015882700A70CB7 /* QYMultiSelectTableViewCell.m */; };
+		FE4F75A6223B8CEA007EC676 /* QYTestTouchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4F75A5223B8CEA007EC676 /* QYTestTouchTableViewCell.m */; };
+		FE4F75A9223B8E0F007EC676 /* QYTestTouchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4F75A8223B8E0F007EC676 /* QYTestTouchViewController.m */; };
 		FE4FEA9221C12B1C00128C51 /* QYKuaisupaixu.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4FEA9121C12B1C00128C51 /* QYKuaisupaixu.m */; };
 		FE52CAF0208978C300C71AD9 /* QYFiveTKnowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = FE52CAEF208978C300C71AD9 /* QYFiveTKnowledge.m */; };
 		FE5670492080445200801A69 /* UPKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5670472080445100801A69 /* UPKeyboardManager.m */; };
@@ -166,6 +168,7 @@
 		FE6D932121B690FF00C21CD3 /* QYZhiJieChaRuSoft.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6D932021B690FF00C21CD3 /* QYZhiJieChaRuSoft.m */; };
 		FE728FA720A53DF200ED967C /* QYElevenTKnowdege.m in Sources */ = {isa = PBXBuildFile; fileRef = FE728FA620A53DF200ED967C /* QYElevenTKnowdege.m */; };
 		FE728FAA20A53E0500ED967C /* QYElevenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE728FA920A53E0500ED967C /* QYElevenViewController.m */; };
+		FE7BE0BF223F709D006BD6E8 /* QYSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7BE0BE223F709D006BD6E8 /* QYSegmentControl.m */; };
 		FE95B2EA20EE0E5D00FF004A /* QYGCDLearn.m in Sources */ = {isa = PBXBuildFile; fileRef = FE95B2E920EE0E5D00FF004A /* QYGCDLearn.m */; };
 		FE95D9EA208D6AF4006BBC24 /* QYFiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE95D9E9208D6AF4006BBC24 /* QYFiveViewController.m */; };
 		FE9653402084C4DF00AD67E5 /* QYOneTKnowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = FE96533F2084C4DF00AD67E5 /* QYOneTKnowledge.m */; };
@@ -858,6 +861,10 @@
 		FE4F61522015848300A70CB7 /* QYMultiSelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMultiSelectViewController.m; sourceTree = "<group>"; };
 		FE4F61542015882700A70CB7 /* QYMultiSelectTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYMultiSelectTableViewCell.h; sourceTree = "<group>"; };
 		FE4F61552015882700A70CB7 /* QYMultiSelectTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMultiSelectTableViewCell.m; sourceTree = "<group>"; };
+		FE4F75A4223B8CEA007EC676 /* QYTestTouchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYTestTouchTableViewCell.h; sourceTree = "<group>"; };
+		FE4F75A5223B8CEA007EC676 /* QYTestTouchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYTestTouchTableViewCell.m; sourceTree = "<group>"; };
+		FE4F75A7223B8E0F007EC676 /* QYTestTouchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYTestTouchViewController.h; sourceTree = "<group>"; };
+		FE4F75A8223B8E0F007EC676 /* QYTestTouchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYTestTouchViewController.m; sourceTree = "<group>"; };
 		FE4FEA9021C12B1C00128C51 /* QYKuaisupaixu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYKuaisupaixu.h; sourceTree = "<group>"; };
 		FE4FEA9121C12B1C00128C51 /* QYKuaisupaixu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYKuaisupaixu.m; sourceTree = "<group>"; };
 		FE52CAEE208978C300C71AD9 /* QYFiveTKnowledge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYFiveTKnowledge.h; sourceTree = "<group>"; };
@@ -913,6 +920,8 @@
 		FE728FA620A53DF200ED967C /* QYElevenTKnowdege.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYElevenTKnowdege.m; sourceTree = "<group>"; };
 		FE728FA820A53E0500ED967C /* QYElevenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYElevenViewController.h; sourceTree = "<group>"; };
 		FE728FA920A53E0500ED967C /* QYElevenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYElevenViewController.m; sourceTree = "<group>"; };
+		FE7BE0BD223F709D006BD6E8 /* QYSegmentControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYSegmentControl.h; sourceTree = "<group>"; };
+		FE7BE0BE223F709D006BD6E8 /* QYSegmentControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYSegmentControl.m; sourceTree = "<group>"; };
 		FE95B2E820EE0E5D00FF004A /* QYGCDLearn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYGCDLearn.h; sourceTree = "<group>"; };
 		FE95B2E920EE0E5D00FF004A /* QYGCDLearn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYGCDLearn.m; sourceTree = "<group>"; };
 		FE95D9E8208D6AF4006BBC24 /* QYFiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYFiveViewController.h; sourceTree = "<group>"; };
@@ -2697,6 +2706,8 @@
 				FE9C7D1A21705949000450CB /* Floater1 */,
 				FE5E257F21F846600066073D /* QYStarScore */,
 				FE5E258621F951830066073D /* QYReport */,
+				FE4F75A3223B8CC1007EC676 /* Test */,
+				FE7BE0BC223F6F5E006BD6E8 /* SegmentControl */,
 			);
 			path = "自定义控件";
 			sourceTree = "<group>";
@@ -2710,6 +2721,17 @@
 				FE4F61552015882700A70CB7 /* QYMultiSelectTableViewCell.m */,
 			);
 			path = MultiSelect;
+			sourceTree = "<group>";
+		};
+		FE4F75A3223B8CC1007EC676 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				FE4F75A4223B8CEA007EC676 /* QYTestTouchTableViewCell.h */,
+				FE4F75A5223B8CEA007EC676 /* QYTestTouchTableViewCell.m */,
+				FE4F75A7223B8E0F007EC676 /* QYTestTouchViewController.h */,
+				FE4F75A8223B8E0F007EC676 /* QYTestTouchViewController.m */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		FE52CAED208978AE00C71AD9 /* 第五章 */ = {
@@ -2859,6 +2881,15 @@
 				FE728FA920A53E0500ED967C /* QYElevenViewController.m */,
 			);
 			path = "第十一章";
+			sourceTree = "<group>";
+		};
+		FE7BE0BC223F6F5E006BD6E8 /* SegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				FE7BE0BD223F709D006BD6E8 /* QYSegmentControl.h */,
+				FE7BE0BE223F709D006BD6E8 /* QYSegmentControl.m */,
+			);
+			path = SegmentControl;
 			sourceTree = "<group>";
 		};
 		FE95B2E720EE0E4A00FF004A /* GCDDispatch */ = {
@@ -4895,6 +4926,7 @@
 				FEC6FCB32146118C003FF973 /* thread.c in Sources */,
 				FEC6FD292146118C003FF973 /* UIButton+WebCache.m in Sources */,
 				8B5D1FFD1F26F9E900DD1898 /* main.m in Sources */,
+				FE4F75A6223B8CEA007EC676 /* QYTestTouchTableViewCell.m in Sources */,
 				FEC6FCBB2146118C003FF973 /* utils.c in Sources */,
 				FEBD7A72214E04480037A1DF /* NSString+UPExtension.m in Sources */,
 				FEC6FCD62146118C003FF973 /* anim_decode.c in Sources */,
@@ -4974,6 +5006,7 @@
 				FEBC716521AEBB5600F114AD /* QYXuanZeSoft.m in Sources */,
 				FEE56D33207B6A670043C2C5 /* MCAlertView.m in Sources */,
 				FEC6FCDF2146118C003FF973 /* vp8.c in Sources */,
+				FE4F75A9223B8E0F007EC676 /* QYTestTouchViewController.m in Sources */,
 				8B846DF61F8E00A2007C0731 /* UIImage+QYAlpha.m in Sources */,
 				8B846DFF1F8E2879007C0731 /* UIImage+QYColor.m in Sources */,
 				FE99C79F20F5F6B600CFAE0C /* PLAudioOutputQueue.m in Sources */,
@@ -5093,6 +5126,7 @@
 				FEE56C7D207B6A430043C2C5 /* YXButton.m in Sources */,
 				FE01FD5E2062655E007CD777 /* UIScrollView+UPAddition.m in Sources */,
 				FE28E40321081CA700498090 /* CAGradientLayer+QYNightMode.m in Sources */,
+				FE7BE0BF223F709D006BD6E8 /* QYSegmentControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

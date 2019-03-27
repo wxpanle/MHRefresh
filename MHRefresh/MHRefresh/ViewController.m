@@ -66,6 +66,8 @@
 
 #import "QYStarScoreView.h"
 
+#import "QYTestTouchViewController.h"
+
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource, UPBaseSliderCellDelegate> {
     PLAudioPlayer *_audioPlayer;
     QYAudioPlayer *_qy_audio_player;
@@ -114,6 +116,9 @@ typedef void (^blk_t)(id obj);
 //    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
 //
 //    [self presentViewController:nav animated:YES completion:nil];
+    
+//    QYTestTouchViewController *vc = [[QYTestTouchViewController alloc] init];
+//    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)test {
@@ -140,18 +145,59 @@ typedef void (^blk_t)(id obj);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    QYStarScoreView *view = [[QYStarScoreView alloc] initWithFrame:CGRectMake(50.0, 100.0, 209.0, 37.0)];
-    view.starScoreType = QYStarScoreTypeRandom;
-    view.unselectedStarImage = [UIImage imageNamed:@"star_unselected"];
-    view.selectedStarImage = [UIImage imageNamed:@"star_selected"];
-    view.currentScore = 8.4;
-    view.eventEnable = YES;
-    view.scoreUpdateCallBack = ^(CGFloat newScore) {
-        NSLog(@"%.1f", newScore);
-    };
-    [self.view addSubview:view];
+    BOOL res1 = [(id)[NSObject class] isKindOfClass:[NSObject class]];
+    BOOL res2 = [(id)[NSObject class] isMemberOfClass:[NSObject class]];
+    BOOL res3 = [(id)[QYStarScoreView class] isKindOfClass:[QYStarScoreView class]];
+    BOOL res4 = [(id)[QYStarScoreView class] isMemberOfClass:[QYStarScoreView class]];
     
-    [[[QYTestPrintf alloc] init] qy_test];
+    if (res1) {
+        NSLog(@"res1 == YES");
+    } else {
+        NSLog(@"res1 == NO");
+    }
+    
+    if (res2) {
+        NSLog(@"res2 == YES");
+    } else {
+        NSLog(@"res2 == NO");
+    }
+    
+    if (res3) {
+        NSLog(@"res3 == YES");
+    } else {
+        NSLog(@"res3 == NO");
+    }
+    
+    if (res4) {
+        NSLog(@"res4 == YES");
+    } else {
+        NSLog(@"res4 == NO");
+    }
+    
+    
+//    QYStarScoreView *view = [[QYStarScoreView alloc] initWithFrame:CGRectMake(50.0, 100.0, 209.0, 37.0)];
+//    view.starScoreType = QYStarScoreTypeRandom;
+//    view.unselectedStarImage = [UIImage imageNamed:@"star_unselected"];
+//    view.selectedStarImage = [UIImage imageNamed:@"star_selected"];
+//    view.currentScore = 8.4;
+//    view.eventEnable = YES;
+//    view.scoreUpdateCallBack = ^(CGFloat newScore) {
+//        NSLog(@"%.1f", newScore);
+//    };
+//    [self.view addSubview:view];
+//
+//    [[[QYTestPrintf alloc] init] qy_test];
+    
+//
+    
+//    NSURLComponents *uu = [NSURLComponents componentsWithString:@"jiyiguanjiapackageshare://my-test.jiyiguanjia.com/share/package?uuid=p5955a7651ae3d4431&from=singlemessage&isappinstalled=0"];
+//
+//    //关键代码
+//    for (int i = 0; i<uu.queryItems.count; i++) {
+//        NSLog(@"%@", uu.queryItems[i].name);
+//        NSLog(@"%@", uu.queryItems[i].value);
+//    }
+
     
     //同步分发任务到队列中  任务会根据分发的顺序执行
     //异步分发任务到同步队列中  任务也会按照顺序执行
