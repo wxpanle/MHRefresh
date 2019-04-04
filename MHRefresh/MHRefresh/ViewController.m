@@ -175,6 +175,51 @@ typedef void (^blk_t)(id obj);
     }
     
     
+    
+    typedef NS_ENUM(NSUInteger, QYTestEnum) {
+        
+        UPMeNoteHelpModelEventAlertShare    = 1 << 0,
+        UPMeNoteHelpModelEventAlertReport   = 1 << 1,
+        UPMeNoteHelpModelEventAlertTop      = 1 << 2,
+        UPMeNoteHelpModelEventAlertEdit     = 1 << 3,
+        UPMeNoteHelpModelEventAlertDelete   = 1 << 4,
+        
+        UPMeNoteHelpModelEventEditCallBack  = 1 << 5,
+        UPMeNoteHelpModelEventEditCreate    = 1 << 6,
+        UPMeNoteHelpModelEventEditModify    = 1 << 7,
+        
+        UPMeNoteHelpModelEventAlertDefault  = UPMeNoteHelpModelEventAlertShare | UPMeNoteHelpModelEventAlertReport,
+        UPMeNoteHelpModelEventAlertGroupTop = UPMeNoteHelpModelEventAlertShare | UPMeNoteHelpModelEventAlertReport | UPMeNoteHelpModelEventAlertTop,
+        UPMeNoteHelpModelEventAlertAll      = UPMeNoteHelpModelEventAlertShare | UPMeNoteHelpModelEventAlertReport | UPMeNoteHelpModelEventAlertTop | UPMeNoteHelpModelEventAlertEdit | UPMeNoteHelpModelEventAlertDelete,
+        
+    };
+    
+    
+    QYTestEnum testEnum = UPMeNoteHelpModelEventAlertDefault;
+    
+    if (testEnum & UPMeNoteHelpModelEventAlertShare) {
+        DLog(@"为真1");
+    }
+    
+    if (testEnum & UPMeNoteHelpModelEventAlertReport) {
+        DLog(@"为真2");
+    }
+    
+    if (testEnum & UPMeNoteHelpModelEventEditCreate) {
+        DLog(@"为真3");
+    }
+    
+    int i = 1, j = 1;
+    
+    if (i ^ j) {
+        DLog(@"sdf");
+    } else {
+        DLog(@"sdf1");
+    }
+    
+    DLog(@"%d", i ^ j);
+    
+    
 //    QYStarScoreView *view = [[QYStarScoreView alloc] initWithFrame:CGRectMake(50.0, 100.0, 209.0, 37.0)];
 //    view.starScoreType = QYStarScoreTypeRandom;
 //    view.unselectedStarImage = [UIImage imageNamed:@"star_unselected"];
