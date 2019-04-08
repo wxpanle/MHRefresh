@@ -7,13 +7,14 @@
 //
 
 #import "MNetworkImageCache.h"
-#import "SDWebImageDecoder.h"
 #import "UIImage+MultiFormat.h"
 #import <CommonCrypto/CommonDigest.h>
 #import "UIImage+GIF.h"
 #import "NSData+ImageContentType.h"
 #import "NSImage+WebCache.h"
 #import "QYMemoryCache.h"
+#import <SDWebImage/SDImageCacheConfig.h>
+#import <SDWebImage/UIImage+ForceDecode.h>
 
 /** 内存允许缓存的最大的图片消耗 60M */
 static NSUInteger kMaxMemoryCost = 1024 * 1024 * 60;

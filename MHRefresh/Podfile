@@ -15,6 +15,7 @@ pod 'YTKNetwork'
 pod 'RESideMenu','~> 4.0.7'
 pod 'ReactiveCocoa','~> 7.0'
 pod 'PNChart'
+pod 'SDWebImage/WebP'
 
 
 source 'https://github.com/CocoaPods/Specs.git'

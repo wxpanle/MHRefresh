@@ -411,131 +411,6 @@
 		FEC6FCAA2146118C003FF973 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBC52146118C003FF973 /* NSArray+PureLayout.m */; };
 		FEC6FCAB2146118C003FF973 /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBC72146118C003FF973 /* UIView+SDAutoLayout.m */; };
 		FEC6FCAC2146118C003FF973 /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBCA2146118C003FF973 /* UITableView+SDAutoTableViewCellHeight.m */; };
-		FEC6FCAD2146118C003FF973 /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBCE2146118C003FF973 /* FLAnimatedImage.m */; };
-		FEC6FCAE2146118C003FF973 /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBCF2146118C003FF973 /* FLAnimatedImageView.m */; };
-		FEC6FCAF2146118C003FF973 /* muxread.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBD52146118C003FF973 /* muxread.c */; };
-		FEC6FCB02146118C003FF973 /* muxinternal.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBD62146118C003FF973 /* muxinternal.c */; };
-		FEC6FCB12146118C003FF973 /* anim_encode.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBD72146118C003FF973 /* anim_encode.c */; };
-		FEC6FCB22146118C003FF973 /* muxedit.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBD82146118C003FF973 /* muxedit.c */; };
-		FEC6FCB32146118C003FF973 /* thread.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBDB2146118C003FF973 /* thread.c */; };
-		FEC6FCB42146118C003FF973 /* rescaler.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBDD2146118C003FF973 /* rescaler.c */; };
-		FEC6FCB52146118C003FF973 /* quant_levels_dec.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBDE2146118C003FF973 /* quant_levels_dec.c */; };
-		FEC6FCB62146118C003FF973 /* quant_levels.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBE12146118C003FF973 /* quant_levels.c */; };
-		FEC6FCB72146118C003FF973 /* bit_writer.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBE32146118C003FF973 /* bit_writer.c */; };
-		FEC6FCB82146118C003FF973 /* random.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBE42146118C003FF973 /* random.c */; };
-		FEC6FCB92146118C003FF973 /* filters.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBE52146118C003FF973 /* filters.c */; };
-		FEC6FCBA2146118C003FF973 /* huffman.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBE72146118C003FF973 /* huffman.c */; };
-		FEC6FCBB2146118C003FF973 /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBEA2146118C003FF973 /* utils.c */; };
-		FEC6FCBC2146118C003FF973 /* bit_reader.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBED2146118C003FF973 /* bit_reader.c */; };
-		FEC6FCBD2146118C003FF973 /* color_cache.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBEE2146118C003FF973 /* color_cache.c */; };
-		FEC6FCBE2146118C003FF973 /* huffman_encode.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FBF42146118C003FF973 /* huffman_encode.c */; };
-		FEC6FCBF2146118C003FF973 /* picture_psnr.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC002146118C003FF973 /* picture_psnr.c */; };
-		FEC6FCC02146118C003FF973 /* picture_csp.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC012146118C003FF973 /* picture_csp.c */; };
-		FEC6FCC12146118C003FF973 /* delta_palettization.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC022146118C003FF973 /* delta_palettization.c */; };
-		FEC6FCC22146118C003FF973 /* histogram.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC032146118C003FF973 /* histogram.c */; };
-		FEC6FCC32146118C003FF973 /* vp8l.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC042146118C003FF973 /* vp8l.c */; };
-		FEC6FCC42146118C003FF973 /* token.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC082146118C003FF973 /* token.c */; };
-		FEC6FCC52146118C003FF973 /* analysis.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC092146118C003FF973 /* analysis.c */; };
-		FEC6FCC62146118C003FF973 /* webpenc.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC0A2146118C003FF973 /* webpenc.c */; };
-		FEC6FCC72146118C003FF973 /* iterator.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC0B2146118C003FF973 /* iterator.c */; };
-		FEC6FCC82146118C003FF973 /* filter.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC0C2146118C003FF973 /* filter.c */; };
-		FEC6FCC92146118C003FF973 /* near_lossless.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC0D2146118C003FF973 /* near_lossless.c */; };
-		FEC6FCCA2146118C003FF973 /* picture.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC0F2146118C003FF973 /* picture.c */; };
-		FEC6FCCB2146118C003FF973 /* backward_references.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC102146118C003FF973 /* backward_references.c */; };
-		FEC6FCCC2146118C003FF973 /* config.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC112146118C003FF973 /* config.c */; };
-		FEC6FCCD2146118C003FF973 /* picture_tools.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC122146118C003FF973 /* picture_tools.c */; };
-		FEC6FCCE2146118C003FF973 /* syntax.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC142146118C003FF973 /* syntax.c */; };
-		FEC6FCCF2146118C003FF973 /* frame.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC152146118C003FF973 /* frame.c */; };
-		FEC6FCD02146118C003FF973 /* cost.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC162146118C003FF973 /* cost.c */; };
-		FEC6FCD12146118C003FF973 /* alpha.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC172146118C003FF973 /* alpha.c */; };
-		FEC6FCD22146118C003FF973 /* quant.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC182146118C003FF973 /* quant.c */; };
-		FEC6FCD32146118C003FF973 /* picture_rescale.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC192146118C003FF973 /* picture_rescale.c */; };
-		FEC6FCD42146118C003FF973 /* tree.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC1A2146118C003FF973 /* tree.c */; };
-		FEC6FCD52146118C003FF973 /* demux.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC1C2146118C003FF973 /* demux.c */; };
-		FEC6FCD62146118C003FF973 /* anim_decode.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC1D2146118C003FF973 /* anim_decode.c */; };
-		FEC6FCD72146118C003FF973 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC1F2146118C003FF973 /* buffer.c */; };
-		FEC6FCD82146118C003FF973 /* vp8l.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC202146118C003FF973 /* vp8l.c */; };
-		FEC6FCD92146118C003FF973 /* io.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC212146118C003FF973 /* io.c */; };
-		FEC6FCDA2146118C003FF973 /* webp.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC252146118C003FF973 /* webp.c */; };
-		FEC6FCDB2146118C003FF973 /* frame.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC272146118C003FF973 /* frame.c */; };
-		FEC6FCDC2146118C003FF973 /* alpha.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC282146118C003FF973 /* alpha.c */; };
-		FEC6FCDD2146118C003FF973 /* quant.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC292146118C003FF973 /* quant.c */; };
-		FEC6FCDE2146118C003FF973 /* idec.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC2A2146118C003FF973 /* idec.c */; };
-		FEC6FCDF2146118C003FF973 /* vp8.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC2C2146118C003FF973 /* vp8.c */; };
-		FEC6FCE02146118C003FF973 /* tree.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC2E2146118C003FF973 /* tree.c */; };
-		FEC6FCE12146118C003FF973 /* upsampling.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC302146118C003FF973 /* upsampling.c */; };
-		FEC6FCE22146118C003FF973 /* lossless_sse2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC312146118C003FF973 /* lossless_sse2.c */; };
-		FEC6FCE32146118C003FF973 /* lossless_enc_mips_dsp_r2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC332146118C003FF973 /* lossless_enc_mips_dsp_r2.c */; };
-		FEC6FCE42146118C003FF973 /* filters_mips_dsp_r2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC362146118C003FF973 /* filters_mips_dsp_r2.c */; };
-		FEC6FCE52146118C003FF973 /* rescaler.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC372146118C003FF973 /* rescaler.c */; };
-		FEC6FCE62146118C003FF973 /* dec_mips_dsp_r2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC382146118C003FF973 /* dec_mips_dsp_r2.c */; };
-		FEC6FCE72146118C003FF973 /* rescaler_neon.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC392146118C003FF973 /* rescaler_neon.c */; };
-		FEC6FCE82146118C003FF973 /* cost_sse2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC3A2146118C003FF973 /* cost_sse2.c */; };
-		FEC6FCE92146118C003FF973 /* enc_sse41.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC3B2146118C003FF973 /* enc_sse41.c */; };
-		FEC6FCEA2146118C003FF973 /* lossless_enc_sse41.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC3C2146118C003FF973 /* lossless_enc_sse41.c */; };
-		FEC6FCEB2146118C003FF973 /* upsampling_neon.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC3D2146118C003FF973 /* upsampling_neon.c */; };
-		FEC6FCEC2146118C003FF973 /* filters_sse2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC3E2146118C003FF973 /* filters_sse2.c */; };
-		FEC6FCED2146118C003FF973 /* argb_sse2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC3F2146118C003FF973 /* argb_sse2.c */; };
-		FEC6FCEE2146118C003FF973 /* lossless_mips_dsp_r2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC402146118C003FF973 /* lossless_mips_dsp_r2.c */; };
-		FEC6FCEF2146118C003FF973 /* enc_mips_dsp_r2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC412146118C003FF973 /* enc_mips_dsp_r2.c */; };
-		FEC6FCF02146118C003FF973 /* cpu.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC422146118C003FF973 /* cpu.c */; };
-		FEC6FCF12146118C003FF973 /* alpha_processing.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC432146118C003FF973 /* alpha_processing.c */; };
-		FEC6FCF22146118C003FF973 /* enc_mips32.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC452146118C003FF973 /* enc_mips32.c */; };
-		FEC6FCF32146118C003FF973 /* upsampling_sse2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC462146118C003FF973 /* upsampling_sse2.c */; };
-		FEC6FCF42146118C003FF973 /* yuv_sse2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC472146118C003FF973 /* yuv_sse2.c */; };
-		FEC6FCF52146118C003FF973 /* lossless_neon.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC492146118C003FF973 /* lossless_neon.c */; };
-		FEC6FCF62146118C003FF973 /* filters.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC4A2146118C003FF973 /* filters.c */; };
-		FEC6FCF72146118C003FF973 /* alpha_processing_mips_dsp_r2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC4B2146118C003FF973 /* alpha_processing_mips_dsp_r2.c */; };
-		FEC6FCF82146118C003FF973 /* rescaler_mips_dsp_r2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC4C2146118C003FF973 /* rescaler_mips_dsp_r2.c */; };
-		FEC6FCF92146118C003FF973 /* rescaler_mips32.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC4D2146118C003FF973 /* rescaler_mips32.c */; };
-		FEC6FCFA2146118C003FF973 /* dec_sse41.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC4E2146118C003FF973 /* dec_sse41.c */; };
-		FEC6FCFB2146118C003FF973 /* argb.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC4F2146118C003FF973 /* argb.c */; };
-		FEC6FCFC2146118C003FF973 /* rescaler_sse2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC502146118C003FF973 /* rescaler_sse2.c */; };
-		FEC6FCFD2146118C003FF973 /* lossless_enc.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC512146118C003FF973 /* lossless_enc.c */; };
-		FEC6FCFE2146118C003FF973 /* yuv_mips_dsp_r2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC522146118C003FF973 /* yuv_mips_dsp_r2.c */; };
-		FEC6FCFF2146118C003FF973 /* argb_mips_dsp_r2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC532146118C003FF973 /* argb_mips_dsp_r2.c */; };
-		FEC6FD002146118C003FF973 /* dec.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC542146118C003FF973 /* dec.c */; };
-		FEC6FD012146118C003FF973 /* lossless.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC552146118C003FF973 /* lossless.c */; };
-		FEC6FD022146118C003FF973 /* lossless_enc_sse2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC562146118C003FF973 /* lossless_enc_sse2.c */; };
-		FEC6FD032146118C003FF973 /* yuv.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC572146118C003FF973 /* yuv.c */; };
-		FEC6FD042146118C003FF973 /* enc_neon.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC582146118C003FF973 /* enc_neon.c */; };
-		FEC6FD052146118C003FF973 /* dec_sse2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC592146118C003FF973 /* dec_sse2.c */; };
-		FEC6FD062146118C003FF973 /* enc_avx2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC5A2146118C003FF973 /* enc_avx2.c */; };
-		FEC6FD072146118C003FF973 /* enc_sse2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC5C2146118C003FF973 /* enc_sse2.c */; };
-		FEC6FD082146118C003FF973 /* lossless_enc_neon.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC5D2146118C003FF973 /* lossless_enc_neon.c */; };
-		FEC6FD092146118C003FF973 /* cost_mips32.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC5E2146118C003FF973 /* cost_mips32.c */; };
-		FEC6FD0A2146118C003FF973 /* alpha_processing_sse41.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC5F2146118C003FF973 /* alpha_processing_sse41.c */; };
-		FEC6FD0B2146118C003FF973 /* dec_neon.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC602146118C003FF973 /* dec_neon.c */; };
-		FEC6FD0C2146118C003FF973 /* cost.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC612146118C003FF973 /* cost.c */; };
-		FEC6FD0D2146118C003FF973 /* dec_mips32.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC622146118C003FF973 /* dec_mips32.c */; };
-		FEC6FD0E2146118C003FF973 /* cost_mips_dsp_r2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC632146118C003FF973 /* cost_mips_dsp_r2.c */; };
-		FEC6FD0F2146118C003FF973 /* alpha_processing_sse2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC642146118C003FF973 /* alpha_processing_sse2.c */; };
-		FEC6FD102146118C003FF973 /* dec_clip_tables.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC652146118C003FF973 /* dec_clip_tables.c */; };
-		FEC6FD112146118C003FF973 /* enc.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC662146118C003FF973 /* enc.c */; };
-		FEC6FD122146118C003FF973 /* lossless_enc_mips32.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC682146118C003FF973 /* lossless_enc_mips32.c */; };
-		FEC6FD132146118C003FF973 /* yuv_mips32.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC692146118C003FF973 /* yuv_mips32.c */; };
-		FEC6FD142146118C003FF973 /* upsampling_mips_dsp_r2.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC6A2146118C003FF973 /* upsampling_mips_dsp_r2.c */; };
-		FEC6FD152146118C003FF973 /* dec_msa.c in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC6B2146118C003FF973 /* dec_msa.c */; };
-		FEC6FD162146118C003FF973 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC6D2146118C003FF973 /* UIImage+WebP.m */; };
-		FEC6FD172146118C003FF973 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC6E2146118C003FF973 /* MKAnnotationView+WebCache.m */; };
-		FEC6FD182146118C003FF973 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC722146118C003FF973 /* SDWebImageManager.m */; };
-		FEC6FD192146118C003FF973 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC732146118C003FF973 /* SDWebImageDecoder.m */; };
-		FEC6FD1A2146118C003FF973 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC752146118C003FF973 /* UIImageView+HighlightedWebCache.m */; };
-		FEC6FD1B2146118C003FF973 /* FLAnimatedImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC792146118C003FF973 /* FLAnimatedImageView+WebCache.m */; };
-		FEC6FD1C2146118C003FF973 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC7B2146118C003FF973 /* SDWebImageDownloader.m */; };
-		FEC6FD1D2146118C003FF973 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC7C2146118C003FF973 /* UIImage+GIF.m */; };
-		FEC6FD1E2146118C003FF973 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC7E2146118C003FF973 /* UIImage+MultiFormat.m */; };
-		FEC6FD1F2146118C003FF973 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC7F2146118C003FF973 /* SDWebImageCompat.m */; };
-		FEC6FD202146118C003FF973 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC802146118C003FF973 /* SDWebImagePrefetcher.m */; };
-		FEC6FD212146118C003FF973 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC852146118C003FF973 /* SDImageCache.m */; };
-		FEC6FD222146118C003FF973 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC872146118C003FF973 /* SDWebImageDownloaderOperation.m */; };
-		FEC6FD232146118C003FF973 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC8A2146118C003FF973 /* NSData+ImageContentType.m */; };
-		FEC6FD242146118C003FF973 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC8B2146118C003FF973 /* UIImageView+WebCache.m */; };
-		FEC6FD252146118C003FF973 /* NSImage+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC8D2146118C003FF973 /* NSImage+WebCache.m */; };
-		FEC6FD262146118C003FF973 /* SDImageCacheConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC8F2146118C003FF973 /* SDImageCacheConfig.m */; };
-		FEC6FD272146118C003FF973 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC902146118C003FF973 /* UIView+WebCacheOperation.m */; };
-		FEC6FD282146118C003FF973 /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC912146118C003FF973 /* UIView+WebCache.m */; };
-		FEC6FD292146118C003FF973 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FC952146118C003FF973 /* UIButton+WebCache.m */; };
 		FEC6FD2D21461260003FF973 /* QYBinaryHeapSoft.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FD2C21461260003FF973 /* QYBinaryHeapSoft.m */; };
 		FEC6FD3021461272003FF973 /* QYSoft.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC6FD2F21461272003FF973 /* QYSoft.m */; };
 		FECD95F320B279C200C8D92C /* QYTwelveTKnowdege.m in Sources */ = {isa = PBXBuildFile; fileRef = FECD95F220B279C200C8D92C /* QYTwelveTKnowdege.m */; };
@@ -1458,196 +1333,6 @@
 		FEC6FBC92146118C003FF973 /* SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
 		FEC6FBCA2146118C003FF973 /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
 		FEC6FBCB2146118C003FF973 /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
-		FEC6FBCE2146118C003FF973 /* FLAnimatedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImage.m; sourceTree = "<group>"; };
-		FEC6FBCF2146118C003FF973 /* FLAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImageView.m; sourceTree = "<group>"; };
-		FEC6FBD02146118C003FF973 /* FLAnimatedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImage.h; sourceTree = "<group>"; };
-		FEC6FBD12146118C003FF973 /* FLAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImageView.h; sourceTree = "<group>"; };
-		FEC6FBD52146118C003FF973 /* muxread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = muxread.c; sourceTree = "<group>"; };
-		FEC6FBD62146118C003FF973 /* muxinternal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = muxinternal.c; sourceTree = "<group>"; };
-		FEC6FBD72146118C003FF973 /* anim_encode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = anim_encode.c; sourceTree = "<group>"; };
-		FEC6FBD82146118C003FF973 /* muxedit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = muxedit.c; sourceTree = "<group>"; };
-		FEC6FBD92146118C003FF973 /* muxi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = muxi.h; sourceTree = "<group>"; };
-		FEC6FBDB2146118C003FF973 /* thread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = thread.c; sourceTree = "<group>"; };
-		FEC6FBDC2146118C003FF973 /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
-		FEC6FBDD2146118C003FF973 /* rescaler.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rescaler.c; sourceTree = "<group>"; };
-		FEC6FBDE2146118C003FF973 /* quant_levels_dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = quant_levels_dec.c; sourceTree = "<group>"; };
-		FEC6FBDF2146118C003FF973 /* color_cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = color_cache.h; sourceTree = "<group>"; };
-		FEC6FBE02146118C003FF973 /* bit_reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bit_reader.h; sourceTree = "<group>"; };
-		FEC6FBE12146118C003FF973 /* quant_levels.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = quant_levels.c; sourceTree = "<group>"; };
-		FEC6FBE22146118C003FF973 /* huffman_encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = huffman_encode.h; sourceTree = "<group>"; };
-		FEC6FBE32146118C003FF973 /* bit_writer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bit_writer.c; sourceTree = "<group>"; };
-		FEC6FBE42146118C003FF973 /* random.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = random.c; sourceTree = "<group>"; };
-		FEC6FBE52146118C003FF973 /* filters.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = filters.c; sourceTree = "<group>"; };
-		FEC6FBE62146118C003FF973 /* bit_reader_inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bit_reader_inl.h; sourceTree = "<group>"; };
-		FEC6FBE72146118C003FF973 /* huffman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = huffman.c; sourceTree = "<group>"; };
-		FEC6FBE82146118C003FF973 /* rescaler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rescaler.h; sourceTree = "<group>"; };
-		FEC6FBE92146118C003FF973 /* thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thread.h; sourceTree = "<group>"; };
-		FEC6FBEA2146118C003FF973 /* utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = utils.c; sourceTree = "<group>"; };
-		FEC6FBEB2146118C003FF973 /* quant_levels_dec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quant_levels_dec.h; sourceTree = "<group>"; };
-		FEC6FBEC2146118C003FF973 /* quant_levels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quant_levels.h; sourceTree = "<group>"; };
-		FEC6FBED2146118C003FF973 /* bit_reader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bit_reader.c; sourceTree = "<group>"; };
-		FEC6FBEE2146118C003FF973 /* color_cache.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = color_cache.c; sourceTree = "<group>"; };
-		FEC6FBEF2146118C003FF973 /* huffman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = huffman.h; sourceTree = "<group>"; };
-		FEC6FBF02146118C003FF973 /* filters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = filters.h; sourceTree = "<group>"; };
-		FEC6FBF12146118C003FF973 /* random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = random.h; sourceTree = "<group>"; };
-		FEC6FBF22146118C003FF973 /* endian_inl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = endian_inl.h; sourceTree = "<group>"; };
-		FEC6FBF32146118C003FF973 /* bit_writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bit_writer.h; sourceTree = "<group>"; };
-		FEC6FBF42146118C003FF973 /* huffman_encode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = huffman_encode.c; sourceTree = "<group>"; };
-		FEC6FBF62146118C003FF973 /* format_constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = format_constants.h; sourceTree = "<group>"; };
-		FEC6FBF72146118C003FF973 /* mux.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mux.h; sourceTree = "<group>"; };
-		FEC6FBF82146118C003FF973 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
-		FEC6FBF92146118C003FF973 /* extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = extras.h; sourceTree = "<group>"; };
-		FEC6FBFA2146118C003FF973 /* demux.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = demux.h; sourceTree = "<group>"; };
-		FEC6FBFB2146118C003FF973 /* mux_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mux_types.h; sourceTree = "<group>"; };
-		FEC6FBFC2146118C003FF973 /* encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encode.h; sourceTree = "<group>"; };
-		FEC6FBFD2146118C003FF973 /* decode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decode.h; sourceTree = "<group>"; };
-		FEC6FBFF2146118C003FF973 /* backward_references.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = backward_references.h; sourceTree = "<group>"; };
-		FEC6FC002146118C003FF973 /* picture_psnr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = picture_psnr.c; sourceTree = "<group>"; };
-		FEC6FC012146118C003FF973 /* picture_csp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = picture_csp.c; sourceTree = "<group>"; };
-		FEC6FC022146118C003FF973 /* delta_palettization.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = delta_palettization.c; sourceTree = "<group>"; };
-		FEC6FC032146118C003FF973 /* histogram.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = histogram.c; sourceTree = "<group>"; };
-		FEC6FC042146118C003FF973 /* vp8l.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vp8l.c; sourceTree = "<group>"; };
-		FEC6FC052146118C003FF973 /* cost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cost.h; sourceTree = "<group>"; };
-		FEC6FC062146118C003FF973 /* vp8enci.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vp8enci.h; sourceTree = "<group>"; };
-		FEC6FC072146118C003FF973 /* vp8li.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vp8li.h; sourceTree = "<group>"; };
-		FEC6FC082146118C003FF973 /* token.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = token.c; sourceTree = "<group>"; };
-		FEC6FC092146118C003FF973 /* analysis.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = analysis.c; sourceTree = "<group>"; };
-		FEC6FC0A2146118C003FF973 /* webpenc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = webpenc.c; sourceTree = "<group>"; };
-		FEC6FC0B2146118C003FF973 /* iterator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = iterator.c; sourceTree = "<group>"; };
-		FEC6FC0C2146118C003FF973 /* filter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = filter.c; sourceTree = "<group>"; };
-		FEC6FC0D2146118C003FF973 /* near_lossless.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = near_lossless.c; sourceTree = "<group>"; };
-		FEC6FC0E2146118C003FF973 /* delta_palettization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = delta_palettization.h; sourceTree = "<group>"; };
-		FEC6FC0F2146118C003FF973 /* picture.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = picture.c; sourceTree = "<group>"; };
-		FEC6FC102146118C003FF973 /* backward_references.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = backward_references.c; sourceTree = "<group>"; };
-		FEC6FC112146118C003FF973 /* config.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = config.c; sourceTree = "<group>"; };
-		FEC6FC122146118C003FF973 /* picture_tools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = picture_tools.c; sourceTree = "<group>"; };
-		FEC6FC132146118C003FF973 /* histogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = histogram.h; sourceTree = "<group>"; };
-		FEC6FC142146118C003FF973 /* syntax.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = syntax.c; sourceTree = "<group>"; };
-		FEC6FC152146118C003FF973 /* frame.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = frame.c; sourceTree = "<group>"; };
-		FEC6FC162146118C003FF973 /* cost.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cost.c; sourceTree = "<group>"; };
-		FEC6FC172146118C003FF973 /* alpha.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = alpha.c; sourceTree = "<group>"; };
-		FEC6FC182146118C003FF973 /* quant.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = quant.c; sourceTree = "<group>"; };
-		FEC6FC192146118C003FF973 /* picture_rescale.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = picture_rescale.c; sourceTree = "<group>"; };
-		FEC6FC1A2146118C003FF973 /* tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tree.c; sourceTree = "<group>"; };
-		FEC6FC1C2146118C003FF973 /* demux.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = demux.c; sourceTree = "<group>"; };
-		FEC6FC1D2146118C003FF973 /* anim_decode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = anim_decode.c; sourceTree = "<group>"; };
-		FEC6FC1F2146118C003FF973 /* buffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = buffer.c; sourceTree = "<group>"; };
-		FEC6FC202146118C003FF973 /* vp8l.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vp8l.c; sourceTree = "<group>"; };
-		FEC6FC212146118C003FF973 /* io.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = io.c; sourceTree = "<group>"; };
-		FEC6FC222146118C003FF973 /* vp8li.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vp8li.h; sourceTree = "<group>"; };
-		FEC6FC232146118C003FF973 /* alphai.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = alphai.h; sourceTree = "<group>"; };
-		FEC6FC242146118C003FF973 /* vp8i.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vp8i.h; sourceTree = "<group>"; };
-		FEC6FC252146118C003FF973 /* webp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = webp.c; sourceTree = "<group>"; };
-		FEC6FC262146118C003FF973 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
-		FEC6FC272146118C003FF973 /* frame.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = frame.c; sourceTree = "<group>"; };
-		FEC6FC282146118C003FF973 /* alpha.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = alpha.c; sourceTree = "<group>"; };
-		FEC6FC292146118C003FF973 /* quant.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = quant.c; sourceTree = "<group>"; };
-		FEC6FC2A2146118C003FF973 /* idec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = idec.c; sourceTree = "<group>"; };
-		FEC6FC2B2146118C003FF973 /* webpi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = webpi.h; sourceTree = "<group>"; };
-		FEC6FC2C2146118C003FF973 /* vp8.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vp8.c; sourceTree = "<group>"; };
-		FEC6FC2D2146118C003FF973 /* decode_vp8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decode_vp8.h; sourceTree = "<group>"; };
-		FEC6FC2E2146118C003FF973 /* tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tree.c; sourceTree = "<group>"; };
-		FEC6FC302146118C003FF973 /* upsampling.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = upsampling.c; sourceTree = "<group>"; };
-		FEC6FC312146118C003FF973 /* lossless_sse2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lossless_sse2.c; sourceTree = "<group>"; };
-		FEC6FC322146118C003FF973 /* lossless.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lossless.h; sourceTree = "<group>"; };
-		FEC6FC332146118C003FF973 /* lossless_enc_mips_dsp_r2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lossless_enc_mips_dsp_r2.c; sourceTree = "<group>"; };
-		FEC6FC342146118C003FF973 /* msa_macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msa_macro.h; sourceTree = "<group>"; };
-		FEC6FC352146118C003FF973 /* neon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = neon.h; sourceTree = "<group>"; };
-		FEC6FC362146118C003FF973 /* filters_mips_dsp_r2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = filters_mips_dsp_r2.c; sourceTree = "<group>"; };
-		FEC6FC372146118C003FF973 /* rescaler.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rescaler.c; sourceTree = "<group>"; };
-		FEC6FC382146118C003FF973 /* dec_mips_dsp_r2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dec_mips_dsp_r2.c; sourceTree = "<group>"; };
-		FEC6FC392146118C003FF973 /* rescaler_neon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rescaler_neon.c; sourceTree = "<group>"; };
-		FEC6FC3A2146118C003FF973 /* cost_sse2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cost_sse2.c; sourceTree = "<group>"; };
-		FEC6FC3B2146118C003FF973 /* enc_sse41.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = enc_sse41.c; sourceTree = "<group>"; };
-		FEC6FC3C2146118C003FF973 /* lossless_enc_sse41.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lossless_enc_sse41.c; sourceTree = "<group>"; };
-		FEC6FC3D2146118C003FF973 /* upsampling_neon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = upsampling_neon.c; sourceTree = "<group>"; };
-		FEC6FC3E2146118C003FF973 /* filters_sse2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = filters_sse2.c; sourceTree = "<group>"; };
-		FEC6FC3F2146118C003FF973 /* argb_sse2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = argb_sse2.c; sourceTree = "<group>"; };
-		FEC6FC402146118C003FF973 /* lossless_mips_dsp_r2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lossless_mips_dsp_r2.c; sourceTree = "<group>"; };
-		FEC6FC412146118C003FF973 /* enc_mips_dsp_r2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = enc_mips_dsp_r2.c; sourceTree = "<group>"; };
-		FEC6FC422146118C003FF973 /* cpu.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cpu.c; sourceTree = "<group>"; };
-		FEC6FC432146118C003FF973 /* alpha_processing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = alpha_processing.c; sourceTree = "<group>"; };
-		FEC6FC442146118C003FF973 /* yuv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yuv.h; sourceTree = "<group>"; };
-		FEC6FC452146118C003FF973 /* enc_mips32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = enc_mips32.c; sourceTree = "<group>"; };
-		FEC6FC462146118C003FF973 /* upsampling_sse2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = upsampling_sse2.c; sourceTree = "<group>"; };
-		FEC6FC472146118C003FF973 /* yuv_sse2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yuv_sse2.c; sourceTree = "<group>"; };
-		FEC6FC482146118C003FF973 /* mips_macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mips_macro.h; sourceTree = "<group>"; };
-		FEC6FC492146118C003FF973 /* lossless_neon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lossless_neon.c; sourceTree = "<group>"; };
-		FEC6FC4A2146118C003FF973 /* filters.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = filters.c; sourceTree = "<group>"; };
-		FEC6FC4B2146118C003FF973 /* alpha_processing_mips_dsp_r2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = alpha_processing_mips_dsp_r2.c; sourceTree = "<group>"; };
-		FEC6FC4C2146118C003FF973 /* rescaler_mips_dsp_r2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rescaler_mips_dsp_r2.c; sourceTree = "<group>"; };
-		FEC6FC4D2146118C003FF973 /* rescaler_mips32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rescaler_mips32.c; sourceTree = "<group>"; };
-		FEC6FC4E2146118C003FF973 /* dec_sse41.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dec_sse41.c; sourceTree = "<group>"; };
-		FEC6FC4F2146118C003FF973 /* argb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = argb.c; sourceTree = "<group>"; };
-		FEC6FC502146118C003FF973 /* rescaler_sse2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rescaler_sse2.c; sourceTree = "<group>"; };
-		FEC6FC512146118C003FF973 /* lossless_enc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lossless_enc.c; sourceTree = "<group>"; };
-		FEC6FC522146118C003FF973 /* yuv_mips_dsp_r2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yuv_mips_dsp_r2.c; sourceTree = "<group>"; };
-		FEC6FC532146118C003FF973 /* argb_mips_dsp_r2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = argb_mips_dsp_r2.c; sourceTree = "<group>"; };
-		FEC6FC542146118C003FF973 /* dec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dec.c; sourceTree = "<group>"; };
-		FEC6FC552146118C003FF973 /* lossless.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lossless.c; sourceTree = "<group>"; };
-		FEC6FC562146118C003FF973 /* lossless_enc_sse2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lossless_enc_sse2.c; sourceTree = "<group>"; };
-		FEC6FC572146118C003FF973 /* yuv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yuv.c; sourceTree = "<group>"; };
-		FEC6FC582146118C003FF973 /* enc_neon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = enc_neon.c; sourceTree = "<group>"; };
-		FEC6FC592146118C003FF973 /* dec_sse2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dec_sse2.c; sourceTree = "<group>"; };
-		FEC6FC5A2146118C003FF973 /* enc_avx2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = enc_avx2.c; sourceTree = "<group>"; };
-		FEC6FC5B2146118C003FF973 /* dsp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dsp.h; sourceTree = "<group>"; };
-		FEC6FC5C2146118C003FF973 /* enc_sse2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = enc_sse2.c; sourceTree = "<group>"; };
-		FEC6FC5D2146118C003FF973 /* lossless_enc_neon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lossless_enc_neon.c; sourceTree = "<group>"; };
-		FEC6FC5E2146118C003FF973 /* cost_mips32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cost_mips32.c; sourceTree = "<group>"; };
-		FEC6FC5F2146118C003FF973 /* alpha_processing_sse41.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = alpha_processing_sse41.c; sourceTree = "<group>"; };
-		FEC6FC602146118C003FF973 /* dec_neon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dec_neon.c; sourceTree = "<group>"; };
-		FEC6FC612146118C003FF973 /* cost.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cost.c; sourceTree = "<group>"; };
-		FEC6FC622146118C003FF973 /* dec_mips32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dec_mips32.c; sourceTree = "<group>"; };
-		FEC6FC632146118C003FF973 /* cost_mips_dsp_r2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cost_mips_dsp_r2.c; sourceTree = "<group>"; };
-		FEC6FC642146118C003FF973 /* alpha_processing_sse2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = alpha_processing_sse2.c; sourceTree = "<group>"; };
-		FEC6FC652146118C003FF973 /* dec_clip_tables.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dec_clip_tables.c; sourceTree = "<group>"; };
-		FEC6FC662146118C003FF973 /* enc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = enc.c; sourceTree = "<group>"; };
-		FEC6FC672146118C003FF973 /* common_sse2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common_sse2.h; sourceTree = "<group>"; };
-		FEC6FC682146118C003FF973 /* lossless_enc_mips32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lossless_enc_mips32.c; sourceTree = "<group>"; };
-		FEC6FC692146118C003FF973 /* yuv_mips32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yuv_mips32.c; sourceTree = "<group>"; };
-		FEC6FC6A2146118C003FF973 /* upsampling_mips_dsp_r2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = upsampling_mips_dsp_r2.c; sourceTree = "<group>"; };
-		FEC6FC6B2146118C003FF973 /* dec_msa.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dec_msa.c; sourceTree = "<group>"; };
-		FEC6FC6D2146118C003FF973 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
-		FEC6FC6E2146118C003FF973 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
-		FEC6FC6F2146118C003FF973 /* NSImage+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+WebCache.h"; sourceTree = "<group>"; };
-		FEC6FC702146118C003FF973 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
-		FEC6FC712146118C003FF973 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
-		FEC6FC722146118C003FF973 /* SDWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageManager.m; sourceTree = "<group>"; };
-		FEC6FC732146118C003FF973 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDecoder.m; sourceTree = "<group>"; };
-		FEC6FC742146118C003FF973 /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
-		FEC6FC752146118C003FF973 /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
-		FEC6FC762146118C003FF973 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
-		FEC6FC772146118C003FF973 /* SDImageCacheConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCacheConfig.h; sourceTree = "<group>"; };
-		FEC6FC792146118C003FF973 /* FLAnimatedImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FLAnimatedImageView+WebCache.m"; sourceTree = "<group>"; };
-		FEC6FC7A2146118C003FF973 /* FLAnimatedImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FLAnimatedImageView+WebCache.h"; sourceTree = "<group>"; };
-		FEC6FC7B2146118C003FF973 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloader.m; sourceTree = "<group>"; };
-		FEC6FC7C2146118C003FF973 /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
-		FEC6FC7D2146118C003FF973 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
-		FEC6FC7E2146118C003FF973 /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MultiFormat.m"; sourceTree = "<group>"; };
-		FEC6FC7F2146118C003FF973 /* SDWebImageCompat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageCompat.m; sourceTree = "<group>"; };
-		FEC6FC802146118C003FF973 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImagePrefetcher.m; sourceTree = "<group>"; };
-		FEC6FC812146118C003FF973 /* UIView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCache.h"; sourceTree = "<group>"; };
-		FEC6FC822146118C003FF973 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
-		FEC6FC832146118C003FF973 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
-		FEC6FC842146118C003FF973 /* UIImage+WebP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WebP.h"; sourceTree = "<group>"; };
-		FEC6FC852146118C003FF973 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
-		FEC6FC862146118C003FF973 /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
-		FEC6FC872146118C003FF973 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
-		FEC6FC882146118C003FF973 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDecoder.h; sourceTree = "<group>"; };
-		FEC6FC892146118C003FF973 /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
-		FEC6FC8A2146118C003FF973 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+ImageContentType.m"; sourceTree = "<group>"; };
-		FEC6FC8B2146118C003FF973 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
-		FEC6FC8C2146118C003FF973 /* SDWebImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageOperation.h; sourceTree = "<group>"; };
-		FEC6FC8D2146118C003FF973 /* NSImage+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+WebCache.m"; sourceTree = "<group>"; };
-		FEC6FC8E2146118C003FF973 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloader.h; sourceTree = "<group>"; };
-		FEC6FC8F2146118C003FF973 /* SDImageCacheConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCacheConfig.m; sourceTree = "<group>"; };
-		FEC6FC902146118C003FF973 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		FEC6FC912146118C003FF973 /* UIView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCache.m"; sourceTree = "<group>"; };
-		FEC6FC922146118C003FF973 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImagePrefetcher.h; sourceTree = "<group>"; };
-		FEC6FC932146118C003FF973 /* SDWebImageCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageCompat.h; sourceTree = "<group>"; };
-		FEC6FC942146118C003FF973 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MultiFormat.h"; sourceTree = "<group>"; };
-		FEC6FC952146118C003FF973 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
-		FEC6FC962146118C003FF973 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
 		FEC6FD2B21461260003FF973 /* QYBinaryHeapSoft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYBinaryHeapSoft.h; sourceTree = "<group>"; };
 		FEC6FD2C21461260003FF973 /* QYBinaryHeapSoft.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYBinaryHeapSoft.m; sourceTree = "<group>"; };
 		FEC6FD2E21461272003FF973 /* QYSoft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYSoft.h; sourceTree = "<group>"; };
@@ -2707,7 +2392,6 @@
 				8BB22A4A1FDF810800284193 /* TTTLocalizString */,
 				FEC6FB972146118C003FF973 /* AutoLayout */,
 				FEC6FB932146118C003FF973 /* iCarousel */,
-				FEC6FBCC2146118C003FF973 /* SDWebImage */,
 			);
 			path = Third;
 			sourceTree = "<group>";
@@ -3788,299 +3472,6 @@
 			path = SDAutoLayout;
 			sourceTree = "<group>";
 		};
-		FEC6FBCC2146118C003FF973 /* SDWebImage */ = {
-			isa = PBXGroup;
-			children = (
-				FEC6FBCD2146118C003FF973 /* FLAnimatedImage */,
-				FEC6FBD22146118C003FF973 /* libwebp */,
-				FEC6FC6C2146118C003FF973 /* SDWebImage */,
-			);
-			path = SDWebImage;
-			sourceTree = "<group>";
-		};
-		FEC6FBCD2146118C003FF973 /* FLAnimatedImage */ = {
-			isa = PBXGroup;
-			children = (
-				FEC6FBD02146118C003FF973 /* FLAnimatedImage.h */,
-				FEC6FBCE2146118C003FF973 /* FLAnimatedImage.m */,
-				FEC6FBD12146118C003FF973 /* FLAnimatedImageView.h */,
-				FEC6FBCF2146118C003FF973 /* FLAnimatedImageView.m */,
-			);
-			path = FLAnimatedImage;
-			sourceTree = "<group>";
-		};
-		FEC6FBD22146118C003FF973 /* libwebp */ = {
-			isa = PBXGroup;
-			children = (
-				FEC6FBD32146118C003FF973 /* src */,
-			);
-			path = libwebp;
-			sourceTree = "<group>";
-		};
-		FEC6FBD32146118C003FF973 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				FEC6FC1E2146118C003FF973 /* dec */,
-				FEC6FC1B2146118C003FF973 /* demux */,
-				FEC6FC2F2146118C003FF973 /* dsp */,
-				FEC6FBFE2146118C003FF973 /* enc */,
-				FEC6FBD42146118C003FF973 /* mux */,
-				FEC6FBDA2146118C003FF973 /* utils */,
-				FEC6FBF52146118C003FF973 /* webp */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		FEC6FBD42146118C003FF973 /* mux */ = {
-			isa = PBXGroup;
-			children = (
-				FEC6FBD52146118C003FF973 /* muxread.c */,
-				FEC6FBD62146118C003FF973 /* muxinternal.c */,
-				FEC6FBD72146118C003FF973 /* anim_encode.c */,
-				FEC6FBD82146118C003FF973 /* muxedit.c */,
-				FEC6FBD92146118C003FF973 /* muxi.h */,
-			);
-			path = mux;
-			sourceTree = "<group>";
-		};
-		FEC6FBDA2146118C003FF973 /* utils */ = {
-			isa = PBXGroup;
-			children = (
-				FEC6FBDB2146118C003FF973 /* thread.c */,
-				FEC6FBDC2146118C003FF973 /* utils.h */,
-				FEC6FBDD2146118C003FF973 /* rescaler.c */,
-				FEC6FBDE2146118C003FF973 /* quant_levels_dec.c */,
-				FEC6FBDF2146118C003FF973 /* color_cache.h */,
-				FEC6FBE02146118C003FF973 /* bit_reader.h */,
-				FEC6FBE12146118C003FF973 /* quant_levels.c */,
-				FEC6FBE22146118C003FF973 /* huffman_encode.h */,
-				FEC6FBE32146118C003FF973 /* bit_writer.c */,
-				FEC6FBE42146118C003FF973 /* random.c */,
-				FEC6FBE52146118C003FF973 /* filters.c */,
-				FEC6FBE62146118C003FF973 /* bit_reader_inl.h */,
-				FEC6FBE72146118C003FF973 /* huffman.c */,
-				FEC6FBE82146118C003FF973 /* rescaler.h */,
-				FEC6FBE92146118C003FF973 /* thread.h */,
-				FEC6FBEA2146118C003FF973 /* utils.c */,
-				FEC6FBEB2146118C003FF973 /* quant_levels_dec.h */,
-				FEC6FBEC2146118C003FF973 /* quant_levels.h */,
-				FEC6FBED2146118C003FF973 /* bit_reader.c */,
-				FEC6FBEE2146118C003FF973 /* color_cache.c */,
-				FEC6FBEF2146118C003FF973 /* huffman.h */,
-				FEC6FBF02146118C003FF973 /* filters.h */,
-				FEC6FBF12146118C003FF973 /* random.h */,
-				FEC6FBF22146118C003FF973 /* endian_inl.h */,
-				FEC6FBF32146118C003FF973 /* bit_writer.h */,
-				FEC6FBF42146118C003FF973 /* huffman_encode.c */,
-			);
-			path = utils;
-			sourceTree = "<group>";
-		};
-		FEC6FBF52146118C003FF973 /* webp */ = {
-			isa = PBXGroup;
-			children = (
-				FEC6FBF62146118C003FF973 /* format_constants.h */,
-				FEC6FBF72146118C003FF973 /* mux.h */,
-				FEC6FBF82146118C003FF973 /* types.h */,
-				FEC6FBF92146118C003FF973 /* extras.h */,
-				FEC6FBFA2146118C003FF973 /* demux.h */,
-				FEC6FBFB2146118C003FF973 /* mux_types.h */,
-				FEC6FBFC2146118C003FF973 /* encode.h */,
-				FEC6FBFD2146118C003FF973 /* decode.h */,
-			);
-			path = webp;
-			sourceTree = "<group>";
-		};
-		FEC6FBFE2146118C003FF973 /* enc */ = {
-			isa = PBXGroup;
-			children = (
-				FEC6FBFF2146118C003FF973 /* backward_references.h */,
-				FEC6FC002146118C003FF973 /* picture_psnr.c */,
-				FEC6FC012146118C003FF973 /* picture_csp.c */,
-				FEC6FC022146118C003FF973 /* delta_palettization.c */,
-				FEC6FC032146118C003FF973 /* histogram.c */,
-				FEC6FC042146118C003FF973 /* vp8l.c */,
-				FEC6FC052146118C003FF973 /* cost.h */,
-				FEC6FC062146118C003FF973 /* vp8enci.h */,
-				FEC6FC072146118C003FF973 /* vp8li.h */,
-				FEC6FC082146118C003FF973 /* token.c */,
-				FEC6FC092146118C003FF973 /* analysis.c */,
-				FEC6FC0A2146118C003FF973 /* webpenc.c */,
-				FEC6FC0B2146118C003FF973 /* iterator.c */,
-				FEC6FC0C2146118C003FF973 /* filter.c */,
-				FEC6FC0D2146118C003FF973 /* near_lossless.c */,
-				FEC6FC0E2146118C003FF973 /* delta_palettization.h */,
-				FEC6FC0F2146118C003FF973 /* picture.c */,
-				FEC6FC102146118C003FF973 /* backward_references.c */,
-				FEC6FC112146118C003FF973 /* config.c */,
-				FEC6FC122146118C003FF973 /* picture_tools.c */,
-				FEC6FC132146118C003FF973 /* histogram.h */,
-				FEC6FC142146118C003FF973 /* syntax.c */,
-				FEC6FC152146118C003FF973 /* frame.c */,
-				FEC6FC162146118C003FF973 /* cost.c */,
-				FEC6FC172146118C003FF973 /* alpha.c */,
-				FEC6FC182146118C003FF973 /* quant.c */,
-				FEC6FC192146118C003FF973 /* picture_rescale.c */,
-				FEC6FC1A2146118C003FF973 /* tree.c */,
-			);
-			path = enc;
-			sourceTree = "<group>";
-		};
-		FEC6FC1B2146118C003FF973 /* demux */ = {
-			isa = PBXGroup;
-			children = (
-				FEC6FC1C2146118C003FF973 /* demux.c */,
-				FEC6FC1D2146118C003FF973 /* anim_decode.c */,
-			);
-			path = demux;
-			sourceTree = "<group>";
-		};
-		FEC6FC1E2146118C003FF973 /* dec */ = {
-			isa = PBXGroup;
-			children = (
-				FEC6FC1F2146118C003FF973 /* buffer.c */,
-				FEC6FC202146118C003FF973 /* vp8l.c */,
-				FEC6FC212146118C003FF973 /* io.c */,
-				FEC6FC222146118C003FF973 /* vp8li.h */,
-				FEC6FC232146118C003FF973 /* alphai.h */,
-				FEC6FC242146118C003FF973 /* vp8i.h */,
-				FEC6FC252146118C003FF973 /* webp.c */,
-				FEC6FC262146118C003FF973 /* common.h */,
-				FEC6FC272146118C003FF973 /* frame.c */,
-				FEC6FC282146118C003FF973 /* alpha.c */,
-				FEC6FC292146118C003FF973 /* quant.c */,
-				FEC6FC2A2146118C003FF973 /* idec.c */,
-				FEC6FC2B2146118C003FF973 /* webpi.h */,
-				FEC6FC2C2146118C003FF973 /* vp8.c */,
-				FEC6FC2D2146118C003FF973 /* decode_vp8.h */,
-				FEC6FC2E2146118C003FF973 /* tree.c */,
-			);
-			path = dec;
-			sourceTree = "<group>";
-		};
-		FEC6FC2F2146118C003FF973 /* dsp */ = {
-			isa = PBXGroup;
-			children = (
-				FEC6FC302146118C003FF973 /* upsampling.c */,
-				FEC6FC312146118C003FF973 /* lossless_sse2.c */,
-				FEC6FC322146118C003FF973 /* lossless.h */,
-				FEC6FC332146118C003FF973 /* lossless_enc_mips_dsp_r2.c */,
-				FEC6FC342146118C003FF973 /* msa_macro.h */,
-				FEC6FC352146118C003FF973 /* neon.h */,
-				FEC6FC362146118C003FF973 /* filters_mips_dsp_r2.c */,
-				FEC6FC372146118C003FF973 /* rescaler.c */,
-				FEC6FC382146118C003FF973 /* dec_mips_dsp_r2.c */,
-				FEC6FC392146118C003FF973 /* rescaler_neon.c */,
-				FEC6FC3A2146118C003FF973 /* cost_sse2.c */,
-				FEC6FC3B2146118C003FF973 /* enc_sse41.c */,
-				FEC6FC3C2146118C003FF973 /* lossless_enc_sse41.c */,
-				FEC6FC3D2146118C003FF973 /* upsampling_neon.c */,
-				FEC6FC3E2146118C003FF973 /* filters_sse2.c */,
-				FEC6FC3F2146118C003FF973 /* argb_sse2.c */,
-				FEC6FC402146118C003FF973 /* lossless_mips_dsp_r2.c */,
-				FEC6FC412146118C003FF973 /* enc_mips_dsp_r2.c */,
-				FEC6FC422146118C003FF973 /* cpu.c */,
-				FEC6FC432146118C003FF973 /* alpha_processing.c */,
-				FEC6FC442146118C003FF973 /* yuv.h */,
-				FEC6FC452146118C003FF973 /* enc_mips32.c */,
-				FEC6FC462146118C003FF973 /* upsampling_sse2.c */,
-				FEC6FC472146118C003FF973 /* yuv_sse2.c */,
-				FEC6FC482146118C003FF973 /* mips_macro.h */,
-				FEC6FC492146118C003FF973 /* lossless_neon.c */,
-				FEC6FC4A2146118C003FF973 /* filters.c */,
-				FEC6FC4B2146118C003FF973 /* alpha_processing_mips_dsp_r2.c */,
-				FEC6FC4C2146118C003FF973 /* rescaler_mips_dsp_r2.c */,
-				FEC6FC4D2146118C003FF973 /* rescaler_mips32.c */,
-				FEC6FC4E2146118C003FF973 /* dec_sse41.c */,
-				FEC6FC4F2146118C003FF973 /* argb.c */,
-				FEC6FC502146118C003FF973 /* rescaler_sse2.c */,
-				FEC6FC512146118C003FF973 /* lossless_enc.c */,
-				FEC6FC522146118C003FF973 /* yuv_mips_dsp_r2.c */,
-				FEC6FC532146118C003FF973 /* argb_mips_dsp_r2.c */,
-				FEC6FC542146118C003FF973 /* dec.c */,
-				FEC6FC552146118C003FF973 /* lossless.c */,
-				FEC6FC562146118C003FF973 /* lossless_enc_sse2.c */,
-				FEC6FC572146118C003FF973 /* yuv.c */,
-				FEC6FC582146118C003FF973 /* enc_neon.c */,
-				FEC6FC592146118C003FF973 /* dec_sse2.c */,
-				FEC6FC5A2146118C003FF973 /* enc_avx2.c */,
-				FEC6FC5B2146118C003FF973 /* dsp.h */,
-				FEC6FC5C2146118C003FF973 /* enc_sse2.c */,
-				FEC6FC5D2146118C003FF973 /* lossless_enc_neon.c */,
-				FEC6FC5E2146118C003FF973 /* cost_mips32.c */,
-				FEC6FC5F2146118C003FF973 /* alpha_processing_sse41.c */,
-				FEC6FC602146118C003FF973 /* dec_neon.c */,
-				FEC6FC612146118C003FF973 /* cost.c */,
-				FEC6FC622146118C003FF973 /* dec_mips32.c */,
-				FEC6FC632146118C003FF973 /* cost_mips_dsp_r2.c */,
-				FEC6FC642146118C003FF973 /* alpha_processing_sse2.c */,
-				FEC6FC652146118C003FF973 /* dec_clip_tables.c */,
-				FEC6FC662146118C003FF973 /* enc.c */,
-				FEC6FC672146118C003FF973 /* common_sse2.h */,
-				FEC6FC682146118C003FF973 /* lossless_enc_mips32.c */,
-				FEC6FC692146118C003FF973 /* yuv_mips32.c */,
-				FEC6FC6A2146118C003FF973 /* upsampling_mips_dsp_r2.c */,
-				FEC6FC6B2146118C003FF973 /* dec_msa.c */,
-			);
-			path = dsp;
-			sourceTree = "<group>";
-		};
-		FEC6FC6C2146118C003FF973 /* SDWebImage */ = {
-			isa = PBXGroup;
-			children = (
-				FEC6FC782146118C003FF973 /* FLAnimatedImage */,
-				FEC6FC832146118C003FF973 /* MKAnnotationView+WebCache.h */,
-				FEC6FC6E2146118C003FF973 /* MKAnnotationView+WebCache.m */,
-				FEC6FC712146118C003FF973 /* NSData+ImageContentType.h */,
-				FEC6FC8A2146118C003FF973 /* NSData+ImageContentType.m */,
-				FEC6FC6F2146118C003FF973 /* NSImage+WebCache.h */,
-				FEC6FC8D2146118C003FF973 /* NSImage+WebCache.m */,
-				FEC6FC762146118C003FF973 /* SDImageCache.h */,
-				FEC6FC852146118C003FF973 /* SDImageCache.m */,
-				FEC6FC772146118C003FF973 /* SDImageCacheConfig.h */,
-				FEC6FC8F2146118C003FF973 /* SDImageCacheConfig.m */,
-				FEC6FC932146118C003FF973 /* SDWebImageCompat.h */,
-				FEC6FC7F2146118C003FF973 /* SDWebImageCompat.m */,
-				FEC6FC882146118C003FF973 /* SDWebImageDecoder.h */,
-				FEC6FC732146118C003FF973 /* SDWebImageDecoder.m */,
-				FEC6FC8E2146118C003FF973 /* SDWebImageDownloader.h */,
-				FEC6FC7B2146118C003FF973 /* SDWebImageDownloader.m */,
-				FEC6FC742146118C003FF973 /* SDWebImageDownloaderOperation.h */,
-				FEC6FC872146118C003FF973 /* SDWebImageDownloaderOperation.m */,
-				FEC6FC892146118C003FF973 /* SDWebImageManager.h */,
-				FEC6FC722146118C003FF973 /* SDWebImageManager.m */,
-				FEC6FC8C2146118C003FF973 /* SDWebImageOperation.h */,
-				FEC6FC922146118C003FF973 /* SDWebImagePrefetcher.h */,
-				FEC6FC802146118C003FF973 /* SDWebImagePrefetcher.m */,
-				FEC6FC7D2146118C003FF973 /* UIButton+WebCache.h */,
-				FEC6FC952146118C003FF973 /* UIButton+WebCache.m */,
-				FEC6FC962146118C003FF973 /* UIImage+GIF.h */,
-				FEC6FC7C2146118C003FF973 /* UIImage+GIF.m */,
-				FEC6FC942146118C003FF973 /* UIImage+MultiFormat.h */,
-				FEC6FC7E2146118C003FF973 /* UIImage+MultiFormat.m */,
-				FEC6FC842146118C003FF973 /* UIImage+WebP.h */,
-				FEC6FC6D2146118C003FF973 /* UIImage+WebP.m */,
-				FEC6FC862146118C003FF973 /* UIImageView+HighlightedWebCache.h */,
-				FEC6FC752146118C003FF973 /* UIImageView+HighlightedWebCache.m */,
-				FEC6FC702146118C003FF973 /* UIImageView+WebCache.h */,
-				FEC6FC8B2146118C003FF973 /* UIImageView+WebCache.m */,
-				FEC6FC812146118C003FF973 /* UIView+WebCache.h */,
-				FEC6FC912146118C003FF973 /* UIView+WebCache.m */,
-				FEC6FC822146118C003FF973 /* UIView+WebCacheOperation.h */,
-				FEC6FC902146118C003FF973 /* UIView+WebCacheOperation.m */,
-			);
-			path = SDWebImage;
-			sourceTree = "<group>";
-		};
-		FEC6FC782146118C003FF973 /* FLAnimatedImage */ = {
-			isa = PBXGroup;
-			children = (
-				FEC6FC7A2146118C003FF973 /* FLAnimatedImageView+WebCache.h */,
-				FEC6FC792146118C003FF973 /* FLAnimatedImageView+WebCache.m */,
-			);
-			path = FLAnimatedImage;
-			sourceTree = "<group>";
-		};
 		FEC6FD2A21461242003FF973 /* Algorithm */ = {
 			isa = PBXGroup;
 			children = (
@@ -5071,11 +4462,13 @@
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/UICountingLabel/UICountingLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/YTKNetwork/YTKNetwork.framework",
 				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
 				"${BUILT_PRODUCTS_DIR}/libPhoneNumber-iOS/libPhoneNumber_iOS.framework",
+				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -5090,11 +4483,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICountingLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YTKNetwork.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libPhoneNumber_iOS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -5131,7 +4526,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE5554E922563FBF0079D0BE /* lossless_enc_mips32.c in Sources */,
-				FEC6FD1A2146118C003FF973 /* UIImageView+HighlightedWebCache.m in Sources */,
 				FE01FD5320626370007CD777 /* UIScreen+UPFrame.m in Sources */,
 				FE5554BA22563FBF0079D0BE /* lossless_enc_sse41.c in Sources */,
 				FEBD7A7B214E04CB0037A1DF /* NSIndexPath+UPOffset.m in Sources */,
@@ -5139,50 +4533,33 @@
 				FE99C7D020F604D600CFAE0C /* Reachability.m in Sources */,
 				FE5554CA22563FBF0079D0BE /* filters.c in Sources */,
 				FEC6FC9D2146118C003FF973 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
-				FEC6FCF32146118C003FF973 /* upsampling_sse2.c in Sources */,
 				FE5E258521F84DEF0066073D /* QYStarScoreView.m in Sources */,
-				FEC6FCEC2146118C003FF973 /* filters_sse2.c in Sources */,
-				FEC6FD0D2146118C003FF973 /* dec_mips32.c in Sources */,
 				FEEB11BC221E4B7C0031E48C /* QYQueue.m in Sources */,
 				FEA24FB02088206300945DBF /* QYThreeTKnowledge.m in Sources */,
 				FE01FD5F2062655E007CD777 /* UIScrollView+UPPages.m in Sources */,
 				FE55549C22563FBF0079D0BE /* webp_enc.c in Sources */,
 				FE4F61562015882700A70CB7 /* QYMultiSelectTableViewCell.m in Sources */,
 				FEBD7AB3214E074D0037A1DF /* NSArray+Block.m in Sources */,
-				FEC6FD132146118C003FF973 /* yuv_mips32.c in Sources */,
 				FEE56CFB207B6A5B0043C2C5 /* QYAudioTextPart.m in Sources */,
-				FEC6FCDD2146118C003FF973 /* quant.c in Sources */,
-				FEC6FCC22146118C003FF973 /* histogram.c in Sources */,
-				FEC6FCD92146118C003FF973 /* io.c in Sources */,
 				FE5E259B21F95CFF0066073D /* QYReportModel.m in Sources */,
 				FEEB11B9221E49560031E48C /* QYStack.m in Sources */,
 				FE4F61532015848300A70CB7 /* QYMultiSelectViewController.m in Sources */,
-				FEC6FD0A2146118C003FF973 /* alpha_processing_sse41.c in Sources */,
 				FEE56D2E207B6A670043C2C5 /* QYPreviewViewController.m in Sources */,
-				FEC6FCDB2146118C003FF973 /* frame.c in Sources */,
-				FEC6FCB82146118C003FF973 /* random.c in Sources */,
-				FEC6FCED2146118C003FF973 /* argb_sse2.c in Sources */,
 				FEE56C81207B6A430043C2C5 /* MFPSMonitorWindow.m in Sources */,
 				FEE56CF5207B6A5B0043C2C5 /* QYNumberDecode.m in Sources */,
 				FEE56CAE207B6A430043C2C5 /* QYAudioFileStream.m in Sources */,
-				FEC6FCF62146118C003FF973 /* filters.c in Sources */,
-				FEC6FCC92146118C003FF973 /* near_lossless.c in Sources */,
 				FE01FD562062638E007CD777 /* UIDevice+UPSize.m in Sources */,
 				FE728FA720A53DF200ED967C /* QYElevenTKnowdege.m in Sources */,
-				FEC6FD212146118C003FF973 /* SDImageCache.m in Sources */,
 				FEC6FCA52146118C003FF973 /* MASViewConstraint.m in Sources */,
 				FE99C7D420F604D600CFAE0C /* audio_stream.cpp in Sources */,
 				FE14E8D920A3D9F10022486E /* QYLogSorting.m in Sources */,
 				FE5554B722563FBF0079D0BE /* rescaler_neon.c in Sources */,
 				FE5554CC22563FBF0079D0BE /* rescaler_mips_dsp_r2.c in Sources */,
 				FEA258D52111A746001122CA /* QYPhotoBrowerView.m in Sources */,
-				FEC6FCCB2146118C003FF973 /* backward_references.c in Sources */,
 				FE55548922563FBF0079D0BE /* utils.c in Sources */,
 				FEE56C8D207B6A430043C2C5 /* MNetworkChainRequest.m in Sources */,
-				FEC6FCB72146118C003FF973 /* bit_writer.c in Sources */,
 				FE5E259321F95A970066073D /* UPReportInputCell.m in Sources */,
 				FEE56C7A207B6A430043C2C5 /* YXAnnotationShapeViewAction.m in Sources */,
-				FEC6FCB02146118C003FF973 /* muxinternal.c in Sources */,
 				8B2360571FF09E9400C501A3 /* NSDate+QYExtension.m in Sources */,
 				FE99C7E020F604D600CFAE0C /* FSParsePlaylistRequest.m in Sources */,
 				FE5554AB22563FBF0079D0BE /* quant_dec.c in Sources */,
@@ -5191,9 +4568,6 @@
 				8B846E301F8EF67B007C0731 /* NSObject+QYPrintf.m in Sources */,
 				FE99C7D720F604D600CFAE0C /* stream_configuration.cpp in Sources */,
 				8BB22A5F1FDFB01300284193 /* NSDictionary+QYXML.m in Sources */,
-				FEC6FCC72146118C003FF973 /* iterator.c in Sources */,
-				FEC6FCD72146118C003FF973 /* buffer.c in Sources */,
-				FEC6FCBA2146118C003FF973 /* huffman.c in Sources */,
 				FEE56CE8207B6A5B0043C2C5 /* QYKVOViewController.m in Sources */,
 				FE5A90D9211BED3A0031F12D /* UPBaseSliderTableViewCell.m in Sources */,
 				FEE56C66207B6A430043C2C5 /* MPhotoModel.m in Sources */,
@@ -5201,28 +4575,17 @@
 				FEA24FBA208833FF00945DBF /* QYFourTKnowledge.m in Sources */,
 				FE5554B522563FBF0079D0BE /* rescaler.c in Sources */,
 				FEB6C6D420FF5967006D9CFC /* NSBundle+QYSearchExtension.m in Sources */,
-				FEC6FD172146118C003FF973 /* MKAnnotationView+WebCache.m in Sources */,
 				8B846E201F8E3DC9007C0731 /* UIImageView+QYReflect.m in Sources */,
-				FEC6FCB12146118C003FF973 /* anim_encode.c in Sources */,
-				FEC6FD092146118C003FF973 /* cost_mips32.c in Sources */,
-				FEC6FD102146118C003FF973 /* dec_clip_tables.c in Sources */,
-				FEC6FCE52146118C003FF973 /* rescaler.c in Sources */,
 				FE55548F22563FBF0079D0BE /* alpha_enc.c in Sources */,
 				FE2B759D2099544E009618CA /* QYSixTKnowledge.m in Sources */,
 				FE99C7DF20F604D600CFAE0C /* file_stream.cpp in Sources */,
 				FE28E3ED2107289000498090 /* UIBarButtonItem+QYNightMode.m in Sources */,
-				FEC6FCC62146118C003FF973 /* webpenc.c in Sources */,
-				FEC6FD0F2146118C003FF973 /* alpha_processing_sse2.c in Sources */,
-				FEC6FCE72146118C003FF973 /* rescaler_neon.c in Sources */,
 				FE5554A222563FBF0079D0BE /* picture_enc.c in Sources */,
 				FE5554D322563FBF0079D0BE /* argb_mips_dsp_r2.c in Sources */,
 				8B846DF91F8E10DD007C0731 /* UIImage+QYGif.m in Sources */,
 				FE9653492084C68500AD67E5 /* QYCoreAnimationModel.m in Sources */,
-				FEC6FCE12146118C003FF973 /* upsampling.c in Sources */,
 				FEE56CFA207B6A5B0043C2C5 /* QYArithmeticSubSequence.m in Sources */,
 				FE5554A522563FBF0079D0BE /* anim_decode.c in Sources */,
-				FEC6FCF92146118C003FF973 /* rescaler_mips32.c in Sources */,
-				FEC6FCBC2146118C003FF973 /* bit_reader.c in Sources */,
 				FE28E3F92108144A00498090 /* CALayer+QYNightMode.m in Sources */,
 				FE2B75A02099545B009618CA /* QYSixViewController.m in Sources */,
 				FEE56C83207B6A430043C2C5 /* MLagMonitor.m in Sources */,
@@ -5233,18 +4596,13 @@
 				FEE56C6A207B6A430043C2C5 /* MPhotoCollectionViewCell.m in Sources */,
 				FEBD7A87214E05490037A1DF /* NSCharacterSet+UPHTML.m in Sources */,
 				FEE56D37207B6A670043C2C5 /* MWebViewProgress.m in Sources */,
-				FEC6FD032146118C003FF973 /* yuv.c in Sources */,
 				FE5554D422563FBF0079D0BE /* alpha_processing_neon.c in Sources */,
 				FEE56D35207B6A670043C2C5 /* NSURLProtocol+MWebKitSupport.m in Sources */,
-				FEC6FCB42146118C003FF973 /* rescaler.c in Sources */,
 				FEE56CAC207B6A430043C2C5 /* QYAudioFile.m in Sources */,
-				FEC6FD232146118C003FF973 /* NSData+ImageContentType.m in Sources */,
 				FE5554DF22563FBF0079D0BE /* cost_mips32.c in Sources */,
 				FE5554EA22563FBF0079D0BE /* yuv_mips32.c in Sources */,
-				FEC6FCE22146118C003FF973 /* lossless_sse2.c in Sources */,
 				FE5554E122563FBF0079D0BE /* dec_neon.c in Sources */,
 				FEC6FCA62146118C003FF973 /* MASViewAttribute.m in Sources */,
-				FEC6FCFC2146118C003FF973 /* rescaler_sse2.c in Sources */,
 				FE28E3F3210730DC00498090 /* UIButton+QYNightMode.m in Sources */,
 				8BB22A4D1FDF810800284193 /* TTTLocalizedPluralString.m in Sources */,
 				FE5554C122563FBF0079D0BE /* alpha_processing.c in Sources */,
@@ -5252,33 +4610,25 @@
 				FE5554C522563FBF0079D0BE /* yuv_sse2.c in Sources */,
 				FEE56C86207B6A430043C2C5 /* UIView+MTracking.m in Sources */,
 				FE99C81A20F6053300CFAE0C /* DOUAudioSpatialAnalyzer.m in Sources */,
-				FEC6FD272146118C003FF973 /* UIView+WebCacheOperation.m in Sources */,
 				FE99C79920F5F6B600CFAE0C /* PLAudioHTTPRequest.m in Sources */,
 				FEE56CF8207B6A5B0043C2C5 /* QYCircleSubString.m in Sources */,
 				FE99C7D320F604D600CFAE0C /* FSPlaylistItem.m in Sources */,
 				FEBD7A81214E04FC0037A1DF /* NSUserDefaults+UPSafeAccess.m in Sources */,
-				FEC6FCD52146118C003FF973 /* demux.c in Sources */,
 				FE5554EB22563FBF0079D0BE /* upsampling_mips_dsp_r2.c in Sources */,
-				FEC6FCCE2146118C003FF973 /* syntax.c in Sources */,
 				FEE56D39207B6A670043C2C5 /* UIWebView+MElementFrame.m in Sources */,
 				FE5554AA22563FBF0079D0BE /* buffer_dec.c in Sources */,
-				FEC6FD1E2146118C003FF973 /* UIImage+MultiFormat.m in Sources */,
 				FE12130A20C6288300FC9BBD /* QYFiveteenViewController.m in Sources */,
 				FEBD7A98214E06670037A1DF /* UITableView+UPMJRefresh.m in Sources */,
 				FE99C80D20F6053300CFAE0C /* DOUAudioAnalyzer.m in Sources */,
-				FEC6FD142146118C003FF973 /* upsampling_mips_dsp_r2.c in Sources */,
 				8BB22A5C1FDFADE300284193 /* NSDictionary+QYURL.m in Sources */,
 				FE5554AE22563FBF0079D0BE /* vp8l_dec.c in Sources */,
 				FE55548722563FBF0079D0BE /* quant_levels_dec_utils.c in Sources */,
 				8B846E081F8E2B65007C0731 /* UIImage+QYCapture.m in Sources */,
-				FEC6FCAE2146118C003FF973 /* FLAnimatedImageView.m in Sources */,
 				FEBD7A75214E04730037A1DF /* NSArray+UPSafeAccess.m in Sources */,
 				FEBD7A63214DF3DE0037A1DF /* QYCenterRefreshController.m in Sources */,
 				FEE56C7B207B6A430043C2C5 /* YXCollectionViewCell.m in Sources */,
-				FEC6FCCC2146118C003FF973 /* config.c in Sources */,
 				FEE56C91207B6A430043C2C5 /* MNetworkAgent.m in Sources */,
 				8B846E351F8F025A007C0731 /* NSArray+QYSafeAccess.m in Sources */,
-				FEC6FD1D2146118C003FF973 /* UIImage+GIF.m in Sources */,
 				FE5554B222563FBF0079D0BE /* lossless_enc_mips_dsp_r2.c in Sources */,
 				FE14E88E20A154730022486E /* QYEightTKnowedge.m in Sources */,
 				8B846E171F8E3C73007C0731 /* UIImage+QYFix.m in Sources */,
@@ -5286,10 +4636,8 @@
 				8B846E051F8E2AA3007C0731 /* UIImage+QYBlur.m in Sources */,
 				FEE56C9A207B6A430043C2C5 /* QYKeyBoardManager.m in Sources */,
 				FEBD7A78214E04A50037A1DF /* NSData+QYBase64.m in Sources */,
-				FEC6FCE62146118C003FF973 /* dec_mips_dsp_r2.c in Sources */,
 				FE5554D622563FBF0079D0BE /* lossless.c in Sources */,
 				FEBD7A8D214E05900037A1DF /* UIImage+UPWebView.m in Sources */,
-				FEC6FD0E2146118C003FF973 /* cost_mips_dsp_r2.c in Sources */,
 				8B846E0E1F8E2BF0007C0731 /* UIImage+QYResize.m in Sources */,
 				FE5554A022563FBF0079D0BE /* quant_enc.c in Sources */,
 				FE55548E22563FBF0079D0BE /* cost_enc.c in Sources */,
@@ -5298,11 +4646,8 @@
 				FE5554C422563FBF0079D0BE /* upsampling_sse2.c in Sources */,
 				FE95B2EA20EE0E5D00FF004A /* QYGCDLearn.m in Sources */,
 				FE5554DE22563FBF0079D0BE /* lossless_enc_neon.c in Sources */,
-				FEC6FCDC2146118C003FF973 /* alpha.c in Sources */,
-				FEC6FD182146118C003FF973 /* SDWebImageManager.m in Sources */,
 				FE5554CB22563FBF0079D0BE /* alpha_processing_mips_dsp_r2.c in Sources */,
 				FE5554C322563FBF0079D0BE /* filters_neon.c in Sources */,
-				FEC6FD052146118C003FF973 /* dec_sse2.c in Sources */,
 				8B195CB01F6293A8005D6321 /* UIView+QYViewController.m in Sources */,
 				FE28E3F021072A7A00498090 /* UILabel+QYNightMode.m in Sources */,
 				FEE56C69207B6A430043C2C5 /* MPhotoAlbumController.m in Sources */,
@@ -5317,23 +4662,17 @@
 				8BF672A91F70AD5900CF312A /* NSString+QYEmoji.m in Sources */,
 				8B846E141F8E3A87007C0731 /* UIImage+QYBetterFace.m in Sources */,
 				FEE56D3E207B6A670043C2C5 /* MWebView.m in Sources */,
-				FEC6FD042146118C003FF973 /* enc_neon.c in Sources */,
 				FE5554A622563FBF0079D0BE /* io_dec.c in Sources */,
-				FEC6FCDA2146118C003FF973 /* webp.c in Sources */,
 				FE14E8C320A283900022486E /* QYTenTKnowedge.m in Sources */,
 				FEE56CEB207B6A5B0043C2C5 /* KeyValueObserver.m in Sources */,
 				FEE56C87207B6A430043C2C5 /* UINavigationController+MTracking.m in Sources */,
 				FE5554D922563FBF0079D0BE /* yuv.c in Sources */,
 				FE99C81320F6053300CFAE0C /* DOUEAGLView.m in Sources */,
 				FE99C7DA20F604D600CFAE0C /* file_output.cpp in Sources */,
-				FEC6FD202146118C003FF973 /* SDWebImagePrefetcher.m in Sources */,
-				FEC6FD252146118C003FF973 /* NSImage+WebCache.m in Sources */,
 				FEE56CAA207B6A430043C2C5 /* QYAudioSession.m in Sources */,
 				FE5554E222563FBF0079D0BE /* cost.c in Sources */,
-				FEC6FCFF2146118C003FF973 /* argb_mips_dsp_r2.c in Sources */,
 				FE55548A22563FBF0079D0BE /* color_cache_utils.c in Sources */,
 				8B195CA71F62874D005D6321 /* UIView+QYDebug.m in Sources */,
-				FEC6FCF82146118C003FF973 /* rescaler_mips_dsp_r2.c in Sources */,
 				FE5554A122563FBF0079D0BE /* near_lossless_enc.c in Sources */,
 				FEC6FC9C2146118C003FF973 /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				FEE56C90207B6A430043C2C5 /* MNetworkImageCache.m in Sources */,
@@ -5343,17 +4682,14 @@
 				FE55548322563FBF0079D0BE /* rescaler_utils.c in Sources */,
 				FE99C79E20F5F6B600CFAE0C /* PLAudioSession.m in Sources */,
 				FE5554CD22563FBF0079D0BE /* rescaler_mips32.c in Sources */,
-				FEC6FCE32146118C003FF973 /* lossless_enc_mips_dsp_r2.c in Sources */,
 				FE55549322563FBF0079D0BE /* delta_palettization_enc.c in Sources */,
 				FE99C80C20F6053300CFAE0C /* DOUAudioStreamer+Options.m in Sources */,
 				8B5D20031F26F9E900DD1898 /* ViewController.m in Sources */,
 				FEE56C63207B6A430043C2C5 /* MCameraView.m in Sources */,
 				FEE56CEF207B6A5B0043C2C5 /* QYInteger.c in Sources */,
-				FEC6FCFB2146118C003FF973 /* argb.c in Sources */,
 				FE5554AF22563FBF0079D0BE /* vp8_dec.c in Sources */,
 				FEE56CE6207B6A5B0043C2C5 /* ChessResultModel.m in Sources */,
 				FE5554C722563FBF0079D0BE /* rescaler_msa.c in Sources */,
-				FEC6FCD02146118C003FF973 /* cost.c in Sources */,
 				FE12133220C8D77A00FC9BBD /* QYiOSCollect.m in Sources */,
 				FEE56C64207B6A430043C2C5 /* MPhotoAlbumHelp.m in Sources */,
 				FEE56C6D207B6A430043C2C5 /* MPhotoAuthorizationHelpModel.m in Sources */,
@@ -5361,28 +4697,21 @@
 				FEC6FC992146118C003FF973 /* UITableView+FDTemplateLayoutCell.m in Sources */,
 				FE28E3AE2106CDE700498090 /* QYNightModeManager.m in Sources */,
 				FEE56C89207B6A430043C2C5 /* NSObject+MLeaksFinder.m in Sources */,
-				FEC6FCF12146118C003FF973 /* alpha_processing.c in Sources */,
 				FEBD7AA8214E06D80037A1DF /* UPFactory.m in Sources */,
 				FE5A90D6211BED0E0031F12D /* UPBaseTableViewCell.m in Sources */,
 				FE99C81420F6053300CFAE0C /* DOUAudioLPCM.m in Sources */,
-				FEC6FCF42146118C003FF973 /* yuv_sse2.c in Sources */,
 				FE14E88720A141740022486E /* QYSenveViewController.m in Sources */,
-				FEC6FD0C2146118C003FF973 /* cost.c in Sources */,
 				8BB22A501FDF85D000284193 /* NSDictionary+QYSafeAccess.m in Sources */,
 				FEBD7A7E214E04E60037A1DF /* NSFileHandle+UPReadLine.m in Sources */,
 				FE9653402084C4DF00AD67E5 /* QYOneTKnowledge.m in Sources */,
-				FEC6FD022146118C003FF973 /* lossless_enc_sse2.c in Sources */,
 				FE28E40921081D1200498090 /* WKWebView+QYNightMode.m in Sources */,
-				FEC6FD222146118C003FF973 /* SDWebImageDownloaderOperation.m in Sources */,
 				FE55549522563FBF0079D0BE /* picture_csp_enc.c in Sources */,
 				FE5554BB22563FBF0079D0BE /* upsampling_neon.c in Sources */,
-				FEC6FCE42146118C003FF973 /* filters_mips_dsp_r2.c in Sources */,
 				FEC6FCA32146118C003FF973 /* View+MASAdditions.m in Sources */,
 				FEE56C80207B6A430043C2C5 /* MFPSMonitorLabel.m in Sources */,
 				FEE56C72207B6A430043C2C5 /* RSKImageCropViewController.m in Sources */,
 				FEA24FB7208833CB00945DBF /* QYFourViewController.m in Sources */,
 				FE5554DA22563FBF0079D0BE /* enc_neon.c in Sources */,
-				FEC6FD112146118C003FF973 /* enc.c in Sources */,
 				FEC6FC9E2146118C003FF973 /* ViewController+MASAdditions.m in Sources */,
 				FE55547E22563FBF0079D0BE /* muxinternal.c in Sources */,
 				8B5D20001F26F9E900DD1898 /* AppDelegate.m in Sources */,
@@ -5395,35 +4724,27 @@
 				FEA258D22111A731001122CA /* QYPhotoBrowser.m in Sources */,
 				FEA258E0211444BF001122CA /* CAShapeLayer+QYCornerCut.m in Sources */,
 				FEE56C97207B6A430043C2C5 /* MNetworkRequestOperation.m in Sources */,
-				FEC6FCAF2146118C003FF973 /* muxread.c in Sources */,
 				FE96534E2085811F00AD67E5 /* QYTwoTKnowledge.m in Sources */,
-				FEC6FCCA2146118C003FF973 /* picture.c in Sources */,
 				FE5554BD22563FBF0079D0BE /* argb_sse2.c in Sources */,
-				FEC6FD122146118C003FF973 /* lossless_enc_mips32.c in Sources */,
 				FE14E88420A141630022486E /* QYSevenTKnowledge.m in Sources */,
 				FE195C7621B944F7006CE88A /* QYGuiBingSoft.m in Sources */,
 				FE99C7AA20F6031C00CFAE0C /* AudioStreamer.m in Sources */,
-				FEC6FD242146118C003FF973 /* UIImageView+WebCache.m in Sources */,
 				8BF672A31F6FF70200CF312A /* NSTimer+QYAddition.m in Sources */,
 				FE5554A322563FBF0079D0BE /* picture_rescale_enc.c in Sources */,
 				FEE56CF7207B6A5B0043C2C5 /* QYMaxLengthOrder.m in Sources */,
 				8B195CC21F62C140005D6321 /* UIWindow+QYHierarchy.m in Sources */,
 				FEE56CEE207B6A5B0043C2C5 /* QYObject.c in Sources */,
-				FEC6FD162146118C003FF973 /* UIImage+WebP.m in Sources */,
 				8B846E241F8E4090007C0731 /* UIImageView+QYFaceAwareFill.m in Sources */,
 				FE28E3F6210810E200498090 /* UIImageView+QYNightMode.m in Sources */,
 				FE5554D022563FBF0079D0BE /* rescaler_sse2.c in Sources */,
 				FEE56D3D207B6A670043C2C5 /* UIView+WebViewExtern.m in Sources */,
 				FEE56C65207B6A430043C2C5 /* MPhotoAlbumModel.m in Sources */,
 				FE99C79820F5F6B600CFAE0C /* PLAudioPlayer.m in Sources */,
-				FEC6FD0B2146118C003FF973 /* dec_neon.c in Sources */,
 				FE99C79D20F5F6B600CFAE0C /* QYPlayerTest.m in Sources */,
 				8B195CBF1F62C0BF005D6321 /* UIViewController+QYVisible.m in Sources */,
 				FE55549722563FBF0079D0BE /* syntax_enc.c in Sources */,
-				FEC6FCCD2146118C003FF973 /* picture_tools.c in Sources */,
 				FE99C7D620F604D600CFAE0C /* FSCheckContentTypeRequest.m in Sources */,
 				FEBD7AB0214E06FC0037A1DF /* UPWeakProxy.m in Sources */,
-				FEC6FCB92146118C003FF973 /* filters.c in Sources */,
 				FE14E88B20A154610022486E /* QYEightViewController.m in Sources */,
 				FEE56C99207B6A430043C2C5 /* QYDIskCache.m in Sources */,
 				FE5554CE22563FBF0079D0BE /* dec_sse41.c in Sources */,
@@ -5433,9 +4754,7 @@
 				FE55548422563FBF0079D0BE /* huffman_utils.c in Sources */,
 				FE5554A722563FBF0079D0BE /* frame_dec.c in Sources */,
 				FEE56C7E207B6A430043C2C5 /* YXAnnotationTabbarView.m in Sources */,
-				FEC6FCBD2146118C003FF973 /* color_cache.c in Sources */,
 				FEBB382E214123EC008DC012 /* GYZCity.m in Sources */,
-				FEC6FCFA2146118C003FF973 /* dec_sse41.c in Sources */,
 				FEB6C6D720FF6498006D9CFC /* UIView+QYSearchExtension.m in Sources */,
 				8B846E111F8E2C7C007C0731 /* UIImage+QYRoundedCorner.m in Sources */,
 				FEB6C6CA20FF2C15006D9CFC /* QYSearchController.m in Sources */,
@@ -5447,84 +4766,62 @@
 				8B195CB91F62BDEB005D6321 /* UIView+QYFind.m in Sources */,
 				FEE56D38207B6A670043C2C5 /* MWebKitURLProtocol.m in Sources */,
 				FE1212F620C4CD3800FC9BBD /* QYThirteenVideController.m in Sources */,
-				FEC6FCEF2146118C003FF973 /* enc_mips_dsp_r2.c in Sources */,
 				FE99C81C20F6053300CFAE0C /* DOUMPMediaLibraryAssetLoader.m in Sources */,
-				FEC6FCBF2146118C003FF973 /* picture_psnr.c in Sources */,
 				FE728FAA20A53E0500ED967C /* QYElevenViewController.m in Sources */,
 				FEC6FCAA2146118C003FF973 /* NSArray+PureLayout.m in Sources */,
 				FEE56CEA207B6A5B0043C2C5 /* Primes.m in Sources */,
-				FEC6FCB62146118C003FF973 /* quant_levels.c in Sources */,
 				FE99C7D520F604D600CFAE0C /* id3_parser.cpp in Sources */,
 				FEBD7A99214E06670037A1DF /* UITableView+UPUpdate.m in Sources */,
 				FE5554C822563FBF0079D0BE /* lossless_neon.c in Sources */,
 				FEBD7AA0214E069F0037A1DF /* UIAlertAction+UPFactory.m in Sources */,
 				FEE56CF4207B6A5B0043C2C5 /* QYAirballoon.m in Sources */,
 				FE5554DD22563FBF0079D0BE /* enc_sse2.c in Sources */,
-				FEC6FCCF2146118C003FF973 /* frame.c in Sources */,
 				FE5554C022563FBF0079D0BE /* cpu.c in Sources */,
 				FE5CDD43214B8BAB00DCF3DB /* UPEventLabel.m in Sources */,
 				FEE56CEC207B6A5B0043C2C5 /* QYString.c in Sources */,
 				FE5554AD22563FBF0079D0BE /* webp_dec.c in Sources */,
-				FEC6FCE02146118C003FF973 /* tree.c in Sources */,
 				FE99C81920F6053300CFAE0C /* DOUAudioEventLoop.m in Sources */,
 				FEE56CF2207B6A5B0043C2C5 /* QYMaxAverageSubArray.m in Sources */,
 				8B682CB51F690A9D00C4900D /* NSString+QYMD5.m in Sources */,
 				FEE56C78207B6A430043C2C5 /* YXAnnotationViewController.m in Sources */,
-				FEC6FCAD2146118C003FF973 /* FLAnimatedImage.m in Sources */,
 				FE9D6A0520D0CA0200A7D876 /* QYHTTPLearn.m in Sources */,
 				FE5554D522563FBF0079D0BE /* dec.c in Sources */,
-				FEC6FCB32146118C003FF973 /* thread.c in Sources */,
-				FEC6FD292146118C003FF973 /* UIButton+WebCache.m in Sources */,
 				FE5554B122563FBF0079D0BE /* lossless_sse2.c in Sources */,
 				8B5D1FFD1F26F9E900DD1898 /* main.m in Sources */,
 				FE4F75A6223B8CEA007EC676 /* QYTestTouchTableViewCell.m in Sources */,
 				FE5554CF22563FBF0079D0BE /* argb.c in Sources */,
-				FEC6FCBB2146118C003FF973 /* utils.c in Sources */,
 				FEBD7A72214E04480037A1DF /* NSString+UPExtension.m in Sources */,
 				FE55549622563FBF0079D0BE /* frame_enc.c in Sources */,
-				FEC6FCD62146118C003FF973 /* anim_decode.c in Sources */,
 				FE5A90DF211BF2480031F12D /* UPPackageCell.m in Sources */,
-				FEC6FCC52146118C003FF973 /* analysis.c in Sources */,
 				FEE56C67207B6A430043C2C5 /* MGifDataCache.m in Sources */,
 				FE55548522563FBF0079D0BE /* huffman_encode_utils.c in Sources */,
-				FEC6FD192146118C003FF973 /* SDWebImageDecoder.m in Sources */,
 				FE55549022563FBF0079D0BE /* picture_psnr_enc.c in Sources */,
 				FE5E259521F95A970066073D /* UPDReportHeaderCell.m in Sources */,
 				FE5CDD2F214B652100DCF3DB /* QYTextLayoutManager.m in Sources */,
 				FEE56C60207B6A430043C2C5 /* MDeviceOrientationModel.m in Sources */,
-				FEC6FCE82146118C003FF973 /* cost_sse2.c in Sources */,
 				FE55549122563FBF0079D0BE /* token_enc.c in Sources */,
 				FEE56C68207B6A430043C2C5 /* NSData+MImageType.m in Sources */,
 				FE99C81120F6053300CFAE0C /* DOUAudioFilePreprocessor.m in Sources */,
 				FE99C7A220F5F6B600CFAE0C /* PLAudioBuffer.m in Sources */,
 				FE99C7DD20F604D600CFAE0C /* FSAudioStream.mm in Sources */,
 				8B682CB61F690A9D00C4900D /* NSString+QYReverse.m in Sources */,
-				FEC6FCDE2146118C003FF973 /* idec.c in Sources */,
-				FEC6FCD82146118C003FF973 /* vp8l.c in Sources */,
 				FEE56D31207B6A670043C2C5 /* QYPreviewImageView.m in Sources */,
 				FEE56D41207B6A670043C2C5 /* MPreviewCardView.m in Sources */,
 				FEE56C8F207B6A430043C2C5 /* MNetworkHelper.m in Sources */,
-				FEC6FCD22146118C003FF973 /* quant.c in Sources */,
 				FEE56C79207B6A430043C2C5 /* YXAnnotationView.m in Sources */,
 				FEBD7A69214E041B0037A1DF /* NSString+UPHTML.m in Sources */,
 				FE5554A922563FBF0079D0BE /* alpha_dec.c in Sources */,
 				FE99C79720F5F6B600CFAE0C /* PLAudioStream.m in Sources */,
 				FE5554A822563FBF0079D0BE /* tree_dec.c in Sources */,
-				FEC6FCC82146118C003FF973 /* filter.c in Sources */,
-				FEC6FCF22146118C003FF973 /* enc_mips32.c in Sources */,
 				FE12130720C6287700FC9BBD /* QYFourteenViewController.m in Sources */,
-				FEC6FCBE2146118C003FF973 /* huffman_encode.c in Sources */,
 				FEE56D3A207B6A670043C2C5 /* UIWebView+MCache.m in Sources */,
-				FEC6FCFD2146118C003FF973 /* lossless_enc.c in Sources */,
 				8BB22A591FDFABA200284193 /* NSDictionary+QYMerge.m in Sources */,
 				FE55549E22563FBF0079D0BE /* histogram_enc.c in Sources */,
 				FE5554B622563FBF0079D0BE /* dec_mips_dsp_r2.c in Sources */,
 				FE965351208582F800AD67E5 /* QYTwoPointOneController.m in Sources */,
 				FE55547F22563FBF0079D0BE /* anim_encode.c in Sources */,
 				FEC6FCA02146118C003FF973 /* MASConstraintMaker.m in Sources */,
-				FEC6FCC32146118C003FF973 /* vp8l.c in Sources */,
 				FEE56D40207B6A670043C2C5 /* MHRefreshScrollView.m in Sources */,
-				FEC6FD1C2146118C003FF973 /* SDWebImageDownloader.m in Sources */,
 				FEC6FCA82146118C003FF973 /* NSLayoutConstraint+PureLayout.m in Sources */,
 				FE5554E622563FBF0079D0BE /* dec_clip_tables.c in Sources */,
 				8B195CA41F6284C2005D6321 /* UIView+QYFrame.m in Sources */,
@@ -5538,16 +4835,12 @@
 				FE99C7D820F604D600CFAE0C /* input_stream.cpp in Sources */,
 				FE5554B422563FBF0079D0BE /* filters_mips_dsp_r2.c in Sources */,
 				8B846E0B1F8E2BB0007C0731 /* UIImage+QYMerge.m in Sources */,
-				FEC6FD012146118C003FF973 /* lossless.c in Sources */,
 				FEE56CF1207B6A5B0043C2C5 /* QYStrangePrintf.m in Sources */,
 				FE5554E022563FBF0079D0BE /* alpha_processing_sse41.c in Sources */,
 				FE55549F22563FBF0079D0BE /* analysis_enc.c in Sources */,
 				FE5554D222563FBF0079D0BE /* yuv_mips_dsp_r2.c in Sources */,
-				FEC6FCB22146118C003FF973 /* muxedit.c in Sources */,
 				FEBD7A90214E06010037A1DF /* UITableViewHeaderFooterView+UPIdentifier.m in Sources */,
-				FEC6FCEA2146118C003FF973 /* lossless_enc_sse41.c in Sources */,
 				FEE56CF3207B6A5B0043C2C5 /* QYFlowerArrangement.m in Sources */,
-				FEC6FCF02146118C003FF973 /* cpu.c in Sources */,
 				FEC6FCAC2146118C003FF973 /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				8B9CD0861F8B1B5F00696D73 /* UIDevice+QYPasscodeStatus.m in Sources */,
 				FEE56D30207B6A670043C2C5 /* QYPreviewImageCell.m in Sources */,
@@ -5566,7 +4859,6 @@
 				FEE56C85207B6A430043C2C5 /* UITabBarController+MTracking.m in Sources */,
 				FEC6FC972146118C003FF973 /* iCarousel.m in Sources */,
 				8BB22A531FDF8C4500284193 /* NSObject+QYClassIdentify.m in Sources */,
-				FEC6FCE92146118C003FF973 /* enc_sse41.c in Sources */,
 				FEC6FD2D21461260003FF973 /* QYBinaryHeapSoft.m in Sources */,
 				FEBD7AAC214E06E80037A1DF /* UPFileCenter.m in Sources */,
 				FEE56C82207B6A430043C2C5 /* MFPSMonitor.m in Sources */,
@@ -5574,7 +4866,6 @@
 				8B195CB61F62AC7C005D6321 /* UIView+QYVisuals.m in Sources */,
 				FEBC716521AEBB5600F114AD /* QYXuanZeSoft.m in Sources */,
 				FEE56D33207B6A670043C2C5 /* MCAlertView.m in Sources */,
-				FEC6FCDF2146118C003FF973 /* vp8.c in Sources */,
 				FE4F75A9223B8E0F007EC676 /* QYTestTouchViewController.m in Sources */,
 				8B846DF61F8E00A2007C0731 /* UIImage+QYAlpha.m in Sources */,
 				FE5554A422563FBF0079D0BE /* demux.c in Sources */,
@@ -5586,7 +4877,6 @@
 				8B5800961F74E51B000CE03B /* NSString+QYCharNumber.m in Sources */,
 				FE5554EC22563FBF0079D0BE /* dec_msa.c in Sources */,
 				FE99C80B20F6053300CFAE0C /* DOUAudioFileProvider.m in Sources */,
-				FEC6FCD12146118C003FF973 /* alpha.c in Sources */,
 				FE55549B22563FBF0079D0BE /* picture_tools_enc.c in Sources */,
 				FEC6FCA12146118C003FF973 /* MASLayoutConstraint.m in Sources */,
 				8B846E1D1F8E3D9B007C0731 /* UIImageView+QYCircleCut.m in Sources */,
@@ -5598,46 +4888,36 @@
 				8B8BB9CC1F3463880071D0AF /* UIButton+Touch.m in Sources */,
 				8BF672C21F73577900CF312A /* UIColor+QYQuickCreate.m in Sources */,
 				FE5CDD32214B659D00DCF3DB /* QYTextLayout.m in Sources */,
-				FEC6FCD32146118C003FF973 /* picture_rescale.c in Sources */,
 				FE99C7DC20F604D600CFAE0C /* FSXMLHttpRequest.m in Sources */,
-				FEC6FD1B2146118C003FF973 /* FLAnimatedImageView+WebCache.m in Sources */,
 				FEE56C8C207B6A430043C2C5 /* QYMemoryCache.m in Sources */,
 				FEBD7A84214E051E0037A1DF /* NSDate+UPExtension.m in Sources */,
 				FEBB382A214123EC008DC012 /* GYZChooseCityController.m in Sources */,
 				8BB22A561FDFAAAF00284193 /* NSDictionary+QYJSONString.m in Sources */,
 				FE1212F920C4CD5100FC9BBD /* QYTThirteenKnowdege.m in Sources */,
-				FEC6FCF52146118C003FF973 /* lossless_neon.c in Sources */,
 				FEE56CAB207B6A430043C2C5 /* QYAudioPlayer.m in Sources */,
-				FEC6FCC02146118C003FF973 /* picture_csp.c in Sources */,
 				FE5554C622563FBF0079D0BE /* filters_msa.c in Sources */,
 				FE5554C222563FBF0079D0BE /* enc_mips32.c in Sources */,
 				FE5554AC22563FBF0079D0BE /* idec_dec.c in Sources */,
 				FEEB11CF221E5D570031E48C /* QYTwoStackQueue.m in Sources */,
 				FE5E259721F95A970066073D /* UPMessageReportView.m in Sources */,
-				FEC6FCB52146118C003FF973 /* quant_levels_dec.c in Sources */,
 				FE99C79B20F5F6B600CFAE0C /* PLAudioFileStream.m in Sources */,
 				FEC6FCA42146118C003FF973 /* MASConstraint.m in Sources */,
 				FE99C79A20F5F6B600CFAE0C /* PLParsedAudioDataModel.m in Sources */,
-				FEC6FCC12146118C003FF973 /* delta_palettization.c in Sources */,
 				FEC6FCA92146118C003FF973 /* ALView+PureLayout.m in Sources */,
 				8B682C9B1F68E27000C4900D /* UIFont+QYPingFang.m in Sources */,
 				FEEB11C2221E4CF40031E48C /* QYGetMinStack.m in Sources */,
-				FEC6FD262146118C003FF973 /* SDImageCacheConfig.m in Sources */,
 				FEE56D3B207B6A670043C2C5 /* MWebViewCache.m in Sources */,
 				FE55549D22563FBF0079D0BE /* vp8l_enc.c in Sources */,
 				FE55549922563FBF0079D0BE /* config_enc.c in Sources */,
-				FEC6FCEB2146118C003FF973 /* upsampling_neon.c in Sources */,
 				FEE56C71207B6A430043C2C5 /* UIApplication+RSKImageCropper.m in Sources */,
 				FE5554BE22563FBF0079D0BE /* lossless_mips_dsp_r2.c in Sources */,
 				FE5554E322563FBF0079D0BE /* dec_mips32.c in Sources */,
 				FEE56CF9207B6A5B0043C2C5 /* QYLintcodeBase.m in Sources */,
-				FEC6FD082146118C003FF973 /* lossless_enc_neon.c in Sources */,
 				FEC6FD3021461272003FF973 /* QYSoft.m in Sources */,
 				FEE56C8B207B6A430043C2C5 /* QYKeychainViewController.m in Sources */,
 				FE99C7DE20F604D600CFAE0C /* audio_queue.cpp in Sources */,
 				FE55548622563FBF0079D0BE /* quant_levels_utils.c in Sources */,
 				FE14E8BC20A19E530022486E /* QYNineTKnowedge.m in Sources */,
-				FEC6FD002146118C003FF973 /* dec.c in Sources */,
 				FE28E3FC2108173E00498090 /* CAShapeLayer+QYNightMode.m in Sources */,
 				FE55549A22563FBF0079D0BE /* backward_references_enc.c in Sources */,
 				FEBD7A68214E041B0037A1DF /* NSString+UPLinkUrl.m in Sources */,
@@ -5646,32 +4926,25 @@
 				FE28E40621081D0200498090 /* UIWebView+QYNightMode.m in Sources */,
 				FE9653462084C61800AD67E5 /* QYOnePointFive.m in Sources */,
 				8BF672BA1F71479700CF312A /* NSString+QYUUID.m in Sources */,
-				FEC6FD072146118C003FF973 /* enc_sse2.c in Sources */,
 				8B195CAD1F628EC1005D6321 /* UIView+QYScreenshot.m in Sources */,
-				FEC6FD1F2146118C003FF973 /* SDWebImageCompat.m in Sources */,
 				FE99C7D120F604D600CFAE0C /* FSParseRssPodcastFeedRequest.m in Sources */,
 				FE55549822563FBF0079D0BE /* predictor_enc.c in Sources */,
 				8BF672A61F6FF7AD00CF312A /* NSTimer+QYBlocks.m in Sources */,
 				FE5554E722563FBF0079D0BE /* lossless_msa.c in Sources */,
 				FE99C79C20F5F6B600CFAE0C /* PLAudioFile.m in Sources */,
-				FEC6FCF72146118C003FF973 /* alpha_processing_mips_dsp_r2.c in Sources */,
 				FEBB382B214123EC008DC012 /* GYZCityGroupCell.m in Sources */,
 				FEE56CF0207B6A5B0043C2C5 /* QYArray.c in Sources */,
 				FEE56C94207B6A430043C2C5 /* MNetworkBaseRequest.m in Sources */,
 				FEBB382D214123EC008DC012 /* GYZCityHeaderView.m in Sources */,
-				FEC6FCD42146118C003FF973 /* tree.c in Sources */,
 				FEE56C8A207B6A430043C2C5 /* UIView+MMainThreadMonitor.m in Sources */,
 				FE99C80F20F6053300CFAE0C /* DOUAudioAnalyzer+Default.m in Sources */,
 				FEEB11D2221E98740031E48C /* QYRecursionInvertedStack.m in Sources */,
-				FEC6FD152146118C003FF973 /* dec_msa.c in Sources */,
 				FE99C7D220F604D600CFAE0C /* http_stream.cpp in Sources */,
 				8B846DFC1F8E25BA007C0731 /* UIImage+QYOrientation.m in Sources */,
 				FEE56CE9207B6A5B0043C2C5 /* QYKVOModel.m in Sources */,
-				FEC6FCEE2146118C003FF973 /* lossless_mips_dsp_r2.c in Sources */,
 				FE5554B822563FBF0079D0BE /* cost_sse2.c in Sources */,
 				FE5A90DC211BEDE90031F12D /* UPConst.m in Sources */,
 				FE55548C22563FBF0079D0BE /* random_utils.c in Sources */,
-				FEC6FCFE2146118C003FF973 /* yuv_mips_dsp_r2.c in Sources */,
 				FE99C80E20F6053300CFAE0C /* DOUAudioRenderer.m in Sources */,
 				FE5CDD35214B708500DCF3DB /* NSObject+QYTextLayout.m in Sources */,
 				FE5554B022563FBF0079D0BE /* upsampling.c in Sources */,
@@ -5688,16 +4961,13 @@
 				FE28E3B72106DB7600498090 /* NSObject+QYNightMode.m in Sources */,
 				FE5554E422563FBF0079D0BE /* cost_mips_dsp_r2.c in Sources */,
 				FEC6FCA22146118C003FF973 /* NSArray+MASAdditions.m in Sources */,
-				FEC6FCC42146118C003FF973 /* token.c in Sources */,
 				FEE56C93207B6A430043C2C5 /* MNetworkConfig.m in Sources */,
 				FEBD7A9C214E06840037A1DF /* UIAlertController+UPExtension.m in Sources */,
 				FEE56C88207B6A430043C2C5 /* UIViewController+Tracking.m in Sources */,
 				FE55548222563FBF0079D0BE /* thread_utils.c in Sources */,
-				FEC6FD282146118C003FF973 /* UIView+WebCache.m in Sources */,
 				FEE56C62207B6A430043C2C5 /* MCameraController.m in Sources */,
 				FEE56D32207B6A670043C2C5 /* QYPreviewWindow.m in Sources */,
 				FE5554D722563FBF0079D0BE /* upsampling_msa.c in Sources */,
-				FEC6FD062146118C003FF973 /* enc_avx2.c in Sources */,
 				FE14E8DC20A3E12A0022486E /* QYMinimumCycleSection.m in Sources */,
 				FEA50837215E1858007253E2 /* QYKeyboardTextView.m in Sources */,
 				FE99C7A020F5F6B600CFAE0C /* PLFileProvider.m in Sources */,

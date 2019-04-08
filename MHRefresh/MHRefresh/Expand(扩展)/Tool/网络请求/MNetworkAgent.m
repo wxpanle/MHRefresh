@@ -26,6 +26,12 @@
 #import "SDWebImageDownloader.h"
 #endif
 
+#if __has_include(<SDWebImage/SDImageCacheConfig.h>)
+#import <SDWebImage/SDImageCacheConfig.h>
+#else
+#import "SDImageCacheConfig.h"
+#endif
+
 static inline dispatch_queue_t kGlobalQueueWithNetworkRequestPriority(MNetworkRequestPriority priority) {
     
     switch (priority) {
@@ -356,7 +362,7 @@ static BOOL kImageIsNeedCacheToMemory(MNetworkRequestPriority priority) {
                 
                 dispatch_async(kGlobalQueueWithNetworkRequestPriority(request.priority), ^{
                     
-                    UIImage *image = [_imageCache imageFromDiskForCustomPath:downloadPath];
+                    UIImage *image = [self.imageCache imageFromDiskForCustomPath:downloadPath];
                     request.responseObject = image;
                     if (kImageIsNeedCacheToMemory(request.priority)) {
                         [self.imageCache storeImageAsynchronous:image forKey:key saveDisk:NO completeBlock:nil];

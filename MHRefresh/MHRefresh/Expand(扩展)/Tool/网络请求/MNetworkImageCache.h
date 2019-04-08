@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SDImageCacheConfig.h"
+
+@class SDImageCacheConfig;
 
 NS_ASSUME_NONNULL_BEGIN
 
