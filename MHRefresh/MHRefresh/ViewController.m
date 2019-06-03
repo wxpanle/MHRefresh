@@ -68,6 +68,10 @@
 
 #import "QYTestTouchViewController.h"
 
+#import "QYFMDBTest.h"
+
+#import "QYSlider.h"
+
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource, UPBaseSliderCellDelegate> {
     PLAudioPlayer *_audioPlayer;
     QYAudioPlayer *_qy_audio_player;
@@ -99,7 +103,6 @@
 @property (nonatomic, strong) dispatch_queue_t barrierQueue;
 
 @property (nonatomic, strong) NSMutableArray *resultArray;
-
 
 @property (nonatomic, strong) dispatch_queue_t dispatch_queue;
 
@@ -145,80 +148,162 @@ typedef void (^blk_t)(id obj);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    BOOL res1 = [(id)[NSObject class] isKindOfClass:[NSObject class]];
-    BOOL res2 = [(id)[NSObject class] isMemberOfClass:[NSObject class]];
-    BOOL res3 = [(id)[QYStarScoreView class] isKindOfClass:[QYStarScoreView class]];
-    BOOL res4 = [(id)[QYStarScoreView class] isMemberOfClass:[QYStarScoreView class]];
+//    self.view.backgroundColor = [UIColor redColor];
+//
+//    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+//
+//    // 创建设置对象
+//    WKPreferences *preference = [[WKPreferences alloc]init];
+//    //最小字体大小 当将javaScriptEnabled属性设置为NO时，可以看到明显的效果
+//    preference.minimumFontSize = 0;
+//    //设置是否支持javaScript 默认是支持的
+//    preference.javaScriptEnabled = YES;
+//    // 在iOS上默认为NO，表示是否允许不经过用户交互由javaScript自动打开窗口
+//    preference.javaScriptCanOpenWindowsAutomatically = YES;
+//    config.preferences = preference;
+//
+//    // 是使用h5的视频播放器在线播放, 还是使用原生播放器全屏播放
+//    config.allowsInlineMediaPlayback = YES;
+//    //设置视频是否需要用户手动播放  设置为NO则会允许自动播放
+//    config.requiresUserActionForMediaPlayback = YES;
+//    //设置是否允许画中画技术 在特定设备上有效
+//    config.allowsPictureInPictureMediaPlayback = YES;
+//    //设置请求的User-Agent信息中应用程序名称 iOS9后可用
+//    config.applicationNameForUserAgent = @"ChinaDailyForiPad";
+//    //自定义的WKScriptMessageHandler 是为了解决内存不释放的问题
+//
+//    _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H) configuration:config];
+//    // UI代理
+//    // 是否允许手势左滑返回上一级, 类似导航控制的左滑返回
+//    _webView.allowsBackForwardNavigationGestures = YES;
+//    //可返回的页面列表, 存储已打开过的网页
+//    WKBackForwardList * backForwardList = [_webView backForwardList];
     
-    if (res1) {
-        NSLog(@"res1 == YES");
-    } else {
-        NSLog(@"res1 == NO");
-    }
+    //        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://www.chinadaily.com.cn"]];
+    //        [request addValue:[self readCurrentCookieWithDomain:@"http://www.chinadaily.com.cn"] forHTTPHeaderField:@"Cookie"];
+    //        [_webView loadRequest:request];
+
     
-    if (res2) {
-        NSLog(@"res2 == YES");
-    } else {
-        NSLog(@"res2 == NO");
-    }
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://baike.baidu.com/item/%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99/6189149?#1"]]];
     
-    if (res3) {
-        NSLog(@"res3 == YES");
-    } else {
-        NSLog(@"res3 == NO");
-    }
+    [self.view addSubview:_webView];
+
+//
+//    QYSlider *slider = [[QYSlider alloc] initWithFrame:CGRectMake(15.0, 200.0, 300.0, 11.0)];
+//    [self.view addSubview:slider];
     
-    if (res4) {
-        NSLog(@"res4 == YES");
-    } else {
-        NSLog(@"res4 == NO");
-    }
+//    NSString *omitString = @"…";
+//    NSLog(@"%ld", omitString.length);
+//
+//    NSString *string = @"\r";
+//    NSLog(@"%ld", string.length);
+//
+//    [QYFMDBTest start];
     
     
-    
-    typedef NS_ENUM(NSUInteger, QYTestEnum) {
-        
-        UPMeNoteHelpModelEventAlertShare    = 1 << 0,
-        UPMeNoteHelpModelEventAlertReport   = 1 << 1,
-        UPMeNoteHelpModelEventAlertTop      = 1 << 2,
-        UPMeNoteHelpModelEventAlertEdit     = 1 << 3,
-        UPMeNoteHelpModelEventAlertDelete   = 1 << 4,
-        
-        UPMeNoteHelpModelEventEditCallBack  = 1 << 5,
-        UPMeNoteHelpModelEventEditCreate    = 1 << 6,
-        UPMeNoteHelpModelEventEditModify    = 1 << 7,
-        
-        UPMeNoteHelpModelEventAlertDefault  = UPMeNoteHelpModelEventAlertShare | UPMeNoteHelpModelEventAlertReport,
-        UPMeNoteHelpModelEventAlertGroupTop = UPMeNoteHelpModelEventAlertShare | UPMeNoteHelpModelEventAlertReport | UPMeNoteHelpModelEventAlertTop,
-        UPMeNoteHelpModelEventAlertAll      = UPMeNoteHelpModelEventAlertShare | UPMeNoteHelpModelEventAlertReport | UPMeNoteHelpModelEventAlertTop | UPMeNoteHelpModelEventAlertEdit | UPMeNoteHelpModelEventAlertDelete,
-        
-    };
+//    NSArray *carddArray = @[@(2), @(1), @(3)];
+//
+//    NSArray *result = [carddArray sortedArrayUsingComparator:^NSComparisonResult(NSNumber * _Nonnull obj1, NSNumber * _Nonnull obj2) {
+//
+//        if ([obj1 integerValue] > [obj2 integerValue]) {
+//            return NSOrderedDescending;
+//        }
+//
+//        return NSOrderedAscending;
+//    }];
+//
+//    NSLog(@"%@", result);
     
     
-    QYTestEnum testEnum = UPMeNoteHelpModelEventAlertDefault;
-    
-    if (testEnum & UPMeNoteHelpModelEventAlertShare) {
-        DLog(@"为真1");
-    }
-    
-    if (testEnum & UPMeNoteHelpModelEventAlertReport) {
-        DLog(@"为真2");
-    }
-    
-    if (testEnum & UPMeNoteHelpModelEventEditCreate) {
-        DLog(@"为真3");
-    }
-    
-    int i = 1, j = 1;
-    
-    if (i ^ j) {
-        DLog(@"sdf");
-    } else {
-        DLog(@"sdf1");
-    }
-    
-    DLog(@"%d", i ^ j);
-    
+//    NSMutableArray *familyNameArray = [[NSMutableArray alloc] init];
+//
+//    NSArray *array = [UIFont familyNames];
+//
+//    for (id family in array) {
+//        NSArray *fonts = [UIFont fontNamesForFamilyName:family];
+//        for (id font in fonts) {
+//            [familyNameArray addObject:font];
+//        }
+//    }
+//
+//    NSLog(@"----------------------------");
+//    NSLog(@"%@", familyNameArray);
+//    NSLog(@"----------------------------");
+
+//    BOOL res1 = [(id)[NSObject class] isKindOfClass:[NSObject class]];
+//    BOOL res2 = [(id)[NSObject class] isMemberOfClass:[NSObject class]];
+//    BOOL res3 = [(id)[QYStarScoreView class] isKindOfClass:[QYStarScoreView class]];
+//    BOOL res4 = [(id)[QYStarScoreView class] isMemberOfClass:[QYStarScoreView class]];
+//
+//    if (res1) {
+//        NSLog(@"res1 == YES");
+//    } else {
+//        NSLog(@"res1 == NO");
+//    }
+//
+//    if (res2) {
+//        NSLog(@"res2 == YES");
+//    } else {
+//        NSLog(@"res2 == NO");
+//    }
+//
+//    if (res3) {
+//        NSLog(@"res3 == YES");
+//    } else {
+//        NSLog(@"res3 == NO");
+//    }
+//
+//    if (res4) {
+//        NSLog(@"res4 == YES");
+//    } else {
+//        NSLog(@"res4 == NO");
+//    }
+//
+//
+//
+//    typedef NS_ENUM(NSUInteger, QYTestEnum) {
+//
+//        UPMeNoteHelpModelEventAlertShare    = 1 << 0,
+//        UPMeNoteHelpModelEventAlertReport   = 1 << 1,
+//        UPMeNoteHelpModelEventAlertTop      = 1 << 2,
+//        UPMeNoteHelpModelEventAlertEdit     = 1 << 3,
+//        UPMeNoteHelpModelEventAlertDelete   = 1 << 4,
+//
+//        UPMeNoteHelpModelEventEditCallBack  = 1 << 5,
+//        UPMeNoteHelpModelEventEditCreate    = 1 << 6,
+//        UPMeNoteHelpModelEventEditModify    = 1 << 7,
+//
+//        UPMeNoteHelpModelEventAlertDefault  = UPMeNoteHelpModelEventAlertShare | UPMeNoteHelpModelEventAlertReport,
+//        UPMeNoteHelpModelEventAlertGroupTop = UPMeNoteHelpModelEventAlertShare | UPMeNoteHelpModelEventAlertReport | UPMeNoteHelpModelEventAlertTop,
+//        UPMeNoteHelpModelEventAlertAll      = UPMeNoteHelpModelEventAlertShare | UPMeNoteHelpModelEventAlertReport | UPMeNoteHelpModelEventAlertTop | UPMeNoteHelpModelEventAlertEdit | UPMeNoteHelpModelEventAlertDelete,
+//
+//    };
+//
+//
+//    QYTestEnum testEnum = UPMeNoteHelpModelEventAlertDefault;
+//
+//    if (testEnum & UPMeNoteHelpModelEventAlertShare) {
+//        DLog(@"为真1");
+//    }
+//
+//    if (testEnum & UPMeNoteHelpModelEventAlertReport) {
+//        DLog(@"为真2");
+//    }
+//
+//    if (testEnum & UPMeNoteHelpModelEventEditCreate) {
+//        DLog(@"为真3");
+//    }
+//
+//    int i = 1, j = 1;
+//
+//    if (i ^ j) {
+//        DLog(@"sdf");
+//    } else {
+//        DLog(@"sdf1");
+//    }
+//
+//    DLog(@"%d", i ^ j);
+//
     
 //    QYStarScoreView *view = [[QYStarScoreView alloc] initWithFrame:CGRectMake(50.0, 100.0, 209.0, 37.0)];
 //    view.starScoreType = QYStarScoreTypeRandom;
@@ -467,12 +552,25 @@ typedef void (^blk_t)(id obj);
     K_IOS11_SET_INSET_NEVER_OC(_tableView)
     K_X_CONTENT_BOTTOM_INSET(_tableView)
     
+    
+    UIView *view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, 150)];
+    UIView *view3 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, 200)];
+    view2.backgroundColor = [UIColor greenColor];
+    view3.backgroundColor = [UIColor redColor];
+    [view2 addSubview:view3];
+    
+    _tableView.tableHeaderView = view2;
+    
+    [_tableView sendSubviewToBack:view2];
+    
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, 0.0)];
     view.backgroundColor = [UIColor clearColor];
     _tableView.tableFooterView = view;
     [self.view addSubview:_tableView];
     
     self.definesPresentationContext = YES;
+    
+    [_tableView sendSubviewToBack:_tableView.tableHeaderView];
 }
 
 

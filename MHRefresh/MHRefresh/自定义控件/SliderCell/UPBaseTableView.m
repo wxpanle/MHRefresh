@@ -18,5 +18,13 @@
     return self;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    if (self.tableHeaderView) {
+        [self sendSubviewToBack:self.tableHeaderView];
+    }
+}
 
 @end

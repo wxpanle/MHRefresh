@@ -47,12 +47,7 @@ PODS:
     - FBRetainCycleDetector
   - PNChart (0.8.9):
     - UICountingLabel (~> 1.2.0)
-  - ReactiveCocoa (7.1.0):
-    - ReactiveSwift (~> 3.1)
-  - ReactiveSwift (3.1.0):
-    - Result (~> 3.2)
   - RESideMenu (4.0.7)
-  - Result (3.2.4)
   - SDWebImage/Core (4.4.6)
   - SDWebImage/WebP (4.4.6):
     - libwebp (>= 0.5)
@@ -73,7 +68,6 @@ DEPENDENCIES:
   - MJRefresh
   - MLeaksFinder
   - PNChart
-  - ReactiveCocoa (~> 7.0)
   - RESideMenu (~> 4.0.7)
   - SDWebImage/WebP
   - SVProgressHUD
@@ -90,16 +84,13 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
   PNChart: 84774d225c2126ded6c93d4dbe6ae98c3a73c2d2
-  ReactiveCocoa: 105ad96f6b8711f1ee7d165fc96587479298053b
-  ReactiveSwift: 5b26d2e988fe0eed2daf48c4054d1de74db50184
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
-  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
   YTKNetwork: df8a7a5597bda1664a4efaa7ef871a818a887fe0
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: bb88aeb9d8bbc07ce89788cc2acb7a036f42ddb5
+PODFILE CHECKSUM: 8b999ef02b923bdfd367fed61f6f29324dd246a5
 
 COCOAPODS: 1.4.0

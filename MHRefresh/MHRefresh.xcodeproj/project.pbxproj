@@ -99,6 +99,7 @@
 		FE01FE48206348BC007CD777 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = FE01FE3C206348BC007CD777 /* FMDatabasePool.m */; };
 		FE01FE49206348BC007CD777 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = FE01FE3D206348BC007CD777 /* FMResultSet.m */; };
 		FE01FE4A206348BC007CD777 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE01FE3E206348BC007CD777 /* Info.plist */; };
+		FE0A59BB22827ED500173855 /* QYSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0A59BA22827ED500173855 /* QYSlider.m */; };
 		FE1212F620C4CD3800FC9BBD /* QYThirteenVideController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1212F520C4CD3800FC9BBD /* QYThirteenVideController.m */; };
 		FE1212F920C4CD5100FC9BBD /* QYTThirteenKnowdege.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1212F820C4CD5100FC9BBD /* QYTThirteenKnowdege.m */; };
 		FE1212FC20C4F55900FC9BBD /* QYVectorPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1212FB20C4F55900FC9BBD /* QYVectorPicture.m */; };
@@ -534,6 +535,7 @@
 		FEEB11CB221E4D340031E48C /* QYTestPrintf.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEB11CA221E4D340031E48C /* QYTestPrintf.m */; };
 		FEEB11CF221E5D570031E48C /* QYTwoStackQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEB11CE221E5D570031E48C /* QYTwoStackQueue.m */; };
 		FEEB11D2221E98740031E48C /* QYRecursionInvertedStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEB11D1221E98740031E48C /* QYRecursionInvertedStack.m */; };
+		FEF333E5226E9AD8000B5766 /* QYFMDBTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF333E4226E9AD8000B5766 /* QYFMDBTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -774,6 +776,8 @@
 		FE01FE3C206348BC007CD777 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
 		FE01FE3D206348BC007CD777 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		FE01FE3E206348BC007CD777 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE0A59B922827ED500173855 /* QYSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYSlider.h; sourceTree = "<group>"; };
+		FE0A59BA22827ED500173855 /* QYSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYSlider.m; sourceTree = "<group>"; };
 		FE1212F420C4CD3800FC9BBD /* QYThirteenVideController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYThirteenVideController.h; sourceTree = "<group>"; };
 		FE1212F520C4CD3800FC9BBD /* QYThirteenVideController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYThirteenVideController.m; sourceTree = "<group>"; };
 		FE1212F720C4CD5100FC9BBD /* QYTThirteenKnowdege.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYTThirteenKnowdege.h; sourceTree = "<group>"; };
@@ -1586,6 +1590,8 @@
 		FEEB11CE221E5D570031E48C /* QYTwoStackQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYTwoStackQueue.m; sourceTree = "<group>"; };
 		FEEB11D0221E98740031E48C /* QYRecursionInvertedStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYRecursionInvertedStack.h; sourceTree = "<group>"; };
 		FEEB11D1221E98740031E48C /* QYRecursionInvertedStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYRecursionInvertedStack.m; sourceTree = "<group>"; };
+		FEF333E3226E9AD8000B5766 /* QYFMDBTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYFMDBTest.h; sourceTree = "<group>"; };
+		FEF333E4226E9AD8000B5766 /* QYFMDBTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYFMDBTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2485,6 +2491,15 @@
 			path = source;
 			sourceTree = "<group>";
 		};
+		FE0A59B822827EB600173855 /* SliderView */ = {
+			isa = PBXGroup;
+			children = (
+				FE0A59B922827ED500173855 /* QYSlider.h */,
+				FE0A59BA22827ED500173855 /* QYSlider.m */,
+			);
+			path = SliderView;
+			sourceTree = "<group>";
+		};
 		FE1212F320C4CD0D00FC9BBD /* 第十三章 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2660,6 +2675,7 @@
 				FE5E258621F951830066073D /* QYReport */,
 				FE4F75A3223B8CC1007EC676 /* Test */,
 				FE7BE0BC223F6F5E006BD6E8 /* SegmentControl */,
+				FE0A59B822827EB600173855 /* SliderView */,
 			);
 			path = "自定义控件";
 			sourceTree = "<group>";
@@ -3525,6 +3541,7 @@
 		FEE56BA3207B6A430043C2C5 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				FEF333E2226E9AC8000B5766 /* FMDB */,
 				FEBD7AAD214E06FC0037A1DF /* UPWeakProxy */,
 				FEBD7AA9214E06E80037A1DF /* UPFileCenter */,
 				FEBD7AA5214E06D80037A1DF /* UPFactory */,
@@ -4148,6 +4165,15 @@
 			path = "栈和队列";
 			sourceTree = "<group>";
 		};
+		FEF333E2226E9AC8000B5766 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				FEF333E3226E9AD8000B5766 /* QYFMDBTest.h */,
+				FEF333E4226E9AD8000B5766 /* QYFMDBTest.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -4346,6 +4372,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				"zh-Hans",
@@ -4459,9 +4486,6 @@
 				"${BUILT_PRODUCTS_DIR}/MLeaksFinder/MLeaksFinder.framework",
 				"${BUILT_PRODUCTS_DIR}/PNChart/PNChart.framework",
 				"${BUILT_PRODUCTS_DIR}/RESideMenu/RESideMenu.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/UICountingLabel/UICountingLabel.framework",
@@ -4480,9 +4504,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLeaksFinder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PNChart.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RESideMenu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICountingLabel.framework",
@@ -4525,6 +4546,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEF333E5226E9AD8000B5766 /* QYFMDBTest.m in Sources */,
 				FE5554E922563FBF0079D0BE /* lossless_enc_mips32.c in Sources */,
 				FE01FD5320626370007CD777 /* UIScreen+UPFrame.m in Sources */,
 				FE5554BA22563FBF0079D0BE /* lossless_enc_sse41.c in Sources */,
@@ -4854,6 +4876,7 @@
 				FEE56C7C207B6A430043C2C5 /* YXAnnotationShapeView.m in Sources */,
 				FEE56D34207B6A670043C2C5 /* WKWebView+MClearCache.m in Sources */,
 				FECD95F320B279C200C8D92C /* QYTwelveTKnowdege.m in Sources */,
+				FE0A59BB22827ED500173855 /* QYSlider.m in Sources */,
 				FEE56C73207B6A430043C2C5 /* UIImage+RSKImageCropper.m in Sources */,
 				8B682CA41F68E6DC00C4900D /* NSString+QYSize.m in Sources */,
 				FEE56C85207B6A430043C2C5 /* UITabBarController+MTracking.m in Sources */,

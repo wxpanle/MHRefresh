@@ -12,7 +12,7 @@
 		<key>FMDBKit.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>22</integer>
+			<integer>19</integer>
 		</dict>
 		<key>FrameworkTool.xcscheme</key>
 		<dict>
@@ -22,7 +22,7 @@
 		<key>FrameworkTool.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>21</integer>
+			<integer>17</integer>
 		</dict>
 		<key>MHRefresh.xcscheme</key>
 		<dict>
@@ -32,7 +32,7 @@
 		<key>MHRefresh.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>19</integer>
+			<integer>0</integer>
 		</dict>
 		<key>testStaticLibrary.xcscheme</key>
 		<dict>
@@ -42,7 +42,25 @@
 		<key>testStaticLibrary.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>20</integer>
+			<integer>18</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>8B5D1FF71F26F9E900DD1898</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE01FE1C20634883007CD777</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE5FB50420401BF3001318D5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
