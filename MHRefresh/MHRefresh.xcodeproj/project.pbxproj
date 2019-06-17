@@ -349,6 +349,8 @@
 		FEA258DD2114438E001122CA /* CALayer+QYUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA258DC2114438E001122CA /* CALayer+QYUIColor.m */; };
 		FEA258E0211444BF001122CA /* CAShapeLayer+QYCornerCut.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA258DF211444BF001122CA /* CAShapeLayer+QYCornerCut.m */; };
 		FEA50837215E1858007253E2 /* QYKeyboardTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA50836215E1858007253E2 /* QYKeyboardTextView.m */; };
+		FEA7EE7722B72800003569AB /* QYRunLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA7EE7622B72800003569AB /* QYRunLoop.m */; };
+		FEA7EE7C22B73D6D003569AB /* DeviceUitility.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA7EE7B22B73D6D003569AB /* DeviceUitility.m */; };
 		FEAABB3F20FEE37E00F0B97C /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAABB3E20FEE37D00F0B97C /* libxml2.2.tbd */; };
 		FEAABB4120FEE38E00F0B97C /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAABB4020FEE38E00F0B97C /* libxml2.tbd */; };
 		FEB6C6CA20FF2C15006D9CFC /* QYSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB6C6C920FF2C15006D9CFC /* QYSearchController.m */; };
@@ -1208,6 +1210,10 @@
 		FEA258DF211444BF001122CA /* CAShapeLayer+QYCornerCut.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CAShapeLayer+QYCornerCut.m"; sourceTree = "<group>"; };
 		FEA50835215E1858007253E2 /* QYKeyboardTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYKeyboardTextView.h; sourceTree = "<group>"; };
 		FEA50836215E1858007253E2 /* QYKeyboardTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYKeyboardTextView.m; sourceTree = "<group>"; };
+		FEA7EE7522B72800003569AB /* QYRunLoop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYRunLoop.h; sourceTree = "<group>"; };
+		FEA7EE7622B72800003569AB /* QYRunLoop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYRunLoop.m; sourceTree = "<group>"; };
+		FEA7EE7A22B73D6D003569AB /* DeviceUitility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceUitility.h; sourceTree = "<group>"; };
+		FEA7EE7B22B73D6D003569AB /* DeviceUitility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceUitility.m; sourceTree = "<group>"; };
 		FEAABB3E20FEE37D00F0B97C /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		FEAABB4020FEE38E00F0B97C /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		FEB6C6C820FF2C15006D9CFC /* QYSearchController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYSearchController.h; sourceTree = "<group>"; };
@@ -2393,6 +2399,7 @@
 		8BB22A491FDF810800284193 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				FEA7EE7922B73D5C003569AB /* DeviceUitility */,
 				FE5553DA22563FBE0079D0BE /* src */,
 				FE5FB4CB2040062F001318D5 /* testStaticLibrary */,
 				8BB22A4A1FDF810800284193 /* TTTLocalizString */,
@@ -2415,6 +2422,7 @@
 			isa = PBXGroup;
 			children = (
 				FE96534A2084C70B00AD67E5 /* MLearnHeader.h */,
+				FEA7EE7422B727E7003569AB /* RunLoop */,
 				FEEB11BD221E4C9F0031E48C /* AlgorithmicLearning */,
 				FE12132F20C8D75E00FC9BBD /* iOS */,
 				FE627B0820C8E2ED00AD5B53 /* HTTP */,
@@ -3299,6 +3307,24 @@
 				FEA50836215E1858007253E2 /* QYKeyboardTextView.m */,
 			);
 			path = KeyBoardTextView;
+			sourceTree = "<group>";
+		};
+		FEA7EE7422B727E7003569AB /* RunLoop */ = {
+			isa = PBXGroup;
+			children = (
+				FEA7EE7522B72800003569AB /* QYRunLoop.h */,
+				FEA7EE7622B72800003569AB /* QYRunLoop.m */,
+			);
+			path = RunLoop;
+			sourceTree = "<group>";
+		};
+		FEA7EE7922B73D5C003569AB /* DeviceUitility */ = {
+			isa = PBXGroup;
+			children = (
+				FEA7EE7A22B73D6D003569AB /* DeviceUitility.h */,
+				FEA7EE7B22B73D6D003569AB /* DeviceUitility.m */,
+			);
+			path = DeviceUitility;
 			sourceTree = "<group>";
 		};
 		FEB6C6C720FF2B27006D9CFC /* PLSearchController */ = {
@@ -4560,6 +4586,7 @@
 				FEA24FB02088206300945DBF /* QYThreeTKnowledge.m in Sources */,
 				FE01FD5F2062655E007CD777 /* UIScrollView+UPPages.m in Sources */,
 				FE55549C22563FBF0079D0BE /* webp_enc.c in Sources */,
+				FEA7EE7722B72800003569AB /* QYRunLoop.m in Sources */,
 				FE4F61562015882700A70CB7 /* QYMultiSelectTableViewCell.m in Sources */,
 				FEBD7AB3214E074D0037A1DF /* NSArray+Block.m in Sources */,
 				FEE56CFB207B6A5B0043C2C5 /* QYAudioTextPart.m in Sources */,
@@ -4775,6 +4802,7 @@
 				8B195CB31F629560005D6321 /* UIView+QYShake.m in Sources */,
 				FE55548422563FBF0079D0BE /* huffman_utils.c in Sources */,
 				FE5554A722563FBF0079D0BE /* frame_dec.c in Sources */,
+				FEA7EE7C22B73D6D003569AB /* DeviceUitility.m in Sources */,
 				FEE56C7E207B6A430043C2C5 /* YXAnnotationTabbarView.m in Sources */,
 				FEBB382E214123EC008DC012 /* GYZCity.m in Sources */,
 				FEB6C6D720FF6498006D9CFC /* UIView+QYSearchExtension.m in Sources */,

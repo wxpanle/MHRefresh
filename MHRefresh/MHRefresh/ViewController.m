@@ -145,9 +145,99 @@ typedef void (^blk_t)(id obj);
     return 1 / y;
 }
 
+- (NSDictionary *)p_userGuideStringWithCount:(NSUInteger)count
+{
+    
+    NSString *result = @"";
+    
+    for (NSInteger i = 0; i <= 4; i++) {
+        if ((NSUInteger)pow(2, i) & count) {
+            result = [result stringByAppendingString:@"1"];
+        } else {
+            result = [result stringByAppendingString:@"0"];
+        }
+    }
+    
+    return @{@"key" : result};
+}
+
+- (void)p_resetUserGuideWithString:(NSString *)string
+{
+    if (!string.length) {
+        return;
+    }
+    
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:string.length];
+    
+    for(int i =0; i < [string length]; i++)
+    {
+        [result addObject:[string substringWithRange:NSMakeRange(i, 1)]];
+    }
+    
+    NSUInteger guide = 0;
+    
+    for (NSInteger i = 0; i < 4; i++) {
+        NSInteger value = [[result objectAtIndex:i] integerValue];
+        if (value) {
+            guide += (NSUInteger)pow(2, i);
+        }
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    NSUInteger count = 0;
+    
+    //设置第三位为0
+    if (count & (NSUInteger)pow(2, 2)) {
+        count -= (NSUInteger)pow(2, 2);
+    } else {
+        NSLog(@"第三位为假");
+    }
+    
+    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
+    
+    //设置第二位为1
+    if (count & (NSUInteger)pow(2, 1)) {
+        NSLog(@"第二位为真");
+    } else {
+        count += (NSUInteger)pow(2, 1);
+    }
+    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
+    
+    //设置第四位为0
+    if (count & (NSUInteger)pow(2, 3)) {
+        count -= (NSUInteger)pow(2, 3);
+    } else {
+        NSLog(@"第四位为假");
+    }
+    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
+    
+    //设置第三位为1
+    if (count & (NSUInteger)pow(2, 2)) {
+        NSLog(@"第二位为真");
+    } else {
+        count += (NSUInteger)pow(2, 2);
+    }
+    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
+    
+    //设置第四位为1
+    if (count & (NSUInteger)pow(2, 3)) {
+        NSLog(@"第二位为真");
+    } else {
+        count += (NSUInteger)pow(2, 3);
+    }
+    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
+    
+    //设置第三位为0
+    if (count & (NSUInteger)pow(2, 2)) {
+        count -= (NSUInteger)pow(2, 2);
+    } else {
+        NSLog(@"第三位为假");
+    }
+    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
 //    self.view.backgroundColor = [UIColor redColor];
 //
 //    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
@@ -184,10 +274,44 @@ typedef void (^blk_t)(id obj);
     //        [_webView loadRequest:request];
 
     
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://baike.baidu.com/item/%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99/6189149?#1"]]];
-    
-    [self.view addSubview:_webView];
+//    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://baike.baidu.com/item/%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99/6189149?#1"]]];
+//
+//    [self.view addSubview:_webView];
 
+    
+//    NSLog(@"%lu %ld", NSUIntegerMax, (long)2^32);
+//
+//    NSString *string = @"0101010";
+//
+//    NSMutableArray *result = [NSMutableArray arrayWithCapacity:string.length];
+//
+//    for(int i =0; i < [string length]; i++)
+//    {
+//        [result addObject:[string substringWithRange:NSMakeRange(i, 1)]];
+//    }
+//
+//    NSLog(@"%@", result);
+//
+//    NSUInteger count = 0;
+    
+//    for (NSString *string in result) {
+//        if ([string integerValue]) {
+//            count += pow(x, []）
+//        }
+//    }
+    
+//    for (NSInteger i = 0; i < result.count; i++) {
+//        NSInteger value = [[result objectAtIndex:i] integerValue];
+//        if (value) {
+//            count += (NSUInteger)pow(2, i);
+//        }
+//    }
+//
+//    NSLog(@"count %lu", count);
+//
+//    NSLog(@"%ld", ((NSUInteger)pow(2, 4)) & count);
+    
+    
 //
 //    QYSlider *slider = [[QYSlider alloc] initWithFrame:CGRectMake(15.0, 200.0, 300.0, 11.0)];
 //    [self.view addSubview:slider];
