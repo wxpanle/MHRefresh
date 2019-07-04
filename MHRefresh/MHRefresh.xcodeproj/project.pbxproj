@@ -278,6 +278,8 @@
 		FE5FB51420401BF3001318D5 /* FrameworkTool.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE5FB4FD20401BF2001318D5 /* FrameworkTool.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE5FB51D20401C42001318D5 /* QYFrameworktest.h in Headers */ = {isa = PBXBuildFile; fileRef = FE5FB51B20401C42001318D5 /* QYFrameworktest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FE5FB51E20401C42001318D5 /* QYFrameworktest.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5FB51C20401C42001318D5 /* QYFrameworktest.m */; };
+		FE66D26C22CC9BCA00456A2E /* QYDSIntroduction.m in Sources */ = {isa = PBXBuildFile; fileRef = FE66D26B22CC9BCA00456A2E /* QYDSIntroduction.m */; };
+		FE678A9822C0783C00BF0109 /* QYswiftCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE678A9722C0783C00BF0109 /* QYswiftCollectionController.swift */; };
 		FE6D932121B690FF00C21CD3 /* QYZhiJieChaRuSoft.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6D932021B690FF00C21CD3 /* QYZhiJieChaRuSoft.m */; };
 		FE728FA720A53DF200ED967C /* QYElevenTKnowdege.m in Sources */ = {isa = PBXBuildFile; fileRef = FE728FA620A53DF200ED967C /* QYElevenTKnowdege.m */; };
 		FE728FAA20A53E0500ED967C /* QYElevenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE728FA920A53E0500ED967C /* QYElevenViewController.m */; };
@@ -351,6 +353,7 @@
 		FEA50837215E1858007253E2 /* QYKeyboardTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA50836215E1858007253E2 /* QYKeyboardTextView.m */; };
 		FEA7EE7722B72800003569AB /* QYRunLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA7EE7622B72800003569AB /* QYRunLoop.m */; };
 		FEA7EE7C22B73D6D003569AB /* DeviceUitility.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA7EE7B22B73D6D003569AB /* DeviceUitility.m */; };
+		FEA7EEA422BCBC01003569AB /* QYTestRunLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = FEA7EEA322BCBC01003569AB /* QYTestRunLoop.m */; };
 		FEAABB3F20FEE37E00F0B97C /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAABB3E20FEE37D00F0B97C /* libxml2.2.tbd */; };
 		FEAABB4120FEE38E00F0B97C /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAABB4020FEE38E00F0B97C /* libxml2.tbd */; };
 		FEB6C6CA20FF2C15006D9CFC /* QYSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB6C6C920FF2C15006D9CFC /* QYSearchController.m */; };
@@ -1062,6 +1065,10 @@
 		FE5FB50E20401BF3001318D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE5FB51B20401C42001318D5 /* QYFrameworktest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYFrameworktest.h; sourceTree = "<group>"; };
 		FE5FB51C20401C42001318D5 /* QYFrameworktest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYFrameworktest.m; sourceTree = "<group>"; };
+		FE66D26A22CC9BCA00456A2E /* QYDSIntroduction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYDSIntroduction.h; sourceTree = "<group>"; };
+		FE66D26B22CC9BCA00456A2E /* QYDSIntroduction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYDSIntroduction.m; sourceTree = "<group>"; };
+		FE678A9622C0783C00BF0109 /* MHRefresh-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MHRefresh-Bridging-Header.h"; sourceTree = "<group>"; };
+		FE678A9722C0783C00BF0109 /* QYswiftCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QYswiftCollectionController.swift; sourceTree = "<group>"; };
 		FE6D931F21B690FF00C21CD3 /* QYZhiJieChaRuSoft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYZhiJieChaRuSoft.h; sourceTree = "<group>"; };
 		FE6D932021B690FF00C21CD3 /* QYZhiJieChaRuSoft.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYZhiJieChaRuSoft.m; sourceTree = "<group>"; };
 		FE728FA520A53DF200ED967C /* QYElevenTKnowdege.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYElevenTKnowdege.h; sourceTree = "<group>"; };
@@ -1214,6 +1221,8 @@
 		FEA7EE7622B72800003569AB /* QYRunLoop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYRunLoop.m; sourceTree = "<group>"; };
 		FEA7EE7A22B73D6D003569AB /* DeviceUitility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceUitility.h; sourceTree = "<group>"; };
 		FEA7EE7B22B73D6D003569AB /* DeviceUitility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceUitility.m; sourceTree = "<group>"; };
+		FEA7EEA222BCBC01003569AB /* QYTestRunLoop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYTestRunLoop.h; sourceTree = "<group>"; };
+		FEA7EEA322BCBC01003569AB /* QYTestRunLoop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYTestRunLoop.m; sourceTree = "<group>"; };
 		FEAABB3E20FEE37D00F0B97C /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		FEAABB4020FEE38E00F0B97C /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		FEB6C6C820FF2C15006D9CFC /* QYSearchController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYSearchController.h; sourceTree = "<group>"; };
@@ -2367,6 +2376,7 @@
 				8B5D20021F26F9E900DD1898 /* ViewController.m */,
 				FE4F614C2015841E00A70CB7 /* 自定义控件 */,
 				8BCC24551FB1643F0096AB2E /* MLearn */,
+				FE678A9522C0699300BF0109 /* SwiftLearn */,
 				8B195C5B1F627A8A005D6321 /* Expand(扩展) */,
 				8B5D20071F26F9E900DD1898 /* Assets.xcassets */,
 				8B5D200C1F26F9E900DD1898 /* Info.plist */,
@@ -2380,6 +2390,7 @@
 			children = (
 				8B5D1FFC1F26F9E900DD1898 /* main.m */,
 				8B5D20181F27003100DD1898 /* MPrefixHeader.pch */,
+				FE678A9622C0783C00BF0109 /* MHRefresh-Bridging-Header.h */,
 				8B5D20041F26F9E900DD1898 /* Main.storyboard */,
 				8B5D20091F26F9E900DD1898 /* LaunchScreen.storyboard */,
 				8BB22A431FDF7E8200284193 /* InfoPlist.strings */,
@@ -2433,6 +2444,7 @@
 				FEE56CE1207B6A5B0043C2C5 /* Objcio */,
 				FE95B2E720EE0E4A00FF004A /* GCDDispatch */,
 				FEC6FD2A21461242003FF973 /* Algorithm */,
+				FE66D26822CC9B9100456A2E /* DataStructure */,
 			);
 			path = MLearn;
 			sourceTree = "<group>";
@@ -3066,6 +3078,31 @@
 			path = HTTP;
 			sourceTree = "<group>";
 		};
+		FE66D26822CC9B9100456A2E /* DataStructure */ = {
+			isa = PBXGroup;
+			children = (
+				FE66D26922CC9BAB00456A2E /* First */,
+			);
+			path = DataStructure;
+			sourceTree = "<group>";
+		};
+		FE66D26922CC9BAB00456A2E /* First */ = {
+			isa = PBXGroup;
+			children = (
+				FE66D26A22CC9BCA00456A2E /* QYDSIntroduction.h */,
+				FE66D26B22CC9BCA00456A2E /* QYDSIntroduction.m */,
+			);
+			path = First;
+			sourceTree = "<group>";
+		};
+		FE678A9522C0699300BF0109 /* SwiftLearn */ = {
+			isa = PBXGroup;
+			children = (
+				FE678A9722C0783C00BF0109 /* QYswiftCollectionController.swift */,
+			);
+			path = SwiftLearn;
+			sourceTree = "<group>";
+		};
 		FE728FA420A53DCD00ED967C /* 第十一章 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3314,6 +3351,8 @@
 			children = (
 				FEA7EE7522B72800003569AB /* QYRunLoop.h */,
 				FEA7EE7622B72800003569AB /* QYRunLoop.m */,
+				FEA7EEA222BCBC01003569AB /* QYTestRunLoop.h */,
+				FEA7EEA322BCBC01003569AB /* QYTestRunLoop.m */,
 			);
 			path = RunLoop;
 			sourceTree = "<group>";
@@ -4365,6 +4404,7 @@
 					8B5D1FF71F26F9E900DD1898 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = UMJK262EWA;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					FE01FE1420634883007CD777 = {
@@ -4576,6 +4616,7 @@
 				FE5554E922563FBF0079D0BE /* lossless_enc_mips32.c in Sources */,
 				FE01FD5320626370007CD777 /* UIScreen+UPFrame.m in Sources */,
 				FE5554BA22563FBF0079D0BE /* lossless_enc_sse41.c in Sources */,
+				FEA7EEA422BCBC01003569AB /* QYTestRunLoop.m in Sources */,
 				FEBD7A7B214E04CB0037A1DF /* NSIndexPath+UPOffset.m in Sources */,
 				FEE56C95207B6A430043C2C5 /* MNetworkBatchAgent.m in Sources */,
 				FE99C7D020F604D600CFAE0C /* Reachability.m in Sources */,
@@ -4772,6 +4813,7 @@
 				FEC6FCAB2146118C003FF973 /* UIView+SDAutoLayout.m in Sources */,
 				FEA258D22111A731001122CA /* QYPhotoBrowser.m in Sources */,
 				FEA258E0211444BF001122CA /* CAShapeLayer+QYCornerCut.m in Sources */,
+				FE678A9822C0783C00BF0109 /* QYswiftCollectionController.swift in Sources */,
 				FEE56C97207B6A430043C2C5 /* MNetworkRequestOperation.m in Sources */,
 				FE96534E2085811F00AD67E5 /* QYTwoTKnowledge.m in Sources */,
 				FE5554BD22563FBF0079D0BE /* argb_sse2.c in Sources */,
@@ -4939,6 +4981,7 @@
 				8B8BB9CC1F3463880071D0AF /* UIButton+Touch.m in Sources */,
 				8BF672C21F73577900CF312A /* UIColor+QYQuickCreate.m in Sources */,
 				FE5CDD32214B659D00DCF3DB /* QYTextLayout.m in Sources */,
+				FE66D26C22CC9BCA00456A2E /* QYDSIntroduction.m in Sources */,
 				FE99C7DC20F604D600CFAE0C /* FSXMLHttpRequest.m in Sources */,
 				FEE56C8C207B6A430043C2C5 /* QYMemoryCache.m in Sources */,
 				FEBD7A84214E051E0037A1DF /* NSDate+UPExtension.m in Sources */,
@@ -5274,6 +5317,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = UMJK262EWA;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5306,6 +5350,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pl.MHRefresh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MHRefresh/MHRefresh-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -5315,6 +5362,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = UMJK262EWA;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5347,6 +5395,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pl.MHRefresh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MHRefresh/MHRefresh-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -5407,6 +5457,7 @@
 		FE01FE3020634883007CD777 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -5425,6 +5476,7 @@
 		FE01FE3120634883007CD777 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -5535,6 +5587,7 @@
 		FE5FB51920401BF3001318D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -5553,6 +5606,7 @@
 		FE5FB51A20401BF3001318D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

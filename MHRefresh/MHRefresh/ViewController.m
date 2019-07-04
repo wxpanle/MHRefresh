@@ -72,6 +72,10 @@
 
 #import "QYSlider.h"
 
+#import "QYTestRunLoop.h"
+
+#import "MHRefresh-Swift.h"
+
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource, UPBaseSliderCellDelegate> {
     PLAudioPlayer *_audioPlayer;
     QYAudioPlayer *_qy_audio_player;
@@ -122,6 +126,9 @@ typedef void (^blk_t)(id obj);
     
 //    QYTestTouchViewController *vc = [[QYTestTouchViewController alloc] init];
 //    [self presentViewController:vc animated:YES completion:nil];
+    
+    QYswiftCollectionController *vc = [[QYswiftCollectionController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)test {
@@ -187,57 +194,95 @@ typedef void (^blk_t)(id obj);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSString *string = @"h:22m:307668o:1658568-h:20568658m:31o:0-h:08m:09o:0-h:00m:00o:0";
+    NSArray *array = [string componentsSeparatedByString:@"-"];
     
-    NSUInteger count = 0;
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:6];
     
-    //设置第三位为0
-    if (count & (NSUInteger)pow(2, 2)) {
-        count -= (NSUInteger)pow(2, 2);
-    } else {
-        NSLog(@"第三位为假");
+    for (NSString *time in array) {
+        if (time.length == 0.0) {
+            continue;
+        }
+        
+        NSInteger h = [time rangeOfString:@"h:"].location;
+        NSInteger m = [time rangeOfString:@"m:"].location;
+        NSInteger o = [time rangeOfString:@"o:"].location;
+        
+        
+        
+        NSInteger h1 = [[time substringWithRange:NSMakeRange(h + 2, m - 2)] integerValue];
+        NSInteger m1 = [[time substringWithRange:NSMakeRange(m + 2, o - (m + 2))] integerValue];
+        BOOL o1 = [[time substringWithRange:NSMakeRange(o + 2, time.length - o - 2)] boolValue];
+        
+        NSLog(@"%ld - %ld - %ld", h1, m1, o1);
     }
     
-    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
     
-    //设置第二位为1
-    if (count & (NSUInteger)pow(2, 1)) {
-        NSLog(@"第二位为真");
-    } else {
-        count += (NSUInteger)pow(2, 1);
-    }
-    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
     
-    //设置第四位为0
-    if (count & (NSUInteger)pow(2, 3)) {
-        count -= (NSUInteger)pow(2, 3);
-    } else {
-        NSLog(@"第四位为假");
-    }
-    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
+//    [[[QYTestRunLoop alloc] init] test];
     
-    //设置第三位为1
-    if (count & (NSUInteger)pow(2, 2)) {
-        NSLog(@"第二位为真");
-    } else {
-        count += (NSUInteger)pow(2, 2);
-    }
-    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
+//    NSString *string = [NSString stringWithFormat:@"a123"];
+//    NSArray *array = [NSArray arrayWithObjects:string, nil];
+//    NSArray *newArray = [array copy]; //浅拷贝
+//    DLog(@"%p %p %p %p", array, newArray, [array objectAtIndex:0], [newArray objectAtIndex:0]);
+//
+//    NSArray *newArray1 = [array mutableCopy];
+//    DLog(@"%p %p %p %p", array, newArray1, [array objectAtIndex:0], [newArray1 objectAtIndex:0]);
+//
+//    NSMutableArray *newArray2 = [NSMutableArray arrayWithObjects:string, nil];
+//    NSArray *newArray3 = [newArray2 copy];
+//    DLog(@"%p %p %p %p", newArray2, newArray3, [newArray2 objectAtIndex:0], [newArray3 objectAtIndex:0]);
     
-    //设置第四位为1
-    if (count & (NSUInteger)pow(2, 3)) {
-        NSLog(@"第二位为真");
-    } else {
-        count += (NSUInteger)pow(2, 3);
-    }
-    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
-    
-    //设置第三位为0
-    if (count & (NSUInteger)pow(2, 2)) {
-        count -= (NSUInteger)pow(2, 2);
-    } else {
-        NSLog(@"第三位为假");
-    }
-    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
+//    NSUInteger count = 0;
+//
+//    //设置第三位为0
+//    if (count & (NSUInteger)pow(2, 2)) {
+//        count -= (NSUInteger)pow(2, 2);
+//    } else {
+//        NSLog(@"第三位为假");
+//    }
+//
+//    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
+//
+//    //设置第二位为1
+//    if (count & (NSUInteger)pow(2, 1)) {
+//        NSLog(@"第二位为真");
+//    } else {
+//        count += (NSUInteger)pow(2, 1);
+//    }
+//    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
+//
+//    //设置第四位为0
+//    if (count & (NSUInteger)pow(2, 3)) {
+//        count -= (NSUInteger)pow(2, 3);
+//    } else {
+//        NSLog(@"第四位为假");
+//    }
+//    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
+//
+//    //设置第三位为1
+//    if (count & (NSUInteger)pow(2, 2)) {
+//        NSLog(@"第二位为真");
+//    } else {
+//        count += (NSUInteger)pow(2, 2);
+//    }
+//    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
+//
+//    //设置第四位为1
+//    if (count & (NSUInteger)pow(2, 3)) {
+//        NSLog(@"第二位为真");
+//    } else {
+//        count += (NSUInteger)pow(2, 3);
+//    }
+//    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
+//
+//    //设置第三位为0
+//    if (count & (NSUInteger)pow(2, 2)) {
+//        count -= (NSUInteger)pow(2, 2);
+//    } else {
+//        NSLog(@"第三位为假");
+//    }
+//    NSLog(@"%@", [self p_userGuideStringWithCount:count]);
 //    self.view.backgroundColor = [UIColor redColor];
 //
 //    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
