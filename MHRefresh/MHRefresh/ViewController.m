@@ -50,31 +50,20 @@
 #import "NBPhoneNumber.h"
 
 #import "QYTestSearchViewController.h"
-
 #import "QYNightHeader.h"
-
 #import <WebKit/WebKit.h>
-
 #import "QYPhotoBrowser.h"
-
 #import "UPBaseTableView.h"
 #import "UPPackageCell.h"
-
 #import "UPEventLabel.h"
-
 #import "QYCenterRefreshController.h"
-
 #import "QYStarScoreView.h"
-
 #import "QYTestTouchViewController.h"
-
 #import "QYFMDBTest.h"
-
 #import "QYSlider.h"
-
 #import "QYTestRunLoop.h"
-
 #import "MHRefresh-Swift.h"
+#import "QYScrollMenuView.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource, UPBaseSliderCellDelegate> {
     PLAudioPlayer *_audioPlayer;
@@ -127,8 +116,8 @@ typedef void (^blk_t)(id obj);
 //    QYTestTouchViewController *vc = [[QYTestTouchViewController alloc] init];
 //    [self presentViewController:vc animated:YES completion:nil];
     
-    QYswiftCollectionController *vc = [[QYswiftCollectionController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+//    QYswiftCollectionController *vc = [[QYswiftCollectionController alloc] init];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)test {
@@ -191,31 +180,72 @@ typedef void (^blk_t)(id obj);
     }
 }
 
+static NSString * const kurl = @"test";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSString *string = @"h:22m:307668o:1658568-h:20568658m:31o:0-h:08m:09o:0-h:00m:00o:0";
-    NSArray *array = [string componentsSeparatedByString:@"-"];
     
-    NSMutableArray *result = [NSMutableArray arrayWithCapacity:6];
+    QYScrollMenuView *view = [[QYScrollMenuView alloc] initWithFrame:CGRectMake(0, 150.0, SCREEN_W, 50.0)];
+    view.itemLayoutType = QYMenuItemLayoutTypeDynamicSpace;
+    [self.view addSubview:view];
     
-    for (NSString *time in array) {
-        if (time.length == 0.0) {
-            continue;
-        }
-        
-        NSInteger h = [time rangeOfString:@"h:"].location;
-        NSInteger m = [time rangeOfString:@"m:"].location;
-        NSInteger o = [time rangeOfString:@"o:"].location;
-        
-        
-        
-        NSInteger h1 = [[time substringWithRange:NSMakeRange(h + 2, m - 2)] integerValue];
-        NSInteger m1 = [[time substringWithRange:NSMakeRange(m + 2, o - (m + 2))] integerValue];
-        BOOL o1 = [[time substringWithRange:NSMakeRange(o + 2, time.length - o - 2)] boolValue];
-        
-        NSLog(@"%ld - %ld - %ld", h1, m1, o1);
-    }
+    QYScrollMenuItem *item = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"卡包"];
+    QYScrollMenuItem *item1 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"卡片"];
+    QYScrollMenuItem *item2 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"评价"];
+    QYScrollMenuItem *item3 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"笔记"];
+    QYScrollMenuItem *item4 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"测试"];
+    QYScrollMenuItem *item5 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"内容足足"];
+    QYScrollMenuItem *item6 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"卿颜淡墨"];
+    QYScrollMenuItem *item8 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"测试标"];
+    QYScrollMenuItem *item7 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"好"];
+    
+    [view qy_configItems:@[item,
+                           item1,
+//                           item2,
+//                           item3,
+//                           item4,
+//                           item5,
+//                           item6,
+//                           item7,
+                           item8]];
+    
+//    [[QYZhiJieChaRuSoft alloc] start];
+    
+//    NSMutableArray *array = [NSMutableArray arrayWithArray:nil];
+    
+//    NSLog(@"%@", array);
+//    NSMutableArray *array = [@[@6, @8, @9, @10, @1, @2, @3,@7] mutableCopy];
+//
+//    [array sortUsingComparator:^NSComparisonResult(NSNumber * _Nonnull obj1, NSNumber *  _Nonnull obj2) {
+//        return [obj1 integerValue] >= [obj2 integerValue]? NSOrderedDescending : NSOrderedAscending;
+//    }];
+//
+//    DLog(@"%@", array);
+    
+    
+//    NSString *string = @"h:22m:307668o:1658568-h:20568658m:31o:0-h:08m:09o:0-h:00m:00o:0";
+//    NSArray *array = [string componentsSeparatedByString:@"-"];
+//
+//    NSMutableArray *result = [NSMutableArray arrayWithCapacity:6];
+//
+//    for (NSString *time in array) {
+//        if (time.length == 0.0) {
+//            continue;
+//        }
+//
+//        NSInteger h = [time rangeOfString:@"h:"].location;
+//        NSInteger m = [time rangeOfString:@"m:"].location;
+//        NSInteger o = [time rangeOfString:@"o:"].location;
+//
+//
+//
+//        NSInteger h1 = [[time substringWithRange:NSMakeRange(h + 2, m - 2)] integerValue];
+//        NSInteger m1 = [[time substringWithRange:NSMakeRange(m + 2, o - (m + 2))] integerValue];
+//        BOOL o1 = [[time substringWithRange:NSMakeRange(o + 2, time.length - o - 2)] boolValue];
+//
+//        NSLog(@"%ld - %ld - %ld", h1, m1, o1);
+//    }
     
     
     

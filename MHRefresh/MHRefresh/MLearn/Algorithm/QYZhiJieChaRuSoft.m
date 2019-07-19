@@ -13,6 +13,7 @@
 - (void)start {
     [self p_zhijiepaixu1];
     [self p_xierpaixu];
+    [self p_xierpaixu2];
 }
 
 - (void)p_zhijiepaixu1 {
@@ -63,6 +64,37 @@
     }
     
     [self qy_printf:nums count:9];
+}
+
+- (void)p_xierpaixu2
+{
+    int nums[9] = {9, 1, 5, 8, 3, 7, 4, 6, 2};
+    
+    int space = 9;
+    
+    while (space > 1) {
+        
+        //设定间隔值
+        space /= 3;
+        
+        for (NSInteger i = space; i < 9; i++) {
+            //主循环 从头开始
+            
+            if (nums[i] < nums[i - space]) {  //判断是否需要进行交换
+                
+                //进行交换
+                int index = nums[i];
+                NSInteger j = 0;
+                for (j = i - space; j >= 0 && nums[j] > index; j -= space) {
+                    nums[j + space] = nums[j];
+                }
+                
+                nums[j + space] = index;
+            }
+            
+        }
+        
+    }
 }
 
 @end

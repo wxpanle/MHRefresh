@@ -279,6 +279,10 @@
 		FE5FB51D20401C42001318D5 /* QYFrameworktest.h in Headers */ = {isa = PBXBuildFile; fileRef = FE5FB51B20401C42001318D5 /* QYFrameworktest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FE5FB51E20401C42001318D5 /* QYFrameworktest.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5FB51C20401C42001318D5 /* QYFrameworktest.m */; };
 		FE66D26C22CC9BCA00456A2E /* QYDSIntroduction.m in Sources */ = {isa = PBXBuildFile; fileRef = FE66D26B22CC9BCA00456A2E /* QYDSIntroduction.m */; };
+		FE66D29222DDB4D400456A2E /* QYAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FE66D29122DDB4D400456A2E /* QYAttributedLabel.m */; };
+		FE66D29522DDB56800456A2E /* QYAttributedCheckingResult.m in Sources */ = {isa = PBXBuildFile; fileRef = FE66D29422DDB56800456A2E /* QYAttributedCheckingResult.m */; };
+		FE66D29822DDBEC600456A2E /* NSAttributedString+QYHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = FE66D29722DDBEC600456A2E /* NSAttributedString+QYHelp.m */; };
+		FE66D2A622E15EDC00456A2E /* QYScrollMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE66D2A522E15EDC00456A2E /* QYScrollMenuView.m */; };
 		FE678A9822C0783C00BF0109 /* QYswiftCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE678A9722C0783C00BF0109 /* QYswiftCollectionController.swift */; };
 		FE6D932121B690FF00C21CD3 /* QYZhiJieChaRuSoft.m in Sources */ = {isa = PBXBuildFile; fileRef = FE6D932021B690FF00C21CD3 /* QYZhiJieChaRuSoft.m */; };
 		FE728FA720A53DF200ED967C /* QYElevenTKnowdege.m in Sources */ = {isa = PBXBuildFile; fileRef = FE728FA620A53DF200ED967C /* QYElevenTKnowdege.m */; };
@@ -1067,6 +1071,14 @@
 		FE5FB51C20401C42001318D5 /* QYFrameworktest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYFrameworktest.m; sourceTree = "<group>"; };
 		FE66D26A22CC9BCA00456A2E /* QYDSIntroduction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYDSIntroduction.h; sourceTree = "<group>"; };
 		FE66D26B22CC9BCA00456A2E /* QYDSIntroduction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYDSIntroduction.m; sourceTree = "<group>"; };
+		FE66D29022DDB4D400456A2E /* QYAttributedLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYAttributedLabel.h; sourceTree = "<group>"; };
+		FE66D29122DDB4D400456A2E /* QYAttributedLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYAttributedLabel.m; sourceTree = "<group>"; };
+		FE66D29322DDB56800456A2E /* QYAttributedCheckingResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYAttributedCheckingResult.h; sourceTree = "<group>"; };
+		FE66D29422DDB56800456A2E /* QYAttributedCheckingResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYAttributedCheckingResult.m; sourceTree = "<group>"; };
+		FE66D29622DDBEC600456A2E /* NSAttributedString+QYHelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+QYHelp.h"; sourceTree = "<group>"; };
+		FE66D29722DDBEC600456A2E /* NSAttributedString+QYHelp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+QYHelp.m"; sourceTree = "<group>"; };
+		FE66D2A422E15EDC00456A2E /* QYScrollMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYScrollMenuView.h; sourceTree = "<group>"; };
+		FE66D2A522E15EDC00456A2E /* QYScrollMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYScrollMenuView.m; sourceTree = "<group>"; };
 		FE678A9622C0783C00BF0109 /* MHRefresh-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MHRefresh-Bridging-Header.h"; sourceTree = "<group>"; };
 		FE678A9722C0783C00BF0109 /* QYswiftCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QYswiftCollectionController.swift; sourceTree = "<group>"; };
 		FE6D931F21B690FF00C21CD3 /* QYZhiJieChaRuSoft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYZhiJieChaRuSoft.h; sourceTree = "<group>"; };
@@ -2696,6 +2708,8 @@
 				FE4F75A3223B8CC1007EC676 /* Test */,
 				FE7BE0BC223F6F5E006BD6E8 /* SegmentControl */,
 				FE0A59B822827EB600173855 /* SliderView */,
+				FE66D28F22DDA0D700456A2E /* EventLabel */,
+				FE66D2A322E15EC600456A2E /* ScrollMenu */,
 			);
 			path = "自定义控件";
 			sourceTree = "<group>";
@@ -3093,6 +3107,28 @@
 				FE66D26B22CC9BCA00456A2E /* QYDSIntroduction.m */,
 			);
 			path = First;
+			sourceTree = "<group>";
+		};
+		FE66D28F22DDA0D700456A2E /* EventLabel */ = {
+			isa = PBXGroup;
+			children = (
+				FE66D29022DDB4D400456A2E /* QYAttributedLabel.h */,
+				FE66D29122DDB4D400456A2E /* QYAttributedLabel.m */,
+				FE66D29322DDB56800456A2E /* QYAttributedCheckingResult.h */,
+				FE66D29422DDB56800456A2E /* QYAttributedCheckingResult.m */,
+				FE66D29622DDBEC600456A2E /* NSAttributedString+QYHelp.h */,
+				FE66D29722DDBEC600456A2E /* NSAttributedString+QYHelp.m */,
+			);
+			path = EventLabel;
+			sourceTree = "<group>";
+		};
+		FE66D2A322E15EC600456A2E /* ScrollMenu */ = {
+			isa = PBXGroup;
+			children = (
+				FE66D2A422E15EDC00456A2E /* QYScrollMenuView.h */,
+				FE66D2A522E15EDC00456A2E /* QYScrollMenuView.m */,
+			);
+			path = ScrollMenu;
 			sourceTree = "<group>";
 		};
 		FE678A9522C0699300BF0109 /* SwiftLearn */ = {
@@ -4648,6 +4684,7 @@
 				FEA258D52111A746001122CA /* QYPhotoBrowerView.m in Sources */,
 				FE55548922563FBF0079D0BE /* utils.c in Sources */,
 				FEE56C8D207B6A430043C2C5 /* MNetworkChainRequest.m in Sources */,
+				FE66D29822DDBEC600456A2E /* NSAttributedString+QYHelp.m in Sources */,
 				FE5E259321F95A970066073D /* UPReportInputCell.m in Sources */,
 				FEE56C7A207B6A430043C2C5 /* YXAnnotationShapeViewAction.m in Sources */,
 				8B2360571FF09E9400C501A3 /* NSDate+QYExtension.m in Sources */,
@@ -4685,6 +4722,7 @@
 				FE95D9EA208D6AF4006BBC24 /* QYFiveViewController.m in Sources */,
 				FEE56C6A207B6A430043C2C5 /* MPhotoCollectionViewCell.m in Sources */,
 				FEBD7A87214E05490037A1DF /* NSCharacterSet+UPHTML.m in Sources */,
+				FE66D29522DDB56800456A2E /* QYAttributedCheckingResult.m in Sources */,
 				FEE56D37207B6A670043C2C5 /* MWebViewProgress.m in Sources */,
 				FE5554D422563FBF0079D0BE /* alpha_processing_neon.c in Sources */,
 				FEE56D35207B6A670043C2C5 /* NSURLProtocol+MWebKitSupport.m in Sources */,
@@ -4766,6 +4804,7 @@
 				FE5554A122563FBF0079D0BE /* near_lossless_enc.c in Sources */,
 				FEC6FC9C2146118C003FF973 /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				FEE56C90207B6A430043C2C5 /* MNetworkImageCache.m in Sources */,
+				FE66D29222DDB4D400456A2E /* QYAttributedLabel.m in Sources */,
 				8B195CAA1F628BB2005D6321 /* UIView+QYNib.m in Sources */,
 				FEE56C92207B6A430043C2C5 /* MNetworkDownloadRequest.m in Sources */,
 				FE99C81B20F6053300CFAE0C /* DOUAudioFrequencyAnalyzer.m in Sources */,
@@ -4884,6 +4923,7 @@
 				FE5554CF22563FBF0079D0BE /* argb.c in Sources */,
 				FEBD7A72214E04480037A1DF /* NSString+UPExtension.m in Sources */,
 				FE55549622563FBF0079D0BE /* frame_enc.c in Sources */,
+				FE66D2A622E15EDC00456A2E /* QYScrollMenuView.m in Sources */,
 				FE5A90DF211BF2480031F12D /* UPPackageCell.m in Sources */,
 				FEE56C67207B6A430043C2C5 /* MGifDataCache.m in Sources */,
 				FE55548522563FBF0079D0BE /* huffman_encode_utils.c in Sources */,

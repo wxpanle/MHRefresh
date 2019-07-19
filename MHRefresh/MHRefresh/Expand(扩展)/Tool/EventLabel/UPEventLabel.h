@@ -69,6 +69,7 @@ typedef NS_ENUM(NSInteger, UPEventLabelContentMode) {
 ///--------------------------------------------
 /// @name Acccessing Paragraph Style Attributes
 ///--------------------------------------------
+
 @property (nonatomic, assign) CGFloat firstLineIndent;
 @property (nonatomic, assign) CGFloat lineSpacing;
 @property (nonatomic, assign) CGFloat minimumLineHeight;
