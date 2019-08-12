@@ -14,8 +14,8 @@
 #import "MWebViewheader.h"
 
 static NSString * const PropertyKey = @"PropertyKey";
-static NSString * const APIURLONE = @"https://oiijtsooa.qnssl.com/";
-static NSString * const APIURLTWO = @"http://7xryms.com1.z0.glb.clouddn.com/";
+static NSString * const APIURLONE = @"";
+static NSString * const APIURLTWO = @"";
 
 @interface MWebKitURLProtocol()
 
