@@ -18,61 +18,75 @@
     [self p_maopao1];
     [self p_maopao2];
     [self p_maopao3];
+    [self p_outputSuShu];
 }
 
 - (void)p_maopao1 {
-    int nums[90] = {9, 1, 5, 8, 3};
     
-    [self qy_insertTime];
+    int nums[9] = {9, 1, 5, 8, 3, 7, 4, 6, 2};
     
-    for (int i = 0; i < 5; i++) {
-        for (int j = i + 1; j < 5; j++) {
+    for (NSInteger i = 0; i < 9; i++) {
+        
+        for (NSInteger j = i + 1; j < 9; j++) {
+            
             if (nums[i] > nums[j]) {
                 [self qy_swap:nums left:i right:j];
             }
         }
     }
     
-    [self qy_endTime];
-    [self qy_printf:nums count:90];
+    [self qy_printf:nums count:9];
 }
 
 - (void)p_maopao2 {
-    int nums[90] = {9, 1, 5, 8, 3};
+    int nums[9] = {9, 1, 5, 8, 3, 7, 4, 6, 2};
     
-    [self qy_insertTime];
-    
-    for (int i = 0; i < 5; i++) {
-        for (int j = 5 - 1 - 1; j >= i; j--) {
-            if (nums[j] < nums[j + 1]) {
+    for (NSInteger i = 0; i < 9; i++) {
+        for (NSInteger j = 9 - 1 - 1; j >= i; j--) {
+            if (nums[j] > nums[j + 1]) {
                 [self qy_swap:nums left:j right:j + 1];
             }
         }
     }
-    
-    [self qy_endTime];
-    [self qy_printf:nums count:90];
+    [self qy_printf:nums count:9];
 }
 
 - (void)p_maopao3 {
-    int nums[90] = {9, 1, 5, 8, 3};
+    int nums[9] = {9, 1, 5, 8, 3, 7, 4, 6, 2};
     
-    [self qy_insertTime];
     
     BOOL flag = YES;
     
-    for (int i = 0; i < 5 && flag == YES; i++) {
+    for (NSInteger i = 0; i < 9 && flag; i++) {
         flag = NO;
-        for (int j = 5 - 1 - 1; j >= i; j--) {
-            if (nums[j] < nums[j + 1]) {
+        for (NSInteger j = 9 - 1 - 1; j >= i; j--) {
+            if (nums[j] > nums[j + 1]) {
                 [self qy_swap:nums left:j right:j + 1];
                 flag = YES;
             }
         }
     }
     
-    [self qy_endTime];
-    [self qy_printf:nums count:90];
+    [self qy_printf:nums count:9];
+}
+
+- (void)p_outputSuShu
+{
+    for (int i = 2; i <= 100; i++) {
+        if ([self p_isSuShu:i]) {
+            NSLog(@"%ld", (long)i);
+        }
+    }
+}
+
+- (BOOL)p_isSuShu:(int)number
+{
+    for (NSInteger i = 2; i < sqrtf(number); i++) {
+        if (number % i == 0) {
+            return NO;
+        }
+    }
+    return YES;
 }
 
 @end

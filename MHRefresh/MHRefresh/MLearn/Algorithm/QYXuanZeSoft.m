@@ -19,21 +19,24 @@
     
     [self qy_insertTime];
     
-    int min = 0;
-    for (int i = 0; i < 9; i++) {
-        min = i;
-        for (int j = i; j < 9; j++) {
-            if (nums[min] < nums[j]) {
+    for (NSInteger i = 0; i < 9; i++) {
+        
+        NSInteger min = i;
+        
+        for (NSInteger j = i + 1; j < 9; j++) {
+            
+            if (nums[j] < nums[min]) {
                 min = j;
             }
         }
-        if (i != min) {
+        
+        if (min != i) {
             [self qy_swap:nums left:i right:min];
         }
     }
     
-    [self qy_endTime];
     [self qy_printf:nums count:9];
 }
+
 
 @end

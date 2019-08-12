@@ -35,7 +35,7 @@
 
 - (void)p_erchaduisoft {
     //             0   1   2   3   4   5   6   7   8
-    int nums[9] = {50, 10, 90, 30, 70, 40, 80, 60, 20};
+    int nums[9] = {5, 1, 9, 3, 7, 4, 8, 6, 2};
     
     //构建最大二叉堆
     //从最后一个不是内部结点开始修改  使得每个节点都是最大值
@@ -92,6 +92,66 @@
     }
     
 }
+
+//- (void)p_erchaduisoft {
+//    //             0   1   2   3   4   5   6   7   8
+//    int nums[9] = {5, 1, 9, 3, 7, 4, 8, 6, 2};
+//
+//    //构建最大二叉堆
+//    //从最后一个不是内部结点开始修改  使得每个节点都是最大值
+//
+//    int count = 9 / 2 - 1;
+//    for (int i = count; i >= 0; i--) {
+//        [self p_upAdjust:nums parent:i count:9];
+//    }
+//
+//    for (int i = 8; i > 1; i--) { //i = 1 时  没必要进行交换
+//        [self qy_swap:nums left:0 right:i];
+//        [self p_upAdjust:nums parent:0 count:i - 1];
+//    }
+//
+//    [self qy_printf:nums count:9];
+//}
+//
+//- (void)p_upAdjust:(int *)nums parent:(int)parent count:(int)count {
+//
+//    //方法目的是使得内部节点对应的书值在该分支上最大
+//
+//    //二叉堆性质  对于一颗完全二叉树，如果节点i为二叉树的根，则节点无双亲，如果节点i>1,则其双亲节点是总数/2
+//    // 该双亲对应的子节点为  l = parent * 2 + 1;   r = parent * 2 + 2
+//
+//    //保存父节点的值
+//    int index = nums[parent];
+//    //保存父节点位置
+//    int result = parent;
+//
+//    //初始指向左孩子
+//    for (int i = parent * 2 + 1; i < count; i = 2 * i + 1) {
+//
+//        if (nums[i] < nums[i + 1]) {
+//            //左孩子小于右孩子  指向右孩子
+//            i++;
+//        }
+//
+//        //用父节点和两者间的最大值做d对比
+//        if (i >= count || index > nums[i]) {
+//            //如果父节点同时大于左右孩子跳出循环
+//            break;
+//        }
+//
+//        //父节点
+//        nums[result] = nums[i];
+//
+//        //记录需要赋值的位置
+//        result = i;
+//    }
+//
+//    if (result != parent) {
+//        //如果发生了排序  交换两者数值
+//        nums[result] = index;
+//    }
+//
+//}
 
 
 

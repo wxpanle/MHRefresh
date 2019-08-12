@@ -7,11 +7,13 @@
 //
 
 #import "QYKuaisupaixu.h"
+#import "QYStack.h"
 
 @implementation QYKuaisupaixu
 
 - (void)start {
     [self kuaisupaixudigui];
+    [self p_search];
 }
 
 - (void)kuaisupaixudigui {
@@ -45,13 +47,17 @@
     
     while (start < end) {
         
-        while (start < end && num[end] <= index) {
+        while (start < end && num[end] >= index) {
             end--;
+        }
+        
+        if (start == end) {
+            break;
         }
         
         [self qy_swap:num left:start right:end];
         
-        while (start < end && num[start] >= index) {
+        while (start < end && num[start] <= index) {
             start++;
         }
         
@@ -62,6 +68,42 @@
     }
     
     return start;
+}
+
+- (void)p_search
+{
+    int num[9] = {2,1,4,3,5,7,8,6,9};
+    
+    QYStack *stack = [[QYStack alloc] init];
+    [self p_searchWith:num start:0 stack:stack];
+}
+
+- (void)p_searchWith:(int [])nums start:(int)start stack:(QYStack *)stack
+{
+    static int sums = 0;
+    static int T = 10;
+    
+    if (sums == T) { //递归终止条件
+        [stack qy_printf];
+        [stack printfNewLine];
+        return;
+    }
+    
+    if (sums > T) {  //递归终止条件
+        return;
+    }
+    
+    for (int i = start; i < 9; i++) {
+        
+        if (sums + nums[start] <= T) {
+            [stack qy_push:@(nums[i])];
+            sums += nums[i];
+            
+            [self p_searchWith:nums start:i + 1 stack:stack];
+            sums -= [[stack qy_pop] intValue];
+        }
+    }
+    
 }
 
 @end

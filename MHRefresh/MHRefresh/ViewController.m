@@ -185,30 +185,78 @@ static NSString * const kurl = @"test";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    /**
+     
+     
+     
+     */
     
-    QYScrollMenuView *view = [[QYScrollMenuView alloc] initWithFrame:CGRectMake(0, 150.0, SCREEN_W, 50.0)];
-    view.itemLayoutType = QYMenuItemLayoutTypeDynamicSpace;
-    [self.view addSubview:view];
+//    int val = 10;
+//
+//    NSString const* key = @"val = %d";
+//
+//    void (^blk)(void) = ^ {
+//        NSLog(@"%@", [NSString stringWithFormat:key, val]);
+//    };
+//
+//    val = 2;
+//
+//    key = @"test";
+//
+//    blk();
     
-    QYScrollMenuItem *item = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"卡包"];
-    QYScrollMenuItem *item1 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"卡片"];
-    QYScrollMenuItem *item2 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"评价"];
-    QYScrollMenuItem *item3 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"笔记"];
-    QYScrollMenuItem *item4 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"测试"];
-    QYScrollMenuItem *item5 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"内容足足"];
-    QYScrollMenuItem *item6 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"卿颜淡墨"];
-    QYScrollMenuItem *item8 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"测试标"];
-    QYScrollMenuItem *item7 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"好"];
+//    [[QYMaoPaoSoft alloc] start];
+//    [[QYXuanZeSoft alloc] start];
+//    [[QYZhiJieChaRuSoft alloc] start];
+//    [[QYGuiBingSoft alloc] start];
+    [[QYKuaisupaixu alloc] start];
+//    [[QYBinaryHeapSoft alloc] start];
     
-    [view qy_configItems:@[item,
-                           item1,
+    
+//    if ([[NSObject class] isKindOfClass:[NSObject class]]) {
+//        DLog(@"1");
+//    }
+//
+//    if ([[NSObject class] isMemberOfClass:[NSObject class]]) {
+//        DLog(@"2");
+//    }
+//
+//    if ([[QYScrollMenuView class] isKindOfClass:[NSObject class]]) {
+//        DLog(@"3");
+//    }
+//
+//    QYScrollMenuView *menu1 = [[QYScrollMenuView alloc] init];
+//    QYScrollMenuView *menu2 = [[QYScrollMenuView alloc] init];
+//
+//    if ([menu2 isMemberOfClass:[menu1 class]]) {
+//        DLog(@"4");
+//    }
+    
+    
+    
+//    QYScrollMenuView *view = [[QYScrollMenuView alloc] initWithFrame:CGRectMake(0, 150.0, SCREEN_W, 50.0)];
+//    view.itemLayoutType = QYMenuItemLayoutTypeDynamicSpace;
+//    [self.view addSubview:view];
+//
+//    QYScrollMenuItem *item = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"卡包"];
+//    QYScrollMenuItem *item1 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"卡片"];
+//    QYScrollMenuItem *item2 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"评价"];
+//    QYScrollMenuItem *item3 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"笔记"];
+//    QYScrollMenuItem *item4 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"测试"];
+//    QYScrollMenuItem *item5 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"内容足足"];
+//    QYScrollMenuItem *item6 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"卿颜淡墨"];
+//    QYScrollMenuItem *item8 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"测试标"];
+//    QYScrollMenuItem *item7 = [QYScrollMenuItem qy_scrollMenuItemWithTitle:@"好"];
+    
+//    [view qy_configItems:@[item,
+//                           item1,
 //                           item2,
 //                           item3,
 //                           item4,
 //                           item5,
 //                           item6,
 //                           item7,
-                           item8]];
+//                           item8]];
     
 //    [[QYZhiJieChaRuSoft alloc] start];
     

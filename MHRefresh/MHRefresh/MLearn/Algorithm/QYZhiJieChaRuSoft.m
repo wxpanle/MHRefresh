@@ -13,80 +13,56 @@
 - (void)start {
     [self p_zhijiepaixu1];
     [self p_xierpaixu];
-    [self p_xierpaixu2];
 }
 
 - (void)p_zhijiepaixu1 {
     
-    int nums[5] = {5,3,4,6,2};
-    int index = 0;
-    for (int i = 1; i < 5; i++) {
-        
-        if (nums[i] < nums[i - 1]) {
-            //需要向前插入排序
-            index = nums[i];
-            int j;
-            for (j = i - 1; index < nums[j] && j >= 0; j--) {
-                nums[j + 1] = nums[j];  //空间内进行交换 减少空间使用’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’‘’
+    int nums[15] = {9, 1, 5, 8, 3, 7, 4, 6, 2, 4, 6, 2, 0, 0 , 0};
+    
+    NSInteger n = 0;
+    
+    for (NSInteger i = 1; i < 15; i++) {
+        n++;
+        if (nums[i - 1] > nums[i]) {
+            
+            int temp = nums[i];
+            NSInteger j = i - 1;
+            n++;
+            for (; temp < nums[j] && j >= 0; j--) {
+                n++;
+                nums[j + 1] = nums[j];
             }
-            nums[++j] = index;
+            nums[++j] = temp;
         }
     }
     
-    [self qy_printf:nums count:5];
+    [self qy_printf:nums count:15];
+    NSLog(@"n = %ld", n);
 }
 
-- (void)p_xierpaixu {
-    //             0  1  2  3  4  5  6  7  8
-    int nums[9] = {9, 1, 5, 8, 3, 7, 4, 6, 2};
-    
-    int space = 9;
-    int index = 0;
-    while (space >= 1) {
-        //取间距
-        space = space / 3 + 1;
-        for (int i = space; i < 9; i++) {
-            if (nums[i] < nums[i - space]) {
-                //交换
-                index = nums[i];
-                int j = 0;
-                for (j = i - space; j >= 0 && index < nums[j]; j -= space) {
-                    nums[j+space] = nums[j];
-                }
-                j += space;
-                nums[j] = index;
-            }
-        }
-        
-        if (space == 1) {
-            break;
-        }
-    }
-    
-    [self qy_printf:nums count:9];
-}
-
-- (void)p_xierpaixu2
+- (void)p_xierpaixu
 {
-    int nums[9] = {9, 1, 5, 8, 3, 7, 4, 6, 2};
+    int nums[15] = {9, 1, 5, 8, 3, 7, 4, 6, 2, 4, 6, 2, 0, 0, 0};
     
-    int space = 9;
-    
+    int space = 15;
+    NSInteger n = 0;
     while (space > 1) {
         
         //设定间隔值
         space /= 3;
+        n++;
         
-        for (NSInteger i = space; i < 9; i++) {
+        for (NSInteger i = space; i < 15; i++) {
             //主循环 从头开始
-            
+            n++;
             if (nums[i] < nums[i - space]) {  //判断是否需要进行交换
-                
+                n++;
                 //进行交换
                 int index = nums[i];
-                NSInteger j = 0;
-                for (j = i - space; j >= 0 && nums[j] > index; j -= space) {
+                NSInteger j = i - space;
+                for (; j >= 0 && index < nums[j]; j -= space) {
                     nums[j + space] = nums[j];
+                    n++;
                 }
                 
                 nums[j + space] = index;
@@ -95,6 +71,9 @@
         }
         
     }
+    
+    [self qy_printf:nums count:15];
+    NSLog(@"n = %ld", n);
 }
 
 @end
