@@ -11,38 +11,38 @@
 
 #pragma mark - ===== app config =====
 
-NSString *const UPAppIDString = @"1384344043";
-NSString *const UPAppURLStr = @"https://itunes.apple.com/us/app/ji-yi-guan-jia/id1384344043?l=zh&ls=1&mt=8";
+NSString *const UPAppIDString = @"";
+NSString *const UPAppURLStr = @"";
 
 const NSInteger UPAppID = 1384344043;
 
 #ifdef DEBUG
-NSString *const UPAPIBaseURL = @"https://api.wupup.com/v1";
+NSString *const UPAPIBaseURL = @"";
 #else
-NSString *const UPAPIBaseURL = @"https://api.wupup.com/v1";
+NSString *const UPAPIBaseURL = @"";
 #endif
 
-NSString *const UPAPIBaseLineURL = @"https://api.wupup.com/";
+NSString *const UPAPIBaseLineURL = @"";
 
-NSString *const UmSocialAppkey = @"571f5e7d67e58e052e000745";
-NSString *const UPWeChatAppID = @"wxedaa23e8c4c1fbcc";
-NSString *const UPkWeChatAppSecret = @"75a5860141615d31a48290b05c7f5964";
-NSString *const UPSinaAppID = @"206245323";
-NSString *const UPSinaAppSecret = @"f7a336e38cee4c0c9dfd2db7a49d007a";
-NSString *const UPQQKey = @"TYuWlWodtzbQlEiY";
-NSString *const UPQQID = @"1106820828";
+NSString *const UmSocialAppkey = @"";
+NSString *const UPWeChatAppID = @"";
+NSString *const UPkWeChatAppSecret = @"";
+NSString *const UPSinaAppID = @"";
+NSString *const UPSinaAppSecret = @"";
+NSString *const UPQQKey = @"";
+NSString *const UPQQID = @"";
 
-NSString *const UPTalkingDataAppID = @"76874D57CADB481F914C2EF397843EA0";
+NSString *const UPTalkingDataAppID = @"";
 
-NSString *const UPBuglyAppId = @"b3207858b8";
+NSString *const UPBuglyAppId = @"";
 
-NSString *const UPCourseRefundUrl = @"https://s.wupup.com/question/refund?os=1";
-NSString *const UPCourseObservesJSKey = @"Mobile";
+NSString *const UPCourseRefundUrl = @"";
+NSString *const UPCourseObservesJSKey = @"";
 
 
 #pragma mark - pay
 
-NSString *const UPAlipayURLScheme = @"upslgailpay";
+NSString *const UPAlipayURLScheme = @"";
 
 #pragma mark - value
 
@@ -94,70 +94,70 @@ const CGFloat UPMessageReportReasonMax = 50;
 
 #pragma mark - qiniu
 
-NSString *const UPQiNiuHttpsLink = @"https://up-static.wupup.com/";
-NSString *const UPQiNiuHttpLink = @"http://up-static.wupup.com/";
+NSString *const UPQiNiuHttpsLink = @"";
+NSString *const UPQiNiuHttpLink = @"";
 const NSInteger UPQiNiuUpLoadTokenValidTime = 60 * 10;
-NSString *const UPQiNiuAudioHttpsLink = @"https://audio.wupup.com";
+NSString *const UPQiNiuAudioHttpsLink = @"";
 const NSInteger UPQiNiuAudioLinkValidTime = 60 * 10;
 
 #pragma mark - keychain
 
-NSString *const UPKeychainUUIDKey = @"up_keychainUUID_key";
+NSString *const UPKeychainUUIDKey = @"";
 
 #pragma mark - 音频解密
 
-NSString *const UPRNCryptorPassword = @"com.lg.audio.play.password";
+NSString *const UPRNCryptorPassword = @"";
 
 #pragma mark - 通知
 
-NSString *const UPUserLoginOut = @"UPUserLoginOut";
-NSString *const UPNetworkStatusChange = @"UPNetworkStatusChange";
+NSString *const UPUserLoginOut = @"";
+NSString *const UPNetworkStatusChange = @"";
 
-NSString *const UPNewDayComing = @"UPNewDayComing";
+NSString *const UPNewDayComing = @"";
 
-NSString *const UPMeNewFeedbackMessage = @"UPMeNewFeedbackMessage";
+NSString *const UPMeNewFeedbackMessage = @"";
 
-NSString *const UPSyncDataStart = @"UPSyncDataStart";
-NSString *const UPSyncDataSuccess = @"UPSyncDataSuccess";
-NSString *const UPSyncDataFailure = @"UPSyncDataFailure";
+NSString *const UPSyncDataStart = @"";
+NSString *const UPSyncDataSuccess = @"";
+NSString *const UPSyncDataFailure = @"";
 
-NSString *const UPDownloadedAudioSuccess = @"UPDownloadedAudioSuccess";
+NSString *const UPDownloadedAudioSuccess = @"";
 
-NSString *const UPDownloadAudioSuccess = @"UPDownloadAudioSuccess";
-NSString *const UPDownloadAudioFailure = @"UPDownloadAudioFailure";
-NSString *const UPDownloadAudioProgress = @"UPDownloadAudioProgress";
-NSString *const UPDownloadAudioProgressKey = @"UPDownloadAudioProgressKey";
+NSString *const UPDownloadAudioSuccess = @"";
+NSString *const UPDownloadAudioFailure = @"";
+NSString *const UPDownloadAudioProgress = @"";
+NSString *const UPDownloadAudioProgressKey = @"";
 
-NSString *const UPDownloadedAudioChange = @"UPDownloadedAudioChange";
-NSString *const UPPurchasedCourseChange = @"UPPurchasedCourseChange";
+NSString *const UPDownloadedAudioChange = @"";
+NSString *const UPPurchasedCourseChange = @"";
 
-NSString *const UPCoursePrepareComplete = @"UPCoursePrepareComplete";
+NSString *const UPCoursePrepareComplete = @"";
 
-NSString *const UPSectionLearnRankChange = @"UPSectionLearnRankChange";
-NSString *const UPSectionProgressChange = @"UPSectionProgressChange";
-NSString *const UPSectionProgressKey = @"UPSectionProgressKey";
-NSString *const UPSection_uuidKey = @"UPSection_uuidKey";
-NSString *const UPSectionLearnStatusChange = @"UPSectionLearnStatusChange";
-NSString *const UPSectionLearnStatusKey = @"UPSectionLearnStatusKey";
+NSString *const UPSectionLearnRankChange = @"";
+NSString *const UPSectionProgressChange = @"";
+NSString *const UPSectionProgressKey = @"";
+NSString *const UPSection_uuidKey = @"";
+NSString *const UPSectionLearnStatusChange = @"";
+NSString *const UPSectionLearnStatusKey = @"";
 
 #pragma mark - 修改用户信息
 
-NSString *const UPModifyUserInfoNickName = @"UPModifyUserInfoNickName";
-NSString *const UPModifyUserInfoAvatar = @"UPModifyUserInfoAvatar";
-NSString *const UPModifyUserInfoGender = @"UPModifyUserInfoGender";
-NSString *const UPModifyUserInfoBirthday = @"UPModifyUserInfoBirthday";
-NSString *const UPModifyUserInfoAddress = @"UPModifyUserInfoAddress";
-NSString *const UPModifyUserInfoEducation = @"UPModifyUserInfoEducation";
-NSString *const UPModifyUserInfoTrade = @"UPModifyUserInfoTrade";
-NSString *const UPModifyUserInfoProfession = @"UPModifyUserInfoProfession";
-NSString *const UPModifyUserInfoIntro = @"UPModifyUserInfoIntro";
+NSString *const UPModifyUserInfoNickName = @"";
+NSString *const UPModifyUserInfoAvatar = @"";
+NSString *const UPModifyUserInfoGender = @"";
+NSString *const UPModifyUserInfoBirthday = @"";
+NSString *const UPModifyUserInfoAddress = @"";
+NSString *const UPModifyUserInfoEducation = @"";
+NSString *const UPModifyUserInfoTrade = @"";
+NSString *const UPModifyUserInfoProfession = @"";
+NSString *const UPModifyUserInfoIntro = @"";
 
 
-#pragma mark - share
-
-NSString *const UPShareArticlePrefix = @"https://s.wupup.com/share/course?cid=";
-
-
-#pragma mark - 文章外链
-
-NSString *const UPArticleUrlTokenPrefix = @"https://s.wupup.com/display/article?token=";
+//#pragma mark - share
+//
+NSString *const UPShareArticlePrefix = @"";
+//
+//
+//#pragma mark - 文章外链
+//
+NSString *const UPArticleUrlTokenPrefix = @"";
