@@ -65,6 +65,8 @@
 #import "MHRefresh-Swift.h"
 #import "QYScrollMenuView.h"
 
+#import "UPTestGradePercentageView.h"
+
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource, UPBaseSliderCellDelegate> {
     PLAudioPlayer *_audioPlayer;
     QYAudioPlayer *_qy_audio_player;
@@ -185,11 +187,62 @@ static NSString * const kurl = @"test";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    /**
-     
-     
-     
-     */
+    CGFloat layerWH = 100;
+    CAShapeLayer *contentLayer = [CALayer layer];
+    [self.view.layer addSublayer:contentLayer];
+    contentLayer.frame = CGRectMake(100, 100, layerWH, layerWH);
+    contentLayer.backgroundColor = [UIColor blueColor].CGColor;
+    
+    //创建圆环
+    CGFloat lineWidth = 5;
+    CGFloat radius = layerWH * 0.5 - lineWidth * 0.5;
+    UIBezierPath *bezierPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(layerWH * 0.5, layerWH * 0.5) radius:radius startAngle:0 endAngle:M_PI * 2 clockwise:YES];
+    //圆环遮罩
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    shapeLayer.fillColor = [UIColor clearColor].CGColor;
+    shapeLayer.strokeColor = [UIColor whiteColor].CGColor;
+    shapeLayer.lineWidth = lineWidth;
+    shapeLayer.strokeStart = 0;
+    shapeLayer.strokeEnd = 1;
+    shapeLayer.lineCap = kCALineCapRound;
+    shapeLayer.lineDashPhase = 0.8;
+    shapeLayer.path = bezierPath.CGPath;
+    [contentLayer setMask:shapeLayer];
+    
+    NSMutableArray *colors = [NSMutableArray arrayWithObjects:(id)[UIColor yellowColor].CGColor,(id)[UIColor orangeColor].CGColor, nil];
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    gradientLayer.shadowPath = bezierPath.CGPath;
+    gradientLayer.frame = CGRectMake(0, 0, layerWH * 0.5, layerWH);
+    gradientLayer.startPoint = CGPointMake(0, 0);
+    gradientLayer.endPoint = CGPointMake(0, 1);
+    [gradientLayer setColors:[NSArray arrayWithArray:colors]];
+    
+    NSMutableArray *colors1 = [NSMutableArray arrayWithObjects:(id)[UIColor redColor].CGColor,(id)[[UIColor orangeColor] CGColor], nil];
+    CAGradientLayer *gradientLayer1 = [CAGradientLayer layer];
+    gradientLayer1.shadowPath = bezierPath.CGPath;
+    gradientLayer1.frame = CGRectMake(layerWH * 0.5, 0, layerWH * 0.5, layerWH);
+    gradientLayer1.startPoint = CGPointMake(0, 0);
+    gradientLayer1.endPoint = CGPointMake(0, 1);
+    [gradientLayer1 setColors:[NSArray arrayWithArray:colors1]];
+    [contentLayer addSublayer:gradientLayer]; //设置颜色渐变
+    [contentLayer addSublayer:gradientLayer1];
+    
+    NSArray *array = [NSArray arrayWithObject:@(6)];
+    
+    UPTestGradePercentageView *view1 = [[UPTestGradePercentageView alloc] init];
+    view1.center = CGPointMake(SCREEN_W / 2.0, SCREEN_H / 2.0);
+    [self.view addSubview:view1];
+    
+//    NSLog(@"%@", array[6]);
+    
+    
+//    UIButton *button = [UIButton buttonWithType:(UIButtonTypeCustom)];
+//    button.frame = CGRectMake(150, 150, 100, 100);
+//    [button setTitle:@"test" forState:(UIControlStateNormal)];
+//    [button setTitleColor:[UIColor redColor] forState:(UIControlStateNormal)];
+//    [button setBackgroundColor:[UIColor greenColor]];
+//    [button addTarget:self action:@selector(p_resetUserGuideWithString:) forControlEvents:(UIControlEventTouchUpInside)];
+//    [self.view addSubview:button];
     
 //    int val = 10;
 //
@@ -209,7 +262,7 @@ static NSString * const kurl = @"test";
 //    [[QYXuanZeSoft alloc] start];
 //    [[QYZhiJieChaRuSoft alloc] start];
 //    [[QYGuiBingSoft alloc] start];
-    [[QYKuaisupaixu alloc] start];
+//    [[QYKuaisupaixu alloc] start];
 //    [[QYBinaryHeapSoft alloc] start];
     
     

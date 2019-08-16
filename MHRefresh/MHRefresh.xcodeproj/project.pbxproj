@@ -133,6 +133,7 @@
 		FE28E40921081D1200498090 /* WKWebView+QYNightMode.m in Sources */ = {isa = PBXBuildFile; fileRef = FE28E40821081D1200498090 /* WKWebView+QYNightMode.m */; };
 		FE2B759D2099544E009618CA /* QYSixTKnowledge.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2B759C2099544E009618CA /* QYSixTKnowledge.m */; };
 		FE2B75A02099545B009618CA /* QYSixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE2B759F2099545B009618CA /* QYSixViewController.m */; };
+		FE4864F72303B99C00C8A15A /* UPTestGradePercentageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4864F52303B99C00C8A15A /* UPTestGradePercentageView.m */; };
 		FE4F61532015848300A70CB7 /* QYMultiSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4F61522015848300A70CB7 /* QYMultiSelectViewController.m */; };
 		FE4F61562015882700A70CB7 /* QYMultiSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4F61552015882700A70CB7 /* QYMultiSelectTableViewCell.m */; };
 		FE4F75A6223B8CEA007EC676 /* QYTestTouchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FE4F75A5223B8CEA007EC676 /* QYTestTouchTableViewCell.m */; };
@@ -857,6 +858,8 @@
 		FE2B759C2099544E009618CA /* QYSixTKnowledge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYSixTKnowledge.m; sourceTree = "<group>"; };
 		FE2B759E2099545B009618CA /* QYSixViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYSixViewController.h; sourceTree = "<group>"; };
 		FE2B759F2099545B009618CA /* QYSixViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYSixViewController.m; sourceTree = "<group>"; };
+		FE4864F52303B99C00C8A15A /* UPTestGradePercentageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UPTestGradePercentageView.m; sourceTree = "<group>"; };
+		FE4864F62303B99C00C8A15A /* UPTestGradePercentageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPTestGradePercentageView.h; sourceTree = "<group>"; };
 		FE4F61512015848300A70CB7 /* QYMultiSelectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYMultiSelectViewController.h; sourceTree = "<group>"; };
 		FE4F61522015848300A70CB7 /* QYMultiSelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYMultiSelectViewController.m; sourceTree = "<group>"; };
 		FE4F61542015882700A70CB7 /* QYMultiSelectTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYMultiSelectTableViewCell.h; sourceTree = "<group>"; };
@@ -2690,9 +2693,19 @@
 			path = "第六章";
 			sourceTree = "<group>";
 		};
+		FE4864F42303B99C00C8A15A /* UPTestGradeView */ = {
+			isa = PBXGroup;
+			children = (
+				FE4864F62303B99C00C8A15A /* UPTestGradePercentageView.h */,
+				FE4864F52303B99C00C8A15A /* UPTestGradePercentageView.m */,
+			);
+			path = UPTestGradeView;
+			sourceTree = "<group>";
+		};
 		FE4F614C2015841E00A70CB7 /* 自定义控件 */ = {
 			isa = PBXGroup;
 			children = (
+				FE4864F42303B99C00C8A15A /* UPTestGradeView */,
 				FE5A90D0211BECE10031F12D /* SliderCell */,
 				FEE56D29207B6A670043C2C5 /* 预览视图 */,
 				FEE56D0C207B6A670043C2C5 /* MAlertView */,
@@ -3334,8 +3347,8 @@
 		FE9C7D1A21705949000450CB /* Floater1 */ = {
 			isa = PBXGroup;
 			children = (
-				FE9C7D1B21705949000450CB /* UPAudioPlayFloaterView.m */,
 				FE9C7D1C21705949000450CB /* UPAudioPlayFloaterView.h */,
+				FE9C7D1B21705949000450CB /* UPAudioPlayFloaterView.m */,
 			);
 			path = Floater1;
 			sourceTree = "<group>";
@@ -5013,6 +5026,7 @@
 				FE55549B22563FBF0079D0BE /* picture_tools_enc.c in Sources */,
 				FEC6FCA12146118C003FF973 /* MASLayoutConstraint.m in Sources */,
 				8B846E1D1F8E3D9B007C0731 /* UIImageView+QYCircleCut.m in Sources */,
+				FE4864F72303B99C00C8A15A /* UPTestGradePercentageView.m in Sources */,
 				FEE56C70207B6A430043C2C5 /* RSKTouchView.m in Sources */,
 				FEBD7A8C214E05900037A1DF /* UIImage+UPData.m in Sources */,
 				FEE56C8E207B6A430043C2C5 /* MNetworkChainAgent.m in Sources */,

@@ -47,7 +47,7 @@
     
     while (start < end) {
         
-        while (start < end && num[end] >= index) {
+        while (start < end && num[end] <= index) {
             end--;
         }
         
@@ -57,7 +57,7 @@
         
         [self qy_swap:num left:start right:end];
         
-        while (start < end && num[start] <= index) {
+        while (start < end && num[start] >= index) {
             start++;
         }
         

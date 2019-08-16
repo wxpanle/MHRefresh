@@ -22,14 +22,11 @@
     NSInteger n = 0;
     
     for (NSInteger i = 1; i < 15; i++) {
-        n++;
         if (nums[i - 1] > nums[i]) {
             
             int temp = nums[i];
             NSInteger j = i - 1;
-            n++;
             for (; temp < nums[j] && j >= 0; j--) {
-                n++;
                 nums[j + 1] = nums[j];
             }
             nums[++j] = temp;
