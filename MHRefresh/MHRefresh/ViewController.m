@@ -122,168 +122,19 @@ typedef void (^blk_t)(id obj);
 //    [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)test {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        DLog(@"%@", NSStringFromCGSize([[UIScreen mainScreen] currentMode].size));
-        [self test];
-    });
-}
 
-- (int)sqrt:(int)x {
-    // write your code here
-    int y = x;
-    float xhalf = 0.5f*y;
-    int i = *(int*)&x; // get bits for floating VALUE
-    i = 0x5f375a86- (i>>1); // gives initial guess y0
-    y = *(float*)&i; // convert bits BACK to float
-    y = y*(1.5f-xhalf*y*y); // Newton step, repeating increases accuracy
-    y = y*(1.5f-xhalf*y*y); // Newton step, repeating increases accuracy
-    y = y*(1.5f-xhalf*y*y); // Newton step, repeating increases accuracy
-    NSLog(@"%d %d", y, 1 / y);
-    return 1 / y;
-}
-
-- (NSDictionary *)p_userGuideStringWithCount:(NSUInteger)count
-{
-    
-    NSString *result = @"";
-    
-    for (NSInteger i = 0; i <= 4; i++) {
-        if ((NSUInteger)pow(2, i) & count) {
-            result = [result stringByAppendingString:@"1"];
-        } else {
-            result = [result stringByAppendingString:@"0"];
-        }
-    }
-    
-    return @{@"key" : result};
-}
-
-- (void)p_resetUserGuideWithString:(NSString *)string
-{
-    if (!string.length) {
-        return;
-    }
-    
-    NSMutableArray *result = [NSMutableArray arrayWithCapacity:string.length];
-    
-    for(int i =0; i < [string length]; i++)
-    {
-        [result addObject:[string substringWithRange:NSMakeRange(i, 1)]];
-    }
-    
-    NSUInteger guide = 0;
-    
-    for (NSInteger i = 0; i < 4; i++) {
-        NSInteger value = [[result objectAtIndex:i] integerValue];
-        if (value) {
-            guide += (NSUInteger)pow(2, i);
-        }
-    }
-}
-
-static NSString * const kurl = @"test";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    CGFloat layerWH = 100;
-    CAShapeLayer *contentLayer = [CALayer layer];
-    [self.view.layer addSublayer:contentLayer];
-    contentLayer.frame = CGRectMake(100, 100, layerWH, layerWH);
-    contentLayer.backgroundColor = [UIColor blueColor].CGColor;
+    NSURL *url = [NSURL URLWithString:@"https://www.baidu.com/v1"];
+    if (![url.absoluteString hasSuffix:@"/"]) {
+        url = [url URLByAppendingPathComponent:@""];
+    }
+    NSLog(@"%@", url.absoluteString);
     
-    //创建圆环
-    CGFloat lineWidth = 5;
-    CGFloat radius = layerWH * 0.5 - lineWidth * 0.5;
-    UIBezierPath *bezierPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(layerWH * 0.5, layerWH * 0.5) radius:radius startAngle:0 endAngle:M_PI * 2 clockwise:YES];
-    //圆环遮罩
-    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-    shapeLayer.fillColor = [UIColor clearColor].CGColor;
-    shapeLayer.strokeColor = [UIColor whiteColor].CGColor;
-    shapeLayer.lineWidth = lineWidth;
-    shapeLayer.strokeStart = 0;
-    shapeLayer.strokeEnd = 1;
-    shapeLayer.lineCap = kCALineCapRound;
-    shapeLayer.lineDashPhase = 0.8;
-    shapeLayer.path = bezierPath.CGPath;
-    [contentLayer setMask:shapeLayer];
-    
-    NSMutableArray *colors = [NSMutableArray arrayWithObjects:(id)[UIColor yellowColor].CGColor,(id)[UIColor orangeColor].CGColor, nil];
-    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-    gradientLayer.shadowPath = bezierPath.CGPath;
-    gradientLayer.frame = CGRectMake(0, 0, layerWH * 0.5, layerWH);
-    gradientLayer.startPoint = CGPointMake(0, 0);
-    gradientLayer.endPoint = CGPointMake(0, 1);
-    [gradientLayer setColors:[NSArray arrayWithArray:colors]];
-    
-    NSMutableArray *colors1 = [NSMutableArray arrayWithObjects:(id)[UIColor redColor].CGColor,(id)[[UIColor orangeColor] CGColor], nil];
-    CAGradientLayer *gradientLayer1 = [CAGradientLayer layer];
-    gradientLayer1.shadowPath = bezierPath.CGPath;
-    gradientLayer1.frame = CGRectMake(layerWH * 0.5, 0, layerWH * 0.5, layerWH);
-    gradientLayer1.startPoint = CGPointMake(0, 0);
-    gradientLayer1.endPoint = CGPointMake(0, 1);
-    [gradientLayer1 setColors:[NSArray arrayWithArray:colors1]];
-    [contentLayer addSublayer:gradientLayer]; //设置颜色渐变
-    [contentLayer addSublayer:gradientLayer1];
-    
-    NSArray *array = [NSArray arrayWithObject:@(6)];
-    
-    UPTestGradePercentageView *view1 = [[UPTestGradePercentageView alloc] init];
-    view1.center = CGPointMake(SCREEN_W / 2.0, SCREEN_H / 2.0);
-    [self.view addSubview:view1];
-    
-//    NSLog(@"%@", array[6]);
-    
-    
-//    UIButton *button = [UIButton buttonWithType:(UIButtonTypeCustom)];
-//    button.frame = CGRectMake(150, 150, 100, 100);
-//    [button setTitle:@"test" forState:(UIControlStateNormal)];
-//    [button setTitleColor:[UIColor redColor] forState:(UIControlStateNormal)];
-//    [button setBackgroundColor:[UIColor greenColor]];
-//    [button addTarget:self action:@selector(p_resetUserGuideWithString:) forControlEvents:(UIControlEventTouchUpInside)];
-//    [self.view addSubview:button];
-    
-//    int val = 10;
-//
-//    NSString const* key = @"val = %d";
-//
-//    void (^blk)(void) = ^ {
-//        NSLog(@"%@", [NSString stringWithFormat:key, val]);
-//    };
-//
-//    val = 2;
-//
-//    key = @"test";
-//
-//    blk();
-    
-//    [[QYMaoPaoSoft alloc] start];
-//    [[QYXuanZeSoft alloc] start];
-//    [[QYZhiJieChaRuSoft alloc] start];
-//    [[QYGuiBingSoft alloc] start];
-//    [[QYKuaisupaixu alloc] start];
-//    [[QYBinaryHeapSoft alloc] start];
-    
-    
-//    if ([[NSObject class] isKindOfClass:[NSObject class]]) {
-//        DLog(@"1");
-//    }
-//
-//    if ([[NSObject class] isMemberOfClass:[NSObject class]]) {
-//        DLog(@"2");
-//    }
-//
-//    if ([[QYScrollMenuView class] isKindOfClass:[NSObject class]]) {
-//        DLog(@"3");
-//    }
-//
-//    QYScrollMenuView *menu1 = [[QYScrollMenuView alloc] init];
-//    QYScrollMenuView *menu2 = [[QYScrollMenuView alloc] init];
-//
-//    if ([menu2 isMemberOfClass:[menu1 class]]) {
-//        DLog(@"4");
-//    }
+    NSURL *newUrl = [NSURL URLWithString:@"foo?bar=baz" relativeToURL:url];
+    NSLog(@"%@", newUrl.absoluteString);
     
     
     
